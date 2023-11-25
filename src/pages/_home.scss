@@ -1,0 +1,881 @@
+.slider {
+    margin: 111px 0 50px;
+
+    @media (min-width:1024px) {
+        margin: 0 0 50px;
+    }
+
+    &.active {
+        margin: 0 0 50px;
+    }
+
+    .wrapper {
+        padding: 0 15px;
+
+        @media (min-width:1024px) {
+            padding: 0;
+        }
+
+        .sliderBox {
+            @include Grid($t-c: repeat(4, 100%));
+            height: 400px;
+            border-radius: 10px;
+            overflow-x: hidden;
+
+            @media (min-width:1024px) {
+                height: 505px;
+                padding: 0;
+                border-radius: 0;
+            }
+
+
+            .sliderItem {
+                position: relative;
+                user-select: none;
+                height: 100%;
+                background-color: $clr_primary;
+                transition: transform 0.3s;
+
+                .bg-color {
+                    display: none;
+                    position: absolute;
+                    z-index: 4;
+                    background-color: $clr_primary;
+                    width: 55%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+
+                    @media (min-width:1024px) {
+                        &::before {
+                            content: "";
+                            display: inline-block;
+                            position: absolute;
+                            width: 50%;
+                            height: 100%;
+                            right: -10%;
+                            top: 0;
+                            background-color: $clr_primary;
+                            transform: skewX(-12deg);
+                            z-index: 9;
+                        }
+                    }
+
+                    @media (min-width:1024px) {
+                        display: block;
+                    }
+                }
+
+                .sliderImage {
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    height: 190px;
+                    z-index: 3;
+                    background: no-repeat center;
+                    background-size: cover;
+
+                    @media (min-width:1024px) {
+                        width: 55%;
+                        height: 100%;
+                        right: 0;
+                    }
+                }
+
+                .sliderInfo {
+                    position: relative;
+                    top: 190px;
+                    height: 210px;
+                    z-index: 5;
+                    max-width: 1140px;
+                    margin: 0 auto;
+
+                    @media (min-width:1024px) {
+                        height: 100%;
+                        top: 0;
+                    }
+
+                    .sliderContent {
+                        height: 100%;
+                        position: relative;
+                        padding: 20px 30px;
+
+                        @media (min-width:1024px) {
+                            padding: 0 20px;
+                            @include Grid($a-c: center);
+                        }
+
+                        h3 {
+                            font-family: fH;
+                            font-size: 20px;
+                            margin: 0 0 10px;
+                            line-height: 55px;
+
+                            cursor: text;
+
+                            @media (min-width:1024px) {
+                                font-size: 40px;
+                            }
+                        }
+
+                        p {
+
+                            cursor: text;
+                            @include Font($l-h: normal, $l-s: 0.2px);
+
+                            @media (min-width:1024px) {
+                                @include Font($l-h: 26px, $f-s: 19px);
+                            }
+                        }
+
+                        .btnSlider {
+                            @extend %sliderButton;
+                            position: relative;
+                            position: absolute;
+                            padding: 14px 20px;
+
+                            &:hover {
+                                &::after {
+                                    background-color: #fff;
+                                }
+
+                                span {
+                                    color: #000;
+                                }
+                            }
+
+                            span {
+                                display: inline-block;
+                                color: #fff;
+                                transition: all 0.3s;
+
+                                @media (min-width:1024px) {
+                                    font-size: 20px;
+                                    position: relative;
+                                    z-index: 1;
+                                }
+                            }
+
+                            @media (min-width:1024px) {
+                                left: 20px;
+                                border-radius: 0;
+                                padding: 14px 79px;
+                                background-color: transparent;
+
+                                &::after {
+                                    content: "";
+                                    display: inline-block;
+                                    width: 100%;
+                                    height: 100%;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    background-color: #000;
+                                    transform: skewX(-14deg);
+                                    transition: all 0.3s;
+                                }
+                            }
+                        }
+
+                        .btnMore {
+                            position: absolute;
+                            @extend %sliderButton;
+                            padding: 0 45px 0 0;
+                            color: #000;
+                            @extend %btnMore;
+
+                            &:hover {
+                                padding: 0 55px 0 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .dot {
+                @include Grid ($t-c: repeat(4, max-content), $c-g: 20px);
+                position: absolute;
+                top: 170px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 10;
+
+                @media (min-width:1024px) {
+                    top: calc(505px - 35px);
+                    left: 80%;
+                }
+
+                li {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background-color: #000;
+                    position: relative;
+                    cursor: pointer;
+
+                    &.selected {
+                        &::after {
+                            content: "";
+                            display: block;
+                            width: 16px;
+                            height: 16px;
+                            border-radius: 50%;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            background-color: $clr_primary;
+                            z-index: -1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.stories {
+    @extend %sectionSpace;
+    position: relative;
+
+    .heading {
+        @include Grid($t-c: repeat(2, max-content), $c-g: 8px);
+
+        span {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background-color: $clr_primary;
+            color: #fff;
+            @include Font($f-s: 18px, $l-h: 35px);
+            border-radius: 50%;
+            text-align: center;
+        }
+    }
+
+    .cards {
+        @include Grid($t-c: repeat(3, minmax(346px, 1fr)), $c-g: 30px);
+
+        overflow-x: scroll;
+
+        &::-webkit-scrollbar {
+            height: 2px;
+        }
+
+        .card {
+            @include Grid($t-c: auto 140px);
+            border-radius: 10px;
+            cursor: pointer;
+
+            @extend %storyColor;
+
+            &:first-of-type {
+                span {
+                    color: $clr_storyFirst;
+                }
+            }
+
+            &:nth-of-type(2) {
+                span {
+                    color: $clr_storySecond;
+                }
+            }
+
+            &:last-of-type {
+                span {
+                    color: $clr_storyThirth;
+                }
+            }
+
+            .storyText {
+                padding: 20px 0 0 25px;
+
+                span {
+                    display: inline-block;
+                    height: 24px;
+                    padding: 3px 12px;
+                    border-radius: 20px;
+                    background-color: #fff;
+                    font-family: fB;
+                    @include Font($f-s: 13px, $l-h: 22px);
+                    margin: 0 0 5px;
+                }
+
+                p {
+                    font-family: fM;
+                    @include Font($f-s: 18px, $l-h: 22px);
+                    color: #fff;
+                }
+            }
+
+            .storyImage {
+                width: 140px;
+                height: 140px;
+
+                img {
+                    @extend %img;
+                }
+            }
+        }
+    }
+}
+
+.creditCard {
+    @extend %sectionSpace;
+
+    .cards {
+        @include Grid ($t-c: 1fr, $c-g: 30px, $r-g: 15px);
+
+        @media (min-width:1024px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .card {
+            position: relative;
+            border-radius: 10px;
+
+            h4 {
+                font-family: fB;
+                font-size: 20px;
+
+                @media (min-width:1024px) {
+                    font-size: 22px;
+                }
+            }
+
+            &:first-of-type {
+                padding: 280px 20px 20px;
+                background-color: #F3F1F7;
+                overflow: hidden;
+
+                @media (min-width:1024px) {
+                    @include Grid ($t-c: repeat(2, 1fr));
+                    padding: 30px 0 30px 30px;
+                }
+
+                .info {
+                    @include Grid ($t-c: repeat(2, auto));
+
+                    @media (min-width:1024px) {
+                        grid-template-rows: repeat(3, max-content);
+                    }
+
+                    p {
+                        color: $clr_grey_text;
+                    }
+
+                    .cardImage {
+                        position: absolute;
+                        width: 150px;
+                        height: 240px;
+                        top: 20px;
+                        left: -30%;
+                        transform: matrix3d(0.858606, 0.298387, 0, -0.000414946, -0.651602, 0.939378, 0, -4.94499e-05, 0, 0, 1, 0, 216, -3, 0, 1);
+                        transform-origin: center;
+                        box-shadow: 50px 60px 80px rgba(0, 0, 0, 0.2);
+
+                        @media (min-width:1024px) {
+                            width: 190px;
+                            height: 300px;
+                            top: 30px;
+                            left: calc(100% - 40px);
+                            transform: translateX(-100%);
+                        }
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    .heading {
+                        grid-area: 1 / 1 / span 1 / span 2;
+                    }
+
+                    .profit {
+                        margin: 10px 0;
+
+                        @media (min-width:1024px) {
+                            margin: 15px 0 25px 0;
+                        }
+
+                        span {
+                            font-family: fM;
+                            font-size: 22px;
+                        }
+                    }
+
+                    .btn {
+                        grid-area: 3 / 1 / span 1 / span 2;
+
+                        .btnOrder {
+                            @extend %btnOrder;
+                            width: 100%;
+
+                            @media (min-width:1024px) {
+
+                                width: 80%;
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:last-of-type {
+                @include Grid ($t-c: 1fr);
+                padding: 20px;
+                border: 1px solid #ECECEC;
+
+
+                @media (min-width:1024px) {
+                    padding: 30px;
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                .title {
+                    @include Grid ($t-c: repeat(2, auto), $j-c: space-between);
+                    grid-area: 1 / 1 / 1 / span 3;
+
+                    .btnMore {
+
+                        color: $clr_second;
+
+                        @extend %btnMore;
+
+                        &:hover {
+                            margin: 0 -8px 0 0;
+                            padding: 5px 46px 5px 0;
+                        }
+                    }
+                }
+
+                .calcItems {
+
+                    grid-area: 2 / 1 / span 1 / span 3;
+                    margin: 10px 0 20px;
+                    border: 1px solid #ECECEC;
+                    border-radius: 10px 10px 10px 0;
+
+                    @media (min-width:1024px) {
+                        @include Grid ($t-c: repeat(3, 1fr));
+                        margin: 30px 0 45px;
+                    }
+
+                    .item {
+                        padding: 10px;
+                        position: relative;
+
+                        &:not(:last-of-type) {
+                            border-right: 1px solid #ECECEC;
+                        }
+
+                        .number {
+                            font-family: fM;
+                            @include Font($f-s: 26px, $l-h: 30px);
+                            outline: none;
+                            border: none;
+                            width: 100%;
+
+                            &::-webkit-inner-spin-button,
+                            &::-webkit-outer-spin-button {
+                                appearance: none;
+                            }
+                        }
+
+                        p {
+                            font-family: fB;
+                            @include Font($f-s: 15px, $l-h: 15px);
+                            position: absolute;
+                            right: 20px;
+                            top: 65%;
+                            transform: translateY(-50%);
+                            color: $clr_grey_text;
+                        }
+
+                        span {
+                            color: $clr_grey_text;
+                            font-size: 15px;
+                            @include Font ($f-s: 15px, $l-h: 19px);
+                            display: block;
+                        }
+
+                        .range {
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 4px;
+                            outline: none;
+                            appearance: none;
+                            background-color: #0000001a;
+                            cursor: pointer;
+
+                            &::-webkit-slider-thumb {
+                                appearance: none;
+                                width: 24px;
+                                height: 24px;
+                                border-radius: 50%;
+                                background-color: #fff;
+                                border: 5px solid $clr_primary;
+                            }
+                        }
+                    }
+                }
+
+                .resultBox {
+                    @include Grid($t-c: 1fr, $r-g: 5px);
+
+                    grid-area: 3 / 1 / span 1 / span 3;
+
+                    @media (min-width:1024px) {
+                        grid-template-columns: 65% 35%;
+                    }
+
+                    .result {
+                        width: 33%;
+                        text-align: right;
+                        justify-self: center;
+
+                        p {
+                            font-family: fM;
+
+                            &:first-of-type {
+                                @include Font ($f-s: 16px, $l-h: 16px);
+                                color: $clr_grey_text;
+                            }
+
+                            &:last-of-type {
+                                @include Font ($f-s: 26px);
+                            }
+
+                            span {
+                                color: #000;
+                                font-size: 18px;
+                            }
+                        }
+                    }
+
+                    .btn {
+                        .btnOrder {
+                            @extend%btnOrder;
+                            width: 100%;
+
+                            @media (min-width:1024px) {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.useful {
+    @extend %sectionSpace;
+
+    .cards {
+        @include Grid ($t-c: 1fr, $r-g: 15px);
+
+        @media (min-width:1024px) {
+            @include Grid ($t-c: calc(68.5% - 30px) 31.5%, $c-g: 30px);
+        }
+
+        .card {
+            border: 1px solid $clr_border;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+
+            &:first-of-type {
+                background: none;
+
+                @media (min-width:1024px) {
+                    @include Grid ($t-c: repeat(2, 1fr));
+                    background: url('../public/img/app_block.svg') no-repeat right center;
+                    background-size: contain;
+                }
+
+                .bg {
+                    position: relative;
+                    overflow: hidden;
+                    border-radius: 10px 10px 0 0;
+                    background-color: $clr_primary;
+
+                    @media (min-width:1024px) {
+                        order: 2;
+                        right: 30px;
+                        height: 105%;
+                        background-color: transparent;
+                    }
+
+                    .image {
+                        background-repeat: no-repeat;
+                        background-size: contain;
+
+                        width: 180px;
+                        height: 200px;
+                        position: relative;
+                        margin: auto;
+                        z-index: 2;
+
+
+
+                        @media (min-width:1024px) {
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            top: -20px;
+                            left: 0;
+                        }
+                    }
+
+                    .imageScreen {
+                        position: absolute;
+                        width: 120px;
+                        height: 213px;
+                        left: 50%;
+                        top: 20px;
+                        transform: translateX(-45px);
+                        z-index: 1;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+
+                        @media (min-width:1024px) {
+                            width: 250px;
+                            height: 375px;
+                            left: 130px;
+                            top: 15px;
+                            transform: translateX(-40px);
+                        }
+                    }
+                }
+
+                .info {
+                    padding: 20px;
+                    position: relative;
+
+                    @media (min-width:1024px) {
+                        padding: 45px;
+                    }
+
+                    .app {
+                        h6 {
+                            @extend %headingH3;
+
+                            @media (min-width:1024px) {
+                                @include Font ($f-s: 34px, $l-h: 34px);
+                                padding: 0;
+                                margin: 0 0 10px;
+                            }
+                        }
+
+                        p {
+                            color: $clr_grey_text;
+                            line-height: 20px;
+
+                            @media (min-width:1024px) {
+                                @include Font($f-s: 18px, $l-h: 26px);
+                            }
+                        }
+                    }
+
+                    .appLink {
+                        margin: 10px 0 0;
+
+                        @media (min-width:1024px) {
+                            position: absolute;
+                            left: 45px;
+                            bottom: 45px;
+                            z-index: 22;
+                        }
+
+                        .linkContent {
+                            @extend %linkContent;
+                            @include Grid($t-c: repeat(3, max-content), $j-c: space-between);
+
+                            li {
+
+                                a {
+                                    padding: 4px;
+
+                                    @media (min-width:1024px) {
+                                        padding: 0 10px;
+                                    }
+
+                                    text-align: center;
+
+
+                                    .iconContent {
+                                        display: inline-block;
+                                        background-size: 15px;
+                                        padding: 0 0 0 24px;
+                                        color: $clr_second_grey;
+                                        text-align: left;
+
+                                        @media (min-width:1024px) {
+                                            background-size: 24px;
+                                            padding: 6px 0 6px 34px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:last-of-type {
+
+                padding: 20px;
+                position: relative;
+
+                @media (min-width:1024px) {
+                    padding: 30px;
+                }
+
+                .title {
+                    @include Grid($t-c: auto 54px, $j-c: space-between, $a-i: center);
+
+                    h3 {
+                        @extend %headingH3;
+
+                        @media (min-width:1024px) {
+                            font-size: 22px;
+                        }
+                    }
+
+                    .changeMedthod {
+                        position: relative;
+
+                        .openSelect {
+                            padding: 5px 15px 0 0;
+                            background: no-repeat right top 50%;
+                            color: $clr_grey_text;
+                        }
+
+                        .selectBox {
+                            display: none;
+                        }
+                    }
+                }
+
+
+                .inputItem {
+                    @include Grid($t-c: calc(100% - 50px) 50px);
+                    border-bottom: 3px solid $clr_primary;
+                    padding: 10px 0 0;
+
+                    input {
+                        outline: none;
+                        border: none;
+                        height: 40px;
+                        font-family: fB;
+                        font-size: 25px;
+                        appearance: none;
+
+                        &::-webkit-inner-spin-button,
+                        &::-webkit-outer-spin-button {
+                            appearance: none;
+                        }
+                    }
+
+                    .inputResult {
+                        font-family: fB;
+                        font-size: 25px;
+                    }
+
+                    select {
+                        font-family: fB;
+                        font-size: 16px;
+                        border: none;
+                        outline: none;
+                    }
+                }
+
+                .currencies {
+                    @include Grid ($t-c: repeat(3, 33%));
+                    padding: 25px 0 0;
+
+                    p {
+                        color: $clr_grey_text;
+
+                        @media (min-width: 1024px) {
+                            font-size: 18px;
+                        }
+                    }
+
+                    h5 {
+                        font-family: fB;
+                        font-size: 18px;
+                        line-height: 28px;
+                    }
+                }
+
+                .warning {
+                    display: block;
+                    font-size: 14px;
+                    padding: 10px 0 0;
+                    color: #000000e6;
+                }
+
+                .btn {
+                    .allExchange {
+                        padding: 17px 30px;
+                        margin: 15px -30px -30px;
+                        display: block;
+                        font-family: fB;
+                        color: $clr_second;
+                        border-radius: 0 0 10px 10px;
+                        border-top: 1px solid $clr_border;
+                        position: relative;
+
+                        svg {
+                            @extend %svgAbsolute;
+                            right: 30px;
+                            top: 50%;
+                        }
+
+                        &:hover {
+                            @extend %btnHover;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.news {
+    @extend %sectionSpace;
+
+    @extend %newsCards;
+
+    .btnBox {
+        padding: 25px 0 0;
+        text-align: center;
+
+        .btnAllNews {
+            display: inline-block;
+            padding: 2px 54px 0 20px;
+            font-family: fB;
+            line-height: 48px;
+            border-radius: 6px;
+            border: 1px solid $clr_second;
+            position: relative;
+            color: $clr_second;
+
+            &:hover {
+                @extend %btnHover;
+            }
+
+            svg {
+                @extend %svgAbsolute;
+                right: 15px;
+                top: 48%;
+            }
+        }
+    }
+}

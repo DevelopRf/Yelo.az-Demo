@@ -1,0 +1,539 @@
+.header {
+    position: relative;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999999;
+    transition: all 0.3s;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+
+    &.active {
+        box-shadow: none;
+    }
+
+    .headerTop {
+        border-bottom: 1px solid #ececec;
+        background-color: #fff;
+        overflow-y: hidden;
+        height: 45px;
+        transition: all 0.3s;
+
+        &.active {
+            height: 0;
+        }
+
+        .wrapper {
+            @include Grid ($t-c: repeat(2, max-content), $j-c: space-between, $a-i: center);
+
+            .navbarLeft {
+
+                .menu {
+                    @include Grid ($t-c: repeat(3, max-content), $c-g: 5px);
+
+                    @media (min-width: 1024px) {
+                        column-gap: 15px;
+                    }
+
+                    li {
+
+                        @media (min-width:1024px) {
+                            a {
+                                padding: 5px 0 0 20px
+                            }
+                        }
+
+                        a {
+                            @extend %greyText;
+                            padding: 10px 7px;
+                            position: relative;
+                            font-size: 15px;
+                            display: block;
+
+                            @media (min-width: 1024px) {
+                                font-size: 16px;
+                            }
+
+                            &::after {
+                                opacity: 0;
+                                visibility: hidden;
+                                content: "";
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                display: inline-block;
+                                height: 3px;
+                                width: 100%;
+                                background-color: $clr_primary;
+                                z-index: 999;
+                                transition: 0.3s;
+                            }
+
+                            &:hover {
+                                @extend %linkAfter;
+                            }
+
+                            &.active {
+                                @extend %menuActive;
+                                @extend %linkAfter;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .navbarRight {
+                .menu {
+                    @include Grid($t-c: repeat(5, max-content), $a-i: center, $c-g: 3px);
+
+                    li {
+
+                        &:nth-of-type(1),
+                        &:nth-of-type(2) {
+                            display: none;
+
+                            @media (min-width: 1024px) {
+                                display: inline-block;
+                            }
+                        }
+
+                        &:nth-of-type(1),
+                        &:nth-of-type(2),
+                        &:nth-of-type(3) {
+                            margin: 0 0 0 10px;
+
+                            a {
+                                padding: 5px 0 0 20px;
+                                background-position: left;
+                            }
+
+                            @media (min-width: 1024px) {
+                                margin: 0 0 0 30px;
+                            }
+                        }
+
+                        &:nth-of-type(3) {
+                            a {
+                                @extend %headerRight;
+
+                                @media (min-width: 1024px) {
+                                    display: inline;
+                                    padding: 5px 0 0 20px;
+                                    width: auto;
+                                    height: auto;
+                                    background-position: left;
+                                }
+                            }
+                        }
+
+                        &:nth-of-type(4) {
+                            a {
+                                @extend %headerRight;
+                                background: no-repeat 50% 40%;
+                                opacity: 0.5;
+
+                                @media (min-width: 1024px) {
+                                    width: 45px;
+                                    height: 45px;
+                                }
+                            }
+                        }
+
+                        &:nth-of-type(4),
+                        &:last-of-type {
+                            margin: 0 0 0 10px;
+                        }
+
+                        &:last-of-type {
+                            a {
+                                background-position: right;
+                                padding: 5px 15px 0 0;
+                            }
+                        }
+
+                        a {
+                            @extend %greyText;
+                            background-repeat: no-repeat;
+                            line-height: normal;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .headerBottom {
+        padding: 10px 0;
+        background-color: #fff;
+        transition: all 0.3s;
+
+        @media (min-width:1024px) {
+            padding: 18px 0;
+        }
+
+        &.active {
+            background-color: transparent;
+        }
+
+        .wrapper {
+
+            @include Grid($t-c: repeat(2, max-content), $j-c: space-between);
+
+            @media (min-width: 1024px) {
+                @include Grid($t-c: max-content 1fr max-content, $c-g: 40px);
+            }
+
+            .logo {
+                padding: 5px 0;
+
+                @media (min-width:1024px) {
+                    padding: 10px 0;
+                }
+
+                a {
+                    display: block;
+                    width: 94px;
+                    height: 36px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+
+                    @media (min-width:1024px) {
+                        width: 144px;
+                    }
+                }
+            }
+
+            .navbar {
+                display: none;
+
+                @media (min-width:1024px) {
+                    display: block;
+                }
+
+                .menu {
+                    @include Grid ($t-c: repeat(4, max-content), $c-g: 30px);
+
+                    li {
+                        a {
+                            display: block;
+                            padding: 14px 0;
+                            font-family: fM;
+                            font-size: 20px;
+                            color: #000;
+                            position: relative;
+
+                            &::after {
+                                content: "";
+                                display: inline-block;
+                                width: 0;
+                                height: 3px;
+                                background-color: #000;
+                                transition: all 0.3s;
+                                position: absolute;
+                                left: 0;
+                                bottom: 14px;
+                            }
+
+                            &:hover {
+                                &::after {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .btnBox {
+                @include Grid ($t-c: repeat(3, max-content), $a-i: center, $c-g: 10px);
+
+                @media (min-width:1024px) {
+                    grid-template-columns: repeat(2, max-content);
+                }
+
+                .btnMessage {
+                    @extend %btnBox;
+                    background-size: 24px;
+
+                    @media (min-width: 1024px) {
+                        display: none;
+                    }
+                }
+
+                .btnBankInter {
+                    @extend %btnBox;
+                    overflow: hidden;
+                    transition: all 0.2s;
+
+                    svg {
+                        g {
+                            transition: fill 0.08s;
+                        }
+                    }
+
+                    @include Grid($a-i: center, $j-c: center);
+
+                    @media (min-width:1024px) {
+                        width: 175px;
+                        height: 55px;
+                        @include Grid($t-c: 13px auto, $c-g: 8px, $a-i: center);
+                        padding: 9px 25px;
+
+                        &.active {
+                            width: 55px;
+                            height: 55px;
+                            column-gap: 0;
+                            justify-content: center;
+
+                            span {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        background-color: #000;
+
+                        g {
+                            fill: #fff;
+                        }
+
+                        span {
+                            color: #fff;
+                        }
+                    }
+
+                    span {
+                        font-family: fM;
+                        font-size: 18px;
+                        display: none;
+                        padding: 5px 0 0;
+                        color: #000;
+                        width: max-content;
+                        transition: all 0.2s;
+                        vertical-align: middle;
+
+                        @media (min-width:1024px) {
+                            display: inline;
+                        }
+                    }
+                }
+
+                .btnClose {
+                    @extend %btnBox;
+                    position: relative;
+
+                    background: no-repeat center #fff;
+                    cursor: pointer;
+                    transition: all 0.3s;
+
+                    @media (min-width: 1024px) {
+                        width: 55px;
+                        height: 55px;
+                    }
+
+                    .line {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+
+                        span {
+                            display: block;
+                            width: 18px;
+                            height: 2.4px;
+                            background-color: rgb(161, 161, 161);
+                            transition: all 0.3s;
+
+                            &:not(:last-child) {
+                                margin: 0 0 3px;
+                            }
+                        }
+                    }
+
+
+                    &.effectToggle {
+                        .line {
+                            left: 53%;
+
+                            span {
+                                width: 19px;
+
+                                &:first-child {
+                                    transform-origin: left;
+                                    transform: rotate(36deg);
+                                }
+
+                                &:nth-of-type(2) {
+                                    opacity: 0;
+                                }
+
+                                &:last-child {
+                                    transform-origin: left;
+                                    transform: rotate(-36deg);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .bigMenu {
+            visibility: hidden;
+            opacity: 0;
+            background-color: #fff;
+            overflow-y: scroll;
+            position: fixed;
+            height: calc(100vh - 111px);
+            width: 100%;
+            top: 111px;
+            z-index: 99999999;
+            transition: all 0.3s;
+
+            @media (min-width:1024px) {
+                height: calc(100% - 141px);
+                top: 141px;
+            }
+
+            .container {
+                padding: 20px;
+
+                @media (min-width:1024px) {
+                    padding: 10px 20px 50px;
+                }
+
+                .toggleMenu {
+                    @include Grid($t-c: 1fr);
+
+                    @media (min-width:1024px) {
+                        grid-template-columns: auto 345px;
+                    }
+
+                    .menuTitle {
+                        grid-area: 1 / 1 / span 1 / span 2;
+                        @include Grid ($t-c: repeat(2, 1fr));
+
+                        @media (min-width:1024px) {
+                            display: none;
+                        }
+
+                        .titleItem {
+                            color: $clr_grey_text;
+                            padding: 10px 0;
+                            text-align: center;
+
+                            p {
+                                display: inline-block;
+                                font-size: 18px;
+                            }
+
+                            &:nth-child(2) {
+                                .location {
+                                    display: inline-block;
+                                    width: 16px;
+                                    height: 16px;
+                                    vertical-align: baseline;
+
+                                    img {
+                                        @extend %img;
+                                        object-fit: contain;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .menuContent {
+                        @include Grid($t-c: 1fr, $r-g: 20px);
+
+                        @media (min-width: 1024px) {
+                            @include Grid($t-c: repeat(3, 1fr), $g: 10px);
+                        }
+
+                        ul {
+
+                            &:nth-child(1),
+                            &:nth-child(2),
+                            &:nth-child(3),
+                            &:nth-child(4){
+                                grid-row-end: span 2;
+                            }
+
+                            li {
+                                margin: 0 0 5px;
+
+                                &:first-of-type {
+                                    a {
+                                        display: block;
+                                        font-family: fM;
+                                        font-size: 22px;
+                                        color: #000;
+
+                                        @media (min-width:1024px) {
+                                            font-size: 27px;
+                                        }
+                                    }
+                                }
+
+                                a {
+                                    color: $clr_grey_text;
+                                    font-size: 18px;
+
+                                    @media (min-width:1024px) {
+                                        font-size: 16px;
+                                    }
+                                }
+                            }
+                        }
+
+                        .bottomInfo {
+                            padding: 25px 0 0;
+                            border-top: 1px solid $clr_border;
+                            @include Grid($t-c: repeat(3, 1fr), $c-g: 10px);
+
+                            @media (min-width:1024px) {
+                                grid-column: span 3;
+                            }
+
+                            ul {
+                                
+                                li {
+                                    color: #000;
+
+                                    &:first-child {
+                                        color: $clr_grey_text;
+                                    }
+
+                                    a {
+                                        font-family: fM;
+                                        color: #000;
+                                        font-size: 16px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .sideImage {
+                        display: none;
+
+                        @media (min-width:1024px) {
+                            display: block;
+                            height: 345px;
+                            background: no-repeat center;
+                            background-size: cover;
+                            border: 1px solid $clr_border;
+                            border-radius: 10px;
+                        }
+                    }
+                }
+            }
+
+            &.active {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}

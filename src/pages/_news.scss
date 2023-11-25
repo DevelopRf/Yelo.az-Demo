@@ -1,0 +1,45 @@
+.allNews {
+    padding: 135px 0 0;
+    @extend %newsCards;
+
+    @media (min-width:1024px) {
+        padding: 150px 0 0;
+    }
+
+    .headerNews {
+        max-width: 1100px;
+        margin: 0 auto;
+        margin: 0 0 50px;
+        position: relative;
+
+        h1 {
+            font-family: fH;
+            font-size: 20px;
+            text-align: center;
+
+            @media (min-width:1024px) {
+                @include Font ($f-s: 54px, $l-h: 86px)
+            }
+        }
+
+        .addNews {
+            position: absolute;
+            display: inline-block;
+            padding: 10px 20px;
+            color: #000;
+            font-family: fB;
+            font-size: 18px;
+            background-color: #fff;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 30px;
+            border: 1px solid $clr_second;
+
+            &:hover {
+                background-color: $clr_second;
+                color: #fff;
+            }
+        }
+    }
+}

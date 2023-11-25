@@ -1,0 +1,497 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: fR;
+    @include Font ($f-s: 16px, $l-h: 1.6);
+    color: #000;
+    overflow-x: hidden;
+    position: relative;
+
+    .searchBox {
+        display: none;
+
+        .formSearch {
+            position: relative;
+
+            input {
+                font-family: fR;
+                padding: 35px 140px 35px 0;
+                font-size: 25px;
+                display: block;
+                width: 100%;
+                border: none;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            .btnSearch {
+                @extend %mobTopBtn;
+                right: 50px;
+                opacity: 0.4;
+                background-size: 24px;
+            }
+
+            .close {
+                @extend %mobTopBtn;
+                right: 0;
+                background-size: 20px;
+            }
+        }
+    }
+
+    .mobAppDesk {
+        display: none;
+        height: 0;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        background-position: right;
+        background-color: #f8f8f8;
+        position: relative;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 9999;
+        transition: all 0.3s;
+
+        @media (min-width:1024px) {
+            display: block;
+        }
+
+        .wrapper {
+            max-width: 1480px;
+            height: 120px;
+            margin: 0 auto;
+            padding: 0 20px;
+            @include Grid($t-c: repeat(2, max-content), $a-i: center, $c-g: 125px);
+
+            .leftSide {
+                @include Grid($t-c: repeat(2, max-content), $j-c: space-between, $c-g: 20px, $a-i: center);
+                padding: 10px 0;
+
+                .logo {
+                    border-radius: 12px;
+                    @include Grid($j-c: center, $a-i: center);
+
+                    a {
+                        display: inline-block;
+                        @extend %appLogo;
+                        margin: 0 0 9px;
+                    }
+                }
+
+                .text {
+                    p {
+                        @include Font ($f-s: 20px, $l-h: 1.33)
+                    }
+                }
+            }
+
+            .appLink {
+                background-color: #fff;
+
+                .linkContent {
+
+                    @include Grid($t-c: repeat(3, 33%), $j-c: space-between);
+                    @extend %linkContent;
+                    color: #000;
+
+
+                    li {
+                        &:not(:first-of-type)::before {
+                            content: "";
+                            display: inline-block;
+                            width: 1px;
+                            height: 60%;
+                            background-color: #d2d2d2;
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            transform: translateY(-50%);
+                        }
+
+                        a {
+                            white-space: nowrap;
+                            padding: 0 16px;
+                        }
+                    }
+
+                    .iconContent {
+                        padding: 6px 0 6px 34px;
+                        background-size: 24px;
+                    }
+                }
+            }
+
+            .close {
+                @include Grid($j-c: center, $a-i: center);
+                position: absolute;
+                top: 50%;
+                right: 40px;
+                transform: translateY(-50%);
+                width: 52px;
+                height: 52px;
+                border-radius: 50%;
+                box-shadow: 0 0 0 1px #0000001a;
+                cursor: pointer;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+    }
+
+    .mobApp {
+        @include Grid ($t-c: 20px 324px, $j-c: space-between, $a-i: center);
+        max-width: 400px;
+        width: 100%;
+        padding: 12px 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.3);
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translate(-50%, 150%);
+        z-index: 999999;
+        background-color: #fff;
+        transition: all 0.25s;
+
+        &.active {
+            transform: translate(-50%, 0);
+        }
+
+        .close {
+            width: 20px;
+            height: 20px;
+
+            img {
+                @extend %img;
+            }
+        }
+
+        .appLink {
+            @include Grid ($t-c: 64px 144px max-content, $j-c: space-between, $a-i: center);
+
+            .logo {
+                @extend %appLogo;
+            }
+
+            .text {
+                width: 144px;
+
+                p {
+                    @include Font($f-w: 500, $l-h: 1.29);
+                }
+            }
+
+            .btn {
+
+                a {
+                    display: inline-block;
+                    text-align: center;
+                    height: 36px;
+                    padding: 0 15px;
+                    border-radius: 71px;
+                    @include Font ($f-s: 13px, $l-h: 38px, $f-w: 600);
+                    background-color: $clr_second;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .modal {
+        display: none;
+        position: relative;
+        position: fixed;
+        inset: 0;
+        background-color: #00000080;
+        z-index: 999999999;
+        padding: 0 15px;
+
+
+        .wrapper {
+            position: relative;
+            max-width: 760px;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+
+            @media (min-width:1024px) {
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .storySliders {
+                @include Grid($t-c: repeat(3, 100%));
+                border-radius: 20px;
+                overflow: hidden;
+
+                .sliderItem {
+                    height: 480px;
+                    @include Grid($t-c: 1fr, $t-r: auto 220px);
+
+                    @media (min-width:1024px) {
+                        @include Grid($t-c: repeat(2, 50%), $t-r: 1fr);
+                    }
+
+                    @extend %storyColor;
+                    transition: transform 0.3s;
+
+                    .storyLeft {
+                        padding: 50px 20px 0;
+
+                        @media (min-width:1024px) {
+                            padding: 0 20px 0 60px;
+                            align-self: center;
+                        }
+
+                        .storyText {
+                            padding: 0 0 20px;
+
+                            p {
+                                font-family: fM;
+                                @include Font ($f-s: 24px, $l-h: 1.3);
+                                color: #fff;
+                            }
+                        }
+
+                        .btnBox {
+                            @include Grid($t-c: repeat(2, 1fr), $a-i: center);
+
+                            @media (min-width:1024px) {
+                                grid-template-columns: 1fr;
+                                row-gap: 30px;
+                            }
+
+                            .btn {
+
+                                .btnOrder {
+                                    @extend %btnOrder;
+                                }
+
+                                .btnMore {
+                                    @extend %btnMore;
+                                    color: #fff;
+
+                                    &:hover {
+                                        padding: 5px 46px 5px 0;
+                                    }
+                                }
+                            }
+                        }
+
+
+                    }
+
+                    .storyImage {
+                        background: no-repeat center 100%;
+                        background-size: contain;
+                        height: 220px;
+
+                        @media (min-width:1024px) {
+                            width: 380px;
+                            height: 480px;
+                        }
+                    }
+
+                }
+            }
+
+            .close {
+                @extend %btnStory;
+                right: 10px;
+                top: 6px;
+                background-size: 16px;
+
+                @media (min-width:1024px) {
+                    right: -55px;
+                    top: 15px;
+                    background-size: 24px;
+                }
+            }
+
+            .prev {
+                @extend %btnStory;
+                top: 50%;
+                left: -55px;
+                transform: translateY(-50%);
+            }
+
+            .next {
+                @extend %btnStory;
+                top: 50%;
+                right: -55px;
+                transform: translateY(-50%);
+            }
+
+            .progressBar {
+                @include Grid ($t-c: repeat(3, 1fr), $c-g: 20px);
+                position: absolute;
+                padding: 0 20px;
+                left: 0;
+                top: 25px;
+                width: 92%;
+
+                @media (min-width:1024px) {
+                    width: 100%;
+                }
+
+                li {
+                    background-color: #ffffff3f;
+                    border-radius: 10px;
+
+                    .progress {
+                        border-radius: 10px;
+                        height: 4px;
+                        background-color: #fff;
+                        width: 0;
+
+                        &.active {
+                            animation: anm 10s linear
+                        }
+                    }
+
+                    @keyframes anm {
+                        0% {
+                            width: 0;
+                        }
+
+                        100% {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            .storyChange {
+                @include Grid($t-c: repeat(3, 50px), $c-g: 15px, $j-c: center);
+                padding: 15px 0 0;
+                position: absolute;
+                width: 100%;
+                top: 100%;
+
+                .changeItem {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    @extend %storyColor;
+                    background: no-repeat center;
+                    background-size: contain;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        &.activeModal {
+            display: block;
+        }
+
+        .formContent {
+            padding: 20px;
+            margin: auto;
+            background-color: #fff;
+
+            textarea {
+                display: block;
+                width: 100%;
+                background-color: #fff;
+                border: 2px solid $clr_primary;
+                outline: none;
+                padding: 15px;
+            }
+
+            .btn {
+                text-align: right;
+                margin: 10px 0 0;
+                .btnSubmit {
+                    border: 1px solid $clr_second;
+                    background-color: $clr_second;
+                    padding: 10px 30px;
+                    border-radius: 20px;
+                    color: #fff;
+                    cursor: pointer;
+                }
+            }
+        }
+
+    }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    @include Font ($l-h: normal, $f-w: normal);
+}
+
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+
+    @media (min-width:1024px) {
+        padding: 0 20px;
+    }
+}
+
+.heading {
+    height: 38px;
+    margin: 0 0 5px;
+    @include Grid($a-i: center);
+
+    @media (min-width:1024px) {
+        margin: 0 0 10px;
+    }
+
+    h2 {
+        @extend %headingH3;
+
+        @media (min-width:1024px) {
+            font-size: 25px;
+            padding: 0;
+        }
+    }
+}
+
+@font-face {
+    font-family: fR;
+    src: url('./font/subset-TTCommons-Regular.woff2');
+}
+
+@font-face {
+    font-family: fM;
+    src: url('./font/subset-TTCommons-Medium.woff2');
+}
+
+@font-face {
+    font-family: fB;
+    src: url('./font/subset-TTCommons-DemiBold.woff2');
+}
+
+@font-face {
+    font-family: fH;
+    src: url('./font/subset-TTFirsNeue-Medium.woff2');
+}
+
+/* @keyframes cardAnimationL
+{
+    0% {
+
+    }
+} */

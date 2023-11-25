@@ -1,0 +1,394 @@
+{
+  "NEWS": [
+    {
+      "id": 1,
+      "title": "Biznes sahibləri üçün Yelo mobil tətbiqində yenilik",
+      "date": "2023-01-30T20:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "title": "Müştərilərimizə vacib məlumat",
+      "date": "2023-01-31T20:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "title": "“Cash by Code” xidməti Yelo mobil tətbiqində",
+      "date": "2023-02-02T20:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "title": "#YeloHobbi - Əlağa Mustafayev",
+      "date": "2023-02-02T20:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "title": "Yelo Bank A4 kağızı SvetoCopy alışı üçün tender elan edir",
+      "date": "2023-02-05T20:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "title": "Yelo Bank dövri sifarişlərə dair tender elan edir",
+      "date": "2023-02-05T20:00:00.000Z"
+    },
+    {
+      "id": 7,
+      "title": "Yelo Bank-dan qardaş Türkiyəyə dəstək",
+      "date": "2023-02-08T20:00:00.000Z"
+    },
+    {
+      "id": 8,
+      "title": "Bank səhmdarlarının növbədənkənar yığıncağı – ELAN",
+      "date": "2023-02-09T20:00:00.000Z"
+    },
+    {
+      "id": 9,
+      "title": "AFAD-a ianələrinizi Yelo App vasitəsilə birbaşa köçürün",
+      "date": "2023-02-12T20:00:00.000Z"
+    },
+    {
+      "id": 10,
+      "title": "Yelo Bank “Əngəlsiz karyera” sərgisində iştirak edib",
+      "date": "2023-02-13T20:00:00.000Z"
+    },
+    {
+      "id": 11,
+      "title": "Yelo Bank Türkiyəyə ianə etdi",
+      "date": "2023-02-14T20:00:00.000Z"
+    },
+    {
+      "id": 12,
+      "title": "Yelo Bank-dan fermerlər üçün ilk kredit kartı",
+      "date": "2023-02-15T20:00:00.000Z"
+    },
+    {
+      "id": 13,
+      "title": "Yelo Bank-dan uşaq futboluna növbəti dəstək",
+      "date": "2023-02-21T20:00:00.000Z"
+    },
+    {
+      "id": 14,
+      "title": "Yelo Bank-dan kənd təsərrüfatına dəstək krediti",
+      "date": "2023-02-26T20:00:00.000Z"
+    },
+    {
+      "id": 15,
+      "title": "Yelo Bank-dan hər kəsə 11.7% ilə bahar krediti",
+      "date": "2023-02-28T20:00:00.000Z"
+    },
+    {
+      "id": 16,
+      "title": "Yelo Bank 5 mükafata layiq görüldü",
+      "date": "2023-03-01T20:00:00.000Z"
+    },
+    {
+      "id": 17,
+      "title": "Parkinq ödənişləri artıq Yelo App-də",
+      "date": "2023-03-05T20:00:00.000Z"
+    },
+    {
+      "id": 18,
+      "title": "Baş ofisimizdə Qadınlar Gününə həsr olunmuş caz konserti keçirildi",
+      "date": "2023-03-08T20:00:00.000Z"
+    },
+    {
+      "id": 19,
+      "title": "Yelo Bank Microfinance Centre-ə üzv ilk Azərbaycan bankı oldu",
+      "date": "2023-03-26T20:00:00.000Z"
+    },
+    {
+      "id": 20,
+      "title": "Yelo Bank-ın bahar kampaniyası daha sərfəli şərtlərlə davam edir",
+      "date": "2023-04-05T20:00:00.000Z"
+    },
+    {
+      "id": 21,
+      "title": "Yelo Bank dəyərli əşyaların üçün depozit qutularını təklif edir",
+      "date": "2023-04-06T20:00:00.000Z"
+    },
+    {
+      "id": 22,
+      "title": "Taksit funksiyalı yeni Yelo kredit kartı",
+      "date": "2023-04-10T20:00:00.000Z"
+    },
+    {
+      "id": 23,
+      "title": "30 ildən sonra doğma torpaqda açılan ilk iftar süfrəsi",
+      "date": "2023-04-20T20:00:00.000Z"
+    },
+    {
+      "id": 24,
+      "title": "Yelo Bank ilk rübdə 4 milyondan çox mənfəət əldə edib",
+      "date": "2023-04-25T20:00:00.000Z"
+    },
+    {
+      "id": 25,
+      "title": "Yelo Bank ADA-nın “Karyera Həftəsi”ndə iştirak edib.",
+      "date": "2023-04-26T20:00:00.000Z"
+    },
+    {
+      "id": 26,
+      "title": " Yelo Bank-ın kredit kartı ilə biznes planlarını təxirə salma",
+      "date": "2023-04-30T20:00:00.000Z"
+    },
+    {
+      "id": 27,
+      "title": "Yelo Bank Visa tərəfindən mükafata layiq görüldü",
+      "date": "2023-05-10T20:00:00.000Z"
+    },
+    {
+      "id": 28,
+      "title": "Yelo Bank-ın dəstəyi ilə Bakıda “SHE Congress” tədbiri keçiriləcək",
+      "date": "2023-05-11T20:00:00.000Z"
+    },
+    {
+      "id": 29,
+      "title": " Onlayn alış-verişlərinizi Yelo taksit kartı ilə his-sə-lə-yin!",
+      "date": "2023-05-15T20:00:00.000Z"
+    },
+    {
+      "id": 30,
+      "title": "Yelo Bank-ın dəstəyi ilə Bakıda növbəti SHE Congress keçirildi",
+      "date": "2023-05-18T20:00:00.000Z"
+    },
+    {
+      "id": 31,
+      "title": "Yeni eviniz Yelo Bank-dan olsun",
+      "date": "2023-05-22T20:00:00.000Z"
+    },
+    {
+      "id": 32,
+      "title": "Təhlükəsizlik qaydaları",
+      "date": "2023-05-24T20:00:00.000Z"
+    },
+    {
+      "id": 33,
+      "title": "Premium kart ilə Lounge Key zallarına giriş imkanı",
+      "date": "2023-05-28T20:00:00.000Z"
+    },
+    {
+      "id": 34,
+      "title": "Yelo Bank-ın dəstəyi ilə Gəncədə Uşaqlar Günü qeyd edildi",
+      "date": "2023-05-31T20:00:00.000Z"
+    },
+    {
+      "id": 35,
+      "title": "Yelo Bank-dan parlaq yay krediti",
+      "date": "2023-06-04T20:00:00.000Z"
+    },
+    {
+      "id": 36,
+      "title": "Biznesinizin inkişafı üçün Yelo Bank-dan illik 5%-lə kredit",
+      "date": "2023-06-06T20:00:00.000Z"
+    },
+    {
+      "id": 37,
+      "title": "Yelo Bank əməkdaşları üçün “Sağlamlıq günü” təşkil edilib",
+      "date": "2023-06-07T20:00:00.000Z"
+    },
+    {
+      "id": 38,
+      "title": "Yelo Bank-ın dəstəyi ilə UNEC-də forum keçirilib",
+      "date": "2023-06-08T20:00:00.000Z"
+    },
+    {
+      "id": 39,
+      "title": " Parlaq Bankçılıqda təcrübə fürsətini qaçırmayın!",
+      "date": "2023-06-11T20:00:00.000Z"
+    },
+    {
+      "id": 40,
+      "title": "Yelo Bank ilə pulunuz 11.5%-dək artır!",
+      "date": "2023-06-12T20:00:00.000Z"
+    },
+    {
+      "id": 41,
+      "title": "Yelo App ilə xaricə sürətli pul köçürmələri",
+      "date": "2023-06-19T20:00:00.000Z"
+    },
+    {
+      "id": 42,
+      "title": "Yelo Bank-dan sahibkarlar üçün bir ilk",
+      "date": "2023-06-20T20:00:00.000Z"
+    },
+    {
+      "id": 43,
+      "title": "Yelo Bank-ın dəstəyi ilə uşaqlar üçün “Yay futbol düşərgəsi” başlayıb",
+      "date": "2023-06-22T20:00:00.000Z"
+    },
+    {
+      "id": 44,
+      "title": "Yelo Bank hesablarına ExpressPay ilə rahat mədaxil et",
+      "date": "2023-07-05T20:00:00.000Z"
+    },
+    {
+      "id": 45,
+      "title": "Yelo Bank Aqrar İnnovasiya Festivalında iştirak edib",
+      "date": "2023-07-12T20:00:00.000Z"
+    },
+    {
+      "id": 46,
+      "title": "Yelo Ambassador Jalə Əhmədova ilə müsahibə",
+      "date": "2023-07-13T20:00:00.000Z"
+    },
+    {
+      "id": 47,
+      "title": "Ev almaq arzuna işıq tutacaq ipoteka krediti Yelo Bank-da!",
+      "date": "2023-07-13T20:00:00.000Z"
+    },
+    {
+      "id": 48,
+      "title": "Yelo Bank-ın növbəti rəqəmsal filialı Tovuzda!",
+      "date": "2023-07-17T20:00:00.000Z"
+    },
+    {
+      "id": 49,
+      "title": "Yelo Bank-ın daxili futbol çempionatının finalı baş tutub",
+      "date": "2023-07-18T20:00:00.000Z"
+    },
+    {
+      "id": 50,
+      "title": "Yelo Bankın kredit portfeli 27% artıb",
+      "date": "2023-07-19T20:00:00.000Z"
+    },
+    {
+      "id": 51,
+      "title": "Yelo Bank-ın yay təcrübə proqramının iştirakçıları seçildi",
+      "date": "2023-07-20T20:00:00.000Z"
+    },
+    {
+      "id": 52,
+      "title": "Yelo Bank-dan 2 dəqiqəyə kredit!",
+      "date": "2023-07-26T20:00:00.000Z"
+    },
+    {
+      "id": 53,
+      "title": "Yelo Bankın dəstəyi ilə növbəti \"Yay düşərgəsi\" Şamaxıda təşkil olunub",
+      "date": "2023-07-27T20:00:00.000Z"
+    },
+    {
+      "id": 54,
+      "title": "Yelo Bank regionlarda sahibkarlığa dəstək olur!",
+      "date": "2023-07-30T20:00:00.000Z"
+    },
+    {
+      "id": 55,
+      "title": "Yelo Bank-da uşaqlar üçün inklüziv və yaradıcı tədbir keçirilib",
+      "date": "2023-08-06T20:00:00.000Z"
+    },
+    {
+      "id": 56,
+      "title": "“Yelaw Boot Camp” proqramı",
+      "date": "2023-08-13T20:00:00.000Z"
+    },
+    {
+      "id": 57,
+      "title": "“ASAN pay” rahatlığı Yelo App-də!",
+      "date": "2023-08-14T20:00:00.000Z"
+    },
+    {
+      "id": 58,
+      "title": "Bankımızda aktiv gənclərlə görüş keçirildi.",
+      "date": "2023-08-24T20:00:00.000Z"
+    },
+    {
+      "id": 59,
+      "title": "Kart məlumatlarının təhlükəsizliyini Yelo App ilə qoru",
+      "date": "2023-08-30T20:00:00.000Z"
+    },
+    {
+      "id": 60,
+      "title": "\"Özünüməşğulluq\" proqramına növbəti dəstəyimiz",
+      "date": "2023-09-03T20:00:00.000Z"
+    },
+    {
+      "id": 61,
+      "title": "Yelo Bank-ın payız təklifini qaçırma",
+      "date": "2023-09-06T20:00:00.000Z"
+    },
+    {
+      "id": 62,
+      "title": "Yelo Bank-ın yay təcrübə proqramı yekunlaşdı",
+      "date": "2023-09-07T20:00:00.000Z"
+    },
+    {
+      "id": 63,
+      "title": "Yelo Bank-ın dəstəyi ilə keçirilən “Yay düşərgəsi” başa çatıb",
+      "date": "2023-09-10T20:00:00.000Z"
+    },
+    {
+      "id": 64,
+      "title": "Minik avtomobillərinin servisinə dair açıq tender",
+      "date": "2023-09-21T20:00:00.000Z"
+    },
+    {
+      "id": 65,
+      "title": "Pulunuzun etibarlı artımı üçün nə etməli?",
+      "date": "2023-09-25T20:00:00.000Z"
+    },
+    {
+      "id": 66,
+      "title": "Yelo Bank təmiz Xəzər naminə ekoloji aksiya keçirib",
+      "date": "2023-10-01T20:00:00.000Z"
+    },
+    {
+      "id": 67,
+      "title": "Yelo Bank daha 3 vətəndaşa biznesə başlamaq üçün dəstək göstərib",
+      "date": "2023-10-08T20:00:00.000Z"
+    },
+    {
+      "id": 68,
+      "title": "Təhsil ödənişlərini Yelo App vasitəsilə həyata keçirin",
+      "date": "2023-10-09T20:00:00.000Z"
+    },
+    {
+      "id": 69,
+      "title": "Banka səfər etmə, səfirlik arayışını Yelo App vasitəsilə sifariş et",
+      "date": "2023-10-11T20:00:00.000Z"
+    },
+    {
+      "id": 70,
+      "title": "3-cü rübü 14 milyon xalis mənfəətlə tamamladıq",
+      "date": "2023-10-12T20:00:00.000Z"
+    },
+    {
+      "id": 71,
+      "title": "UNEC-də “Yelo Career Challenge” proqramı start götürüb",
+      "date": "2023-10-16T20:00:00.000Z"
+    },
+    {
+      "id": 72,
+      "title": "Yelo Bank fərdi sahibkarlara dəstəyini davam etdirir",
+      "date": "2023-10-19T20:00:00.000Z"
+    },
+    {
+      "id": 73,
+      "title": "Yelo Bank-da 10-dan sərfəli kredit var!",
+      "date": "2023-11-01T20:00:00.000Z"
+    },
+    {
+      "id": 74,
+      "title": "Yelo Bank-ın dəstəyi ilə tələbələr üçün “KaryeramIZ” forumu baş tutub",
+      "date": "2023-11-02T20:00:00.000Z"
+    },
+    {
+      "id": 75,
+      "title": "Yelo Bank-da növbəti sağlamlıq tədbiri",
+      "date": "2023-11-03T20:00:00.000Z"
+    },
+    {
+      "title": "sfdsde",
+      "date": "2023-11-19T14:56:54.327Z",
+      "id": 76
+    },
+    {
+      "title": "lknlkm",
+      "date": "2023-11-19T15:35:03.618Z",
+      "id": 77
+    },
+    {
+      "title": "hcgfc",
+      "date": "2023-11-19T15:35:10.424Z",
+      "id": 78
+    }
+  ]
+}

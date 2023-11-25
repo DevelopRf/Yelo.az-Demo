@@ -1,0 +1,23 @@
+@mixin Font ($f-s: null, $f-w: null, $l-h: null, $l-s: null) {
+    font-size: $f-s;
+    font-weight: $f-w;
+    line-height: $l-h;
+    letter-spacing: $l-s;
+}
+
+@mixin Grid ($j-c: null, $a-i: null, $t-c: null, $t-r: null, $g: null, $r-g: null, $c-g: null, $a-c: null) {
+    display: grid;
+    justify-content: $j-c;
+    align-items: $a-i;
+    grid-template-columns: $t-c;
+    grid-template-rows: $t-r;
+    gap: $g;
+    row-gap: $r-g;
+    column-gap: $c-g;
+    align-content: $a-c;
+}
+
+@mixin backgroundImgColor($color)
+{
+    background-image: url('<svg ...><g fill="#{$color}" ... /></g></svg>');
+}
