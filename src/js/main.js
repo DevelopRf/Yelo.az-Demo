@@ -22,19 +22,12 @@ let screenSize = false
 let scrolling = 0
 let scrollPage = 0
 
-function changeScreen(e) {
+/* function changeScreen(e) {
     if (e.matches) {
         shortNumber.innerHTML = "981"
         screenSize = true
 
-        if (scrolling == 0) {
-            headerBottom.classList.add('active')
-            header.classList.add('active')
-        }
-        else {
-            headerBottom.classList.remove('active')
-            header.classList.remove('active')
-        }
+       
     }
     else {
         shortNumber.innerHTML = ""
@@ -45,7 +38,7 @@ function changeScreen(e) {
 }
 
 changeScreen(mediaQuery)
-mediaQuery.addEventListener('change', changeScreen)
+mediaQuery.addEventListener('change', changeScreen) */
 const currency = new Currency()
 
 document.addEventListener("click", (e) => {
@@ -60,13 +53,14 @@ if (slider) {
                 for (const element of sliderItem) {
                     element.style.transform = `translateX(-${index * 100}%)`
                 }
+                timer(sliderItem)
             })
         });
     }
 
-    sliderCarusel(dots, sliders)
     sliderCarusel(storyChange, stories)
     sliderCarusel(storyCards, stories)
+    sliderCarusel(dots, sliders)
 
     sliderMain()
 
@@ -82,15 +76,9 @@ if (slider) {
     }
 
     function sliderStories() {
-        let index
+        let index = 0
         const prevSlider = document.querySelector('.modal .prev')
         const nextSlider = document.querySelector('.modal .next')
-
-        storyCards.forEach(item => {
-            item.addEventListener("click", () => {
-                index = item.dataset.index
-            })
-        })
 
         storyChange.forEach(item => {
             item.addEventListener('click', () => {
@@ -101,6 +89,7 @@ if (slider) {
         for (const item of storyCards) {
             item.addEventListener("click", () => {
                 modal.classList.add('activeModal')
+                timer(stories)
             })
         }
 
@@ -112,9 +101,12 @@ if (slider) {
             for (const element of stories) {
                 element.style.transform = `translateX(-${index * 100}%)`
             }
+
+            timer(stories)
         })
 
         nextSlider.addEventListener("click", () => {
+
             index++
             if (index > stories.length - 1) {
                 index = 0
@@ -122,8 +114,28 @@ if (slider) {
             for (const element of stories) {
                 element.style.transform = `translateX(-${index * 100}%)`
             }
+
+            timer(stories)
+
         })
+
     }
+
+    function timer(sliderItem) {
+        let index = 0
+        let intervalId = null
+        intervalId && clearInterval(intervalId)
+        intervalId = setInterval(() => {
+            index++
+            if (index > sliderItem.length - 1) {
+                index = 0
+            }
+            for (const element of sliderItem) {
+                element.style.transform = `translateX(-${index * 100}%)`
+            }
+        }, 2000)
+    }
+
 
     sliderStories()
 
@@ -234,17 +246,10 @@ function headerEffect() {
             removeEffect()
         }
 
-        if (screenSize) {
-            if (scrolling == 0) {
-                headerBottom.classList.add('active')
-                header.classList.add('active')
-            }
-            else {
-                headerBottom.classList.remove('active')
-                header.classList.remove('active')
-            }
+        if (scrolling == 0) {
+            headerBottom.classList.add('active')
+            header.classList.add('active')
         }
-
         else {
             headerBottom.classList.remove('active')
             header.classList.remove('active')

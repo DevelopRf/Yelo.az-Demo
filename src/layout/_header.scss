@@ -83,7 +83,7 @@
 
             .navbarRight {
                 .menu {
-                    @include Grid($t-c: repeat(5, max-content), $a-i: center, $c-g: 3px);
+                    @include Grid($t-c: repeat(5, max-content), $a-i: center, $c-g: 3px, $a-c: center);
 
                     li {
 
@@ -95,8 +95,7 @@
                                 display: inline-block;
                             }
                         }
-
-                        &:nth-of-type(1),
+                        
                         &:nth-of-type(2),
                         &:nth-of-type(3) {
                             margin: 0 0 0 10px;
@@ -114,13 +113,20 @@
                         &:nth-of-type(3) {
                             a {
                                 @extend %headerRight;
-
+                               
                                 @media (min-width: 1024px) {
                                     display: inline;
                                     padding: 5px 0 0 20px;
                                     width: auto;
                                     height: auto;
                                     background-position: left;
+                                }
+                            }
+                            span 
+                            {
+                                display: none;
+                                @media (min-width: 1024px) {
+                                    display: inline-block;
                                 }
                             }
                         }
@@ -147,6 +153,10 @@
                             a {
                                 background-position: right;
                                 padding: 5px 15px 0 0;
+                                vertical-align: bottom;
+                                @media (min-width:1024px) {
+                                    vertical-align: baseline;
+                                }
                             }
                         }
 
@@ -168,11 +178,12 @@
 
         @media (min-width:1024px) {
             padding: 18px 0;
+            
+            &.active {
+                background-color: transparent;
+            }
         }
 
-        &.active {
-            background-color: transparent;
-        }
 
         .wrapper {
 

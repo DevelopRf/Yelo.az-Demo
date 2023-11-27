@@ -218,13 +218,10 @@ body {
             position: relative;
             max-width: 760px;
             left: 50%;
-            top: 0;
-            transform: translateX(-50%);
+            top: 50%;
+            transform: translate(-50%, -50%);
 
-            @media (min-width:1024px) {
-                top: 50%;
-                transform: translate(-50%, -50%);
-            }
+            
 
             .storySliders {
                 @include Grid($t-c: repeat(3, 100%));
@@ -312,6 +309,13 @@ body {
                     right: -55px;
                     top: 15px;
                     background-size: 24px;
+                }
+            }
+
+            .prev, .next{
+                display: none;
+                @media (min-width:1024px) {
+                    display: block;
                 }
             }
 
