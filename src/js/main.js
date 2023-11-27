@@ -11,34 +11,28 @@ const stories = document.querySelectorAll('.storySliders .sliderItem')
 const dot = document.querySelector('.dot')
 const progress = document.querySelectorAll('.progressBar .progress')
 const progressBar = document.querySelectorAll('.progressBar li')
-const storyItem = document.querySelector('.StorySliders .sliderItem')
 const shortNumber = document.querySelector('.navbarRight .menu li:nth-child(3) a')
-const mediaQuery = window.matchMedia('(min-width: 1024px)')
 const storyCards = document.querySelectorAll('.stories .card')
 const modal = document.querySelector('.modal')
 const close = document.querySelector('.modal .close')
+const mediaQuery = window.matchMedia('(min-width: 1024px)')
 let screenSize = false
+
+
+let index = 0
+let interval = null
 
 let scrolling = 0
 let scrollPage = 0
 
-/* function changeScreen(e) {
-    if (e.matches) {
-        shortNumber.innerHTML = "981"
-        screenSize = true
 
-       
-    }
-    else {
-        shortNumber.innerHTML = ""
-        screenSize = false
-        headerBottom.classList.remove('active')
-        header.classList.remove('active')
-    }
+function changeScreen(e) {
+    (e.matches) && (screenSize = true)
 }
 
 changeScreen(mediaQuery)
-mediaQuery.addEventListener('change', changeScreen) */
+mediaQuery.addEventListener('change', changeScreen)
+
 const currency = new Currency()
 
 document.addEventListener("click", (e) => {
@@ -48,31 +42,57 @@ document.addEventListener("click", (e) => {
 })
 if (slider) {
     function sliderCarusel(btnChange, sliderItem) {
+
         btnChange.forEach((element, index) => {
             element.addEventListener('click', () => {
                 for (const element of sliderItem) {
                     element.style.transform = `translateX(-${index * 100}%)`
                 }
-                timer(sliderItem)
             })
         });
     }
 
     sliderCarusel(storyChange, stories)
     sliderCarusel(storyCards, stories)
-    sliderCarusel(dots, sliders)
 
     sliderMain()
 
+    
+
     function sliderMain() {
-        dots.forEach(item => {
-            item.addEventListener("click", () => {
-                for (const item of dots) {
-                    item.classList.remove('selected')
+        let index = 0;
+        let interval;
+
+        const goToSlide = (slideIndex) => {
+            for (const element of sliders) {
+                element.style.transform = `translateX(-${slideIndex * 100}%)`;
+            }
+            for (const dot of dots) {
+                dot.classList.remove('selected');
+            }
+            dots[slideIndex].classList.add('selected');
+        };
+
+        const startInterval = () => {
+            interval = setInterval(() => {
+                index++;
+                if (index > dots.length - 1) {
+                    index = 0;
                 }
-                item.classList.add('selected')
-            })
-        })
+                goToSlide(index);
+            }, 10000);
+        };
+
+        dots.forEach((dot, dotIndex) => {
+            dot.addEventListener("click", () => {
+                clearInterval(interval);
+                index = dotIndex;
+                goToSlide(index);
+                startInterval();
+            });
+        });
+
+        startInterval();
     }
 
     function sliderStories() {
@@ -122,10 +142,8 @@ if (slider) {
     }
 
     function timer(sliderItem) {
-        let index = 0
-        let intervalId = null
-        intervalId && clearInterval(intervalId)
-        intervalId = setInterval(() => {
+        interval && clearInterval(interval)
+        interval = setInterval(() => {
             index++
             if (index > sliderItem.length - 1) {
                 index = 0
@@ -133,7 +151,7 @@ if (slider) {
             for (const element of sliderItem) {
                 element.style.transform = `translateX(-${index * 100}%)`
             }
-        }, 2000)
+        }, 10000)
     }
 
 
