@@ -9,8 +9,7 @@ const dots = document.querySelectorAll('.dot li')
 const storyChange = document.querySelectorAll('.storyChange .changeItem')
 const stories = document.querySelectorAll('.storySliders .sliderItem')
 const dot = document.querySelector('.dot')
-const progress = document.querySelectorAll('.progressBar .progress')
-const progressBar = document.querySelectorAll('.progressBar li')
+
 const shortNumber = document.querySelector('.navbarRight .menu li:nth-child(3) a')
 const storyCards = document.querySelectorAll('.stories .card')
 const modal = document.querySelector('.modal')
@@ -18,13 +17,8 @@ const close = document.querySelector('.modal .close')
 const mediaQuery = window.matchMedia('(min-width: 1024px)')
 let screenSize = false
 
-
-let index = 0
-let interval = null
-
 let scrolling = 0
 let scrollPage = 0
-
 
 function changeScreen(e) {
     (e.matches) && (screenSize = true)
@@ -41,28 +35,27 @@ document.addEventListener("click", (e) => {
     }
 })
 if (slider) {
-    function sliderCarusel(btnChange, sliderItem) {
+    /*  function sliderCarusel(btnChange, sliderItem) {
+ 
+         btnChange.forEach((element, index) => {
+             element.addEventListener('click', () => {
+                 for (const element of sliderItem) {
+                     element.style.transform = `translateX(-${index * 100}%)`
+                 }
+             })
+         });
+     } */
+    /*     
+            sliderCarusel(storyChange, stories)
+            sliderCarusel(storyCards, stories) */
 
-        btnChange.forEach((element, index) => {
-            element.addEventListener('click', () => {
-                for (const element of sliderItem) {
-                    element.style.transform = `translateX(-${index * 100}%)`
-                }
-            })
-        });
-    }
 
-    sliderCarusel(storyChange, stories)
-    sliderCarusel(storyCards, stories)
 
-    sliderMain()
 
-    
 
     function sliderMain() {
-        let index = 0;
-        let interval;
-
+        let indexMain = 0
+        let intervalMain = null
         const goToSlide = (slideIndex) => {
             for (const element of sliders) {
                 element.style.transform = `translateX(-${slideIndex * 100}%)`;
@@ -73,47 +66,82 @@ if (slider) {
             dots[slideIndex].classList.add('selected');
         };
 
-        const startInterval = () => {
-            interval = setInterval(() => {
-                index++;
-                if (index > dots.length - 1) {
-                    index = 0;
+        const startIntervalMain = () => {
+            intervalMain = setInterval(() => {
+                indexMain++;
+                if (indexMain > dots.length - 1) {
+                    indexMain = 0;
                 }
-                goToSlide(index);
+                goToSlide(indexMain);
             }, 10000);
         };
 
         dots.forEach((dot, dotIndex) => {
             dot.addEventListener("click", () => {
-                clearInterval(interval);
-                index = dotIndex;
-                goToSlide(index);
-                startInterval();
+                clearInterval(intervalMain);
+                indexMain = dotIndex;
+                goToSlide(indexMain);
+                startIntervalMain();
             });
         });
 
-        startInterval();
+        startIntervalMain();
+    }
+
+    sliderMain()
+
+    function timeBar(barİndex)
+    {
+        const progress = document.querySelectorAll('.progressBar li .progress')
+        for (const item of progress) {
+            item.classList.remove('active')
+        }
+        progress[barİndex].classList.add('active') 
     }
 
     function sliderStories() {
-        let index = 0
+        let interval = null
         const prevSlider = document.querySelector('.modal .prev')
         const nextSlider = document.querySelector('.modal .next')
 
-        storyChange.forEach(item => {
-            item.addEventListener('click', () => {
-                index = item.dataset.index
+        const goToSlideStories = (slideIndex) => {
+            for (const element of stories) {
+                element.style.transform = `translateX(-${slideIndex * 100}%)`;
+            }
+           timeBar(slideIndex)
+        };
+
+        storyCards.forEach((dot, dotIndex) => {
+            dot.addEventListener("click", () => {
+                modal.classList.add('activeModal')
+                clearInterval(interval);
+                index = dotIndex;                
+                goToSlideStories(index);            
+                startInterval();
             })
         })
 
-        for (const item of storyCards) {
-            item.addEventListener("click", () => {
-                modal.classList.add('activeModal')
-                timer(stories)
+        storyChange.forEach((dot, dotIndex) => {
+            dot.addEventListener("click", () => {
+                clearInterval(interval);
+                index = dotIndex;
+                goToSlideStories(index);
+                startInterval();
             })
-        }
+        })
+
+        const startInterval = () => {
+            interval = setInterval(() => {
+                index++;
+                if (index > stories.length - 1) {
+                    index = 0;
+                }
+                goToSlideStories(index);                
+            }, 10000);
+        };
 
         prevSlider.addEventListener("click", () => {
+            clearInterval(interval);
             index--
             if (index < 0) {
                 index = stories.length - 1
@@ -121,12 +149,12 @@ if (slider) {
             for (const element of stories) {
                 element.style.transform = `translateX(-${index * 100}%)`
             }
-
-            timer(stories)
+            timeBar(index)
+            startInterval()
         })
 
         nextSlider.addEventListener("click", () => {
-
+            clearInterval(interval);
             index++
             if (index > stories.length - 1) {
                 index = 0
@@ -134,26 +162,10 @@ if (slider) {
             for (const element of stories) {
                 element.style.transform = `translateX(-${index * 100}%)`
             }
-
-            timer(stories)
-
+            timeBar(index)
+            startInterval()
         })
-
     }
-
-    function timer(sliderItem) {
-        interval && clearInterval(interval)
-        interval = setInterval(() => {
-            index++
-            if (index > sliderItem.length - 1) {
-                index = 0
-            }
-            for (const element of sliderItem) {
-                element.style.transform = `translateX(-${index * 100}%)`
-            }
-        }, 10000)
-    }
-
 
     sliderStories()
 
