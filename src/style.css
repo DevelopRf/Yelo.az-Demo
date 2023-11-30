@@ -242,9 +242,18 @@ body {
   color: #000;
   overflow-x: hidden;
   position: relative;
+  transition: all 0.8s;
+  background-color: transparent;
 }
 body .searchBox {
-  display: none;
+  display: block;
+  background-color: #fff;
+  position: fixed;
+  height: 0;
+  width: 100%;
+  z-index: 999999999;
+  transition: all 0.3s;
+  overflow: hidden;
 }
 body .searchBox .formSearch {
   position: relative;
@@ -268,6 +277,9 @@ body .searchBox .formSearch .btnSearch {
 body .searchBox .formSearch .close {
   right: 0;
   background-size: 20px;
+}
+body .searchBox.active {
+  height: 100px;
 }
 body .mobAppDesk {
   display: none;
@@ -425,6 +437,14 @@ body .modal {
   z-index: 999999999;
   padding: 0 15px;
 }
+@media (min-width: 1024px) {
+  body .modal {
+    padding: 0;
+  }
+}
+body .modal.activeModal {
+  display: block;
+}
 body .modal .wrapper {
   position: relative;
   max-width: 760px;
@@ -510,11 +530,13 @@ body .modal .wrapper .close {
     background-size: 24px;
   }
 }
-body .modal .wrapper .prev, body .modal .wrapper .next {
+body .modal .wrapper .prev,
+body .modal .wrapper .next {
   display: none;
 }
 @media (min-width: 1024px) {
-  body .modal .wrapper .prev, body .modal .wrapper .next {
+  body .modal .wrapper .prev,
+  body .modal .wrapper .next {
     display: block;
   }
 }
@@ -584,9 +606,6 @@ body .modal .wrapper .storyChange .changeItem {
   background-size: contain;
   cursor: pointer;
 }
-body .modal.activeModal {
-  display: block;
-}
 body .modal .formContent {
   padding: 20px;
   margin: auto;
@@ -611,6 +630,16 @@ body .modal .formContent .btn .btnSubmit {
   border-radius: 20px;
   color: #fff;
   cursor: pointer;
+}
+body.active {
+  overflow: hidden;
+}
+body.active::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5019607843);
+  z-index: 99999999;
 }
 
 ul {
@@ -1356,6 +1385,12 @@ h5 {
   position: absolute;
   padding: 0 45px 0 0;
   color: #000;
+  background-position: right 50%;
+}
+@media (min-width: 1024px) {
+  .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnMore {
+    font-size: 20px;
+  }
 }
 .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnMore:hover {
   padding: 0 55px 0 0;

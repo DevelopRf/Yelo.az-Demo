@@ -1,5 +1,7 @@
 const header = document.querySelector('.header')
 const headerTop = document.querySelector('.headerTop')
+const leftMenuTop = document.querySelectorAll('.headerTop .navbarLeft .menu a')
+const btnSearch = document.querySelector('.headerTop .navbarRight .menu li:nth-child(4) a')
 const headerBottom = document.querySelector('.headerBottom')
 const btnBankInter = document.querySelector('.btnBankInter')
 const BankInterText = document.querySelector('.btnBankInter span')
@@ -9,11 +11,12 @@ const dots = document.querySelectorAll('.dot li')
 const storyChange = document.querySelectorAll('.storyChange .changeItem')
 const stories = document.querySelectorAll('.storySliders .sliderItem')
 const dot = document.querySelector('.dot')
-
 const shortNumber = document.querySelector('.navbarRight .menu li:nth-child(3) a')
 const storyCards = document.querySelectorAll('.stories .card')
 const modal = document.querySelector('.modal')
 const close = document.querySelector('.modal .close')
+const searchClose = document.querySelector('.searchBox .close')
+const searchBox = document.querySelector('.searchBox')
 const mediaQuery = window.matchMedia('(min-width: 1024px)')
 let screenSize = false
 
@@ -33,25 +36,34 @@ document.addEventListener("click", (e) => {
     if (e.target == modal || e.target == close) {
         modal.classList.remove('activeModal')
     }
+
+    if (document.body.classList.contains('active')) {
+        if (e.target == document.body || e.target == searchClose) {
+            document.body.classList.remove('active')
+            searchBox.classList.remove('active')
+        }
+    }
 })
+btnSearch.addEventListener("click", () => {
+    searchBox.classList.add('active')
+    document.body.classList.add('active')
+})
+
+searchClose.addEventListener("click", () => {
+    searchBox.classList.remove('active')
+})
+
 if (slider) {
-    /*  function sliderCarusel(btnChange, sliderItem) {
- 
-         btnChange.forEach((element, index) => {
-             element.addEventListener('click', () => {
-                 for (const element of sliderItem) {
-                     element.style.transform = `translateX(-${index * 100}%)`
-                 }
-             })
-         });
-     } */
-    /*     
-            sliderCarusel(storyChange, stories)
-            sliderCarusel(storyCards, stories) */
 
+    leftMenuTop.forEach((item, index) => {
+        item.addEventListener("click", () => {
 
-
-
+            for (const element of leftMenuTop) {
+                element.classList.remove("active")
+            }
+            leftMenuTop[index].classList.add("active")
+        })
+    })
 
     function sliderMain() {
         let indexMain = 0
@@ -90,13 +102,12 @@ if (slider) {
 
     sliderMain()
 
-    function timeBar(barİndex)
-    {
+    function timeBar(barİndex) {
         const progress = document.querySelectorAll('.progressBar li .progress')
         for (const item of progress) {
             item.classList.remove('active')
         }
-        progress[barİndex].classList.add('active') 
+        progress[barİndex].classList.add('active')
     }
 
     function sliderStories() {
@@ -108,15 +119,15 @@ if (slider) {
             for (const element of stories) {
                 element.style.transform = `translateX(-${slideIndex * 100}%)`;
             }
-           timeBar(slideIndex)
+            timeBar(slideIndex)
         };
 
         storyCards.forEach((dot, dotIndex) => {
             dot.addEventListener("click", () => {
                 modal.classList.add('activeModal')
                 clearInterval(interval);
-                index = dotIndex;                
-                goToSlideStories(index);            
+                index = dotIndex;
+                goToSlideStories(index);
                 startInterval();
             })
         })
@@ -136,7 +147,7 @@ if (slider) {
                 if (index > stories.length - 1) {
                     index = 0;
                 }
-                goToSlideStories(index);                
+                goToSlideStories(index);
             }, 10000);
         };
 
@@ -463,6 +474,8 @@ function showNews() {
     })
 }
 showNews()
+
+
 
 const addNews = document.querySelector('.headerNews .addNews')
 const btnSubmit = document.querySelector('.formContent')

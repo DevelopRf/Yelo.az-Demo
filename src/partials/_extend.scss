@@ -63,54 +63,54 @@
             border-radius: 10px;
             border: 1px solid $clr_border;
 
-          
-                color: #000;
 
-                .innerCard {
-                    padding: 20px;
-                    @include Grid($r-g: 85px);
+            color: #000;
 
-                    @media (min-width:1024px) {
-                        padding: 30px 30px 20px;
-                        row-gap: 30px;
-                    }
+            .innerCard {
+                padding: 20px;
+                @include Grid($r-g: 85px);
 
-                    .content {
-                        p {
-                            font-family: fB;
-                            @include Font ($f-s: 18px, $l-h: 24px);
-                            min-height: 72px;
+                @media (min-width:1024px) {
+                    padding: 30px 30px 20px;
+                    row-gap: 30px;
+                }
 
-                            @media (min-width:1024px) {
-                                font-size: 20px;
-                            }
-                        }
-                    }
+                .content {
+                    p {
+                        font-family: fB;
+                        @include Font ($f-s: 18px, $l-h: 24px);
+                        min-height: 72px;
 
-                    .bottomInfo {
-                        @include Grid($t-c: repeat(2, max-content), $j-c: space-between);
-
-                        .btn {
-                            .btnMore {
-                                font-family: fB;
-                                color: $clr_second;
-                                padding: 5px 38px 5px 0;
-                                position: relative;
-
-                                svg {
-                                    position: absolute;
-                                    top: 40%;
-                                    right: 0;
-                                    transform: translateY(-50%);
-                                }
-                            }
-                        }
-
-                        time {
-                            color: $clr_grey_text;
+                        @media (min-width:1024px) {
+                            font-size: 20px;
                         }
                     }
                 }
+
+                .bottomInfo {
+                    @include Grid($t-c: repeat(2, max-content), $j-c: space-between);
+
+                    .btn {
+                        .btnMore {
+                            font-family: fB;
+                            color: $clr_second;
+                            padding: 5px 38px 5px 0;
+                            position: relative;
+
+                            svg {
+                                position: absolute;
+                                top: 40%;
+                                right: 0;
+                                transform: translateY(-50%);
+                            }
+                        }
+                    }
+
+                    time {
+                        color: $clr_grey_text;
+                    }
+                }
+            }
         }
     }
 }
