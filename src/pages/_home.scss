@@ -184,6 +184,7 @@
                             color: #000;
                             @extend %btnMore;
                             background-position: right 50%;
+
                             @media (min-width:1024px) {
                                 font-size: 20px;
                             }
@@ -516,14 +517,71 @@
                             background-color: #0000001a;
                             cursor: pointer;
 
-                            &::-webkit-slider-thumb {
+                            --range: calc(var(--max) - var(--min));
+                            --ratio: calc((var(--val) - var(--min)) / var(--range));
+                            --sx: calc(0.5 * 1.5em + var(--ratio) * (100% - 1.5em));
+
+                            &::-moz-range-thumb {
                                 appearance: none;
-                                width: 24px;
-                                height: 24px;
+                                height: 20px;
+                                width: 20px;
                                 border-radius: 50%;
-                                background-color: #fff;
-                                border: 5px solid $clr_primary;
+                                cursor: pointer;
+                                background: #ffffff;
+                                border: 3px solid #ffc628;
                             }
+
+                            &::-webkit-slider-runnable-track {
+                                width: 100%;
+                                height: 4px;
+                                cursor: pointer;
+                                background: linear-gradient(#ffc628, #ffc628) 0 / var(--sx) 100% no-repeat;
+                            }
+
+                            &::-webkit-slider-thumb {
+                                height: 20px;
+                                width: 20px;
+                                appearance: none;
+                                border-radius: 50%;
+                                background: #ffffff;
+                                cursor: pointer;
+                                background: #ffffff;
+                                border: 5px solid #ffc628;
+                                margin: -10px 0 0 0;
+                                box-sizing: border-box;
+                            }
+
+                            &::-moz-range-track {
+                                width: 100%;
+                                height: 3px;
+                                cursor: pointer;
+                            }
+
+                            &::-ms-track {
+                                width: 100%;
+                                height: 3px;
+                                cursor: pointer;
+                            }
+
+                            &::-ms-thumb {
+                                height: 20px;
+                                width: 20px;
+                                border-radius: 50%;
+                                appearance: none;
+                                background: #ffffff;
+                                cursor: pointer;
+                                background: #ffffff;
+                                border: 3px solid #ffc628;
+                            }
+
+                            // &::-webkit-slider-thumb {
+                            //     appearance: none;
+                            //     width: 24px;
+                            //     height: 24px;
+                            //     border-radius: 50%;
+                            //     background-color: #fff;
+                            //     border: 5px solid $clr_primary;
+                            // }
                         }
                     }
                 }
@@ -835,11 +893,16 @@
                         border-radius: 0 0 10px 10px;
                         border-top: 1px solid $clr_border;
                         position: relative;
+                        transition: all 0.3s;
 
                         svg {
                             @extend %svgAbsolute;
                             right: 30px;
                             top: 50%;
+
+                            g {
+                                transition: all 0.15s;
+                            }
                         }
 
                         &:hover {
@@ -858,27 +921,20 @@
     @extend %newsCards;
 
     .btnBox {
-        padding: 25px 0 0;
         text-align: center;
+        padding: 25px 0 0;
 
         .btnAllNews {
-            display: inline-block;
-            padding: 2px 54px 0 20px;
-            font-family: fB;
-            line-height: 48px;
-            border-radius: 6px;
-            border: 1px solid $clr_second;
-            position: relative;
-            color: $clr_second;
-
-            &:hover {
-                @extend %btnHover;
-            }
+            @extend %btnNews;
 
             svg {
                 @extend %svgAbsolute;
                 right: 15px;
                 top: 48%;
+
+                g {
+                    transition: all 0.15s;
+                }
             }
         }
     }

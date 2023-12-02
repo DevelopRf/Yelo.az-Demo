@@ -59,6 +59,7 @@
             gap: 30px;
         }
 
+
         .card {
             border-radius: 10px;
             border: 1px solid $clr_border;
@@ -68,7 +69,6 @@
 
             .innerCard {
                 padding: 20px;
-                @include Grid($r-g: 85px);
 
                 @media (min-width:1024px) {
                     padding: 30px 30px 20px;
@@ -76,6 +76,8 @@
                 }
 
                 .content {
+                    padding: 0 0 30px;
+
                     p {
                         font-family: fB;
                         @include Font ($f-s: 18px, $l-h: 24px);
@@ -88,18 +90,19 @@
                 }
 
                 .bottomInfo {
-                    @include Grid($t-c: repeat(2, max-content), $j-c: space-between);
+                    @include Grid($t-c: repeat(2, max-content), $j-c: space-between, $a-i: center);
 
                     .btn {
                         .btnMore {
+                            position: relative;
+                            display: inline-block;
                             font-family: fB;
                             color: $clr_second;
                             padding: 5px 38px 5px 0;
-                            position: relative;
 
                             svg {
                                 position: absolute;
-                                top: 40%;
+                                top: 50%;
                                 right: 0;
                                 transform: translateY(-50%);
                             }
@@ -112,6 +115,7 @@
                 }
             }
         }
+
     }
 }
 
@@ -135,6 +139,22 @@
     height: 40px;
     background: no-repeat center;
     cursor: pointer;
+}
+
+%btnNews {
+    display: inline-block;
+    padding: 2px 54px 0 20px;
+    font-family: fB;
+    line-height: 48px;
+    border-radius: 6px;
+    border: 1px solid $clr_second;
+    position: relative;
+    color: $clr_second;
+    transition: all 0.3s;
+
+    &:hover {
+        @extend %btnHover;
+    }
 }
 
 %storyColor {

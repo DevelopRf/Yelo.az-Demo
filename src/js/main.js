@@ -187,9 +187,24 @@ if (slider) {
         const month = document.querySelector('.calcItems .item:nth-of-type(2) .number')
         const percent = document.querySelector('.calcItems .item:last-of-type .number')
 
+
+        function handleRangeInput(rangeInput) {
+            rangeInput.style.setProperty("--val", rangeInput.value);
+        }
+
         for (const item of calcItems) {
             const range = item.querySelector('.range')
             const number = item.querySelector('.number')
+
+
+
+            /*   function handleNumberInput(numberInput) {
+                  numberInput.nextElementSibling.nextElementSibling.style.setProperty("--val", numberInput.value);
+              } */
+
+            range.addEventListener("input", () => handleRangeInput(range));
+
+            number.addEventListener("input", () => handleRangeInput(range));
 
             range.value = number.value
             result.innerHTML = ((amount.value / 2 + percent.value / 2 + month.value / 2) * 100).toFixed(2)
@@ -383,90 +398,104 @@ function convertDateFormat(dateString) {
 function showNews() {
     const news = document.querySelector('.news .cards')
     const allNews = document.querySelector('.allNews .cards')
+    let arrLength = 0
+    let indexArr = 0
     currency.data()
         .then(data => {
             for (let index = 0; index < 3; index++) {
                 const acceptDate = new Date(data[index].date)
                 const showDate = convertDateFormat(acceptDate)
-                resultData += `
-                <div class="card">
-                    
-                        <div class="innerCard">
-                            <div class="content">
-                                <p>${data[index].title}</p>
-                            </div>
-                            <div class="bottomInfo">
-                                <div class="btn">
-                                    <a href="#" class="btnMore">Daha
-                                        ətraflı
-                                        <svg width="29px" height="13px" viewBox="0 0 29 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns: xlink="http://www.w3.org/1999/xlink">
-                                            <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
-                                            <title>Group 3</title>
-                                            <desc>Created with Sketch.</desc>
-                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                <g id="home(dark)" transform="translate(-1211.000000, -1529.000000)" fill="#0091FE">
-                                                    <g id="Group-3" transform="translate(1225.500000, 1535.500000) scale(-1, 1) translate(-1225.500000, -1535.500000) translate(1211.000000, 1528.000000)">
-                                                        <rect id="Rectangle" x="2.12121212" y="6.61363636" width="26.5757576" height="1.77272727"></rect>
-                                                        <polygon id="Rectangle" transform="translate(3.947429, 4.848025) rotate(-45.000000) translate(-3.947429, -4.848025) " points="-0.608762814 4.04229183 8.48089403 3.93956052 8.5036213 5.73501506 1.10543544 5.75649009"></polygon>
-                                                        <polygon id="Rectangle" transform="translate(3.947429, 10.151975) scale(1, -1) rotate(-45.000000) translate(-3.947429, -10.151975) " points="-0.608762814 9.34624123 8.48089403 9.24350991 8.5036213 11.0389645 1.10543544 11.0604395"></polygon>
+                resultData +=
+                    `<div class="card">
+                            <div class="innerCard">
+                                <div class="content">
+                                    <p>${data[index].title}</p>
+                                </div>
+                                <div class="bottomInfo">
+                                    <div class="btn">
+                                        <a href="#" class="btnMore">Daha
+                                            ətraflı
+                                            <svg width="29px" height="13px" viewBox="0 0 29 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns: xlink="http://www.w3.org/1999/xlink">
+                                                <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+                                                <title>Group 3</title>
+                                                <desc>Created with Sketch.</desc>
+                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g id="home(dark)" transform="translate(-1211.000000, -1529.000000)" fill="#0091FE">
+                                                        <g id="Group-3" transform="translate(1225.500000, 1535.500000) scale(-1, 1) translate(-1225.500000, -1535.500000) translate(1211.000000, 1528.000000)">
+                                                            <rect id="Rectangle" x="2.12121212" y="6.61363636" width="26.5757576" height="1.77272727"></rect>
+                                                            <polygon id="Rectangle" transform="translate(3.947429, 4.848025) rotate(-45.000000) translate(-3.947429, -4.848025) " points="-0.608762814 4.04229183 8.48089403 3.93956052 8.5036213 5.73501506 1.10543544 5.75649009"></polygon>
+                                                            <polygon id="Rectangle" transform="translate(3.947429, 10.151975) scale(1, -1) rotate(-45.000000) translate(-3.947429, -10.151975) " points="-0.608762814 9.34624123 8.48089403 9.24350991 8.5036213 11.0389645 1.10543544 11.0604395"></polygon>
+                                                        </g>
                                                     </g>
                                                 </g>
-                                            </g>
-                                        </svg>
-                                    </a>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <time>
+                                        ${showDate}
+                                    </time>
                                 </div>
-                                <time>
-                                    ${showDate}
-                                </time>
                             </div>
-                        </div>                    
-                </div>`
+                    </div>`
             }
             news && (news.innerHTML = resultData)
+
         })
 
     currency.data()
         .then(data => {
             resultData = ""
-            data = data.reverse()
-            data.forEach(element => {
-                const acceptDate = new Date(element.date)
-                const showDate = convertDateFormat(acceptDate)
-                resultData += `
-                <div class="card">
-                    
-                        <div class="innerCard">
-                            <div class="content">
-                                <p>${element.title}</p>
-                            </div>
-                            <div class="bottomInfo">
-                                <div class="btn">
-                                    <a href="#" class="btnMore">Daha
-                                        ətraflı
-                                        <svg width="29px" height="13px" viewBox="0 0 29 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns: xlink="http://www.w3.org/1999/xlink">
-                                            <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
-                                            <title>Group 3</title>
-                                            <desc>Created with Sketch.</desc>
-                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                <g id="home(dark)" transform="translate(-1211.000000, -1529.000000)" fill="#0091FE">
-                                                    <g id="Group-3" transform="translate(1225.500000, 1535.500000) scale(-1, 1) translate(-1225.500000, -1535.500000) translate(1211.000000, 1528.000000)">
-                                                        <rect id="Rectangle" x="2.12121212" y="6.61363636" width="26.5757576" height="1.77272727"></rect>
-                                                        <polygon id="Rectangle" transform="translate(3.947429, 4.848025) rotate(-45.000000) translate(-3.947429, -4.848025) " points="-0.608762814 4.04229183 8.48089403 3.93956052 8.5036213 5.73501506 1.10543544 5.75649009"></polygon>
-                                                        <polygon id="Rectangle" transform="translate(3.947429, 10.151975) scale(1, -1) rotate(-45.000000) translate(-3.947429, -10.151975) " points="-0.608762814 9.34624123 8.48089403 9.24350991 8.5036213 11.0389645 1.10543544 11.0604395"></polygon>
+            /*  data = data.reverse() */
+            btnMoreNews.addEventListener("click", () => {
+
+                if (arrLength < data.length) {
+                    indexArr += 15
+                    for (let index = arrLength; index < indexArr; index++) {
+                        const acceptDate = new Date(data[index].date)
+                        const showDate = convertDateFormat(acceptDate)
+
+                        resultData +=
+                            `<div class="card">
+                            <div class="innerCard">
+                                <div class="content">
+                                    <p>${data[index].title}</p>
+                                </div>
+                                <div class="bottomInfo">
+                                    <div class="btn">
+                                        <a href="#" class="btnMore">Daha
+                                            ətraflı
+                                            <svg width="29px" height="13px" viewBox="0 0 29 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns: xlink="http://www.w3.org/1999/xlink">
+                                                <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+                                                <title>Group 3</title>
+                                                <desc>Created with Sketch.</desc>
+                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g id="home(dark)" transform="translate(-1211.000000, -1529.000000)" fill="#0091FE">
+                                                        <g id="Group-3" transform="translate(1225.500000, 1535.500000) scale(-1, 1) translate(-1225.500000, -1535.500000) translate(1211.000000, 1528.000000)">
+                                                            <rect id="Rectangle" x="2.12121212" y="6.61363636" width="26.5757576" height="1.77272727"></rect>
+                                                            <polygon id="Rectangle" transform="translate(3.947429, 4.848025) rotate(-45.000000) translate(-3.947429, -4.848025) " points="-0.608762814 4.04229183 8.48089403 3.93956052 8.5036213 5.73501506 1.10543544 5.75649009"></polygon>
+                                                            <polygon id="Rectangle" transform="translate(3.947429, 10.151975) scale(1, -1) rotate(-45.000000) translate(-3.947429, -10.151975) " points="-0.608762814 9.34624123 8.48089403 9.24350991 8.5036213 11.0389645 1.10543544 11.0604395"></polygon>
+                                                        </g>
                                                     </g>
                                                 </g>
-                                            </g>
-                                        </svg>
-                                    </a>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <time>
+                                        ${showDate}
+                                    </time>
                                 </div>
-                                <time>
-                                    ${showDate}
-                                </time>
                             </div>
-                        </div>                    
-                </div>`
-            });
-            allNews && (allNews.innerHTML = resultData)
+                    </div>`
+                    }
+                    allNews && (allNews.innerHTML = resultData)
+                    arrLength += 15
+                }
+                else {
+                    btnMoreNews.style.display = "none"
+                    indexArr = 0
+
+                }
+            })
         })
     const btnBox = document.querySelector('.header .btnBox')
     allNews && window.addEventListener('load', () => {
@@ -475,7 +504,8 @@ function showNews() {
 }
 showNews()
 
-
+const btnMoreNews = document.querySelector('.btnMoreNews')
+const btnAllNews = document.querySelector('.btnAllNews')
 
 const addNews = document.querySelector('.headerNews .addNews')
 const btnSubmit = document.querySelector('.formContent')

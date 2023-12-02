@@ -175,7 +175,7 @@
         padding: 10px 0;
         background-color: #fff;
         transition: all 0.3s;
-
+        
         @media (min-width:1024px) {
             padding: 18px 0;
             
@@ -183,10 +183,9 @@
                 background-color: transparent;
             }
         }
-
-
+        
+        
         .wrapper {
-
             @include Grid($t-c: repeat(2, max-content), $j-c: space-between);
 
             @media (min-width: 1024px) {

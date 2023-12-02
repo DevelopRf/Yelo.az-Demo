@@ -40,11 +40,11 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   color: #fff;
 }
 
-.news .btnBox .btnAllNews:hover, .useful .cards .card:last-of-type .btn .allExchange:hover {
+.useful .cards .card:last-of-type .btn .allExchange:hover, .allNews .btnBox .btnMoreNews:hover, .news .btnBox .btnAllNews:hover {
   color: #fff;
   background-color: #0091FE;
 }
-.news .btnBox .btnAllNews:hover svg g, .useful .cards .card:last-of-type .btn .allExchange:hover svg g {
+.useful .cards .card:last-of-type .btn .allExchange:hover svg g, .allNews .btnBox .btnMoreNews:hover svg g, .news .btnBox .btnAllNews:hover svg g {
   fill: #fff;
 }
 
@@ -65,14 +65,15 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
 }
 .allNews .cards .card .innerCard, .news .cards .card .innerCard {
   padding: 20px;
-  display: grid;
-  row-gap: 85px;
 }
 @media (min-width: 1024px) {
   .allNews .cards .card .innerCard, .news .cards .card .innerCard {
     padding: 30px 30px 20px;
     row-gap: 30px;
   }
+}
+.allNews .cards .card .innerCard .content, .news .cards .card .innerCard .content {
+  padding: 0 0 30px;
 }
 .allNews .cards .card .innerCard .content p, .news .cards .card .innerCard .content p {
   font-family: fB;
@@ -88,17 +89,19 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
 .allNews .cards .card .innerCard .bottomInfo, .news .cards .card .innerCard .bottomInfo {
   display: grid;
   justify-content: space-between;
+  align-items: center;
   grid-template-columns: repeat(2, max-content);
 }
 .allNews .cards .card .innerCard .bottomInfo .btn .btnMore, .news .cards .card .innerCard .bottomInfo .btn .btnMore {
+  position: relative;
+  display: inline-block;
   font-family: fB;
   color: #0091FE;
   padding: 5px 38px 5px 0;
-  position: relative;
 }
 .allNews .cards .card .innerCard .bottomInfo .btn .btnMore svg, .news .cards .card .innerCard .bottomInfo .btn .btnMore svg {
   position: absolute;
-  top: 40%;
+  top: 50%;
   right: 0;
   transform: translateY(-50%);
 }
@@ -106,7 +109,7 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   color: rgba(0, 0, 0, 0.5019607843);
 }
 
-.news .btnBox .btnAllNews svg, .useful .cards .card:last-of-type .btn .allExchange svg {
+.allNews .btnBox .btnMoreNews svg, .news .btnBox .btnAllNews svg, .useful .cards .card:last-of-type .btn .allExchange svg {
   position: absolute;
   transform: translateY(-50%);
 }
@@ -128,6 +131,17 @@ body .modal .wrapper .next, body .modal .wrapper .prev, body .modal .wrapper .cl
   cursor: pointer;
 }
 
+.allNews .btnBox .btnMoreNews, .news .btnBox .btnAllNews {
+  display: inline-block;
+  padding: 2px 54px 0 20px;
+  font-family: fB;
+  line-height: 48px;
+  border-radius: 6px;
+  border: 1px solid #0091FE;
+  position: relative;
+  color: #0091FE;
+  transition: all 0.3s;
+}
 .stories .cards .card:first-of-type, body .modal .wrapper .storyChange .changeItem:first-of-type, body .modal .wrapper .storySliders .sliderItem:first-of-type {
   background-color: #81BD5B;
 }
@@ -1202,6 +1216,118 @@ h5 {
   visibility: visible;
 }
 
+footer {
+  margin: 50px 0 0;
+}
+footer .navbar .wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  border-top: 1px solid #ececec;
+  padding: 32px 0;
+}
+@media (min-width: 1024px) {
+  footer .navbar .wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+footer .navbar .wrapper .navSection li {
+  padding: 0 0 8px;
+  line-height: 1.4;
+}
+footer .navbar .wrapper .navSection li:first-child {
+  padding: 0 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+footer .navbar .wrapper .navSection li:first-child a {
+  color: #000;
+}
+@media (min-width: 1024px) {
+  footer .navbar .wrapper .navSection li:first-child a {
+    font-size: 27px;
+  }
+}
+footer .navbar .wrapper .navSection li a {
+  color: rgba(0, 0, 0, 0.5019607843);
+}
+footer .navbar .wrapper .navSection li a:hover {
+  text-decoration: underline;
+  color: rgba(0, 0, 0, 0.7490196078);
+}
+footer .contactUs .wrapper {
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: repeat(2, max-content);
+  padding: 15px 0;
+  border-bottom: 1px solid #ececec;
+}
+footer .contactUs .wrapper .social ul {
+  display: grid;
+  grid-template-columns: repeat(5, 40px);
+  -moz-column-gap: 11px;
+       column-gap: 11px;
+  padding: 5px 0;
+}
+footer .contactUs .wrapper .social ul li a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: #f3f1f7;
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.3s;
+  vertical-align: middle;
+}
+footer .contactUs .wrapper .social ul li a:hover {
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.35);
+}
+footer .contactUs .wrapper .social ul li a svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+footer .contactUs .wrapper .contact ul {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  -moz-column-gap: 100px;
+       column-gap: 100px;
+}
+footer .contactUs .wrapper .contact ul li {
+  color: rgba(0, 0, 0, 0.5019607843);
+}
+footer .contactUs .wrapper .contact ul li a {
+  font-family: fM;
+  color: #000;
+}
+footer .footBottom .wrapper {
+  padding: 30px 0 40px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(6, auto);
+  row-gap: 10px;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  color: rgba(0, 0, 0, 0.5019607843);
+}
+footer .footBottom .wrapper a {
+  color: rgba(0, 0, 0, 0.5019607843);
+  text-decoration: underline;
+}
+footer .footBottom .wrapper a:nth-of-type(1) {
+  width: 144px;
+  height: 36px;
+  grid-area: 1/1/span 1/span 6;
+  justify-self: center;
+  margin: 0 0 10px;
+}
+footer .footBottom .wrapper .siteBy {
+  grid-area: 3/1/span 1/span 6;
+  justify-self: center;
+}
+
 .slider {
   margin: 111px 0 50px;
 }
@@ -1690,15 +1816,58 @@ h5 {
           appearance: none;
   background-color: rgba(0, 0, 0, 0.1019607843);
   cursor: pointer;
+  --range: calc(var(--max) - var(--min));
+  --ratio: calc((var(--val) - var(--min)) / var(--range));
+  --sx: calc(0.5 * 1.5em + var(--ratio) * (100% - 1.5em));
+}
+.creditCard .cards .card:last-of-type .calcItems .item .range::-moz-range-thumb {
+  -moz-appearance: none;
+       appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #ffffff;
+  border: 3px solid #ffc628;
+}
+.creditCard .cards .card:last-of-type .calcItems .item .range::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: linear-gradient(#ffc628, #ffc628) 0/var(--sx) 100% no-repeat;
 }
 .creditCard .cards .card:last-of-type .calcItems .item .range::-webkit-slider-thumb {
+  height: 20px;
+  width: 20px;
   -webkit-appearance: none;
           appearance: none;
-  width: 24px;
-  height: 24px;
   border-radius: 50%;
-  background-color: #fff;
+  background: #ffffff;
+  cursor: pointer;
+  background: #ffffff;
   border: 5px solid #ffc628;
+  margin: -10px 0 0 0;
+  box-sizing: border-box;
+}
+.creditCard .cards .card:last-of-type .calcItems .item .range::-moz-range-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+}
+.creditCard .cards .card:last-of-type .calcItems .item .range::-ms-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+}
+.creditCard .cards .card:last-of-type .calcItems .item .range::-ms-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  appearance: none;
+  background: #ffffff;
+  cursor: pointer;
+  background: #ffffff;
+  border: 3px solid #ffc628;
 }
 .creditCard .cards .card:last-of-type .resultBox {
   display: grid;
@@ -1981,28 +2150,25 @@ h5 {
   border-radius: 0 0 10px 10px;
   border-top: 1px solid #ececec;
   position: relative;
+  transition: all 0.3s;
 }
 .useful .cards .card:last-of-type .btn .allExchange svg {
   right: 30px;
   top: 50%;
 }
-.news .btnBox {
-  padding: 25px 0 0;
-  text-align: center;
+.useful .cards .card:last-of-type .btn .allExchange svg g {
+  transition: all 0.15s;
 }
-.news .btnBox .btnAllNews {
-  display: inline-block;
-  padding: 2px 54px 0 20px;
-  font-family: fB;
-  line-height: 48px;
-  border-radius: 6px;
-  border: 1px solid #0091FE;
-  position: relative;
-  color: #0091FE;
+.news .btnBox {
+  text-align: center;
+  padding: 25px 0 0;
 }
 .news .btnBox .btnAllNews svg {
   right: 15px;
   top: 48%;
+}
+.news .btnBox .btnAllNews svg g {
+  transition: all 0.15s;
 }
 
 .allNews {
@@ -2047,4 +2213,15 @@ h5 {
 .allNews .headerNews .addNews:hover {
   background-color: #0091FE;
   color: #fff;
+}
+.allNews .btnBox {
+  text-align: center;
+  padding: 55px 0 0;
+}
+.allNews .btnBox .btnMoreNews svg {
+  right: 15px;
+  top: 48%;
+}
+.allNews .btnBox .btnMoreNews svg g {
+  transition: all 0.15s;
 }/*# sourceMappingURL=style.css.map */

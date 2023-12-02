@@ -42,4 +42,22 @@
             }
         }
     }
+
+    .btnBox {
+        text-align: center;
+        padding: 55px 0 0;
+        .btnMoreNews {
+            @extend %btnNews;
+
+            svg {
+                @extend %svgAbsolute;
+                right: 15px;
+                top: 48%;
+
+                g {
+                    transition: all 0.15s;
+                }
+            }
+        }
+    }
 }
