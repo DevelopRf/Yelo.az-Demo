@@ -25,6 +25,10 @@ footer {
                             }
 
                             color: #000;
+
+                            &:hover {
+                                color: $clr_primary;
+                            }
                         }
                     }
 
@@ -46,11 +50,17 @@ footer {
 
     .contactUs {
         .wrapper {
-            @include Grid($t-c: repeat(2, max-content), $j-c: space-between);
+            @include Grid($t-c: 1fr, $j-c: space-between, $r-g: 20px);
+
+            @media (min-width:1024px) {
+                grid-template-columns: repeat(2, max-content);
+            }
+
             padding: 15px 0;
             border-bottom: 1px solid $clr_border;
 
             .social {
+                justify-self: center;
 
                 ul {
                     @include Grid($t-c: repeat(5, 40px), $c-g: 11px);
@@ -84,7 +94,7 @@ footer {
 
             .contact {
                 ul {
-                    @include Grid($t-c: repeat(3, max-content), $c-g: 100px);
+                    @include Grid($t-c: repeat(3, auto), $c-g: 100px, $r-g:15px, $j-c:center);
 
                     li {
                         color: $clr_grey_text;
@@ -92,6 +102,11 @@ footer {
                         a {
                             font-family: fM;
                             color: #000;
+
+                            &:hover {
+                                color: $clr_primary;
+                            }
+
                         }
                     }
                 }
@@ -103,13 +118,24 @@ footer {
 
         .wrapper {
             padding: 30px 0 40px;
-            @include Grid($t-c: repeat(6, auto), $r-g: 10px, $c-g: 20px, $j-c: center);
+
             color: $clr_grey_text;
 
+            ul {
+                text-align: center;
+
+                li {
+                    display: inline-block;
+                    margin: 0 10px;
+                }
+            }
 
             a {
                 color: $clr_grey_text;
-                text-decoration: underline;
+
+                &:hover {
+                    color: $clr_primary;
+                }
 
                 &:nth-of-type(1) {
                     width: 144px;
@@ -118,11 +144,22 @@ footer {
                     justify-self: center;
                     margin: 0 0 10px;
                 }
+
             }
 
             .siteBy {
-                grid-area: 3 / 1 / span 1 / span 6;
-                justify-self: center;
+                text-align: center;
+                margin: 10px 0 0;
+
+                a {
+                    display: inline-block;
+                    width: auto;
+                    height: auto;
+                    padding: 0 0 0 22px;
+                    margin: 0 0 0 9px;
+                    background: no-repeat left 3px;
+                    background-size: 16px;
+                }
             }
         }
     }

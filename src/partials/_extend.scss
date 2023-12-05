@@ -59,11 +59,46 @@
             gap: 30px;
         }
 
-
         .card {
             border-radius: 10px;
             border: 1px solid $clr_border;
+            position: relative;
 
+            .tool {
+                width: 24px;
+                height: 24px;
+                overflow: hidden;
+                position: absolute;
+                border-radius: 50%;
+                top: 5px;
+                right: 5px;
+                background-color: transparent;
+                transition: all 0.3s;
+
+                li {
+                    svg {
+                        cursor: pointer;
+                        fill: #9c9c9c;
+                        transition: all 0.3s;
+                    }
+
+                    &:nth-child(2):hover {
+                        svg {
+                            fill: $clr_primary;
+                        }
+                    }
+
+                    &:nth-child(3):hover {
+                        svg {
+                            fill: #ff0000;
+                        }
+                    }
+                }
+
+                &.active {
+                    height: 100px;
+                }
+            }
 
             color: #000;
 

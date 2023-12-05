@@ -100,7 +100,7 @@ body {
 
                 .text {
                     p {
-                        @include Font ($f-s: 20px, $l-h: 1.33)
+                        @include Font ($f-s: 20px, $l-h: 1.33);
                     }
                 }
             }
@@ -131,12 +131,14 @@ body {
                         a {
                             white-space: nowrap;
                             padding: 0 16px;
+                            color: #000;
                         }
                     }
 
                     .iconContent {
                         padding: 6px 0 6px 34px;
                         background-size: 24px;
+
                     }
                 }
             }
@@ -416,6 +418,17 @@ body {
             padding: 20px;
             margin: auto;
             background-color: #fff;
+            border-radius: 10px;
+            position: fixed;
+            width: 60%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            h3 {
+                font-size: 30px;
+                padding: 0 0 10px;
+            }
 
             textarea {
                 display: block;
@@ -424,23 +437,36 @@ body {
                 border: 2px solid $clr_primary;
                 outline: none;
                 padding: 15px;
+                border-radius: 6px;
+                resize: none;
+
+                &.error {
+                    border-color: #ff0000;
+                }
             }
 
             .btn {
-                text-align: right;
+                @include Grid($t-c: repeat(2, auto));
                 margin: 10px 0 0;
+
+                p {
+                    font-size: 18px;
+                    justify-self: end;
+                    color: #ff0000;
+                }
 
                 .btnSubmit {
                     border: 1px solid $clr_second;
                     background-color: $clr_second;
                     padding: 10px 30px;
-                    border-radius: 20px;
+                    width: 120px;
+                    border-radius: 18px;
                     color: #fff;
                     cursor: pointer;
+                    justify-self: end;
                 }
             }
         }
-
     }
 
     &.active {

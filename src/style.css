@@ -61,7 +61,33 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
 .allNews .cards .card, .news .cards .card {
   border-radius: 10px;
   border: 1px solid #ececec;
+  position: relative;
   color: #000;
+}
+.allNews .cards .card .tool, .news .cards .card .tool {
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  position: absolute;
+  border-radius: 50%;
+  top: 5px;
+  right: 5px;
+  background-color: transparent;
+  transition: all 0.3s;
+}
+.allNews .cards .card .tool li svg, .news .cards .card .tool li svg {
+  cursor: pointer;
+  fill: #9c9c9c;
+  transition: all 0.3s;
+}
+.allNews .cards .card .tool li:nth-child(2):hover svg, .news .cards .card .tool li:nth-child(2):hover svg {
+  fill: #ffc628;
+}
+.allNews .cards .card .tool li:nth-child(3):hover svg, .news .cards .card .tool li:nth-child(3):hover svg {
+  fill: #ff0000;
+}
+.allNews .cards .card .tool.active, .news .cards .card .tool.active {
+  height: 100px;
 }
 .allNews .cards .card .innerCard, .news .cards .card .innerCard {
   padding: 20px;
@@ -371,6 +397,7 @@ body .mobAppDesk .wrapper .appLink .linkContent li:not(:first-of-type)::before {
 body .mobAppDesk .wrapper .appLink .linkContent li a {
   white-space: nowrap;
   padding: 0 16px;
+  color: #000;
 }
 body .mobAppDesk .wrapper .appLink .linkContent .iconContent {
   padding: 6px 0 6px 34px;
@@ -624,6 +651,16 @@ body .modal .formContent {
   padding: 20px;
   margin: auto;
   background-color: #fff;
+  border-radius: 10px;
+  position: fixed;
+  width: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+body .modal .formContent h3 {
+  font-size: 30px;
+  padding: 0 0 10px;
 }
 body .modal .formContent textarea {
   display: block;
@@ -632,18 +669,31 @@ body .modal .formContent textarea {
   border: 2px solid #ffc628;
   outline: none;
   padding: 15px;
+  border-radius: 6px;
+  resize: none;
+}
+body .modal .formContent textarea.error {
+  border-color: #ff0000;
 }
 body .modal .formContent .btn {
-  text-align: right;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
   margin: 10px 0 0;
+}
+body .modal .formContent .btn p {
+  font-size: 18px;
+  justify-self: end;
+  color: #ff0000;
 }
 body .modal .formContent .btn .btnSubmit {
   border: 1px solid #0091FE;
   background-color: #0091FE;
   padding: 10px 30px;
-  border-radius: 20px;
+  width: 120px;
+  border-radius: 18px;
   color: #fff;
   cursor: pointer;
+  justify-self: end;
 }
 body.active {
   overflow: hidden;
@@ -740,12 +790,12 @@ h5 {
 .header .headerTop {
   border-bottom: 1px solid #ececec;
   background-color: #fff;
-  overflow-y: hidden;
   height: 45px;
   transition: all 0.3s;
 }
 .header .headerTop.active {
   height: 0;
+  overflow-y: hidden;
 }
 .header .headerTop .wrapper {
   display: grid;
@@ -853,6 +903,9 @@ h5 {
 .header .headerTop .wrapper .navbarRight .menu li:nth-of-type(4), .header .headerTop .wrapper .navbarRight .menu li:last-of-type {
   margin: 0 0 0 10px;
 }
+.header .headerTop .wrapper .navbarRight .menu li:last-of-type {
+  position: relative;
+}
 .header .headerTop .wrapper .navbarRight .menu li:last-of-type a {
   background-position: right;
   padding: 5px 15px 0 0;
@@ -862,6 +915,24 @@ h5 {
   .header .headerTop .wrapper .navbarRight .menu li:last-of-type a {
     vertical-align: baseline;
   }
+}
+.header .headerTop .wrapper .navbarRight .menu li:last-of-type .languages {
+  padding: 8px 0;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.17);
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 999;
+}
+.header .headerTop .wrapper .navbarRight .menu li:last-of-type .languages li {
+  margin: 0;
+  padding: 0 20px;
+}
+.header .headerTop .wrapper .navbarRight .menu li:last-of-type .languages li a {
+  display: block;
+  padding: 0;
 }
 .header .headerTop .wrapper .navbarRight .menu li a {
   background-repeat: no-repeat;
@@ -1249,6 +1320,9 @@ footer .navbar .wrapper .navSection li:first-child a {
     font-size: 27px;
   }
 }
+footer .navbar .wrapper .navSection li:first-child a:hover {
+  color: #ffc628;
+}
 footer .navbar .wrapper .navSection li a {
   color: rgba(0, 0, 0, 0.5019607843);
 }
@@ -1259,9 +1333,18 @@ footer .navbar .wrapper .navSection li a:hover {
 footer .contactUs .wrapper {
   display: grid;
   justify-content: space-between;
-  grid-template-columns: repeat(2, max-content);
+  grid-template-columns: 1fr;
+  row-gap: 20px;
   padding: 15px 0;
   border-bottom: 1px solid #ececec;
+}
+@media (min-width: 1024px) {
+  footer .contactUs .wrapper {
+    grid-template-columns: repeat(2, max-content);
+  }
+}
+footer .contactUs .wrapper .social {
+  justify-self: center;
 }
 footer .contactUs .wrapper .social ul {
   display: grid;
@@ -1291,7 +1374,9 @@ footer .contactUs .wrapper .social ul li a svg {
 }
 footer .contactUs .wrapper .contact ul {
   display: grid;
-  grid-template-columns: repeat(3, max-content);
+  justify-content: center;
+  grid-template-columns: repeat(3, auto);
+  row-gap: 15px;
   -moz-column-gap: 100px;
        column-gap: 100px;
 }
@@ -1302,19 +1387,25 @@ footer .contactUs .wrapper .contact ul li a {
   font-family: fM;
   color: #000;
 }
+footer .contactUs .wrapper .contact ul li a:hover {
+  color: #ffc628;
+}
 footer .footBottom .wrapper {
   padding: 30px 0 40px;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(6, auto);
-  row-gap: 10px;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
   color: rgba(0, 0, 0, 0.5019607843);
+}
+footer .footBottom .wrapper ul {
+  text-align: center;
+}
+footer .footBottom .wrapper ul li {
+  display: inline-block;
+  margin: 0 10px;
 }
 footer .footBottom .wrapper a {
   color: rgba(0, 0, 0, 0.5019607843);
-  text-decoration: underline;
+}
+footer .footBottom .wrapper a:hover {
+  color: #ffc628;
 }
 footer .footBottom .wrapper a:nth-of-type(1) {
   width: 144px;
@@ -1324,8 +1415,17 @@ footer .footBottom .wrapper a:nth-of-type(1) {
   margin: 0 0 10px;
 }
 footer .footBottom .wrapper .siteBy {
-  grid-area: 3/1/span 1/span 6;
-  justify-self: center;
+  text-align: center;
+  margin: 10px 0 0;
+}
+footer .footBottom .wrapper .siteBy a {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  padding: 0 0 0 22px;
+  margin: 0 0 0 9px;
+  background: no-repeat left 3px;
+  background-size: 16px;
 }
 
 .slider {

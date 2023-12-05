@@ -1,0 +1,22 @@
+const textArea = document.querySelector('#newsContent')
+
+let data = {
+    title: textArea.value,
+    date: d.toISOString()
+}
+
+const btnSubmit = document.querySelector('.formContent')
+
+btnSubmit.addEventListener("submit", (e) => {
+    setTimeout(() => {
+        fetch(`http://localhost:3000/news/${newsId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+    }, 1500);
+})
+
+Kod niyə işləmir?

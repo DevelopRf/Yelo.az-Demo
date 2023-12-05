@@ -8,6 +8,7 @@
     <script defer src="../src/js/currency.js"></script>
     <script defer src="../src/js/main.js"></script>
     <link rel="stylesheet" href="../src/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -80,17 +81,16 @@
 
     <div class="modal">
         <form class="formContent">
-            <div class="wrapper">
-                <label for="newsContent">Məzmun</label>
-                <textarea name="title" id="newsContent" cols="30" rows="10"></textarea>
-                <div class="btn">
-                    <button type="submit" class="btnSubmit">Ok</button>
-                </div>
+            <h3>Xəbər əlavə et</h3>
+            <textarea name="title" id="newsContent" cols="30" rows="10" placeholder="Məzmun"></textarea>
+            <div class="btn">
+                <p></p>
+                <button type="submit" class="btnSubmit">Ok</button>
             </div>
             <div class="close" style="background-image: url('./img/logo/white_close.svg');"></div>
         </form>
-    </div>
 
+    </div>
     <header class="header">
         <div class="headerTop">
             <div class="container">
@@ -539,15 +539,19 @@
         <section class="footBottom">
             <div class="container">
                 <div class="wrapper">
-                    <a href="index.html" style="background-image: url('./img/logo/logo.svg');"></a>
+                    <div class="footerLogo">
+                        <a href="index.html" style="background-image: url('./img/logo/logo.svg');"></a>
+                    </div>
 
-                    <p>&copy; 2023 Yelo Bank | AR MB tərəfindən 25 fevral 1994-cü il tarixində verilmiş 203
-                        saylı lisenziya</p>
-                    <a href="#">E-portal</a>
-                    <a href="#">ADİF</a>
-                    <a href="#">infobank.az</a>
-                    <a href="#">Qarabağ Dirçəliş Fondu</a>
-                    <a href="#">YAŞAT Fondu</a>
+                    <ul>
+                        <li>&copy; 2023 Yelo Bank | AR MB tərəfindən 25 fevral 1994-cü il tarixində verilmiş 203
+                            saylı lisenziya</li>
+                        <li><a href="#">E-portal</a></li>
+                        <li><a href="#"><a href="#">ADİF</a></li>
+                        <li><a href="#">infobank.az</a></li>
+                        <li><a href="#">Qarabağ Dirçəliş Fondu</a></li>
+                        <li><a href="#">YAŞAT Fondu</a></li>
+                    </ul>
                     <div class="siteBy">
                         <span>Site by</span>
                         <a href="#">Jeykhun Imanov Studio</a>

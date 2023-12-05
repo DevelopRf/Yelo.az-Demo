@@ -14,12 +14,13 @@
     .headerTop {
         border-bottom: 1px solid #ececec;
         background-color: #fff;
-        overflow-y: hidden;
+        
         height: 45px;
         transition: all 0.3s;
 
         &.active {
             height: 0;
+            overflow-y: hidden;
         }
 
         .wrapper {
@@ -150,12 +151,31 @@
                         }
 
                         &:last-of-type {
+                            position: relative;
                             a {
                                 background-position: right;
                                 padding: 5px 15px 0 0;
                                 vertical-align: bottom;
                                 @media (min-width:1024px) {
                                     vertical-align: baseline;
+                                }
+                            }
+                            .languages{
+                                padding: 8px 0;
+                                border-radius: 5px;
+                                background-color: #fff;
+                                box-shadow: 0 2px 14px 0 rgba(0,0,0,0.17);
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                z-index: 999;
+                                li{
+                                    margin: 0;
+                                    padding: 0 20px;
+                                    a{
+                                        display: block;
+                                        padding: 0;
+                                    }
                                 }
                             }
                         }
