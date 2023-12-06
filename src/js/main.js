@@ -452,18 +452,18 @@ function showNews() {
 
 news && showNews()
 const allNews = document.querySelector('.allNews .cards')
+const btnMoreNews = document.querySelector('.btnMoreNews')
 let arrLength = 0
 let indexArr = 0
 
 function getAllNews(callback) {
     currency.data()
         .then(data => {
-            /*  data = data.reverse() */
-
             if (arrLength < data.length) {
                 indexArr += 15
                 if (indexArr > data.length) {
                     indexArr = indexArr - 15 + data.length % 15
+                    btnMoreNews.style.display = "none"
                 }
                 for (let index = arrLength; index < indexArr; index++) {
                     const acceptDate = new Date(data[index].date)
@@ -517,7 +517,6 @@ function getAllNews(callback) {
                 arrLength += 15
             }
             else {
-                btnMoreNews.style.display = "none"
                 indexArr = 0
             }
             callback()
@@ -526,13 +525,10 @@ function getAllNews(callback) {
 
 allNews && getAllNews(getCard)
 
-/* const btnBox = document.querySelector('.header .btnBox')
+const btnBox = document.querySelector('.header .btnBox')
 allNews && window.addEventListener('load', () => {
     btnBox.style.gap = 0
-}) */
-
-const btnMoreNews = document.querySelector('.btnMoreNews')
-const btnAllNews = document.querySelector('.btnAllNews')
+})
 
 btnMoreNews && btnMoreNews.addEventListener("click", () => {
     getAllNews(getCard)
@@ -545,6 +541,7 @@ let text
 
 const btnSubmit = document.querySelector('.formContent')
 const textArea = document.querySelector('#newsContent')
+const loader = document.querySelector('.loader')
 
 function getCard() {
 
@@ -569,7 +566,7 @@ function getCard() {
     })
     const showModal = () => modal.classList.add('activeModal')
     const addNewsB = document.querySelector('.headerNews .addNews')
-    addNewsB && addNewsB.addEventListener("click", () => {        
+    addNewsB && addNewsB.addEventListener("click", () => {
         showModal()
         textArea.innerHTML = ""
     })
@@ -600,7 +597,7 @@ function getCard() {
             deleteDb = true
             newsId = del.dataset.id
             if (deleteQuestion) {
-              /*   loader.classList.add("active") */
+                loader.classList.add("active")
                 setTimeout(() => {
                     fetch(`http://localhost:3000/news/${newsId}`,
                         {
@@ -609,7 +606,7 @@ function getCard() {
                                 "Content-Type": "application/json"
                             }
                         })
-                 /*    loader.classList.remove("active") */
+                    loader.classList.remove("active")
                 }, 1500);
             }
             else {
@@ -620,9 +617,7 @@ function getCard() {
 }
 
 
-function submit()
-{
-    const loader = document.querySelector('.loader')
+function submit() {
     btnSubmit.addEventListener("submit", (e) => {
         e.preventDefault();
         const d = new Date()
