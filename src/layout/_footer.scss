@@ -94,7 +94,11 @@ footer {
 
             .contact {
                 ul {
-                    @include Grid($t-c: repeat(3, auto), $c-g: 100px, $r-g:15px, $j-c:center);
+                    @include Grid($t-c: repeat(3, auto), $c-g: 10%, $r-g: 15px, $j-c: center);
+
+                    @media (min-width:1024px) {
+                        column-gap: 100px;
+                    }
 
                     li {
                         color: $clr_grey_text;
@@ -121,6 +125,16 @@ footer {
 
             color: $clr_grey_text;
 
+            .footerLogo {
+                text-align: center;
+                padding: 0 0 10px;
+                a {
+                    display: inline-block;
+                    width: 144px;
+                    height: 36px;
+                }
+            }
+
             ul {
                 text-align: center;
 
@@ -136,15 +150,6 @@ footer {
                 &:hover {
                     color: $clr_primary;
                 }
-
-                &:nth-of-type(1) {
-                    width: 144px;
-                    height: 36px;
-                    grid-area: 1 / 1 / span 1 / span 6;
-                    justify-self: center;
-                    margin: 0 0 10px;
-                }
-
             }
 
             .siteBy {

@@ -17,8 +17,8 @@
         <div class="container">
             <form class="formSearch">
                 <input type="text" name="query" id="query" placeholder="Axtarış">
-                <button type="submit" class="btnSearch" style="background-image: url('./img/logo/search.svg')"></button>
-                <button class="close" style="background-image:url('./img/logo/menu_toggle_close.svg');"></button>
+                <button type="button" class="btnSearch" style="background-image: url('./img/logo/search.svg')"></button>
+                <button type="button" class="close" style="background-image:url('./img/logo/menu_toggle_close.svg');"></button>
             </form>
         </div>
     </div>
@@ -104,13 +104,18 @@
                     </nav>
                     <nav class="navbarRight">
                         <ul class="menu">
-                            <li><a href="index.html">Onlayn növbə</a></li>
-                            <li><a href="index.html" style="background-image: url('./img/logo/location.svg');">ATM və
+                            <li><a href="javascript:void(0)">Onlayn növbə</a></li>
+                            <li><a href="javascript:void(0)" style="background-image: url('./img/logo/location.svg');">ATM və
                                     Filiallar</a></li>
-                            <li><a href="index.html" style="background-image: url('./img/logo/call.svg');"></a></li>
-                            <li><a href="index.html" style="background-image: url('./img/logo/search_header.svg');"></a>
+                            <li><a href="tel: 981" style="background-image: url('./img/logo/call.svg');"><span>981</span></a></li>
+                            <li><a href="javascript:void(0)" style="background-image: url('./img/logo/search_header.svg');"></a>
                             </li>
-                            <li><a href="index.html" style="background-image: url('./img/logo/lang_arrow.svg');">AZ</a>
+                            <li><a href="javascript:void(0)" style="background-image: url('./img/logo/lang_arrow.svg');">AZ</a>
+                                <ul class="languages">
+                                    <li><a href="javascript:void(0)">AZ</a></li>
+                                    <li><a href="javascript:void(0)">EN</a></li>
+                                    <li><a href="javascript:void(0)">RU</a></li>
+                                </ul>
                             </li>
                         </ul>
                     </nav>
@@ -275,12 +280,12 @@
     <main>
         <section class="allNews">
             <div class="container">
+                <span class="loader"></span>
                 <div class="headerNews">
                     <h1>Xəbərlər</h1>
                     <a href="javascript:void(0)" class="addNews">Xəbər əlavə et</a>
                 </div>
                 <div class="cards">
-
                 </div>
                 <div class="btnBox">
                     <a href="javascript: void(0)" class="btnMoreNews">Daha çox
@@ -554,7 +559,7 @@
                     </ul>
                     <div class="siteBy">
                         <span>Site by</span>
-                        <a href="#">Jeykhun Imanov Studio</a>
+                        <a href="#" style="background-image: url('./img/footer/jis.svg');">Jeykhun Imanov Studio</a>
                     </div>
                 </div>
             </div>

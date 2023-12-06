@@ -18,10 +18,17 @@ const close = document.querySelector('.modal .close')
 const searchClose = document.querySelector('.searchBox .close')
 const searchBox = document.querySelector('.searchBox')
 const mediaQuery = window.matchMedia('(min-width: 1024px)')
+const langBtn = document.querySelector('.navbarRight .menu li:last-of-type')
+const lang = document.querySelector('.navbarRight .languages')
+
 let screenSize = false
 
 let scrolling = 0
 let scrollPage = 0
+
+langBtn.addEventListener('click', () => {
+    lang.classList.toggle("active")
+})
 
 function changeScreen(e) {
     (e.matches) && (screenSize = true)
@@ -254,6 +261,7 @@ if (slider) {
 
         currency.exchange(amount, firstOptionValue, secondOptionValue)
             .then((result => {
+
                 inputResult.value = result.toFixed(2)
                 if (amountInput.value == "") {
                     inputResult.value = ""
@@ -518,10 +526,10 @@ function getAllNews(callback) {
 
 allNews && getAllNews(getCard)
 
-const btnBox = document.querySelector('.header .btnBox')
+/* const btnBox = document.querySelector('.header .btnBox')
 allNews && window.addEventListener('load', () => {
     btnBox.style.gap = 0
-})
+}) */
 
 const btnMoreNews = document.querySelector('.btnMoreNews')
 const btnAllNews = document.querySelector('.btnAllNews')
@@ -532,9 +540,11 @@ btnMoreNews && btnMoreNews.addEventListener("click", () => {
 
 let updateDb = false
 let deleteDb = false
-let text = ""
 let newsId
+let text
 
+const btnSubmit = document.querySelector('.formContent')
+const textArea = document.querySelector('#newsContent')
 
 function getCard() {
 
@@ -559,16 +569,11 @@ function getCard() {
     })
     const showModal = () => modal.classList.add('activeModal')
     const addNewsB = document.querySelector('.headerNews .addNews')
-    const btnSubmit = document.querySelector('.formContent')
-    const textArea = document.querySelector('#newsContent')
-
-    addNewsB && addNewsB.addEventListener("click", () => {
-        updateDb = false
+    addNewsB && addNewsB.addEventListener("click", () => {        
         showModal()
         textArea.innerHTML = ""
     })
 
-    let text
     const btnUpdaate = document.querySelectorAll('.tool li:nth-child(2)')
     const btnDelete = document.querySelectorAll(".tool li:nth-child(3)")
     const errorMessage = document.querySelector(".formContent .btn p")
@@ -589,13 +594,13 @@ function getCard() {
         })
     })
 
-
     btnDelete.forEach(del => {
         del.addEventListener("click", () => {
             const deleteQuestion = window.confirm("Xəbəri silməyinizə əminsiniz?")
             deleteDb = true
             newsId = del.dataset.id
             if (deleteQuestion) {
+              /*   loader.classList.add("active") */
                 setTimeout(() => {
                     fetch(`http://localhost:3000/news/${newsId}`,
                         {
@@ -604,6 +609,7 @@ function getCard() {
                                 "Content-Type": "application/json"
                             }
                         })
+                 /*    loader.classList.remove("active") */
                 }, 1500);
             }
             else {
@@ -611,8 +617,12 @@ function getCard() {
             }
         })
     })
+}
 
 
+function submit()
+{
+    const loader = document.querySelector('.loader')
     btnSubmit.addEventListener("submit", (e) => {
         e.preventDefault();
         const d = new Date()
@@ -621,20 +631,25 @@ function getCard() {
             date: d.toISOString()
         }
         if (text != null) {
+            modal.classList.remove('activeModal')
+            loader.classList.add("active")
 
             if (!updateDb) {
-
-                fetch("http://localhost:3000/news", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(data)
-                })
+                setTimeout(() => {
+                    fetch("http://localhost:3000/news", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(data)
+                    })
+                    loader.classList.remove("active")
+                }, 1500);
             }
 
             else {
                 const updateQuestion = window.confirm("Xəbərin məzmunu dəyişəcək. Əminsiniz?")
+                console.log("kjkjkjh");
                 if (updateQuestion) {
                     setTimeout(() => {
                         fetch(`http://localhost:3000/news/${newsId}`, {
@@ -644,6 +659,7 @@ function getCard() {
                             },
                             body: JSON.stringify(data)
                         })
+                        loader.classList.remove("active")
                     }, 1500);
                 }
                 else { return }
@@ -654,14 +670,11 @@ function getCard() {
             textArea.classList.add("error")
             errorMessage.innerHTML = "Boş məzmun əlavə edilə bilməz..."
         }
+        updateDb = false
     })
 }
 
-
-
-
-
-
+submit()
 
 /* let isUpdate = false
 btnSubmit && btnSubmit.addEventListener("submit", (e) => {

@@ -14,7 +14,7 @@
     .headerTop {
         border-bottom: 1px solid #ececec;
         background-color: #fff;
-        
+
         height: 45px;
         transition: all 0.3s;
 
@@ -96,7 +96,7 @@
                                 display: inline-block;
                             }
                         }
-                        
+
                         &:nth-of-type(2),
                         &:nth-of-type(3) {
                             margin: 0 0 0 10px;
@@ -114,7 +114,7 @@
                         &:nth-of-type(3) {
                             a {
                                 @extend %headerRight;
-                               
+
                                 @media (min-width: 1024px) {
                                     display: inline;
                                     padding: 5px 0 0 20px;
@@ -123,9 +123,10 @@
                                     background-position: left;
                                 }
                             }
-                            span 
-                            {
+
+                            span {
                                 display: none;
+
                                 @media (min-width: 1024px) {
                                     display: inline-block;
                                 }
@@ -152,30 +153,43 @@
 
                         &:last-of-type {
                             position: relative;
+
                             a {
                                 background-position: right;
                                 padding: 5px 15px 0 0;
                                 vertical-align: bottom;
+
                                 @media (min-width:1024px) {
                                     vertical-align: baseline;
                                 }
                             }
-                            .languages{
+
+                            .languages {
+                                width: 0;
+                                height: 0;
+                                overflow: hidden;
                                 padding: 8px 0;
                                 border-radius: 5px;
                                 background-color: #fff;
-                                box-shadow: 0 2px 14px 0 rgba(0,0,0,0.17);
+                                box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.17);
                                 position: absolute;
-                                top: 0;
+                                top: 100%;
                                 right: 0;
                                 z-index: 999;
-                                li{
+                                transition: all 0.2s;
+
+                                li {
                                     margin: 0;
                                     padding: 0 20px;
-                                    a{
+
+                                    a {
                                         display: block;
                                         padding: 0;
                                     }
+                                }
+                                &.active{
+                                    width: 59px;
+                                    height: 86px;
                                 }
                             }
                         }
@@ -195,16 +209,16 @@
         padding: 10px 0;
         background-color: #fff;
         transition: all 0.3s;
-        
+
         @media (min-width:1024px) {
             padding: 18px 0;
-            
+
             &.active {
                 background-color: transparent;
             }
         }
-        
-        
+
+
         .wrapper {
             @include Grid($t-c: repeat(2, max-content), $j-c: space-between);
 
@@ -486,7 +500,7 @@
                             &:nth-child(1),
                             &:nth-child(2),
                             &:nth-child(3),
-                            &:nth-child(4){
+                            &:nth-child(4) {
                                 grid-row-end: span 2;
                             }
 
@@ -527,7 +541,7 @@
                             }
 
                             ul {
-                                
+
                                 li {
                                     color: #000;
 
