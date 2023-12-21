@@ -28,6 +28,7 @@ footer {
 
                             &:hover {
                                 color: $clr_primary;
+                                text-decoration: none;
                             }
                         }
                     }
@@ -77,15 +78,46 @@ footer {
                             transition: all 0.3s;
                             vertical-align: middle;
 
+
                             &:hover {
                                 box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.35);
                             }
+
 
                             svg {
                                 position: absolute;
                                 top: 50%;
                                 left: 50%;
                                 transform: translate(-50%, -50%);
+                            }
+                        }
+                        &:first-child{
+                            a{
+                                &:hover{
+                                    svg{
+                                        g{
+                                            opacity: 1;
+                                        }  
+                                        path{
+                                            fill: #1877F2;                                         
+                                        }                                        
+                                    }
+                                }
+                            }
+                        }
+                        &:nth-child(2)
+                        {
+                            a{
+                                &:hover{
+                                    svg{
+                                        g{
+                                            opacity: 1;
+                                        }                                
+                                        path{
+                                            fill: #ed712f;
+                                        }                                        
+                                    }
+                                }
                             }
                         }
                     }
@@ -128,6 +160,7 @@ footer {
             .footerLogo {
                 text-align: center;
                 padding: 0 0 10px;
+
                 a {
                     display: inline-block;
                     width: 144px;

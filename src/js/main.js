@@ -20,7 +20,8 @@ const searchBox = document.querySelector('.searchBox')
 const mediaQuery = window.matchMedia('(min-width: 1024px)')
 const langBtn = document.querySelector('.navbarRight .menu li:last-of-type')
 const lang = document.querySelector('.navbarRight .languages')
-
+const allNews = document.querySelector('.allNews')
+const credits = document.querySelector('.credits')
 let screenSize = false
 
 let scrolling = 0
@@ -344,21 +345,25 @@ function mobilApp() {
     setTimeout(() => {
         if (screenSize) {
             if (localStorage.getItem("status")) {
-                mobAppDesk.style.display = 'none'
+                mobAppDesk.classList.remove("active")
                 header.style.top = 0
-                slider && slider.classList.add('active')
+                slider && slider.classList.remove('active')
+                allNews && allNews.classList.remove('active')
+                credits && credits.classList.remove('active')
             }
             else {
-                mobAppDesk.style.display = 'blok'
-                mobAppDesk.style.height = `120px`
-                header.style.top = `120px`
-                slider && (slider.style.margin = `120px 0 0`)
+                mobAppDesk.classList.add("active")
+                header.style.top = `${mobAppDesk.clientHeight}px`
+                slider && slider.classList.add("active")
+                allNews && allNews.classList.add('active')
+                credits && credits.classList.add('active')
             }
         }
         else {
-            mobAppDesk.style.display = 'none'
+            mobAppDesk.classList.remove("active")
             header.style.top = 0
-            slider.classList.remove('active')
+            slider && slider.classList.remove('active')
+            allNews && allNews.classList.remove('active')
 
             if ((localStorage.getItem("status"))) {
                 mobApp.classList.remove('active')
@@ -373,7 +378,7 @@ function mobilApp() {
     mobileTopClose.addEventListener('click', () => {
         header.style.top = 0
         mobAppDesk.style.height = 0
-        slider.style.margin = 0
+        slider.classList.remove("active")
         active = false
 
         localStorage.setItem("status", active)
@@ -451,7 +456,7 @@ function showNews() {
 }
 
 news && showNews()
-const allNews = document.querySelector('.allNews .cards')
+const newsCards = document.querySelector('.allNews .cards')
 const btnMoreNews = document.querySelector('.btnMoreNews')
 let arrLength = 0
 let indexArr = 0
@@ -513,7 +518,7 @@ function getAllNews(callback) {
                      </div>`
                 }
 
-                allNews && (allNews.innerHTML = resultData)
+                newsCards && (newsCards.innerHTML = resultData)
                 arrLength += 15
             }
             else {
@@ -523,10 +528,10 @@ function getAllNews(callback) {
         })
 }
 
-allNews && getAllNews(getCard)
+newsCards && getAllNews(getCard)
 
 const btnBox = document.querySelector('.header .btnBox')
-allNews && window.addEventListener('load', () => {
+newsCards && window.addEventListener('load', () => {
     btnBox.style.gap = 0
 })
 
@@ -669,7 +674,7 @@ function submit() {
     })
 }
 
-submit()
+newsCards && submit()
 
 /* let isUpdate = false
 btnSubmit && btnSubmit.addEventListener("submit", (e) => {

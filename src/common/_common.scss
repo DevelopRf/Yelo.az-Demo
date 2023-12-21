@@ -73,7 +73,10 @@ body {
         transition: all 0.3s;
 
         @media (min-width:1024px) {
-            display: block;
+            &.active {
+                display: block;
+                height: 120px;
+            }
         }
 
         .wrapper {
@@ -500,7 +503,6 @@ h5 {
     @include Font ($l-h: normal, $f-w: normal);
 }
 
-
 .container {
     max-width: 1140px;
     margin: 0 auto;
@@ -508,25 +510,6 @@ h5 {
 
     @media (min-width:1024px) {
         padding: 0 20px;
-    }
-}
-
-.heading {
-    height: 38px;
-    margin: 0 0 5px;
-    @include Grid($a-i: center);
-
-    @media (min-width:1024px) {
-        margin: 0 0 10px;
-    }
-
-    h2 {
-        @extend %headingH3;
-
-        @media (min-width:1024px) {
-            font-size: 25px;
-            padding: 0;
-        }
     }
 }
 
