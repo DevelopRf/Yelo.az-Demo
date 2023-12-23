@@ -38,119 +38,201 @@
 
     .wrapper {
         .creditItem {
-            border: 1px solid $clr_border;
-            border-radius: 10px;
-            overflow: hidden;
-
-            @include Grid($t-c: 1fr);
-
-            @media (min-width:1024px) {
-                grid-template-columns: 660px 440px;
-            }
-
             &:first-child {
-                .content {
-                    .info {
-                        grid-template-columns: repeat(3, max-content);
-                        column-gap: 40px;
-                    }
-                }
-            }
-
-            &:not(:last-child) {
-                margin: 0 0 45px;
-            }
-
-            .image {
-                background: no-repeat 335%;
-                background-size: contain;
-
-                .img {
-                    height: 100%;
-                    background: no-repeat bottom;
-                    background-size: contain;
-                }
-
-                @media (min-width:1024px) {
-                    order: 2;
-                }
-            }
-
-            .content {
-                padding: 45px 0 45px 60px;
-
-
-                .title {
-                    h2 {
-                        font-family: fH;
-                        font-size: 20px;
-                        margin: 0 0 10px;
-
-                        @media (min-width:1024px) {
-                            font-size: 34px;
+                .card {
+                    .content {
+                        .info {
+                            grid-template-columns: repeat(3, max-content);
+                            column-gap: 40px;
                         }
                     }
+                }
+            }
 
-                    p {
-                        @include Font($f-s: 18px, $l-h: 20px);
-                        color: $clr_grey_text;
+            &:nth-child(6) {
+                .calcItems {
+                    &:first-child {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+                }
+            }
+
+            .card {
+                margin: 0 0 45px;
+                border: 1px solid $clr_border;
+                border-radius: 10px;
+                overflow: hidden;
+                @include Grid($t-c: 1fr);
+
+                @media (min-width:1024px) {
+                    grid-template-columns: 660px 440px;
+                }
+
+                .image {
+                    background: no-repeat 160px;
+                    background-size: contain;
+
+                    .img {
+                        height: 100%;
+                        background: no-repeat bottom;
+                        background-size: contain;
+                    }
+
+                    @media (min-width:1024px) {
+                        order: 2;
                     }
                 }
 
-                .info {
-                    @include Grid($t-c: repeat(3, 1fr), $c-g: 40px);
-                    padding: 40px 0 50px;
+                .content {
+                    padding: 45px 0 45px 60px;
 
-                    .infoItem {
-                        span {
-                            line-height: 16px;
-                            color: $clr_grey_text;
-                            display: block;
-                            margin: 0 0 7px;
+
+                    .title {
+                        h2 {
+                            font-family: fH;
+                            font-size: 20px;
+                            margin: 0 0 10px;
+
+                            @media (min-width:1024px) {
+                                font-size: 34px;
+                            }
                         }
 
                         p {
-                            font-family: fM;
-                            font-size: 21px;
-                            @include Font ($f-s: 21px, $l-h: 20.8px);
+                            @include Font($f-s: 18px, $l-h: 20px);
+                            color: $clr_grey_text;
                         }
                     }
-                }
 
-                .btn {
-                    .btnOrder {
-                        @extend %primaryButton;
+                    .info {
+                        @include Grid($t-c: repeat(3, 1fr), $c-g: 40px);
+                        padding: 40px 0 50px;
+
+                        .infoItem {
+                            span {
+                                line-height: 16px;
+                                color: $clr_grey_text;
+                                display: block;
+                                margin: 0 0 7px;
+                            }
+
+                            p {
+                                font-family: fM;
+                                font-size: 21px;
+                                @include Font ($f-s: 21px, $l-h: 20.8px);
+                            }
+                        }
                     }
 
-                    .btnMore {
-                        position: relative;
-                        @extend %btnMorePrimary;
-                        @extend %btnMore;
-                        color: $clr_grey_text;
-                        margin: 0 0 0 30px;
-                        transition: all 0.3s;
+                    .btn {
+                        .btnOrder {
+                            @extend %primaryButton;
+                            margin: 0 30px 0 0;
 
-                        &:hover {
-                            color: #000;
+                            &:hover {
+                                &::after {
+                                    background-color: $clr_primary;
+                                }
 
-                            svg {
-                                g {
-                                    fill: #000;
+                                span {
+                                    color: #000;
                                 }
                             }
                         }
 
-                        svg {
-                            position: absolute;
-                            right: 0;
-                            top: 50%;
-                            transform: translateY(-50%);
+                        .btnMore {
+                            position: relative;
+                            @extend %btnMorePrimary;
+                            @extend %btnMore;
+                            color: $clr_grey_text;
 
-                            g {
-                                fill: $clr_grey_text;
-                                transition: all 0.3s;
+                            transition: all 0.3s;
+
+                            &:hover {
+                                color: #000;
+
+                                svg {
+                                    g {
+                                        fill: #000;
+                                    }
+                                }
+                            }
+
+                            svg {
+                                position: absolute;
+                                right: 0;
+                                top: 50%;
+                                transform: translateY(-60%);
+
+                                g {
+                                    fill: $clr_grey_text;
+                                    transition: all 0.3s;
+                                }
                             }
                         }
+                    }
+                }
+            }
+
+            .calc {
+                display: none;
+                max-width: 600px;
+                margin: 0 auto;
+
+                &.active {
+                    display: block;
+                }
+
+                .calcItems {
+                    margin: 0 0 40px;
+                    border: 1px solid #ECECEC;
+                    border-radius: 10px 10px 10px 0;
+                    @include Grid($t-c: repeat(2, 1fr));
+
+                    .item {
+                        @extend %rangeItem;
+
+                        .range {
+                            background-color: transparent;
+                        }
+                    }
+
+                    &:not(:first-child) {
+                        margin: 0 0 20px;
+
+                        input {
+                            font-size: 18px;
+                            padding: 20px;
+                            width: 100%;
+                            outline: none;
+                            border: none;
+
+                            &:not(:last-child) {
+                                border-right: 1px solid $clr_border;
+                            }
+                        }
+                    }
+                }
+
+                .btnBox {
+                    margin: 65px 0 0;
+                    padding: 30px 0;
+                    border-top: 1px solid $clr_border;
+                    @include Grid($t-c: 360px auto, $c-g: 40px);
+
+                    .text {
+                        background: no-repeat left 5px;
+                        padding: 0 0 0 50px;
+
+                        p {
+                            font-size: 15px
+                        }
+                    }
+
+                    .btnOrder {
+                        @extend %btnOrder;
+                        cursor: pointer;
+                        height: 65px;
                     }
                 }
             }
@@ -159,10 +241,15 @@
 }
 
 .creditInfo {
+    p {
+        color: $clr_grey_text;
+    }
+
+    a {
+        color: $clr_second;
+    }
+
     .aboutCreditShort {
-        p {
-            color: $clr_grey_text;
-        }
 
         &.active {
             display: none;
@@ -171,5 +258,40 @@
 
     .aboutCredit {
         display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+}
+
+.creditInfo {
+    .aboutCredit {
+        .table {
+            font-size: 18px;
+            margin: 20px 0;
+            width: 500px;
+            border: 1px solid $clr_border;
+            border-radius: 10px;
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+
+                th {
+                    width: 50%;
+                    text-align: left;
+                }
+
+                th,
+                td {
+                    padding: 10px 14px;
+
+                    &:first-child {
+                        border-right: 1px solid $clr_border;
+                    }
+                }
+            }
+        }
     }
 }

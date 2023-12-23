@@ -414,16 +414,26 @@
                                 <h3>Taksit funksiyalı kredit kartı</h3>
                                 <p>70/24 üstünlüklərlə</p>
                                 <a href="#" class="btnMore">
-                                    <svg width="35px" height="16px" viewBox="0 0 35 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <svg width="35px" height="16px" viewBox="0 0 35 16" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <title>Group 3</title>
                                         <desc>Created with Sketch.</desc>
                                         <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <g id="home(dark)" transform="translate(-521.000000, -407.000000)" fill="#000000">
+                                            <g id="home(dark)" transform="translate(-521.000000, -407.000000)"
+                                                fill="#000000">
                                                 <g id="Group-7-Copy" transform="translate(420.000000, 405.000000)">
-                                                    <g id="Group-3" transform="translate(118.300006, 10.000000) scale(-1, 1) translate(-118.300006, -10.000000) translate(100.800006, 2.000000)">
-                                                        <rect id="Rectangle" x="2.54545465" y="6.93636395" width="31.8909104" height="2.12727281"></rect>
-                                                        <polygon id="Rectangle" transform="translate(4.736915, 4.817631) rotate(-45.000000) translate(-4.736915, -4.817631) " points="-0.730515406 3.85075039 10.1770732 3.72747281 10.204346 5.88201835 1.32652258 5.90778838"></polygon>
-                                                        <polygon id="Rectangle" transform="translate(4.736915, 11.182370) scale(1, -1) rotate(-45.000000) translate(-4.736915, -11.182370) " points="-0.730515406 10.2154899 10.1770732 10.0922123 10.204346 12.2467579 1.32652258 12.2725279"></polygon>
+                                                    <g id="Group-3"
+                                                        transform="translate(118.300006, 10.000000) scale(-1, 1) translate(-118.300006, -10.000000) translate(100.800006, 2.000000)">
+                                                        <rect id="Rectangle" x="2.54545465" y="6.93636395"
+                                                            width="31.8909104" height="2.12727281"></rect>
+                                                        <polygon id="Rectangle"
+                                                            transform="translate(4.736915, 4.817631) rotate(-45.000000) translate(-4.736915, -4.817631) "
+                                                            points="-0.730515406 3.85075039 10.1770732 3.72747281 10.204346 5.88201835 1.32652258 5.90778838">
+                                                        </polygon>
+                                                        <polygon id="Rectangle"
+                                                            transform="translate(4.736915, 11.182370) scale(1, -1) rotate(-45.000000) translate(-4.736915, -11.182370) "
+                                                            points="-0.730515406 10.2154899 10.1770732 10.0922123 10.204346 12.2467579 1.32652258 12.2725279">
+                                                        </polygon>
                                                     </g>
                                                 </g>
                                             </g>
@@ -523,7 +533,7 @@
                 <div class="cards">
                     <div class="card">
                         <div class="info">
-                            
+
                             <div class="heading">
                                 <h4>Yelo Light</h4>
                                 <p>İstənilən ödənişlər üçün doğru seçim</p>
@@ -546,47 +556,42 @@
                         </div>
                     </div>
                     <div class="card">
-                        <div class="title">
-                            <h4>Kredit kalkulyatoru</h4>
-                            <div class="btn">
-                                <a href="#" class="btnMore"
-                                    style="background-image: url('./img/logo/blue_arr.svg');">Daha
-                                    ətraflı
-                                </a>
+                        <form>
+                            <div class="title">
+                                <h4>Kredit kalkulyatoru</h4>
+                                <div class="btn">
+                                    <a href="#" class="btnMore"
+                                        style="background-image: url('./img/logo/blue_arr.svg');">Daha
+                                        ətraflı
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="calcItems">
-                            <div class="item">
-                                <span>Məbləğ</span>
-                                <input type="number" name="amount" value="25000" class="number">
-                                <p>AZN</p>
-                                <input type="range" class="range" min="400" max="50000" step="100" value=""
-                                    style="--min: 400; --max: 50000; --val: 25000">
+                            <div class="calcItems">
+                                <div class="item">
+                                    <span>Məbləğ</span>
+                                    <input type="number" name="amount" value="25000" class="number">
+                                    <p>AZN</p>
+                                    <input type="range" class="range" min="400" max="50000" step="100" value=""
+                                        style="--min: 400; --max: 50000; --val: 25000">
+                                </div>
+                                <div class="item">
+                                    <span>Müddət</span>
+                                    <input type="number" name="month" value="12" class="number">
+                                    <p>Ay</p>
+                                    <input type="range" class="range" min="6" max="59" step="1" value=""
+                                        style="--min: 6; --max: 59; --val: 12">
+                                </div>
                             </div>
-                            <div class="item">
-                                <span>Müddət</span>
-                                <input type="number" name="month" value="12" class="number">
-                                <p>Ay</p>
-                                <input type="range" class="range" min="6" max="59" step="1" value=""
-                                    style="--min: 6; --max: 59; --val: 12">
+                            <div class="resultBox">
+                                <div class="result">
+                                    <p>Aylıq ödəniş</p>
+                                    <p><span>AZN</span></p>
+                                </div>
+                                <div class="btn">
+                                    <button type="submit" class="btnOrder">Kredit sifarişi</button>
+                                </div>
                             </div>
-                            <div class="item">
-                                <span>İllik faiz dərəcəsi</span>
-                                <input type="number" name="rate" value="9.9" class="number">
-                                <p>%</p>
-                                <input type="range" class="range" min="9.9" max="20" step="0.1" value=""
-                                    style="--min: 9.9; --max: 20; --val: 9.9">
-                            </div>
-                        </div>
-                        <div class="resultBox">
-                            <div class="result">
-                                <p>Aylıq ödəniş</p>
-                                <p><span>AZN</span></p>
-                            </div>
-                            <div class="btn">
-                                <a href="#" class="btnOrder">Kredit sifarişi</a>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

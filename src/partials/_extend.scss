@@ -12,16 +12,6 @@
     font-family: fB;
     border-radius: 6px;
 
-    &:hover {
-        &::after {
-            background-color: #fff;
-        }
-
-        span {
-            color: #000;
-        }
-    }
-
     span {
         display: inline-block;
         color: #fff;
@@ -34,7 +24,7 @@
         }
     }
 
-    @media (min-width:1024px) {        
+    @media (min-width:1024px) {
         border-radius: 0;
         padding: 14px 79px;
         background-color: transparent;
@@ -202,7 +192,7 @@
 
 %btnMorePrimary {
     padding: 0 45px 0 0;
-    background-position: right 50%;
+
     @media (min-width:1024px) {
         font-size: 20px;
     }
@@ -348,7 +338,7 @@
     padding: 7px 0 7px;
 }
 
-%heading{
+%heading {
     height: 38px;
     margin: 0 0 5px;
     @include Grid($a-i: center);
@@ -379,6 +369,112 @@
     border: 1px solid #0000001a;
     border-radius: 30px;
     background: no-repeat center $clr_primary;
+}
+
+%rangeItem {
+    padding: 10px;
+    position: relative;
+    &:not(:last-of-type) {
+        border-right: 1px solid #ECECEC;
+    }
+
+    .number {
+        font-family: fM;
+        @include Font($f-s: 26px, $l-h: 30px);
+        outline: none;
+        border: none;
+        width: 100%;
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+            appearance: none;
+        }
+    }
+
+    p {
+        font-family: fB;
+        @include Font($f-s: 15px, $l-h: 15px);
+        position: absolute;
+        right: 20px;
+        top: 65%;
+        transform: translateY(-50%);
+        color: $clr_grey_text;
+    }
+
+    span {
+        color: $clr_grey_text;
+        font-size: 15px;
+        @include Font ($f-s: 15px, $l-h: 19px);
+        display: block;
+    }
+
+    .range {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        outline: none;
+        appearance: none;
+        background-color: #0000001a;
+        cursor: pointer;
+
+        --range: calc(var(--max) - var(--min));
+        --ratio: calc((var(--val) - var(--min)) / var(--range));
+        --sx: calc(0.5 * 1.5em + var(--ratio) * (100% - 1.5em));
+
+        &::-moz-range-thumb {
+            appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            background: #ffffff;
+            border: 3px solid #ffc628;
+        }
+
+        &::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: linear-gradient(#ffc628, #ffc628) 0 / var(--sx) 100% no-repeat;
+        }
+
+        &::-webkit-slider-thumb {
+            height: 26px;
+            width: 26px;
+            appearance: none;
+            border-radius: 50%;
+            background: #fff;
+            cursor: pointer;
+            border: 5px solid #ffc628;
+            margin: -10px 0 0 0;
+            box-sizing: border-box;
+        }
+
+        &::-moz-range-track {
+            width: 100%;
+            height: 3px;
+            cursor: pointer;
+        }
+
+        &::-ms-track {
+            width: 100%;
+            height: 3px;
+            cursor: pointer;
+        }
+
+        &::-ms-thumb {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            appearance: none;
+            background: #ffffff;
+            cursor: pointer;
+            background: #ffffff;
+            border: 3px solid #ffc628;
+        }
+    }
 }
 
 %sectionSpace {

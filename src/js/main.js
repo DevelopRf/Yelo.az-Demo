@@ -22,6 +22,7 @@ const langBtn = document.querySelector('.navbarRight .menu li:last-of-type')
 const lang = document.querySelector('.navbarRight .languages')
 const allNews = document.querySelector('.allNews')
 const credits = document.querySelector('.credits')
+
 let screenSize = false
 
 let scrolling = 0
@@ -61,186 +62,139 @@ searchClose.addEventListener("click", () => {
     searchBox.classList.remove('active')
 })
 
-if (slider) {
+leftMenuTop.forEach((item, index) => {
+    item.addEventListener("click", () => {
 
-    leftMenuTop.forEach((item, index) => {
-        item.addEventListener("click", () => {
+        for (const element of leftMenuTop) {
+            element.classList.remove("active")
+        }
+        leftMenuTop[index].classList.add("active")
+    })
+})
 
-            for (const element of leftMenuTop) {
-                element.classList.remove("active")
+function sliderMain() {
+    let indexMain = 0
+    let intervalMain = null
+    const goToSlide = (slideIndex) => {
+        for (const element of sliders) {
+            element.style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
+        for (const dot of dots) {
+            dot.classList.remove('selected');
+        }
+        dots[slideIndex].classList.add('selected');
+    };
+
+    const startIntervalMain = () => {
+        intervalMain = setInterval(() => {
+            indexMain++;
+            if (indexMain > dots.length - 1) {
+                indexMain = 0;
             }
-            leftMenuTop[index].classList.add("active")
+            slider && goToSlide(indexMain);
+        }, 10000);
+    };
+
+    dots.forEach((dot, dotIndex) => {
+        dot.addEventListener("click", () => {
+            clearInterval(intervalMain);
+            indexMain = dotIndex;
+            dots && goToSlide(indexMain);
+            startIntervalMain();
+        });
+    });
+
+    startIntervalMain();
+}
+
+sliderMain()
+
+function timeBar(barİndex) {
+    const progress = document.querySelectorAll('.progressBar li .progress')
+    for (const item of progress) {
+        item.classList.remove('active')
+    }
+    progress[barİndex].classList.add('active')
+}
+
+function sliderStories() {
+    let interval = null
+    const prevSlider = document.querySelector('.modal .prev')
+    const nextSlider = document.querySelector('.modal .next')
+
+    const goToSlideStories = (slideIndex) => {
+        for (const element of stories) {
+            element.style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
+        timeBar(slideIndex)
+    };
+
+    storyCards.forEach((dot, dotIndex) => {
+        dot.addEventListener("click", () => {
+            modal.classList.add('activeModal')
+            clearInterval(interval);
+            index = dotIndex;
+            goToSlideStories(index);
+            startInterval();
         })
     })
 
-    function sliderMain() {
-        let indexMain = 0
-        let intervalMain = null
-        const goToSlide = (slideIndex) => {
-            for (const element of sliders) {
-                element.style.transform = `translateX(-${slideIndex * 100}%)`;
-            }
-            for (const dot of dots) {
-                dot.classList.remove('selected');
-            }
-            dots[slideIndex].classList.add('selected');
-        };
-
-        const startIntervalMain = () => {
-            intervalMain = setInterval(() => {
-                indexMain++;
-                if (indexMain > dots.length - 1) {
-                    indexMain = 0;
-                }
-                goToSlide(indexMain);
-            }, 10000);
-        };
-
-        dots.forEach((dot, dotIndex) => {
-            dot.addEventListener("click", () => {
-                clearInterval(intervalMain);
-                indexMain = dotIndex;
-                goToSlide(indexMain);
-                startIntervalMain();
-            });
-        });
-
-        startIntervalMain();
-    }
-
-    sliderMain()
-
-    function timeBar(barİndex) {
-        const progress = document.querySelectorAll('.progressBar li .progress')
-        for (const item of progress) {
-            item.classList.remove('active')
-        }
-        progress[barİndex].classList.add('active')
-    }
-
-    function sliderStories() {
-        let interval = null
-        const prevSlider = document.querySelector('.modal .prev')
-        const nextSlider = document.querySelector('.modal .next')
-
-        const goToSlideStories = (slideIndex) => {
-            for (const element of stories) {
-                element.style.transform = `translateX(-${slideIndex * 100}%)`;
-            }
-            timeBar(slideIndex)
-        };
-
-        storyCards.forEach((dot, dotIndex) => {
-            dot.addEventListener("click", () => {
-                modal.classList.add('activeModal')
-                clearInterval(interval);
-                index = dotIndex;
-                goToSlideStories(index);
-                startInterval();
-            })
-        })
-
-        storyChange.forEach((dot, dotIndex) => {
-            dot.addEventListener("click", () => {
-                clearInterval(interval);
-                index = dotIndex;
-                goToSlideStories(index);
-                startInterval();
-            })
-        })
-
-        const startInterval = () => {
-            interval = setInterval(() => {
-                index++;
-                if (index > stories.length - 1) {
-                    index = 0;
-                }
-                goToSlideStories(index);
-            }, 10000);
-        };
-
-        prevSlider.addEventListener("click", () => {
+    storyChange.forEach((dot, dotIndex) => {
+        dot.addEventListener("click", () => {
             clearInterval(interval);
-            index--
-            if (index < 0) {
-                index = stories.length - 1
-            }
-            for (const element of stories) {
-                element.style.transform = `translateX(-${index * 100}%)`
-            }
-            timeBar(index)
-            startInterval()
+            index = dotIndex;
+            goToSlideStories(index);
+            startInterval();
         })
+    })
 
-        nextSlider.addEventListener("click", () => {
-            clearInterval(interval);
-            index++
+    const startInterval = () => {
+        interval = setInterval(() => {
+            index++;
             if (index > stories.length - 1) {
-                index = 0
+                index = 0;
             }
-            for (const element of stories) {
-                element.style.transform = `translateX(-${index * 100}%)`
-            }
-            timeBar(index)
-            startInterval()
-        })
-    }
+            goToSlideStories(index);
+        }, 10000);
+    };
 
-    sliderStories()
-
-    function range() {
-        const calcItems = document.querySelectorAll('.calcItems .item')
-        let result = document.querySelector('.result p:last-of-type')
-        const amount = document.querySelector('.calcItems .item:first-of-type .number')
-        const month = document.querySelector('.calcItems .item:nth-of-type(2) .number')
-        const percent = document.querySelector('.calcItems .item:last-of-type .number')
-
-
-        function handleRangeInput(rangeInput) {
-            rangeInput.style.setProperty("--val", rangeInput.value);
+    prevSlider.addEventListener("click", () => {
+        clearInterval(interval);
+        index--
+        if (index < 0) {
+            index = stories.length - 1
         }
-
-        for (const item of calcItems) {
-            const range = item.querySelector('.range')
-            const number = item.querySelector('.number')
-
-
-
-            /*   function handleNumberInput(numberInput) {
-                  numberInput.nextElementSibling.nextElementSibling.style.setProperty("--val", numberInput.value);
-              } */
-
-            range.addEventListener("input", () => handleRangeInput(range));
-
-            number.addEventListener("input", () => handleRangeInput(range));
-
-            range.value = number.value
-            result.innerHTML = ((amount.value / 2 + percent.value / 2 + month.value / 2) * 100).toFixed(2)
-
-
-            range.addEventListener('input', () => {
-                number.value = range.value
-                result.innerHTML = ((amount.value / 2 + percent.value / 2 + month.value / 2) * 100).toFixed(2)
-            })
-
-            number.addEventListener('input', () => {
-                number.value == "" && (number.value = 0)
-                range.value = number.value
-                result.innerHTML = ((amount.value / 2 + percent.value / 2 + month.value / 2) * 100).toFixed(2)
-            })
+        for (const element of stories) {
+            element.style.transform = `translateX(-${index * 100}%)`
         }
-    }
+        timeBar(index)
+        startInterval()
+    })
 
-    range()
+    nextSlider.addEventListener("click", () => {
+        clearInterval(interval);
+        index++
+        if (index > stories.length - 1) {
+            index = 0
+        }
+        for (const element of stories) {
+            element.style.transform = `translateX(-${index * 100}%)`
+        }
+        timeBar(index)
+        startInterval()
+    })
+}
 
+sliderStories()
 
+const amountInput = document.querySelector("#sale");
+const firstOption = document.querySelector("#currencyReceived")
+const secondOption = document.querySelector("#soldCurrency")
+const inputResult = document.querySelector("#inputResult")
 
-    const amountInput = document.querySelector("#sale");
-    const firstOption = document.querySelector("#currencyReceived")
-    const secondOption = document.querySelector("#soldCurrency")
-    const inputResult = document.querySelector("#inputResult")
+amountInput && amountInput.addEventListener('input', exchange)
+if (firstOption) {
 
-    amountInput.addEventListener('input', exchange)
     firstOption.addEventListener("change", exchange)
 
     firstOption.addEventListener("input", () => {
@@ -253,50 +207,93 @@ if (slider) {
         }
     })
 
-    function exchange() {
-        const amount = Number(amountInput.value)
-        const firstOptionValue = firstOption.options[firstOption.selectedIndex].textContent
-        const secondOptionValue = secondOption.options[secondOption.selectedIndex].textContent
-
-
-
-        currency.exchange(amount, firstOptionValue, secondOptionValue)
-            .then((result => {
-
-                inputResult.value = result.toFixed(2)
-                if (amountInput.value == "") {
-                    inputResult.value = ""
-                }
-            }))
-    }
-
     function showData() {
         const purchase = document.querySelectorAll(".purchase h5")
         const sale = document.querySelectorAll(".sale h5")
         currency.exchangeShow(purchase[0], purchase[1], sale[0], sale[1])
     }
-
+    
     showData()
-
-    const btnClose = document.querySelector('.btnClose')
-    const bigMenu = document.querySelector('.bigMenu')
-    btnClose.addEventListener('click', () => {
-        btnClose.classList.toggle('effectToggle')
-
-        if (btnClose.classList.contains('effectToggle')) {
-            bigMenu.classList.add('active')
-            headerBottom.classList.remove('active')
-            headerTop.classList.remove('active')
-            document.body.style.overflowY = 'hidden'
-        }
-        else {
-            bigMenu.classList.remove('active')
-            document.body.style.overflowY = 'scroll'
-        }
-    })
 }
 
+function exchange() {
+    const amount = Number(amountInput.value)
+    const firstOptionValue = firstOption.options[firstOption.selectedIndex].textContent
+    const secondOptionValue = secondOption.options[secondOption.selectedIndex].textContent
 
+    currency.exchange(amount, firstOptionValue, secondOptionValue)
+        .then((result => {
+
+            inputResult.value = result.toFixed(2)
+            if (amountInput.value == "") {
+                inputResult.value = ""
+            }
+        }))
+}
+
+const btnClose = document.querySelector('.btnClose')
+const bigMenu = document.querySelector('.bigMenu')
+btnClose.addEventListener('click', () => {
+    btnClose.classList.toggle('effectToggle')
+
+    if (btnClose.classList.contains('effectToggle')) {
+        bigMenu.classList.add('active')
+        headerBottom.classList.remove('active')
+        headerTop.classList.remove('active')
+        document.body.style.overflowY = 'hidden'
+    }
+    else {
+        bigMenu.classList.remove('active')
+        document.body.style.overflowY = 'scroll'
+    }
+})
+
+const calcItems = document.querySelectorAll('.calcItems .item')
+
+if (calcItems) {
+    function range() {
+        const result = document.querySelector('.result p:last-of-type')
+        const amount = document.querySelector('.calcItems .item:first-of-type .number')
+        const month = document.querySelector('.calcItems .item:nth-of-type(2) .number')
+        const percent = document.querySelector('.calcItems .item:last-of-type .number')
+
+        function handleRangeInput(item) {
+            item.style.setProperty("--val", item.value);
+            item.previousElementSibling.previousElementSibling.value = item.value;
+        }
+        function handleNumberInput(item) {
+            item.nextElementSibling.nextElementSibling.value = item.value;
+            item.nextElementSibling.nextElementSibling.style.setProperty("--val", item.value);
+        }
+
+        calcItems.forEach(item => {
+
+            const range = item.querySelector('.range')
+            const number = item.querySelector('.number')
+     
+            result && (result.innerHTML = (((amount.value / 2 + percent.value / 2 + month.value / 2) * 100).toFixed(2)).toString())
+            number.addEventListener('input', () => {
+                handleNumberInput(number)
+                if (number.value == "") {
+                    number.value = 0
+                }
+                else if (number.value == 0) {
+                    number.value = number.value.slice(1)
+                }
+                result && (result.innerHTML = (((amount.value / 2 + percent.value / 2 + month.value / 2) * 100).toFixed(2)).toString())
+            })
+
+            range.addEventListener('input', () => {
+                handleRangeInput(range)
+                result && (result.innerHTML = (((amount.value / 2 + percent.value / 2 + month.value / 2) * 100).toFixed(2)).toString())
+            })
+
+
+            range.value = number.value
+        })
+    }
+    range()
+}
 
 
 function headerEffect() {
@@ -391,8 +388,6 @@ function mobilApp() {
 }
 
 mobilApp()
-
-
 
 function convertDateFormat(dateString) {
     const months = [
@@ -592,7 +587,6 @@ function getCard() {
             showModal()
             updateDb = true
             newsId = update.dataset.id
-            console.log(newsId);
         })
     })
 
@@ -649,7 +643,6 @@ function submit() {
 
             else {
                 const updateQuestion = window.confirm("Xəbərin məzmunu dəyişəcək. Əminsiniz?")
-                console.log("kjkjkjh");
                 if (updateQuestion) {
                     setTimeout(() => {
                         fetch(`http://localhost:3000/news/${newsId}`, {
@@ -676,60 +669,31 @@ function submit() {
 
 newsCards && submit()
 
-/* let isUpdate = false
-btnSubmit && btnSubmit.addEventListener("submit", (e) => {
-    e.preventDefault();
+function getAboutCredit() {
+    const txtMore = document.querySelector(".txtMore")
+    const aboutCreditShort = document.querySelector(".aboutCreditShort")
+    const aboutCredit = document.querySelector(".aboutCredit")
 
+    txtMore && txtMore.addEventListener("click", () => {
+        aboutCredit.classList.add("active")
+        aboutCreditShort.classList.add("active")
+    })
+}
 
-}) */
+getAboutCredit()
 
-/*     if (!isUpdate) {
-        const formData = {};
-        if (!textArea.value == "") {
-            formData[textArea.name] = textArea.value;
-            const currentDate = new Date();
-            const isoDate = currentDate.toISOString();
-            formData.date = isoDate;
-            isNotNull = true;
-        }
-        else {
-            textArea.style.borderColor = "red";
-        }
-        if (isNotNull) {
-            fetch("http://localhost:3000/news", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json;charset=utf-8",
-                },
-                body: JSON.stringify(formData),
-            });
-            setInterval(() => {
-                getNews();
-            }, 1000);
-        }
-    }
+const creditItem = document.querySelectorAll(".creditItem")
+const calc = document.querySelectorAll(".creditItem .calc")
+creditItem.forEach(item => {
+    item.querySelector(".creditItem .calc") &&
+        item.querySelector(".btnOrder").addEventListener("click", () => {
 
-    else {
-        let data;
-        if (!textArea.value == "") {
-            data = {
-                title: `${textArea.value}`
+            for (const element of calc) {
+                if (element.classList.contains("active")) {
+                    element.classList.remove("active")
+                }
             }
-            isNotNull = true;
-        } else {
-            textArea.style.borderColor = "red";
-        }
-        if (isNotNull) {
-            fetch(`http://localhost:3000/news/${updatedId}`, {
-                method: "PACTH",
-                headers: {
-                    "Content-Type": "application/json;charset=utf-8",
-                },
-                body: JSON.stringify(data),
-            });
-            setInterval(() => {
-                getNews();
-            }, 1000);
-        }
-    }
-    isUpdate = false; */
+            item.querySelector(".calc").classList.toggle("active")
+        })
+
+})

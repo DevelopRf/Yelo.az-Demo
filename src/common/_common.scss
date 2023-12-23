@@ -296,12 +296,15 @@ body {
                                 }
 
                                 .btnMore {
+                                    padding: 5px 38px 5px 0;
                                     @extend %btnMore;
+                                    background-position: right 50%;
                                     color: #fff;
 
                                     &:hover {
                                         padding: 5px 46px 5px 0;
                                     }
+                                    
                                 }
                             }
                         }
@@ -501,6 +504,10 @@ h3,
 h4,
 h5 {
     @include Font ($l-h: normal, $f-w: normal);
+}
+
+button {
+    border: none;
 }
 
 .container {

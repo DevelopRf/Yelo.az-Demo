@@ -140,6 +140,15 @@
                         position: absolute;
                         bottom: 61px;
                         left: 30px;
+                        &:hover {
+                            &::after {
+                                background-color: #fff;
+                            }
+                    
+                            span {
+                                color: #000;
+                            }
+                        }
 
                         @media (min-width:1024px) {
                             left: 20px;
@@ -147,12 +156,19 @@
                     }
 
                     .btnMore {
+                        position: relative;
                         position: absolute;
                         bottom: 61px;
                         left: 30px;
                         color: #000;
                         @extend %btnMore;
                         @extend %btnMorePrimary;
+                        svg{
+                            position: absolute;
+                                right: 0;
+                                top: 50%;
+                                transform: translateY(-60%);
+                        }
                     }
                 }
             }
@@ -396,162 +412,57 @@
 
             }
 
-            &:last-of-type {
+            .title {
+                @include Grid ($t-c: repeat(2, auto), $j-c: space-between);
+                grid-area: 1 / 1 / 1 / span 3;
+
+                .btnMore {
+                    position: relative;
+                    padding: 5px 38px 5px 0;
+                    color: $clr_second;
+
+                    @extend %btnMore;
+
+                    &:hover {
+                        margin: 0 -8px 0 0;
+                        padding: 5px 46px 5px 0;
+                    }
+
+                    svg {
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+
+            form {
                 @include Grid ($t-c: 1fr);
                 padding: 20px;
                 border: 1px solid #ECECEC;
-
+                border-radius: 10px;
 
                 @media (min-width:1024px) {
                     padding: 30px;
                     grid-template-columns: repeat(3, 1fr);
                 }
 
-                .title {
-                    @include Grid ($t-c: repeat(2, auto), $j-c: space-between);
-                    grid-area: 1 / 1 / 1 / span 3;
-
-                    .btnMore {
-                        background-position: right 9px;
-                        padding: 5px 38px 5px 0;
-                        color: $clr_second;
-
-                        @extend %btnMore;
-
-                        &:hover {
-                            margin: 0 -8px 0 0;
-                            padding: 5px 46px 5px 0;
-                        }
-                    }
-                }
-
                 .calcItems {
-
-                    grid-area: 2 / 1 / span 1 / span 3;
-                    margin: 10px 0 20px;
-                    border: 1px solid #ECECEC;
-                    border-radius: 10px 10px 10px 0;
 
                     @media (min-width:1024px) {
                         @include Grid ($t-c: repeat(3, 1fr));
                         margin: 30px 0 45px;
                     }
 
+                    grid-area: 2 / 1 / span 1 / span 3;
+                    margin: 10px 0 20px;
+                    border: 1px solid #ECECEC;
+                    border-radius: 10px 10px 10px 0;
+
+
                     .item {
-                        padding: 10px;
-                        position: relative;
-
-                        &:not(:last-of-type) {
-                            border-right: 1px solid #ECECEC;
-                        }
-
-                        .number {
-                            font-family: fM;
-                            @include Font($f-s: 26px, $l-h: 30px);
-                            outline: none;
-                            border: none;
-                            width: 100%;
-
-                            &::-webkit-inner-spin-button,
-                            &::-webkit-outer-spin-button {
-                                appearance: none;
-                            }
-                        }
-
-                        p {
-                            font-family: fB;
-                            @include Font($f-s: 15px, $l-h: 15px);
-                            position: absolute;
-                            right: 20px;
-                            top: 65%;
-                            transform: translateY(-50%);
-                            color: $clr_grey_text;
-                        }
-
-                        span {
-                            color: $clr_grey_text;
-                            font-size: 15px;
-                            @include Font ($f-s: 15px, $l-h: 19px);
-                            display: block;
-                        }
-
-                        .range {
-                            position: absolute;
-                            bottom: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 4px;
-                            outline: none;
-                            appearance: none;
-                            background-color: #0000001a;
-                            cursor: pointer;
-
-                            --range: calc(var(--max) - var(--min));
-                            --ratio: calc((var(--val) - var(--min)) / var(--range));
-                            --sx: calc(0.5 * 1.5em + var(--ratio) * (100% - 1.5em));
-
-                            &::-moz-range-thumb {
-                                appearance: none;
-                                height: 20px;
-                                width: 20px;
-                                border-radius: 50%;
-                                cursor: pointer;
-                                background: #ffffff;
-                                border: 3px solid #ffc628;
-                            }
-
-                            &::-webkit-slider-runnable-track {
-                                width: 100%;
-                                height: 4px;
-                                cursor: pointer;
-                                background: linear-gradient(#ffc628, #ffc628) 0 / var(--sx) 100% no-repeat;
-                            }
-
-                            &::-webkit-slider-thumb {
-                                height: 20px;
-                                width: 20px;
-                                appearance: none;
-                                border-radius: 50%;
-                                background: #ffffff;
-                                cursor: pointer;
-                                background: #ffffff;
-                                border: 5px solid #ffc628;
-                                margin: -10px 0 0 0;
-                                box-sizing: border-box;
-                            }
-
-                            &::-moz-range-track {
-                                width: 100%;
-                                height: 3px;
-                                cursor: pointer;
-                            }
-
-                            &::-ms-track {
-                                width: 100%;
-                                height: 3px;
-                                cursor: pointer;
-                            }
-
-                            &::-ms-thumb {
-                                height: 20px;
-                                width: 20px;
-                                border-radius: 50%;
-                                appearance: none;
-                                background: #ffffff;
-                                cursor: pointer;
-                                background: #ffffff;
-                                border: 3px solid #ffc628;
-                            }
-
-                            // &::-webkit-slider-thumb {
-                            //     appearance: none;
-                            //     width: 24px;
-                            //     height: 24px;
-                            //     border-radius: 50%;
-                            //     background-color: #fff;
-                            //     border: 5px solid $clr_primary;
-                            // }
-                        }
+                        @extend %rangeItem;
                     }
                 }
 
@@ -600,6 +511,7 @@
                     }
                 }
             }
+
         }
     }
 }

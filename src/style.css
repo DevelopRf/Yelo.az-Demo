@@ -6,38 +6,32 @@
      object-fit: cover;
 }
 
-.credits .wrapper .creditItem .content .btn .btnOrder, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider {
+.credits .wrapper .creditItem .card .content .btn .btnOrder, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider {
   position: relative;
   padding: 14px 20px;
   display: inline-block;
   font-family: fB;
   border-radius: 6px;
 }
-.credits .wrapper .creditItem .content .btn .btnOrder:hover::after, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider:hover::after {
-  background-color: #fff;
-}
-.credits .wrapper .creditItem .content .btn .btnOrder:hover span, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider:hover span {
-  color: #000;
-}
-.credits .wrapper .creditItem .content .btn .btnOrder span, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider span {
+.credits .wrapper .creditItem .card .content .btn .btnOrder span, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider span {
   display: inline-block;
   color: #fff;
   transition: all 0.3s;
 }
 @media (min-width: 1024px) {
-  .credits .wrapper .creditItem .content .btn .btnOrder span, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider span {
+  .credits .wrapper .creditItem .card .content .btn .btnOrder span, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider span {
     font-size: 20px;
     position: relative;
     z-index: 1;
   }
 }
 @media (min-width: 1024px) {
-  .credits .wrapper .creditItem .content .btn .btnOrder, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider {
+  .credits .wrapper .creditItem .card .content .btn .btnOrder, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider {
     border-radius: 0;
     padding: 14px 79px;
     background-color: transparent;
   }
-  .credits .wrapper .creditItem .content .btn .btnOrder::after, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider::after {
+  .credits .wrapper .creditItem .card .content .btn .btnOrder::after, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider::after {
     content: "";
     display: inline-block;
     width: 100%;
@@ -60,7 +54,7 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   background-color: #ffc628;
 }
 
-.creditCard .cards .card:last-of-type .resultBox .btn .btnOrder, .creditCard .cards .card:first-of-type .info .btn .btnOrder, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnOrder {
+.credits .wrapper .creditItem .calc .btnBox .btnOrder, .creditCard .cards .card form .resultBox .btn .btnOrder, .creditCard .cards .card:first-of-type .info .btn .btnOrder, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnOrder {
   padding: 13px 25px;
   display: inline-block;
   background-color: #ffc628;
@@ -72,7 +66,7 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   font-size: 18px;
   line-height: 29px;
 }
-.creditCard .cards .card:last-of-type .resultBox .btn .btnOrder:hover, .creditCard .cards .card:first-of-type .info .btn .btnOrder:hover, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnOrder:hover {
+.credits .wrapper .creditItem .calc .btnBox .btnOrder:hover, .creditCard .cards .card form .resultBox .btn .btnOrder:hover, .creditCard .cards .card:first-of-type .info .btn .btnOrder:hover, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnOrder:hover {
   background-color: #000;
   color: #fff;
 }
@@ -177,20 +171,19 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   transform: translateY(-50%);
 }
 
-.credits .wrapper .creditItem .content .btn .btnMore, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore {
+.credits .wrapper .creditItem .card .content .btn .btnMore, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore {
   padding: 0 45px 0 0;
-  background-position: right 50%;
 }
 @media (min-width: 1024px) {
-  .credits .wrapper .creditItem .content .btn .btnMore, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore {
+  .credits .wrapper .creditItem .card .content .btn .btnMore, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore {
     font-size: 20px;
   }
 }
-.credits .wrapper .creditItem .content .btn .btnMore:hover, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore:hover {
+.credits .wrapper .creditItem .card .content .btn .btnMore:hover, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore:hover {
   padding: 0 55px 0 0;
 }
 
-.credits .wrapper .creditItem .content .btn .btnMore, .creditCard .cards .card:last-of-type .title .btnMore, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore {
+.credits .wrapper .creditItem .card .content .btn .btnMore, .creditCard .cards .card .title .btnMore, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore {
   display: inline-block;
   background-repeat: no-repeat;
   transition: all 0.3s;
@@ -316,6 +309,107 @@ body .searchBox .formSearch .close, body .searchBox .formSearch .btnSearch {
   border: 1px solid rgba(0, 0, 0, 0.1019607843);
   border-radius: 30px;
   background: no-repeat center #ffc628;
+}
+
+.credits .wrapper .creditItem .calc .calcItems .item, .creditCard .cards .card form .calcItems .item {
+  padding: 10px;
+  position: relative;
+}
+.credits .wrapper .creditItem .calc .calcItems .item:not(:last-of-type), .creditCard .cards .card form .calcItems .item:not(:last-of-type) {
+  border-right: 1px solid #ECECEC;
+}
+.credits .wrapper .creditItem .calc .calcItems .item .number, .creditCard .cards .card form .calcItems .item .number {
+  font-family: fM;
+  font-size: 26px;
+  line-height: 30px;
+  outline: none;
+  border: none;
+  width: 100%;
+}
+.credits .wrapper .creditItem .calc .calcItems .item .number::-webkit-inner-spin-button, .creditCard .cards .card form .calcItems .item .number::-webkit-inner-spin-button, .credits .wrapper .creditItem .calc .calcItems .item .number::-webkit-outer-spin-button, .creditCard .cards .card form .calcItems .item .number::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+}
+.credits .wrapper .creditItem .calc .calcItems .item p, .creditCard .cards .card form .calcItems .item p {
+  font-family: fB;
+  font-size: 15px;
+  line-height: 15px;
+  position: absolute;
+  right: 20px;
+  top: 65%;
+  transform: translateY(-50%);
+  color: rgba(0, 0, 0, 0.5019607843);
+}
+.credits .wrapper .creditItem .calc .calcItems .item span, .creditCard .cards .card form .calcItems .item span {
+  color: rgba(0, 0, 0, 0.5019607843);
+  font-size: 15px;
+  font-size: 15px;
+  line-height: 19px;
+  display: block;
+}
+.credits .wrapper .creditItem .calc .calcItems .item .range, .creditCard .cards .card form .calcItems .item .range {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: rgba(0, 0, 0, 0.1019607843);
+  cursor: pointer;
+  --range: calc(var(--max) - var(--min));
+  --ratio: calc((var(--val) - var(--min)) / var(--range));
+  --sx: calc(0.5 * 1.5em + var(--ratio) * (100% - 1.5em));
+}
+.credits .wrapper .creditItem .calc .calcItems .item .range::-moz-range-thumb, .creditCard .cards .card form .calcItems .item .range::-moz-range-thumb {
+  -moz-appearance: none;
+       appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #ffffff;
+  border: 3px solid #ffc628;
+}
+.credits .wrapper .creditItem .calc .calcItems .item .range::-webkit-slider-runnable-track, .creditCard .cards .card form .calcItems .item .range::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: linear-gradient(#ffc628, #ffc628) 0/var(--sx) 100% no-repeat;
+}
+.credits .wrapper .creditItem .calc .calcItems .item .range::-webkit-slider-thumb, .creditCard .cards .card form .calcItems .item .range::-webkit-slider-thumb {
+  height: 26px;
+  width: 26px;
+  -webkit-appearance: none;
+          appearance: none;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  border: 5px solid #ffc628;
+  margin: -10px 0 0 0;
+  box-sizing: border-box;
+}
+.credits .wrapper .creditItem .calc .calcItems .item .range::-moz-range-track, .creditCard .cards .card form .calcItems .item .range::-moz-range-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+}
+.credits .wrapper .creditItem .calc .calcItems .item .range::-ms-track, .creditCard .cards .card form .calcItems .item .range::-ms-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+}
+.credits .wrapper .creditItem .calc .calcItems .item .range::-ms-thumb, .creditCard .cards .card form .calcItems .item .range::-ms-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  appearance: none;
+  background: #ffffff;
+  cursor: pointer;
+  background: #ffffff;
+  border: 3px solid #ffc628;
 }
 
 .news, .useful, .creditCard, .stories {
@@ -610,6 +704,8 @@ body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox {
   }
 }
 body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore {
+  padding: 5px 38px 5px 0;
+  background-position: right 50%;
   color: #fff;
 }
 body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore:hover {
@@ -789,6 +885,10 @@ h4,
 h5 {
   font-weight: normal;
   line-height: normal;
+}
+
+button {
+  border: none;
 }
 
 .container {
@@ -1651,16 +1751,29 @@ footer .footBottom .wrapper .siteBy a {
   bottom: 61px;
   left: 30px;
 }
+.slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider:hover::after {
+  background-color: #fff;
+}
+.slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider:hover span {
+  color: #000;
+}
 @media (min-width: 1024px) {
   .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider {
     left: 20px;
   }
 }
 .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore {
+  position: relative;
   position: absolute;
   bottom: 61px;
   left: 30px;
   color: #000;
+}
+.slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore svg {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-60%);
 }
 .slider .wrapper .sliderBox .dot {
   display: grid;
@@ -1871,183 +1984,89 @@ footer .footBottom .wrapper .siteBy a {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.creditCard .cards .card:last-of-type {
-  display: grid;
-  grid-template-columns: 1fr;
-  padding: 20px;
-  border: 1px solid #ECECEC;
-}
-@media (min-width: 1024px) {
-  .creditCard .cards .card:last-of-type {
-    padding: 30px;
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-.creditCard .cards .card:last-of-type .title {
+.creditCard .cards .card .title {
   display: grid;
   justify-content: space-between;
   grid-template-columns: repeat(2, auto);
   grid-area: 1/1/1/span 3;
 }
-.creditCard .cards .card:last-of-type .title .btnMore {
-  background-position: right 9px;
+.creditCard .cards .card .title .btnMore {
+  position: relative;
   padding: 5px 38px 5px 0;
   color: #0091FE;
 }
-.creditCard .cards .card:last-of-type .title .btnMore:hover {
+.creditCard .cards .card .title .btnMore:hover {
   margin: 0 -8px 0 0;
   padding: 5px 46px 5px 0;
 }
-.creditCard .cards .card:last-of-type .calcItems {
+.creditCard .cards .card .title .btnMore svg {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.creditCard .cards .card form {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 20px;
+  border: 1px solid #ECECEC;
+  border-radius: 10px;
+}
+@media (min-width: 1024px) {
+  .creditCard .cards .card form {
+    padding: 30px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.creditCard .cards .card form .calcItems {
   grid-area: 2/1/span 1/span 3;
   margin: 10px 0 20px;
   border: 1px solid #ECECEC;
   border-radius: 10px 10px 10px 0;
 }
 @media (min-width: 1024px) {
-  .creditCard .cards .card:last-of-type .calcItems {
+  .creditCard .cards .card form .calcItems {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin: 30px 0 45px;
   }
 }
-.creditCard .cards .card:last-of-type .calcItems .item {
-  padding: 10px;
-  position: relative;
-}
-.creditCard .cards .card:last-of-type .calcItems .item:not(:last-of-type) {
-  border-right: 1px solid #ECECEC;
-}
-.creditCard .cards .card:last-of-type .calcItems .item .number {
-  font-family: fM;
-  font-size: 26px;
-  line-height: 30px;
-  outline: none;
-  border: none;
-  width: 100%;
-}
-.creditCard .cards .card:last-of-type .calcItems .item .number::-webkit-inner-spin-button, .creditCard .cards .card:last-of-type .calcItems .item .number::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-          appearance: none;
-}
-.creditCard .cards .card:last-of-type .calcItems .item p {
-  font-family: fB;
-  font-size: 15px;
-  line-height: 15px;
-  position: absolute;
-  right: 20px;
-  top: 65%;
-  transform: translateY(-50%);
-  color: rgba(0, 0, 0, 0.5019607843);
-}
-.creditCard .cards .card:last-of-type .calcItems .item span {
-  color: rgba(0, 0, 0, 0.5019607843);
-  font-size: 15px;
-  font-size: 15px;
-  line-height: 19px;
-  display: block;
-}
-.creditCard .cards .card:last-of-type .calcItems .item .range {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  outline: none;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  background-color: rgba(0, 0, 0, 0.1019607843);
-  cursor: pointer;
-  --range: calc(var(--max) - var(--min));
-  --ratio: calc((var(--val) - var(--min)) / var(--range));
-  --sx: calc(0.5 * 1.5em + var(--ratio) * (100% - 1.5em));
-}
-.creditCard .cards .card:last-of-type .calcItems .item .range::-moz-range-thumb {
-  -moz-appearance: none;
-       appearance: none;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  cursor: pointer;
-  background: #ffffff;
-  border: 3px solid #ffc628;
-}
-.creditCard .cards .card:last-of-type .calcItems .item .range::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 4px;
-  cursor: pointer;
-  background: linear-gradient(#ffc628, #ffc628) 0/var(--sx) 100% no-repeat;
-}
-.creditCard .cards .card:last-of-type .calcItems .item .range::-webkit-slider-thumb {
-  height: 20px;
-  width: 20px;
-  -webkit-appearance: none;
-          appearance: none;
-  border-radius: 50%;
-  background: #ffffff;
-  cursor: pointer;
-  background: #ffffff;
-  border: 5px solid #ffc628;
-  margin: -10px 0 0 0;
-  box-sizing: border-box;
-}
-.creditCard .cards .card:last-of-type .calcItems .item .range::-moz-range-track {
-  width: 100%;
-  height: 3px;
-  cursor: pointer;
-}
-.creditCard .cards .card:last-of-type .calcItems .item .range::-ms-track {
-  width: 100%;
-  height: 3px;
-  cursor: pointer;
-}
-.creditCard .cards .card:last-of-type .calcItems .item .range::-ms-thumb {
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  appearance: none;
-  background: #ffffff;
-  cursor: pointer;
-  background: #ffffff;
-  border: 3px solid #ffc628;
-}
-.creditCard .cards .card:last-of-type .resultBox {
+.creditCard .cards .card form .resultBox {
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 5px;
   grid-area: 3/1/span 1/span 3;
 }
 @media (min-width: 1024px) {
-  .creditCard .cards .card:last-of-type .resultBox {
+  .creditCard .cards .card form .resultBox {
     grid-template-columns: 65% 35%;
   }
 }
-.creditCard .cards .card:last-of-type .resultBox .result {
+.creditCard .cards .card form .resultBox .result {
   width: 33%;
   text-align: right;
   justify-self: center;
 }
-.creditCard .cards .card:last-of-type .resultBox .result p {
+.creditCard .cards .card form .resultBox .result p {
   font-family: fM;
 }
-.creditCard .cards .card:last-of-type .resultBox .result p:first-of-type {
+.creditCard .cards .card form .resultBox .result p:first-of-type {
   font-size: 16px;
   line-height: 16px;
   color: rgba(0, 0, 0, 0.5019607843);
 }
-.creditCard .cards .card:last-of-type .resultBox .result p:last-of-type {
+.creditCard .cards .card form .resultBox .result p:last-of-type {
   font-size: 26px;
 }
-.creditCard .cards .card:last-of-type .resultBox .result p span {
+.creditCard .cards .card form .resultBox .result p span {
   color: #000;
   font-size: 18px;
 }
-.creditCard .cards .card:last-of-type .resultBox .btn .btnOrder {
+.creditCard .cards .card form .resultBox .btn .btnOrder {
   width: 100%;
 }
 @media (min-width: 1024px) {
-  .creditCard .cards .card:last-of-type .resultBox .btn .btnOrder {
+  .creditCard .cards .card form .resultBox .btn .btnOrder {
     font-size: 18px;
   }
 }
@@ -2427,7 +2446,16 @@ footer .footBottom .wrapper .siteBy a {
     padding: 265px 0 50px;
   }
 }
-.credits .wrapper .creditItem {
+.credits .wrapper .creditItem:first-child .card .content .info {
+  grid-template-columns: repeat(3, max-content);
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+}
+.credits .wrapper .creditItem:nth-child(6) .calcItems:first-child {
+  grid-template-columns: repeat(3, 1fr);
+}
+.credits .wrapper .creditItem .card {
+  margin: 0 0 45px;
   border: 1px solid #ececec;
   border-radius: 10px;
   overflow: hidden;
@@ -2435,98 +2463,179 @@ footer .footBottom .wrapper .siteBy a {
   grid-template-columns: 1fr;
 }
 @media (min-width: 1024px) {
-  .credits .wrapper .creditItem {
+  .credits .wrapper .creditItem .card {
     grid-template-columns: 660px 440px;
   }
 }
-.credits .wrapper .creditItem:first-child .content .info {
-  grid-template-columns: repeat(3, max-content);
-  -moz-column-gap: 40px;
-       column-gap: 40px;
-}
-.credits .wrapper .creditItem:not(:last-child) {
-  margin: 0 0 45px;
-}
-.credits .wrapper .creditItem .image {
-  background: no-repeat 335%;
+.credits .wrapper .creditItem .card .image {
+  background: no-repeat 160px;
   background-size: contain;
 }
-.credits .wrapper .creditItem .image .img {
+.credits .wrapper .creditItem .card .image .img {
   height: 100%;
   background: no-repeat bottom;
   background-size: contain;
 }
 @media (min-width: 1024px) {
-  .credits .wrapper .creditItem .image {
+  .credits .wrapper .creditItem .card .image {
     order: 2;
   }
 }
-.credits .wrapper .creditItem .content {
+.credits .wrapper .creditItem .card .content {
   padding: 45px 0 45px 60px;
 }
-.credits .wrapper .creditItem .content .title h2 {
+.credits .wrapper .creditItem .card .content .title h2 {
   font-family: fH;
   font-size: 20px;
   margin: 0 0 10px;
 }
 @media (min-width: 1024px) {
-  .credits .wrapper .creditItem .content .title h2 {
+  .credits .wrapper .creditItem .card .content .title h2 {
     font-size: 34px;
   }
 }
-.credits .wrapper .creditItem .content .title p {
+.credits .wrapper .creditItem .card .content .title p {
   font-size: 18px;
   line-height: 20px;
   color: rgba(0, 0, 0, 0.5019607843);
 }
-.credits .wrapper .creditItem .content .info {
+.credits .wrapper .creditItem .card .content .info {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   -moz-column-gap: 40px;
        column-gap: 40px;
   padding: 40px 0 50px;
 }
-.credits .wrapper .creditItem .content .info .infoItem span {
+.credits .wrapper .creditItem .card .content .info .infoItem span {
   line-height: 16px;
   color: rgba(0, 0, 0, 0.5019607843);
   display: block;
   margin: 0 0 7px;
 }
-.credits .wrapper .creditItem .content .info .infoItem p {
+.credits .wrapper .creditItem .card .content .info .infoItem p {
   font-family: fM;
   font-size: 21px;
   font-size: 21px;
   line-height: 20.8px;
 }
-.credits .wrapper .creditItem .content .btn .btnMore {
-  position: relative;
-  color: rgba(0, 0, 0, 0.5019607843);
-  margin: 0 0 0 30px;
-  transition: all 0.3s;
+.credits .wrapper .creditItem .card .content .btn .btnOrder {
+  margin: 0 30px 0 0;
 }
-.credits .wrapper .creditItem .content .btn .btnMore:hover {
+.credits .wrapper .creditItem .card .content .btn .btnOrder:hover::after {
+  background-color: #ffc628;
+}
+.credits .wrapper .creditItem .card .content .btn .btnOrder:hover span {
   color: #000;
 }
-.credits .wrapper .creditItem .content .btn .btnMore:hover svg g {
+.credits .wrapper .creditItem .card .content .btn .btnMore {
+  position: relative;
+  color: rgba(0, 0, 0, 0.5019607843);
+  transition: all 0.3s;
+}
+.credits .wrapper .creditItem .card .content .btn .btnMore:hover {
+  color: #000;
+}
+.credits .wrapper .creditItem .card .content .btn .btnMore:hover svg g {
   fill: #000;
 }
-.credits .wrapper .creditItem .content .btn .btnMore svg {
+.credits .wrapper .creditItem .card .content .btn .btnMore svg {
   position: absolute;
   right: 0;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-60%);
 }
-.credits .wrapper .creditItem .content .btn .btnMore svg g {
+.credits .wrapper .creditItem .card .content .btn .btnMore svg g {
   fill: rgba(0, 0, 0, 0.5019607843);
   transition: all 0.3s;
 }
+.credits .wrapper .creditItem .calc {
+  display: none;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.credits .wrapper .creditItem .calc.active {
+  display: block;
+}
+.credits .wrapper .creditItem .calc .calcItems {
+  margin: 0 0 40px;
+  border: 1px solid #ECECEC;
+  border-radius: 10px 10px 10px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.credits .wrapper .creditItem .calc .calcItems .item .range {
+  background-color: transparent;
+}
+.credits .wrapper .creditItem .calc .calcItems:not(:first-child) {
+  margin: 0 0 20px;
+}
+.credits .wrapper .creditItem .calc .calcItems:not(:first-child) input {
+  font-size: 18px;
+  padding: 20px;
+  width: 100%;
+  outline: none;
+  border: none;
+}
+.credits .wrapper .creditItem .calc .calcItems:not(:first-child) input:not(:last-child) {
+  border-right: 1px solid #ececec;
+}
+.credits .wrapper .creditItem .calc .btnBox {
+  margin: 65px 0 0;
+  padding: 30px 0;
+  border-top: 1px solid #ececec;
+  display: grid;
+  grid-template-columns: 360px auto;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+}
+.credits .wrapper .creditItem .calc .btnBox .text {
+  background: no-repeat left 5px;
+  padding: 0 0 0 50px;
+}
+.credits .wrapper .creditItem .calc .btnBox .text p {
+  font-size: 15px;
+}
+.credits .wrapper .creditItem .calc .btnBox .btnOrder {
+  cursor: pointer;
+  height: 65px;
+}
 
-.creditInfo .aboutCreditShort p {
+.creditInfo p {
   color: rgba(0, 0, 0, 0.5019607843);
+}
+.creditInfo a {
+  color: #0091FE;
 }
 .creditInfo .aboutCreditShort.active {
   display: none;
 }
 .creditInfo .aboutCredit {
   display: none;
+}
+.creditInfo .aboutCredit.active {
+  display: block;
+}
+
+.creditInfo .aboutCredit .table {
+  font-size: 18px;
+  margin: 20px 0;
+  width: 500px;
+  border: 1px solid #ececec;
+  border-radius: 10px;
+}
+.creditInfo .aboutCredit .table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.creditInfo .aboutCredit .table table th {
+  width: 50%;
+  text-align: left;
+}
+.creditInfo .aboutCredit .table table th,
+.creditInfo .aboutCredit .table table td {
+  padding: 10px 14px;
+}
+.creditInfo .aboutCredit .table table th:first-child,
+.creditInfo .aboutCredit .table table td:first-child {
+  border-right: 1px solid #ececec;
 }/*# sourceMappingURL=style.css.map */
