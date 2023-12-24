@@ -1,4 +1,13 @@
 .credits {
+    padding: 111px 0 50px;
+
+    @media (min-width:1024px) {
+        padding: 145px 0 50px;
+
+        &.active {
+            padding: 265px 0 50px;
+        }
+    }
 
     .heading {
         text-align: center;
@@ -143,7 +152,6 @@
                         .btnMore {
                             position: relative;
                             @extend %btnMorePrimary;
-                            @extend %btnMore;
                             color: $clr_grey_text;
 
                             transition: all 0.3s;
@@ -159,10 +167,6 @@
                             }
 
                             svg {
-                                position: absolute;
-                                right: 0;
-                                top: 50%;
-                                transform: translateY(-60%);
 
                                 g {
                                     fill: $clr_grey_text;
@@ -272,6 +276,7 @@
             margin: 20px 0;
             width: 500px;
             border: 1px solid $clr_border;
+            overflow: hidden;
             border-radius: 10px;
 
             table {
@@ -281,15 +286,21 @@
                 th {
                     width: 50%;
                     text-align: left;
+                    background-color: $clr_border;
                 }
 
-                th,
+
                 td {
-                    padding: 10px 14px;
+                    color: $clr_grey_text;
 
                     &:first-child {
                         border-right: 1px solid $clr_border;
                     }
+                }
+
+                td,
+                th {
+                    padding: 10px 14px;
                 }
             }
         }

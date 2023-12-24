@@ -2,15 +2,14 @@ let result = ""
 let resultData = ""
 class Currency {
   constructor() {
-    /* this.url = "https://v6.exchangerate-api.com/v6/2c3f90c34a7fe432cc0f3580/latest/" */
-    this.url = "http://localhost:3000/currency"
+/*     this.url = "https://v6.exchangerate-api.com/v6/2c3f90c34a7fe432cc0f3580/latest/"
+ */    this.url = "http://localhost:3000/currency"
     this.url1 = "http://localhost:3000/news"
   }
 
   async exchangeShow(purchase1, purchase2, sale1, sale2) {
-    const response = await fetch(`${this.url}`)
+    const response = await fetch(`${this.url}`) // AZN
     const result = await response.json()
-    console.log(result);
     purchase1.innerHTML = (result.conversion_rates.USD).toFixed(4)
     purchase2.innerHTML = (result.conversion_rates.EUR).toFixed(4)
     sale1.innerHTML = (result.conversion_rates.USD + 0.01).toFixed(4)

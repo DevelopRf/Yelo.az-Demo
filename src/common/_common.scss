@@ -297,14 +297,18 @@ body {
 
                                 .btnMore {
                                     padding: 5px 38px 5px 0;
-                                    @extend %btnMore;
-                                    background-position: right 50%;
+                                    @extend %btnMorePrimary;
+                                    @extend %btnMoreHover;
                                     color: #fff;
 
-                                    &:hover {
-                                        padding: 5px 46px 5px 0;
+                                    svg {
+                                        width: 28px;
+                                        height: 13px;
+
+                                        g {
+                                            fill: #fff;
+                                        }
                                     }
-                                    
                                 }
                             }
                         }

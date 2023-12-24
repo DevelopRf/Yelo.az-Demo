@@ -11,6 +11,8 @@
     display: inline-block;
     font-family: fB;
     border-radius: 6px;
+    background-color: #000;
+    color: #fff;
 
     span {
         display: inline-block;
@@ -191,22 +193,30 @@
 }
 
 %btnMorePrimary {
+    position: relative;
+    font-family: fB;
     padding: 0 45px 0 0;
 
     @media (min-width:1024px) {
         font-size: 20px;
     }
-
-    &:hover {
-        padding: 0 55px 0 0;
+    
+    svg {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transition: all 0.2s ease-in-out;
+        transform: translateY(-60%);
     }
+    
 }
 
-%btnMore {
-    display: inline-block;
-    background-repeat: no-repeat;
-    transition: all 0.3s;
-    font-family: fB;
+%btnMoreHover {
+    &:hover {
+        svg {
+            right: -8px;
+        }
+    }    
 }
 
 %btnStory {
@@ -374,6 +384,7 @@
 %rangeItem {
     padding: 10px;
     position: relative;
+
     &:not(:last-of-type) {
         border-right: 1px solid #ECECEC;
     }

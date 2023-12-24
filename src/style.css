@@ -12,6 +12,8 @@
   display: inline-block;
   font-family: fB;
   border-radius: 6px;
+  background-color: #000;
+  color: #fff;
 }
 .credits .wrapper .creditItem .card .content .btn .btnOrder span, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider span {
   display: inline-block;
@@ -171,23 +173,26 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   transform: translateY(-50%);
 }
 
-.credits .wrapper .creditItem .card .content .btn .btnMore, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore {
+.credits .wrapper .creditItem .card .content .btn .btnMore, .creditCard .cards .card .title .btnMore, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore {
+  position: relative;
+  font-family: fB;
   padding: 0 45px 0 0;
 }
 @media (min-width: 1024px) {
-  .credits .wrapper .creditItem .card .content .btn .btnMore, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore {
+  .credits .wrapper .creditItem .card .content .btn .btnMore, .creditCard .cards .card .title .btnMore, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore {
     font-size: 20px;
   }
 }
-.credits .wrapper .creditItem .card .content .btn .btnMore:hover, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore:hover {
-  padding: 0 55px 0 0;
+.credits .wrapper .creditItem .card .content .btn .btnMore svg, .creditCard .cards .card .title .btnMore svg, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore svg, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore svg {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transition: all 0.2s ease-in-out;
+  transform: translateY(-60%);
 }
 
-.credits .wrapper .creditItem .card .content .btn .btnMore, .creditCard .cards .card .title .btnMore, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore {
-  display: inline-block;
-  background-repeat: no-repeat;
-  transition: all 0.3s;
-  font-family: fB;
+.creditCard .cards .card .title .btnMore:hover svg, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore:hover svg, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore:hover svg {
+  right: -8px;
 }
 
 body .modal .wrapper .next, body .modal .wrapper .prev, body .modal .wrapper .close {
@@ -705,11 +710,14 @@ body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox {
 }
 body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore {
   padding: 5px 38px 5px 0;
-  background-position: right 50%;
   color: #fff;
 }
-body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore:hover {
-  padding: 5px 46px 5px 0;
+body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore svg {
+  width: 28px;
+  height: 13px;
+}
+body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore svg g {
+  fill: #fff;
 }
 body .modal .wrapper .storySliders .sliderItem .storyImage {
   background: no-repeat center 100%;
@@ -931,10 +939,10 @@ button {
   width: 100%;
   z-index: 99999999;
   transition: all 0.3s;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: none;
 }
 .header.active {
-  box-shadow: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 .header .headerTop {
   border-bottom: 1px solid #ececec;
@@ -1097,15 +1105,16 @@ button {
 }
 .header .headerBottom {
   padding: 10px 0;
-  background-color: #fff;
   transition: all 0.3s;
+  background-color: #fff;
 }
 @media (min-width: 1024px) {
   .header .headerBottom {
+    background-color: transparent;
     padding: 18px 0;
   }
   .header .headerBottom.active {
-    background-color: transparent;
+    background-color: #fff;
   }
 }
 .header .headerBottom .wrapper {
@@ -1285,9 +1294,6 @@ button {
 }
 .header .headerBottom .wrapper .btnBox .btnClose.effectToggle .line {
   left: 53%;
-}
-.header .headerBottom .wrapper .btnBox .btnClose.effectToggle .line span {
-  width: 19px;
 }
 .header .headerBottom .wrapper .btnBox .btnClose.effectToggle .line span:first-child {
   transform-origin: left;
@@ -1727,12 +1733,12 @@ footer .footBottom .wrapper .siteBy a {
   font-family: fH;
   font-size: 20px;
   margin: 0 0 10px;
-  line-height: 55px;
   cursor: text;
 }
 @media (min-width: 1024px) {
   .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent h3 {
     font-size: 40px;
+    line-height: 55px;
   }
 }
 .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent p {
@@ -1751,29 +1757,22 @@ footer .footBottom .wrapper .siteBy a {
   bottom: 61px;
   left: 30px;
 }
-.slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider:hover::after {
-  background-color: #fff;
-}
-.slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider:hover span {
-  color: #000;
-}
 @media (min-width: 1024px) {
   .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider {
     left: 20px;
   }
+  .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider:hover::after {
+    background-color: #fff;
+  }
+  .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnSlider:hover span {
+    color: #000;
+  }
 }
 .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore {
-  position: relative;
   position: absolute;
   bottom: 61px;
   left: 30px;
   color: #000;
-}
-.slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore svg {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-60%);
 }
 .slider .wrapper .sliderBox .dot {
   display: grid;
@@ -1991,19 +1990,15 @@ footer .footBottom .wrapper .siteBy a {
   grid-area: 1/1/1/span 3;
 }
 .creditCard .cards .card .title .btnMore {
-  position: relative;
   padding: 5px 38px 5px 0;
   color: #0091FE;
 }
-.creditCard .cards .card .title .btnMore:hover {
-  margin: 0 -8px 0 0;
-  padding: 5px 46px 5px 0;
-}
 .creditCard .cards .card .title .btnMore svg {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  width: 28px;
+  height: 13px;
+}
+.creditCard .cards .card .title .btnMore svg g {
+  fill: #0091FE;
 }
 .creditCard .cards .card form {
   display: grid;
@@ -2411,6 +2406,17 @@ footer .footBottom .wrapper .siteBy a {
   transition: all 0.15s;
 }
 
+.credits {
+  padding: 111px 0 50px;
+}
+@media (min-width: 1024px) {
+  .credits {
+    padding: 145px 0 50px;
+  }
+  .credits.active {
+    padding: 265px 0 50px;
+  }
+}
 .credits .heading {
   text-align: center;
   max-width: 840px;
@@ -2538,12 +2544,6 @@ footer .footBottom .wrapper .siteBy a {
 .credits .wrapper .creditItem .card .content .btn .btnMore:hover svg g {
   fill: #000;
 }
-.credits .wrapper .creditItem .card .content .btn .btnMore svg {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-60%);
-}
 .credits .wrapper .creditItem .card .content .btn .btnMore svg g {
   fill: rgba(0, 0, 0, 0.5019607843);
   transition: all 0.3s;
@@ -2621,6 +2621,7 @@ footer .footBottom .wrapper .siteBy a {
   margin: 20px 0;
   width: 500px;
   border: 1px solid #ececec;
+  overflow: hidden;
   border-radius: 10px;
 }
 .creditInfo .aboutCredit .table table {
@@ -2630,12 +2631,15 @@ footer .footBottom .wrapper .siteBy a {
 .creditInfo .aboutCredit .table table th {
   width: 50%;
   text-align: left;
+  background-color: #ececec;
 }
-.creditInfo .aboutCredit .table table th,
 .creditInfo .aboutCredit .table table td {
-  padding: 10px 14px;
+  color: rgba(0, 0, 0, 0.5019607843);
 }
-.creditInfo .aboutCredit .table table th:first-child,
 .creditInfo .aboutCredit .table table td:first-child {
   border-right: 1px solid #ececec;
+}
+.creditInfo .aboutCredit .table table td,
+.creditInfo .aboutCredit .table table th {
+  padding: 10px 14px;
 }/*# sourceMappingURL=style.css.map */

@@ -158,7 +158,7 @@ function sliderStories() {
         }, 10000);
     };
 
-    prevSlider.addEventListener("click", () => {
+    prevSlider && prevSlider.addEventListener("click", () => {
         clearInterval(interval);
         index--
         if (index < 0) {
@@ -171,7 +171,7 @@ function sliderStories() {
         startInterval()
     })
 
-    nextSlider.addEventListener("click", () => {
+    nextSlider && nextSlider.addEventListener("click", () => {
         clearInterval(interval);
         index++
         if (index > stories.length - 1) {
@@ -212,7 +212,7 @@ if (firstOption) {
         const sale = document.querySelectorAll(".sale h5")
         currency.exchangeShow(purchase[0], purchase[1], sale[0], sale[1])
     }
-    
+
     showData()
 }
 
@@ -224,7 +224,7 @@ function exchange() {
     currency.exchange(amount, firstOptionValue, secondOptionValue)
         .then((result => {
 
-            inputResult.value = result.toFixed(2)
+            inputResult.value = result.toFixed(0)
             if (amountInput.value == "") {
                 inputResult.value = ""
             }
@@ -233,12 +233,11 @@ function exchange() {
 
 const btnClose = document.querySelector('.btnClose')
 const bigMenu = document.querySelector('.bigMenu')
-btnClose.addEventListener('click', () => {
+btnClose && btnClose.addEventListener('click', () => {
     btnClose.classList.toggle('effectToggle')
 
     if (btnClose.classList.contains('effectToggle')) {
         bigMenu.classList.add('active')
-        headerBottom.classList.remove('active')
         headerTop.classList.remove('active')
         document.body.style.overflowY = 'hidden'
     }
@@ -257,6 +256,13 @@ if (calcItems) {
         const month = document.querySelector('.calcItems .item:nth-of-type(2) .number')
         const percent = document.querySelector('.calcItems .item:last-of-type .number')
 
+        const totalResult = () => {
+            const amountValue = parseFloat(amount.value)
+            const monthValue = parseFloat(month.value)
+            const percentValue = parseFloat(percent.value)
+            result && (result.innerHTML = `${(((amountValue + monthValue) * percentValue / 100)).toFixed(0).toString()} <span>AZN</span>`)
+        }
+
         function handleRangeInput(item) {
             item.style.setProperty("--val", item.value);
             item.previousElementSibling.previousElementSibling.value = item.value;
@@ -270,26 +276,25 @@ if (calcItems) {
 
             const range = item.querySelector('.range')
             const number = item.querySelector('.number')
-     
-            result && (result.innerHTML = (((amount.value / 2 + percent.value / 2 + month.value / 2) * 100).toFixed(2)).toString())
+
+            range.value = number.value
+            totalResult()
+
             number.addEventListener('input', () => {
-                handleNumberInput(number)
-                if (number.value == "") {
+                if (number.value.trim() == "") {
                     number.value = 0
                 }
-                else if (number.value == 0) {
-                    number.value = number.value.slice(1)
+                else if (number.value.startsWith('0')) {
+                    number.value = number.value.replace(/^0+/, '')
                 }
-                result && (result.innerHTML = (((amount.value / 2 + percent.value / 2 + month.value / 2) * 100).toFixed(2)).toString())
+                handleNumberInput(number)
+                totalResult()
             })
 
             range.addEventListener('input', () => {
                 handleRangeInput(range)
-                result && (result.innerHTML = (((amount.value / 2 + percent.value / 2 + month.value / 2) * 100).toFixed(2)).toString())
+                totalResult()
             })
-
-
-            range.value = number.value
         })
     }
     range()
@@ -309,12 +314,12 @@ function headerEffect() {
         }
 
         if (scrolling == 0) {
-            headerBottom.classList.add('active')
-            header.classList.add('active')
-        }
-        else {
             headerBottom.classList.remove('active')
             header.classList.remove('active')
+        }
+        else {
+            headerBottom.classList.add('active')
+            header.classList.add('active')
         }
 
         scrollPage = scrolling

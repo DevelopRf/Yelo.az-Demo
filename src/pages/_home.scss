@@ -115,12 +115,12 @@
                             font-family: fH;
                             font-size: 20px;
                             margin: 0 0 10px;
-                            line-height: 55px;
 
                             cursor: text;
 
                             @media (min-width:1024px) {
                                 font-size: 40px;
+                                line-height: 55px;
                             }
                         }
 
@@ -137,38 +137,34 @@
 
                     .btnSlider {
                         @extend %primaryButton;
+                        
                         position: absolute;
                         bottom: 61px;
                         left: 30px;
-                        &:hover {
-                            &::after {
-                                background-color: #fff;
-                            }
-                    
-                            span {
-                                color: #000;
-                            }
-                        }
 
                         @media (min-width:1024px) {
                             left: 20px;
+
+                            &:hover {
+                                &::after {
+                                    background-color: #fff;
+                                }
+
+                                span {
+                                    color: #000;
+                                }
+                            }
                         }
                     }
 
                     .btnMore {
-                        position: relative;
+                        @extend %btnMorePrimary;
+                        @extend %btnMoreHover;
                         position: absolute;
                         bottom: 61px;
                         left: 30px;
                         color: #000;
-                        @extend %btnMore;
-                        @extend %btnMorePrimary;
-                        svg{
-                            position: absolute;
-                                right: 0;
-                                top: 50%;
-                                transform: translateY(-60%);
-                        }
+
                     }
                 }
             }
@@ -417,22 +413,18 @@
                 grid-area: 1 / 1 / 1 / span 3;
 
                 .btnMore {
-                    position: relative;
                     padding: 5px 38px 5px 0;
                     color: $clr_second;
 
-                    @extend %btnMore;
-
-                    &:hover {
-                        margin: 0 -8px 0 0;
-                        padding: 5px 46px 5px 0;
-                    }
+                    @extend %btnMorePrimary;
+                    @extend %btnMoreHover;
 
                     svg {
-                        position: absolute;
-                        right: 0;
-                        top: 50%;
-                        transform: translateY(-50%);
+                        width: 28px;
+                        height: 13px;
+                        g {
+                            fill: $clr_second;
+                        }
                     }
                 }
             }

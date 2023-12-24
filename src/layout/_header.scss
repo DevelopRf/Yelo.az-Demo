@@ -5,10 +5,10 @@
     width: 100%;
     z-index: 99999999;
     transition: all 0.3s;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-
+    box-shadow: none;
+    
     &.active {
-        box-shadow: none;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
     }
 
     .headerTop {
@@ -207,17 +207,17 @@
 
     .headerBottom {
         padding: 10px 0;
-        background-color: #fff;
         transition: all 0.3s;
-
+        background-color: #fff;
+        
         @media (min-width:1024px) {
+            background-color: transparent;
             padding: 18px 0;
 
             &.active {
-                background-color: transparent;
+                background-color: #fff;
             }
         }
-
 
         .wrapper {
             @include Grid($t-c: repeat(2, max-content), $j-c: space-between);
@@ -401,7 +401,6 @@
                             left: 53%;
 
                             span {
-                                width: 19px;
 
                                 &:first-child {
                                     transform-origin: left;
