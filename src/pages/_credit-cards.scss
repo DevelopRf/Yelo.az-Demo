@@ -1,0 +1,134 @@
+.creditCards {
+    @extend %firstSection;
+
+    @media (min-width:1024px) {
+        padding: 145px 0 50px;
+
+        &.active {
+            padding: 265px 0 50px;
+        }
+    }
+
+    .heading {
+        @extend %headingCardCredit;
+    }
+
+    .wrapper {
+        .creditCardItem {
+
+            .card {
+                @extend %card;
+
+                .image {
+                    height: 220px;
+                    @extend %image;
+                    position: relative;
+
+                        .img {
+                            @extend %cardImage;
+    
+                            img {
+                                @extend %img;
+                                height: auto;
+                            }
+                        }
+                    
+
+                    @media (min-width:1024px) {
+                        height: 100%;
+                    }
+                }
+
+                .content {
+                    @extend %content;
+
+                    .title {
+                        @extend %title;
+                    }
+
+                    .info {
+                        @extend %info;
+                    }
+
+                    .btn {
+                        @extend %btn;
+
+                        .btnOrder {
+                            @extend %primaryButton;
+                            @extend %cardBtnOrder;
+                        }
+
+                        .btnMore {
+                            @extend %cardBtnMore;
+                            @extend %btnMorePrimary;
+                            @extend %btnMoreHover;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.creditInfo {
+    p {
+        color: $clr_grey_text;
+    }
+
+    a {
+        color: $clr_second;
+    }
+
+    .aboutCreditShort {
+
+        &.active {
+            display: none;
+        }
+    }
+
+    .aboutCredit {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+}
+
+.creditInfo {
+    .aboutCredit {
+        .table {
+            font-size: 18px;
+            margin: 20px 0;
+            max-width: 500px;
+            border: 1px solid $clr_border;
+            overflow: hidden;
+            border-radius: 10px;
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+
+                th {
+                    width: 50%;
+                    text-align: left;
+                    background-color: $clr_border;
+                }
+
+
+                td {
+                    color: $clr_grey_text;
+
+                    &:first-child {
+                        border-right: 1px solid $clr_border;
+                    }
+                }
+
+                td,
+                th {
+                    padding: 10px 14px;
+                }
+            }
+        }
+    }
+}

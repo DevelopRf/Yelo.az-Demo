@@ -6,7 +6,7 @@
     z-index: 99999999;
     transition: all 0.3s;
     box-shadow: none;
-    
+
     &.active {
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
     }
@@ -86,7 +86,7 @@
                 .menu {
                     @include Grid($t-c: repeat(5, max-content), $a-i: center, $c-g: 3px, $a-c: center);
 
-                    li {
+                    >li {
 
                         &:nth-of-type(1),
                         &:nth-of-type(2) {
@@ -179,7 +179,10 @@
                                 transition: all 0.2s;
 
                                 li {
-                                    margin: 0;
+                                    &:not(:last-child) {
+                                        margin: 0 0 8px;
+                                    }
+
                                     padding: 0 20px;
 
                                     a {
@@ -187,7 +190,8 @@
                                         padding: 0;
                                     }
                                 }
-                                &.active{
+
+                                &.active {
                                     width: 59px;
                                     height: 86px;
                                 }
@@ -209,7 +213,7 @@
         padding: 10px 0;
         transition: all 0.3s;
         background-color: #fff;
-        
+
         @media (min-width:1024px) {
             background-color: transparent;
             padding: 18px 0;
@@ -283,6 +287,12 @@
                                     width: 100%;
                                 }
                             }
+
+                            &.active{
+                                &:after{
+                                    width: 100%;
+                                }
+                            }
                         }
                     }
                 }
@@ -291,13 +301,41 @@
             .btnBox {
                 @include Grid ($t-c: repeat(3, max-content), $a-i: center, $c-g: 10px);
 
+                &.active {
+                    grid-template-columns: repeat(2, max-content);
+                }
+
                 @media (min-width:1024px) {
                     grid-template-columns: repeat(2, max-content);
+
+                    &.active {
+                        grid-template-columns: max-content;
+                    }
                 }
 
                 .btnMessage {
                     @extend %btnBox;
                     background-size: 24px;
+                    position: relative;
+                    transition: all 0.3s;
+
+                    &:hover {
+                        background-color: #000;
+                
+                        path {
+                            fill: #fff;
+                        }
+                    }
+
+                    svg {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        path{
+                            transition: all 0.3s;
+                        }
+                    }
 
                     @media (min-width: 1024px) {
                         display: none;

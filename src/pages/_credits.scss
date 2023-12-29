@@ -1,5 +1,5 @@
 .credits {
-    padding: 111px 0 50px;
+    @extend %firstSection;
 
     @media (min-width:1024px) {
         padding: 145px 0 50px;
@@ -10,168 +10,78 @@
     }
 
     .heading {
-        text-align: center;
-        max-width: 840px;
-        margin: 5px auto 50px;
-
-        h1 {
-            font-family: fH;
-            font-size: 20px;
-
-            @media (min-width:1024px) {
-                @include Font($f-s: 54px, $l-h: 86px);
-            }
-        }
-
-        p {
-            color: $clr_grey_text;
-
-            @media (min-width:1024px) {
-                @include Font($f-s: 22px, $l-h: 30px);
-            }
-        }
-    }
-
-
-    &.active {
-        padding: 0 0 50px;
-    }
-
-    @media (min-width:1024px) {
-        padding: 145px 0 50px;
-
-        &.active {
-            padding: 265px 0 50px;
-        }
+        @extend %headingCardCredit;
     }
 
     .wrapper {
         .creditItem {
-            &:first-child {
-                .card {
-                    .content {
-                        .info {
-                            grid-template-columns: repeat(3, max-content);
-                            column-gap: 40px;
-                        }
-                    }
-                }
-            }
-
-            &:nth-child(6) {
-                .calcItems {
-                    &:first-child {
-                        grid-template-columns: repeat(3, 1fr);
-                    }
-                }
-            }
 
             .card {
-                margin: 0 0 45px;
-                border: 1px solid $clr_border;
-                border-radius: 10px;
-                overflow: hidden;
-                @include Grid($t-c: 1fr);
-
-                @media (min-width:1024px) {
-                    grid-template-columns: 660px 440px;
-                }
+                @extend %card;
 
                 .image {
-                    background: no-repeat 160px;
-                    background-size: contain;
+                    height: 170px;
+                    @extend %image;
 
                     .img {
-                        height: 100%;
-                        background: no-repeat bottom;
+                        background-repeat: no-repeat;
+                        background-position: right;
                         background-size: contain;
+                        height: 100%;
+                        border-radius: 0 10px 10px 0;
                     }
 
                     @media (min-width:1024px) {
-                        order: 2;
+                        height: 100%;
+
+                        .img {
+                            background-position: bottom;
+                        }
                     }
                 }
 
                 .content {
-                    padding: 45px 0 45px 60px;
+                    @extend %content;
 
 
                     .title {
-                        h2 {
-                            font-family: fH;
-                            font-size: 20px;
-                            margin: 0 0 10px;
-
-                            @media (min-width:1024px) {
-                                font-size: 34px;
-                            }
-                        }
-
-                        p {
-                            @include Font($f-s: 18px, $l-h: 20px);
-                            color: $clr_grey_text;
-                        }
+                        @extend %title;
                     }
 
                     .info {
-                        @include Grid($t-c: repeat(3, 1fr), $c-g: 40px);
-                        padding: 40px 0 50px;
-
-                        .infoItem {
-                            span {
-                                line-height: 16px;
-                                color: $clr_grey_text;
-                                display: block;
-                                margin: 0 0 7px;
-                            }
-
-                            p {
-                                font-family: fM;
-                                font-size: 21px;
-                                @include Font ($f-s: 21px, $l-h: 20.8px);
-                            }
-                        }
+                        @extend %info;
                     }
 
                     .btn {
+                        @extend %btn;
+
                         .btnOrder {
                             @extend %primaryButton;
-                            margin: 0 30px 0 0;
-
-                            &:hover {
-                                &::after {
-                                    background-color: $clr_primary;
-                                }
-
-                                span {
-                                    color: #000;
-                                }
-                            }
+                            @extend %cardBtnOrder;
                         }
 
                         .btnMore {
-                            position: relative;
+                            @extend %cardBtnMore;
                             @extend %btnMorePrimary;
-                            color: $clr_grey_text;
+                            @extend %btnMoreHover;
+                        }
+                    }
+                }
+            }
 
-                            transition: all 0.3s;
+            &:last-child {
+                .card {
+                    .image {
 
-                            &:hover {
-                                color: #000;
+                        position: relative;
 
-                                svg {
-                                    g {
-                                        fill: #000;
-                                    }
-                                }
-                            }
+                        .img {
+                            @extend %cardImage;
 
-                            svg {
-
-                                g {
-                                    fill: $clr_grey_text;
-                                    transition: all 0.3s;
-                                }
+                            img {
+                                border-radius: 15px;
+                                @extend %img;
+                                height: auto;
                             }
                         }
                     }
@@ -188,10 +98,13 @@
                 }
 
                 .calcItems {
-                    margin: 0 0 40px;
                     border: 1px solid #ECECEC;
-                    border-radius: 10px 10px 10px 0;
                     @include Grid($t-c: repeat(2, 1fr));
+
+                    &.range-active {
+                        border-radius: 10px 10px 10px 0;
+                        margin: 0 0 40px;
+                    }
 
                     .item {
                         @extend %rangeItem;
@@ -201,10 +114,13 @@
                         }
                     }
 
-                    &:not(:first-child) {
+                    &.input-active {
                         margin: 0 0 20px;
+                        border-radius: 10px;
+                        overflow: hidden;
 
-                        input {
+                        input[type=text],
+                        select {
                             font-size: 18px;
                             padding: 20px;
                             width: 100%;
@@ -237,6 +153,14 @@
                         @extend %btnOrder;
                         cursor: pointer;
                         height: 65px;
+                    }
+                }
+            }
+
+            &:nth-child(6) {
+                .calcItems {
+                    &:nth-child(2) {
+                        grid-template-columns: repeat(3, 1fr);
                     }
                 }
             }
@@ -274,7 +198,7 @@
         .table {
             font-size: 18px;
             margin: 20px 0;
-            width: 500px;
+            max-width: 500px;
             border: 1px solid $clr_border;
             overflow: hidden;
             border-radius: 10px;

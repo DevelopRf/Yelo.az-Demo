@@ -7,11 +7,15 @@
     <title>Yelo Bank - Müasir Bank Xidmətləri</title>
     <script defer src="../src/js/all-data.js"></script>
     <script defer src="../src/js/main.js"></script>
+
+    <script defer src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
     <link rel="stylesheet" href="../src/style.css">
 </head>
 
 <body>
-
     <div class="searchBox">
         <div class="container">
             <form class="formSearch">
@@ -463,548 +467,223 @@
         </div>
     </header>
     <main>
-        <section class="credits">
+        <section class="creditCards">
             <div class="container">
                 <div class="heading">
-                    <h1>Kreditlər</h1>
-                    <p>Xərclərini təxirə salma, çünki dəstək üçün hər zaman Yelo Bank var. İndi kredit pul götürmək çox
-                        asan və sürətlidir. Sizə uyğun sərfəli bank kredit şərtləri və aşağı faizləri ilə istənilən növ
-                        kredit pul almaq üçün elə indi müraciət edərək, cəmi 2 dəqiqəyə bank krediti əldə edin!</p>
+                    <h1>Kartlar</h1>
+                    <p>Online kart sifarişi xidməti: İndi siz evdən çıxmadan plastik kart sifariş edə bilərsiniz. Yelo
+                        Bankın təqdim etdiyi plastik kartlar ilə üstünlüklərdən yararlanmaq üçün tələsin. İstənilən
+                        yerdə istifadəsinin rahatlığı və üstünlükləri ilə Yelo Bank hesab kartları hər kəsin ürəyincə
+                        olacaq.</p>
                 </div>
                 <div class="wrapper">
-                    <div class="creditItem">
-                        <div class="card">
-                            <div class="image" style="background-image: url('./img/app_block.svg');">
-                                <div class="img">
-                                </div>
-                            </div>
-                            <div class="content">
-                                <div class="title">
-                                    <h2>
-                                        
-                                    </h2>
-                                    <p>
-                                        
-                                    </p>
-                                </div>
-                                <div class="info">
-                                    <div class="infoItem">
-                                        <span></span>
-                                        <p></p>
-                                    </div>
-                                    <div class="infoItem">
-                                        <span></span>
-                                        <p></p>
-                                    </div>
-                                    <div class="infoItem">
-                                        <span></span>
-                                        <p></p>
-                                    </div>
-                                </div>
-                                <div class="btn">
-                                    <a href="javascript:void(0)" class="btnOrder">
-                                        <span>Sifariş et</span>
-                                    </a>
-                                    <a href="#" class="btnMore">
-                                        <svg width="35px" height="16px" viewBox="0 0 35 16" version="1.1"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink">
-                                            <title>Group 3</title>
-                                            <desc>Created with Sketch.</desc>
-                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none"
-                                                fill-rule="evenodd">
-                                                <g id="home(dark)" transform="translate(-521.000000, -407.000000)"
-                                                    fill="#000000">
-                                                    <g id="Group-7-Copy" transform="translate(420.000000, 405.000000)">
-                                                        <g id="Group-3"
-                                                            transform="translate(118.300006, 10.000000) scale(-1, 1) translate(-118.300006, -10.000000) translate(100.800006, 2.000000)">
-                                                            <rect id="Rectangle" x="2.54545465" y="6.93636395"
-                                                                width="31.8909104" height="2.12727281"></rect>
-                                                            <polygon id="Rectangle"
-                                                                transform="translate(4.736915, 4.817631) rotate(-45.000000) translate(-4.736915, -4.817631) "
-                                                                points="-0.730515406 3.85075039 10.1770732 3.72747281 10.204346 5.88201835 1.32652258 5.90778838">
-                                                            </polygon>
-                                                            <polygon id="Rectangle"
-                                                                transform="translate(4.736915, 11.182370) scale(1, -1) rotate(-45.000000) translate(-4.736915, -11.182370) "
-                                                                points="-0.730515406 10.2154899 10.1770732 10.0922123 10.204346 12.2467579 1.32652258 12.2725279">
-                                                            </polygon>
-                                                        </g>
-                                                    </g>
-                                                </g>
-                                            </g>
-                                        </svg>
-                                        Daha ətraflı
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <form class="calc">
-                            <div class="calcItems">
-                                <div class="item">
-                                    <span>Aylıq əməkhaqqı</span>
-                                    <input type="number" name="salary" value="2500" class="number">
-                                    <p>AZN</p>
-                                    <input type="range" class="range" min="350" max="5000" step="50" value=""
-                                        style="--min: 350; --max: 5000; --val: 2500">
-                                </div>
-                                <div class="item">
-                                    <span>Kredit məbləği</span>
-                                    <input type="number" name="amount" value="15000" class="number">
-                                    <p>Ay</p>
-                                    <input type="range" class="range" min="400" max="50100" step="100" value=""
-                                        style="--min: 400; --max: 50100; --val: 15000">
-                                </div>
-                            </div>
-                            <div class="calcItems">
-                                <input type="text" name="name-consumption" id="name-consumption" placeholder="Ad">
-                                <input type="text" name="surname" id="surname" placeholder="Soyad">
-                            </div>
-                            <div class="calcItems">
-                                <input type="text" name="workplace-consumption" id="workplace-consumption" placeholder="İş yeri">
-                                <input type="text" name="phone-consumption" id="phone-consumption" placeholder="+994 __ ___ __ __">
-                            </div>
-                            <div class="btnBox">
-                                <div class="text" style="background-image: url('./img/Credits/ok.svg');">
-                                    <p>“Sifariş et” basmaqla Azərbaycan Kredit Bürosundan kredit tarixçəsi və Asan
-                                        finansdan fərdi məlumatların alınmasına razılıq verirəm.</p>
-                                </div>
-                                <button type="submit" class="btnOrder">Sifariş et</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="creditItem">
-                        <div class="card">
-                            <div class="image" style="background-image: url('./img/app_block.svg');">
-                                <div class="img">
-                                </div>
-                            </div>
-                            <div class="content">
-                                <div class="title">
-                                    <h2>
-                                        
-                                    </h2>
-                                    <p>
-                                        
-                                    </p>
-                                </div>
-                                <div class="info">
-                                    <div class="infoItem">
-                                        <span></span>
-                                        <p></p>
-                                    </div>
-                                    <div class="infoItem">
-                                        <span></span>
-                                        <p></p>
-                                    </div>
-                                    <div class="infoItem">
-                                        <span></span>
-                                        <p></p>
-                                    </div>
-                                </div>
-                                <div class="btn">
-                                    <a href="javascript:void(0)" class="btnOrder">
-                                        <span>Sifariş et</span>
-                                    </a>
-                                    <a href="#" class="btnMore">
-                                        <svg width="35px" height="16px" viewBox="0 0 35 16" version="1.1"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink">
-                                            <title>Group 3</title>
-                                            <desc>Created with Sketch.</desc>
-                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none"
-                                                fill-rule="evenodd">
-                                                <g id="home(dark)" transform="translate(-521.000000, -407.000000)"
-                                                    fill="#000000">
-                                                    <g id="Group-7-Copy" transform="translate(420.000000, 405.000000)">
-                                                        <g id="Group-3"
-                                                            transform="translate(118.300006, 10.000000) scale(-1, 1) translate(-118.300006, -10.000000) translate(100.800006, 2.000000)">
-                                                            <rect id="Rectangle" x="2.54545465" y="6.93636395"
-                                                                width="31.8909104" height="2.12727281"></rect>
-                                                            <polygon id="Rectangle"
-                                                                transform="translate(4.736915, 4.817631) rotate(-45.000000) translate(-4.736915, -4.817631) "
-                                                                points="-0.730515406 3.85075039 10.1770732 3.72747281 10.204346 5.88201835 1.32652258 5.90778838">
-                                                            </polygon>
-                                                            <polygon id="Rectangle"
-                                                                transform="translate(4.736915, 11.182370) scale(1, -1) rotate(-45.000000) translate(-4.736915, -11.182370) "
-                                                                points="-0.730515406 10.2154899 10.1770732 10.0922123 10.204346 12.2467579 1.32652258 12.2725279">
-                                                            </polygon>
-                                                        </g>
-                                                    </g>
-                                                </g>
-                                            </g>
-                                        </svg>
-                                        Daha ətraflı
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="creditItem">
-                        <div class="card">
-                            <div class="image" style="background-image: url('./img/app_block.svg');">
-                                <div class="img">
-                                </div>
-                            </div>
-                            <div class="content">
-                                <div class="title">
-                                    <h2>
-                                        
-                                    </h2>
-                                    <p>
-                                        
-                                    </p>
-                                </div>
-                                <div class="info">
-                                    <div class="infoItem">
-                                        <span></span>
-                                        <p></p>
-                                    </div>
-                                    <div class="infoItem">
-                                        <span></span>
-                                        <p></p>
-                                    </div>
-                                    <div class="infoItem">
-                                        <span></span>
-                                        <p></p>
-                                    </div>
-                                </div>
-                                <div class="btn">
-                                    <a href="javascript:void(0)" class="btnOrder">
-                                        <span>Sifariş et</span>
-                                    </a>
-                                    <a href="#" class="btnMore">
-                                        <svg width="35px" height="16px" viewBox="0 0 35 16" version="1.1"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink">
-                                            <title>Group 3</title>
-                                            <desc>Created with Sketch.</desc>
-                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none"
-                                                fill-rule="evenodd">
-                                                <g id="home(dark)" transform="translate(-521.000000, -407.000000)"
-                                                    fill="#000000">
-                                                    <g id="Group-7-Copy" transform="translate(420.000000, 405.000000)">
-                                                        <g id="Group-3"
-                                                            transform="translate(118.300006, 10.000000) scale(-1, 1) translate(-118.300006, -10.000000) translate(100.800006, 2.000000)">
-                                                            <rect id="Rectangle" x="2.54545465" y="6.93636395"
-                                                                width="31.8909104" height="2.12727281"></rect>
-                                                            <polygon id="Rectangle"
-                                                                transform="translate(4.736915, 4.817631) rotate(-45.000000) translate(-4.736915, -4.817631) "
-                                                                points="-0.730515406 3.85075039 10.1770732 3.72747281 10.204346 5.88201835 1.32652258 5.90778838">
-                                                            </polygon>
-                                                            <polygon id="Rectangle"
-                                                                transform="translate(4.736915, 11.182370) scale(1, -1) rotate(-45.000000) translate(-4.736915, -11.182370) "
-                                                                points="-0.730515406 10.2154899 10.1770732 10.0922123 10.204346 12.2467579 1.32652258 12.2725279">
-                                                            </polygon>
-                                                        </g>
-                                                    </g>
-                                                </g>
-                                            </g>
-                                        </svg>
-                                        Daha ətraflı
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <form class="calc">
-                            <div class="calcItems">
-                                <div class="item">
-                                    <span>Aylıq əməkhaqqı</span>
-                                    <input type="number" name="salary" value="2500" class="number">
-                                    <p>AZN</p>
-                                    <input type="range" class="range" min="350" max="5000" step="50" value=""
-                                        style="--min: 350; --max: 5000; --val: 2500">
-                                </div>
-                                <div class="item">
-                                    <span>Kredit məbləği</span>
-                                    <input type="number" name="amount" value="15000" class="number">
-                                    <p>Ay</p>
-                                    <input type="range" class="range" min="400" max="50100" step="100" value=""
-                                        style="--min: 400; --max: 50100; --val: 15000">
-                                </div>
-                            </div>
-                            <div class="calcItems">
-                                <input type="text" name="name-online" id="name-online" placeholder="Ad">
-                                <input type="text" name="surname-online" id="surname-online" placeholder="Soyad">
-                            </div>
-                            <div class="calcItems">
-                                <input type="text" name="workplace-online" id="workplace-online" placeholder="İş yeri">
-                                <input type="text" name="phone-online" id="phone-online" placeholder="+994 __ ___ __ __">
-                            </div>
-                            <div class="btnBox">
-                                <div class="text" style="background-image: url('./img/Credits/ok.svg');">
-                                    <p>“Sifariş et” basmaqla Azərbaycan Kredit Bürosundan kredit tarixçəsi və Asan
-                                        finansdan fərdi məlumatların alınmasına razılıq verirəm.</p>
-                                </div>
-                                <button type="submit" class="btnOrder">Sifariş et</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="creditItem">
-                        <div class="card">
-                            <div class="image" style="background-image: url('./img/app_block.svg');">
-                                <div class="img">
-                                </div>
-                            </div>
-                            <div class="content">
-                                <div class="title">
-                                    <h2>
-                                        
-                                    </h2>
-                                    <p>
-                                        
-                                    </p>
-                                </div>
-                                <div class="info">
-                                    <div class="infoItem">
-                                        <span></span>
-                                        <p></p>
-                                    </div>
-                                    <div class="infoItem">
-                                        <span></span>
-                                        <p></p>
-                                    </div>
-                                    <div class="infoItem">
-                                        <span></span>
-                                        <p></p>
-                                    </div>
-                                </div>
-                                <div class="btn">
-                                    <a href="javascript:void(0)" class="btnOrder">
-                                        <span>Sifariş et</span>
-                                    </a>
-                                    <a href="#" class="btnMore">
-                                        <svg width="35px" height="16px" viewBox="0 0 35 16" version="1.1"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink">
-                                            <title>Group 3</title>
-                                            <desc>Created with Sketch.</desc>
-                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none"
-                                                fill-rule="evenodd">
-                                                <g id="home(dark)" transform="translate(-521.000000, -407.000000)"
-                                                    fill="#000000">
-                                                    <g id="Group-7-Copy" transform="translate(420.000000, 405.000000)">
-                                                        <g id="Group-3"
-                                                            transform="translate(118.300006, 10.000000) scale(-1, 1) translate(-118.300006, -10.000000) translate(100.800006, 2.000000)">
-                                                            <rect id="Rectangle" x="2.54545465" y="6.93636395"
-                                                                width="31.8909104" height="2.12727281"></rect>
-                                                            <polygon id="Rectangle"
-                                                                transform="translate(4.736915, 4.817631) rotate(-45.000000) translate(-4.736915, -4.817631) "
-                                                                points="-0.730515406 3.85075039 10.1770732 3.72747281 10.204346 5.88201835 1.32652258 5.90778838">
-                                                            </polygon>
-                                                            <polygon id="Rectangle"
-                                                                transform="translate(4.736915, 11.182370) scale(1, -1) rotate(-45.000000) translate(-4.736915, -11.182370) "
-                                                                points="-0.730515406 10.2154899 10.1770732 10.0922123 10.204346 12.2467579 1.32652258 12.2725279">
-                                                            </polygon>
-                                                        </g>
-                                                    </g>
-                                                </g>
-                                            </g>
-                                        </svg>
-                                        Daha ətraflı
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="creditItem">
-                        <div class="card">
-                            <div class="image" style="background-image: url('./img/app_block.svg');">
-                                <div class="img">
-                                </div>
-                            </div>
-                            <div class="content">
-                                <div class="title">
-                                    <h2>
-                                        
-                                    </h2>
-                                    <p>
-                                        
-                                    </p>
-                                </div>
-                                <div class="info">
-                                    <div class="infoItem">
-                                        <span></span>
-                                        <p></p>
-                                    </div>
-                                    <div class="infoItem">
-                                        <span></span>
-                                        <p></p>
-                                    </div>
-                                    <div class="infoItem">
-                                        <span></span>
-                                        <p></p>
-                                    </div>
-                                </div>
-                                <div class="btn">
-                                    <a href="javascript:void(0)" class="btnOrder">
-                                        <span>Sifariş et</span>
-                                    </a>
-                                    <a href="#" class="btnMore">
-                                        <svg width="35px" height="16px" viewBox="0 0 35 16" version="1.1"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink">
-                                            <title>Group 3</title>
-                                            <desc>Created with Sketch.</desc>
-                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none"
-                                                fill-rule="evenodd">
-                                                <g id="home(dark)" transform="translate(-521.000000, -407.000000)"
-                                                    fill="#000000">
-                                                    <g id="Group-7-Copy" transform="translate(420.000000, 405.000000)">
-                                                        <g id="Group-3"
-                                                            transform="translate(118.300006, 10.000000) scale(-1, 1) translate(-118.300006, -10.000000) translate(100.800006, 2.000000)">
-                                                            <rect id="Rectangle" x="2.54545465" y="6.93636395"
-                                                                width="31.8909104" height="2.12727281"></rect>
-                                                            <polygon id="Rectangle"
-                                                                transform="translate(4.736915, 4.817631) rotate(-45.000000) translate(-4.736915, -4.817631) "
-                                                                points="-0.730515406 3.85075039 10.1770732 3.72747281 10.204346 5.88201835 1.32652258 5.90778838">
-                                                            </polygon>
-                                                            <polygon id="Rectangle"
-                                                                transform="translate(4.736915, 11.182370) scale(1, -1) rotate(-45.000000) translate(-4.736915, -11.182370) "
-                                                                points="-0.730515406 10.2154899 10.1770732 10.0922123 10.204346 12.2467579 1.32652258 12.2725279">
-                                                            </polygon>
-                                                        </g>
-                                                    </g>
-                                                </g>
-                                            </g>
-                                        </svg>
-                                        Daha ətraflı
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="creditItem">
-                        <div class="card">
-                            <div class="image" style="background-image: url('./img/app_block.svg');">
-                                <div class="img">
-                                </div>
-                            </div>
-                            <div class="content">
-                                <div class="title">
-                                    <h2>
-                                        
-                                    </h2>
-                                    <p>
-                                        
-                                    </p>
-                                </div>
-                                <div class="info">
-                                    <div class="infoItem">
-                                        <span></span>
-                                        <p></p>
-                                    </div>
-                                    <div class="infoItem">
-                                        <span></span>
-                                        <p></p>
-                                    </div>
-                                    <div class="infoItem">
-                                        <span></span>
-                                        <p></p>
-                                    </div>
-                                </div>
-                                <div class="btn">
-                                    <a href="javascript:void(0)" class="btnOrder">
-                                        <span>Sifariş et</span>
-                                    </a>
-                                    <a href="#" class="btnMore">
-                                        <svg width="35px" height="16px" viewBox="0 0 35 16" version="1.1"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink">
-                                            <title>Group 3</title>
-                                            <desc>Created with Sketch.</desc>
-                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none"
-                                                fill-rule="evenodd">
-                                                <g id="home(dark)" transform="translate(-521.000000, -407.000000)"
-                                                    fill="#000000">
-                                                    <g id="Group-7-Copy" transform="translate(420.000000, 405.000000)">
-                                                        <g id="Group-3"
-                                                            transform="translate(118.300006, 10.000000) scale(-1, 1) translate(-118.300006, -10.000000) translate(100.800006, 2.000000)">
-                                                            <rect id="Rectangle" x="2.54545465" y="6.93636395"
-                                                                width="31.8909104" height="2.12727281"></rect>
-                                                            <polygon id="Rectangle"
-                                                                transform="translate(4.736915, 4.817631) rotate(-45.000000) translate(-4.736915, -4.817631) "
-                                                                points="-0.730515406 3.85075039 10.1770732 3.72747281 10.204346 5.88201835 1.32652258 5.90778838">
-                                                            </polygon>
-                                                            <polygon id="Rectangle"
-                                                                transform="translate(4.736915, 11.182370) scale(1, -1) rotate(-45.000000) translate(-4.736915, -11.182370) "
-                                                                points="-0.730515406 10.2154899 10.1770732 10.0922123 10.204346 12.2467579 1.32652258 12.2725279">
-                                                            </polygon>
-                                                        </g>
-                                                    </g>
-                                                </g>
-                                            </g>
-                                        </svg>
-                                        Daha ətraflı
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <form class="calc">
-                            <div class="calcItems">
-                                <select name="type" id="type">
-                                    <option value="adi">Adi</option>
-                                    <option value="güzəştli">Güzəştli</option>
-                                </select>
-                                <select name="guaranty" id="guaranty">
-                                    <option value="zemanetsiz">Zəmanətsiz</option>
-                                    <option value="zemanetli">Zəmanətli</option>
-                                </select>
-                            </div>
-                            <div class="calcItems">
-                                <div class="item">
-                                    <span>Mənzilin dəyəri</span>
-                                    <input type="number" name="salary" value="250000" class="number">
-                                    <p>AZN</p>
-                                    <input type="range" class="range" min="10000" max="500000" step="50" value=""
-                                        style="--min: 10000; --max: 500000; --val: 250000">
-                                </div>
-                                <div class="item">
-                                    <span>İlkin ödəniş</span>
-                                    <input type="number" name="amount" value="35000" class="number">
-                                    <p>AZN</p>
-                                    <input type="range" class="range" min="10000" max="500000" step="50" value=""
-                                        style="--min: 10000; --max: 500000; --val: 35000">
-                                </div>
-                                <div class="item">
-                                    <span>Müddət</span>
-                                    <input type="number" name="amount" value="150" class="number">
-                                    <p>Ay</p>
-                                    <input type="range" class="range" min="6" max="300" step="1" value=""
-                                        style="--min: 6; --max: 300; --val: 150">
-                                </div>
-                            </div>
-                            <div class="calcItems">
-                                <input type="text" name="name-mortgage" id="name-mortgage" placeholder="Ad">
-                                <input type="text" name="surname-mortgage" id="surname-mortgage" placeholder="Soyad">
-                            </div>
-                            <div class="calcItems">
-                                <input type="text" name="workplace-mortgage" id="workplace-mortgage" placeholder="İş yeri">
-                                <input type="text" name="phone-mortgage" id="phone-mortgage" placeholder="+994 __ ___ __ __">
-                            </div>
-                            <div class="btnBox">
-                                <div class="text" style="background-image: url('./img/Credits/ok.svg');">
-                                    <p>Biz sizin məlumatlarınızın təhlükəsizliyini və qorunmasını təmin edirik.</p>
-                                </div>
-                                <button type="submit" class="btnOrder">Sifariş et</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="creditItem">
+                    <div class="creditCardItem">
                         <div class="card">
                             <div class="image" style="background-image: url('./img/app_block.svg');">
                                 <div class="img" data-tilt data-tilt-scale="1.07" data-tilt-glare="true"
-                                data-tilt-maxGlare="0.6" data-tilt-speed="1000">
+                                    data-tilt-maxGlare="0.6" data-tilt-speed="1000">
                                     <img src="" alt="">
                                 </div>
                             </div>
                             <div class="content">
                                 <div class="title">
-                                    <h2>
-                                        
-                                    </h2>
-                                    <p>
-                                        
-                                    </p>
+                                    <h2>Məbləğ</h2>
+                                    <p></p>
+                                </div>
+                                <div class="info">
+                                    <div class="infoItem">
+                                        <span></span>
+                                        <p></p>
+                                    </div>
+                                    <div class="infoItem">
+                                        <span></span>
+                                        <p></p>
+                                    </div>
+                                    <div class="infoItem">
+                                        <span></span>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="btn">
+                                    <a href="javascript:void(0)" class="btnOrder">
+                                        <span>Sifariş et</span>
+                                    </a>
+                                    <a href="#" class="btnMore">
+                                        <svg width="35px" height="16px" viewBox="0 0 35 16" version="1.1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <title>Group 3</title>
+                                            <desc>Created with Sketch.</desc>
+                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none"
+                                                fill-rule="evenodd">
+                                                <g id="home(dark)" transform="translate(-521.000000, -407.000000)"
+                                                    fill="#000000">
+                                                    <g id="Group-7-Copy" transform="translate(420.000000, 405.000000)">
+                                                        <g id="Group-3"
+                                                            transform="translate(118.300006, 10.000000) scale(-1, 1) translate(-118.300006, -10.000000) translate(100.800006, 2.000000)">
+                                                            <rect id="Rectangle" x="2.54545465" y="6.93636395"
+                                                                width="31.8909104" height="2.12727281"></rect>
+                                                            <polygon id="Rectangle"
+                                                                transform="translate(4.736915, 4.817631) rotate(-45.000000) translate(-4.736915, -4.817631) "
+                                                                points="-0.730515406 3.85075039 10.1770732 3.72747281 10.204346 5.88201835 1.32652258 5.90778838">
+                                                            </polygon>
+                                                            <polygon id="Rectangle"
+                                                                transform="translate(4.736915, 11.182370) scale(1, -1) rotate(-45.000000) translate(-4.736915, -11.182370) "
+                                                                points="-0.730515406 10.2154899 10.1770732 10.0922123 10.204346 12.2467579 1.32652258 12.2725279">
+                                                            </polygon>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        Daha ətraflı
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="creditCardItem">
+                        <div class="card">
+                            <div class="image" style="background-image: url('./img/app_block.svg');">
+                                <div class="img" data-tilt data-tilt-scale="1.07" data-tilt-glare="true"
+                                    data-tilt-maxGlare="0.6" data-tilt-speed="1000">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="title">
+                                    <h2></h2>
+                                    <p></p>
+                                </div>
+                                <div class="info">
+                                    <div class="infoItem">
+                                        <span></span>
+                                        <p></p>
+                                    </div>
+                                    <div class="infoItem">
+                                        <span></span>
+                                        <p></p>
+                                    </div>
+                                    <div class="infoItem">
+                                        <span></span>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="btn">
+                                    <a href="javascript:void(0)" class="btnOrder">
+                                        <span>Sifariş et</span>
+                                    </a>
+                                    <a href="#" class="btnMore">
+                                        <svg width="35px" height="16px" viewBox="0 0 35 16" version="1.1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <title>Group 3</title>
+                                            <desc>Created with Sketch.</desc>
+                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none"
+                                                fill-rule="evenodd">
+                                                <g id="home(dark)" transform="translate(-521.000000, -407.000000)"
+                                                    fill="#000000">
+                                                    <g id="Group-7-Copy" transform="translate(420.000000, 405.000000)">
+                                                        <g id="Group-3"
+                                                            transform="translate(118.300006, 10.000000) scale(-1, 1) translate(-118.300006, -10.000000) translate(100.800006, 2.000000)">
+                                                            <rect id="Rectangle" x="2.54545465" y="6.93636395"
+                                                                width="31.8909104" height="2.12727281"></rect>
+                                                            <polygon id="Rectangle"
+                                                                transform="translate(4.736915, 4.817631) rotate(-45.000000) translate(-4.736915, -4.817631) "
+                                                                points="-0.730515406 3.85075039 10.1770732 3.72747281 10.204346 5.88201835 1.32652258 5.90778838">
+                                                            </polygon>
+                                                            <polygon id="Rectangle"
+                                                                transform="translate(4.736915, 11.182370) scale(1, -1) rotate(-45.000000) translate(-4.736915, -11.182370) "
+                                                                points="-0.730515406 10.2154899 10.1770732 10.0922123 10.204346 12.2467579 1.32652258 12.2725279">
+                                                            </polygon>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        Daha ətraflı
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="creditCardItem">
+                        <div class="card">
+                            <div class="image" style="background-image: url('./img/app_block.svg');">
+                                <div class="img" data-tilt data-tilt-scale="1.07" data-tilt-glare="true"
+                                    data-tilt-maxGlare="0.6" data-tilt-speed="1000">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="title">
+                                    <h2></h2>
+                                    <p></p>
+                                </div>
+                                <div class="info">
+                                    <div class="infoItem">
+                                        <span></span>
+                                        <p></p>
+                                    </div>
+                                    <div class="infoItem">
+                                        <span></span>
+                                        <p></p>
+                                    </div>
+                                    <div class="infoItem">
+                                        <span></span>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="btn">
+                                    <a href="javascript:void(0)" class="btnOrder">
+                                        <span>Sifariş et</span>
+                                    </a>
+                                    <a href="#" class="btnMore">
+                                        <svg width="35px" height="16px" viewBox="0 0 35 16" version="1.1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <title>Group 3</title>
+                                            <desc>Created with Sketch.</desc>
+                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none"
+                                                fill-rule="evenodd">
+                                                <g id="home(dark)" transform="translate(-521.000000, -407.000000)"
+                                                    fill="#000000">
+                                                    <g id="Group-7-Copy" transform="translate(420.000000, 405.000000)">
+                                                        <g id="Group-3"
+                                                            transform="translate(118.300006, 10.000000) scale(-1, 1) translate(-118.300006, -10.000000) translate(100.800006, 2.000000)">
+                                                            <rect id="Rectangle" x="2.54545465" y="6.93636395"
+                                                                width="31.8909104" height="2.12727281"></rect>
+                                                            <polygon id="Rectangle"
+                                                                transform="translate(4.736915, 4.817631) rotate(-45.000000) translate(-4.736915, -4.817631) "
+                                                                points="-0.730515406 3.85075039 10.1770732 3.72747281 10.204346 5.88201835 1.32652258 5.90778838">
+                                                            </polygon>
+                                                            <polygon id="Rectangle"
+                                                                transform="translate(4.736915, 11.182370) scale(1, -1) rotate(-45.000000) translate(-4.736915, -11.182370) "
+                                                                points="-0.730515406 10.2154899 10.1770732 10.0922123 10.204346 12.2467579 1.32652258 12.2725279">
+                                                            </polygon>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        Daha ətraflı
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="creditCardItem">
+                        <div class="card">
+                            <div class="image" style="background-image: url('./img/app_block.svg');">
+                                <div class="img" data-tilt data-tilt-scale="1.07" data-tilt-glare="true"
+                                    data-tilt-maxGlare="0.6" data-tilt-speed="1000">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="title">
+                                    <h2></h2>
+                                    <p></p>
                                 </div>
                                 <div class="info">
                                     <div class="infoItem">
@@ -1582,12 +1261,6 @@
             </div>
         </section>
     </footer>
-
-    <script
-  src="https://code.jquery.com/jquery-3.7.1.js"
-  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-  crossorigin="anonymous"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
 </body>
+
 </html>

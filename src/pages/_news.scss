@@ -1,17 +1,5 @@
 .allNews {
-    padding: 111px 0 50px;
-
-    &.active {
-        padding: 0 0 50px;
-    }
-
-    @media (min-width:1024px) {
-        padding: 145px 0 50px;
-
-        &.active {
-            padding: 265px 0 50px;
-        }
-    }
+    @extend %firstSection;
 
     .loader {
         display: none;
@@ -59,7 +47,6 @@
         }
     }
 
-    padding: 135px 0 0;
     @extend %newsCards;
 
     .headerNews {

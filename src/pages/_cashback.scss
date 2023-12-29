@@ -1,0 +1,31 @@
+.cashbackMain {
+    .wrapper {
+        @extend %wrapper;
+        @extend %box;
+
+        .cashback {
+            @extend %item;
+
+            .bg-color {
+                @extend %background;
+            }
+
+            .image {
+                @extend %mainImage;
+            }
+
+            .info {
+                @extend %mainInfo;
+
+                .content {
+                    @extend %mainContent;
+
+                    .btn {
+                        @extend %primaryButton;
+                        @extend %mainBtn;
+                    }
+                }
+            }
+        }
+    }
+}

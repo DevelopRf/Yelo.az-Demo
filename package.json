@@ -1,5 +1,16 @@
 {
   "dependencies": {
-    "material-icons": "^1.13.12"
-  }
+    "material-icons": "^1.13.12",
+    "node-sass": "^9.0.0",
+    "vanilla-tilt": "^1.8.1"
+  },
+  "name": "yelo.az-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

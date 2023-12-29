@@ -22,6 +22,7 @@ const langBtn = document.querySelector('.navbarRight .menu li:last-of-type')
 const lang = document.querySelector('.navbarRight .languages')
 const allNews = document.querySelector('.allNews')
 const credits = document.querySelector('.credits')
+const creditCards = document.querySelector('.creditCards')
 
 let screenSize = false
 
@@ -239,6 +240,7 @@ btnClose && btnClose.addEventListener('click', () => {
     if (btnClose.classList.contains('effectToggle')) {
         bigMenu.classList.add('active')
         headerTop.classList.remove('active')
+        headerBottom.classList.add('active')
         document.body.style.overflowY = 'hidden'
     }
     else {
@@ -246,6 +248,13 @@ btnClose && btnClose.addEventListener('click', () => {
         document.body.style.overflowY = 'scroll'
     }
 })
+
+const currentLocation = location.href
+const menuItem = document.querySelectorAll(".headerBottom .navbar .menu a")
+for (let index = 0; index < menuItem.length; index++) {
+    if(menuItem[index].href === currentLocation)
+    menuItem[index].classList.add("active")
+}
 
 const calcItems = document.querySelectorAll('.calcItems .item')
 
@@ -352,6 +361,7 @@ function mobilApp() {
                 slider && slider.classList.remove('active')
                 allNews && allNews.classList.remove('active')
                 credits && credits.classList.remove('active')
+                creditCards && creditCards.classList.remove('active')
             }
             else {
                 mobAppDesk.classList.add("active")
@@ -359,6 +369,7 @@ function mobilApp() {
                 slider && slider.classList.add("active")
                 allNews && allNews.classList.add('active')
                 credits && credits.classList.add('active')
+                creditCards && creditCards.classList.remove('active')
             }
         }
         else {
@@ -451,9 +462,103 @@ function showNews() {
                             </div>
                     </div>`
             }
-            news && (news.innerHTML = resultData)
         })
 }
+
+
+const cardData = new Cards()
+const getCards = () => {
+    const image = document.querySelectorAll(".creditCards .card .image .img img")
+    const title = document.querySelectorAll(".creditCards .content .title")
+    const info = document.querySelectorAll(".creditCards .content .info")
+    cardData.cardData()
+        .then(data => {
+            data.forEach((item, index) => {
+
+
+
+                image[index].setAttribute("src", `${item.img}`)
+                const h2 = title[index].querySelector("h2")
+                const p = title[index].querySelector("p")
+                h2.innerText = item.name
+                p.innerText = item.description
+                const p1 = info[index].querySelectorAll("p")
+                const span = info[index].querySelectorAll("span")
+                span[0].innerText = item.title1
+                p1[0].innerText = item.title1_Text
+                span[1].innerText = item.title2
+                p1[1].innerText = item.title2_Text
+                span[2].innerText = item.title3
+                p1[2].innerText = item.title3_Text
+                p1.forEach(item => {
+                    if (item.innerHTML.length > 17) {
+                        info[index].classList.add("active")
+                    }
+                })
+
+            })
+        })
+}
+
+creditCards && getCards()
+
+const elCalcItem = document.querySelectorAll(".calcItems")
+function calcItem() {
+
+    elCalcItem.forEach(item => {
+        if (item.querySelector("input[type=text]") || item.querySelector("select")) {
+            item.classList.add("input-active")
+            console.log("input");
+        }
+        else {
+            item.classList.add("range-active")
+            console.log("range");
+        }
+    })
+}
+
+elCalcItem && calcItem()
+
+const credit = new Credits()
+
+const getCredits = () => {
+    const image = document.querySelectorAll(".credits .card .image .img")
+    const title = document.querySelectorAll(".credits .content .title")
+    const info = document.querySelectorAll(".credits .content .info")
+
+    credit.creditData()
+        .then(data => {
+            data.forEach((item, index) => {
+
+                image[index].setAttribute("style", `background-image: url(${item.img})`)
+                const h2 = title[index].querySelector("h2")
+                const p = title[index].querySelector("p")
+                h2.innerText = item.name
+                p.innerText = item.description
+                const p1 = info[index].querySelectorAll("p")
+                const span = info[index].querySelectorAll("span")
+                span[0].innerText = item.title1
+                p1[0].innerText = item.title1_Text
+                span[1].innerText = item.title2
+                p1[1].innerText = item.title2_Text
+                span[2].innerText = item.title3
+                p1[2].innerText = item.title3_Text
+
+                if (image[index].querySelector("img")) {
+                    image[index].setAttribute("style", "background-image: none")
+                    image[index].querySelector("img").setAttribute("src", `${item.img}`)
+                }
+                p1.forEach(item => {
+                    if (item.innerHTML.length > 17) {
+                        info[index].classList.add("active")
+                    }
+                })
+            })
+
+        })
+}
+
+credits && getCredits()
 
 news && showNews()
 const newsCards = document.querySelector('.allNews .cards')
@@ -532,7 +637,7 @@ newsCards && getAllNews(getCard)
 
 const btnBox = document.querySelector('.header .btnBox')
 newsCards && window.addEventListener('load', () => {
-    btnBox.style.gap = 0
+    btnBox.classList.add("active")
 })
 
 btnMoreNews && btnMoreNews.addEventListener("click", () => {
@@ -689,16 +794,25 @@ getAboutCredit()
 
 const creditItem = document.querySelectorAll(".creditItem")
 const calc = document.querySelectorAll(".creditItem .calc")
-creditItem.forEach(item => {
-    item.querySelector(".creditItem .calc") &&
-        item.querySelector(".btnOrder").addEventListener("click", () => {
-
-            for (const element of calc) {
-                if (element.classList.contains("active")) {
-                    element.classList.remove("active")
-                }
-            }
+console.log(calc);
+creditItem.forEach((item, index) => {
+    item.querySelector(".calc") &&
+        item.querySelector(".card .btnOrder").addEventListener("click", () => {
             item.querySelector(".calc").classList.toggle("active")
         })
 
 })
+
+
+const imgCard = document.querySelectorAll(".image .img")
+const img = document.querySelectorAll(".image .img img")
+
+img && imgCard.forEach(item => {
+    item.addEventListener("mouseover", () => {
+        item.classList.add("active")
+    })
+    item.addEventListener("mouseout", () => {
+        item.classList.remove("active")
+    })
+})
+
