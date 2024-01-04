@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yelo Bank - Müasir Bank Xidmətləri</title>
     <script defer src="../src/js/all-data.js"></script>
-    <script defer src="../src/js/main.js"></script>
+    <script defer type="module" src="../src/js/main.js"></script>
     <link rel="stylesheet" href="../src/style.css">
 </head>
 
@@ -297,7 +297,7 @@
                             <li><a href="credits.html">Kreditlər</a></li>
                             <li><a href="credit-cards.html">Kartlar</a></li>
                             <li><a href="javascript:void(0)">Əmanətlər</a></li>
-                            <li><a href="javascript:void(0)">Cashback</a></li>
+                            <li><a href="cashback.html">Cashback</a></li>
                         </ul>
                     </nav>
                     <div class="btnBox">
@@ -481,6 +481,38 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="filters">
+            <div class="container">
+                <div class="filter">
+                    <div class="search">
+                        <input type="text" name="search" id="search"
+                            placeholder="Brend adı və ya kateqoriya üzrə axtarış" style="background-image: url('./img/search.svg');">
+
+                        </div>
+                    <div class="category">
+                        <select name="category" id="category">
+                            <option value="allCategory">Kateqoriyanı seç</option>
+                        </select>
+                    </div>
+                    <ul class="btnFilter">
+                        <li><a href="">Restoranlar və kafelər</a></li>
+                        <li><a href="">Geyim mağazaları</a></li>
+                        <li><a href="">Apteklər və optikalar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="cashbackCards">
+            <div class="container">
+                <div class="cards">
+                </div>
+                <div class="btnMoreCard">
+                    <a href="javascript:void(0)">Daha çox</a>
+                </div>
+                <div class="loader"></div>
             </div>
         </section>
 

@@ -391,24 +391,19 @@
       "id": 87
     },
     {
-      "title": "yenilik",
-      "date": "2023-12-06T20:39:07.982Z",
-      "id": 93
-    },
-    {
-      "title": "111",
-      "date": "2023-12-20T03:17:14.353Z",
+      "title": "999",
+      "date": "2024-01-03T20:34:58.608Z",
       "id": 94
     },
     {
-      "title": "222",
-      "date": "2023-12-24T11:24:21.850Z",
+      "title": "666",
+      "date": "2024-01-03T20:34:45.360Z",
       "id": 95
     }
   ],
   "cards": [
     {
-      "id":1,
+      "id": 8,
       "name": "Yelo Light",
       "description": "Yelo kart rahatlıq anlayışını dəyişəcək - rahat xərcləyəcəksən, rahat izləyəcəksən, qazanacaqsan, endirimlər alacaqsan.",
       "title1": "Müddət",
@@ -417,10 +412,10 @@
       "title2_Text": "AZN / USD / EUR",
       "title3": "Cashback",
       "title3_Text": "30%-dək",
-      "img": "../public/img/Cards/yelo.webp"
+      "img": "./img/Cards/yelo.webp"
     },
     {
-      "id":2,
+      "id": 9,
       "name": "Yelo Premium",
       "description": "Yelo kart rahatlıq anlayışını dəyişəcək - rahat xərcləyəcəksən, rahat izləyəcəksən, qazanacaqsan, endirimlər alacaqsan.",
       "title1": "Müddət",
@@ -429,10 +424,10 @@
       "title2_Text": "AZN / USD / EUR",
       "title3": "Cashback",
       "title3_Text": "30%-dək",
-      "img": "../public/img/Cards/visa-platinum.svg"
+      "img": "./img/Cards/visa-platinum.svg"
     },
     {
-      "id":3,
+      "id": 10,
       "name": "Yelo kredit/taksit kartı",
       "description": "Yelo kredit kartı ilə istədiyin ödənişləri his-sə-lə!",
       "title1": "Müddət",
@@ -441,10 +436,10 @@
       "title2_Text": "AZN",
       "title3": "Cashback",
       "title3_Text": "70 günədək",
-      "img": "../public/img/Cards/yelo_light-visa.webp"
+      "img": "./img/Cards/yelo_light-visa.webp"
     },
     {
-      "id":4,
+      "id": 11,
       "name": "Yelo Digital Card",
       "description": "Rəqəmsal bank kartına sahib ol - üstəlik tamamilə pulsuz",
       "title1": "Müddət",
@@ -453,7 +448,7 @@
       "title2_Text": "AZN",
       "title3": "Qiyməti",
       "title3_Text": "Pulsuz",
-      "img": "../public/img/Cards/yelo_digital-210x333.webp"
+      "img": "./img/Cards/yelo_digital-210x333.webp"
     }
   ],
   "credits": [
@@ -466,10 +461,11 @@
       "title2": "Müddət",
       "title2_Text": "6 - 59 ay",
       "title3": "İllik faiz dərəcəsi",
-      "title3_Text": "min. 9.9%",
+      "title3_Text": "min. 11.7%",
+      "isACard": false,
       "isOrder": true,
       "hasAForm": true,
-      "img": "../public/img/Credits/consumer-loan-pic.webp"
+      "img": "./img/Credits/consumer-loan-pic.webp"
     },
     {
       "id": 2,
@@ -481,12 +477,13 @@
       "title2_Text": "AZN - min. 11% / USD min. 3%",
       "title3": "Güzəşt müddəti",
       "title3_Text": "18 ayadək",
+      "isACard": false,
       "isOrder": true,
       "hasAForm": false,
-      "img": "../public/img/Credits/business-loan-pic-1.webp"
+      "img": "./img/Credits/business-loan-pic-1.webp"
     },
     {
-      "id":3,
+      "id": 3,
       "name": "Onlayn kredit",
       "description": "Banka gəlmədən, tam onlayn",
       "title1": "İllik faiz dərəcəsi",
@@ -495,12 +492,13 @@
       "title2_Text": "50 000 AZN-dək",
       "title3": "Komissiya",
       "title3_Text": "0.5 - 1.5 %",
+      "isACard": false,
       "isOrder": true,
       "hasAForm": true,
-      "img": "../public/img/Credits/onlayn_kredit-sayt-fonsuz.webp"
+      "img": "./img/Credits/onlayn_kredit-sayt-fonsuz.webp"
     },
     {
-      "id":4,
+      "id": 4,
       "name": "Daşınmaz əmlak girov krediti",
       "description": "Sərfəli şərtlər ilə istənilən daşınmaz əmlak ilə girovlu pul krediti",
       "title1": "Məbləğ",
@@ -509,12 +507,13 @@
       "title2_Text": "12 - 54 ay",
       "title3": "İllik faiz dərəcəsi",
       "title3_Text": "min. 14%",
+      "isACard": false,
       "isOrder": true,
       "hasAForm": false,
-      "img": "../public/img/Credits/xx-2.webp"
+      "img": "./img/Credits/xx-2.webp"
     },
     {
-      "id":5,
+      "id": 5,
       "name": "Əmanət təminatlı kredit",
       "description": "Əminliklə istifadən üçün",
       "title1": "Müddət",
@@ -523,12 +522,13 @@
       "title2_Text": "Əmanətin faiz dərəcəsi + 3%",
       "title3": "Komissiya",
       "title3_Text": "Kassadan / Yelo ATM-lərindən nağdlaşdırma 1 %*",
+      "isACard": false,
       "isOrder": false,
       "hasAForm": false,
-      "img": "../public/img/Credits/emanet-girovu-kredit-pic-fin.webp"
+      "img": "./img/Credits/emanet-girovu-kredit-pic-fin.webp"
     },
     {
-      "id":6,
+      "id": 6,
       "name": "İpoteka krediti",
       "description": "Arzuladığın ev üçün sərfəli kredit şərtləri",
       "title1": "Məbləğ",
@@ -537,12 +537,13 @@
       "title2_Text": "360 aya qədər",
       "title3": "İlkin ödəniş",
       "title3_Text": "20%",
+      "isACard": false,
       "isOrder": true,
       "hasAForm": true,
-      "img": "../public/img/Credits/daxili-ipoteka-pic.webp"
+      "img": "./img/Credits/daxili-ipoteka-pic.webp"
     },
     {
-      "id":7,
+      "id": 7,
       "name": "Yelo kredit/taksit kartı",
       "description": "Yelo kredit kartı ilə istədiyin ödənişləri his-sə-lə!",
       "title1": "Müddət",
@@ -551,9 +552,10 @@
       "title2_Text": "AZN",
       "title3": "Güzəşt müddəti",
       "title3_Text": "70 günədək",
+      "isACard": true,
       "isOrder": true,
-      "hasAForm": false, 
-      "img": "../public/img/Cards/yelo.webp"
+      "hasAForm": false,
+      "img": "./img/Cards/yelo.webp"
     }
   ],
   "valute": [
@@ -576,6 +578,674 @@
       "Nominal": 1,
       "Name": "RUB",
       "Value": 0.0185
+    }
+  ],
+  "cashback": [
+    {
+      "id": 1,
+      "name": "Darayi Accessories",
+      "category": "Aksesuarlar / Suvenirlər / Zinyət əşyaları",
+      "value": "111",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/darayi_logo.webp"
+    },
+    {
+      "id": 2,
+      "name": "Rich Saat",
+      "category": "Aksesuarlar / Suvenirlər / Zinyət əşyaları",
+      "value": "111",
+      "discount": 15,
+      "currency": "%",
+      "img": "../public/img/cashback/category/272184685_107975325118940_7760503174356818284_n.webp"
+    },
+    {
+      "id": 3,
+      "name": "Farm Store",
+      "category": "Apteklər və optika",
+      "value": "112",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/farm.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Ozon optik",
+      "category": "Apteklər və optika",
+      "value": "112",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/ozonoptic.webp"
+    },
+    {
+      "id": 5,
+      "name": "Euro Oil",
+      "category": "Avtoservis xidmətləri və ehtiyat hissələri",
+      "value": "113",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/euro_oilimage.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Karavan Rent A Car",
+      "category": "Avtoservis xidmətləri və ehtiyat hissələri",
+      "value": "113",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/karavan.webp"
+    },
+    {
+      "id": 7,
+      "name": "MY AUTO",
+      "category": "Avtoservis xidmətləri və ehtiyat hissələri",
+      "value": "113",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/myauto.webp"
+    },
+    {
+      "id": 8,
+      "name": "My wheels",
+      "category": "Avtoservis xidmətləri və ehtiyat hissələri",
+      "value": "113",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/my.webp"
+    },
+    {
+      "id": 9,
+      "name": "Şassi Mağazalar Şəbəkəsi",
+      "category": "Avtoservis xidmətləri və ehtiyat hissələri",
+      "value": "113",
+      "discount": 2,
+      "currency": "%",
+      "img": "../public/img/cashback/category/sassi.webp"
+    },
+    {
+      "id": 10,
+      "name": "Status Avto",
+      "category": "Avtoservis xidmətləri və ehtiyat hissələri",
+      "value": "113",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/51341443_286160165407973_7086660269912358912_n.webp"
+    },
+    {
+      "id": 11,
+      "name": "Şərq Motors",
+      "category": "Avtoservis xidmətləri və ehtiyat hissələri",
+      "value": "113",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/rg_motors.webp"
+    },
+    {
+      "id": 12,
+      "name": "Çarıq Shoes",
+      "category": "Ayaqqabı mağazaları",
+      "value": "114",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/309428944_481287014038939_3099937921195242337_n.webp"
+    },
+    {
+      "id": 13,
+      "name": "Dr.Kong",
+      "category": "Ayaqqabı mağazaları",
+      "value": "114",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/dr-kong.webp"
+    },
+    {
+      "id": 14,
+      "name": "Bona Vet Clinic",
+      "category": "Baytarlıq klinikaları və heyvanlar üçün məhsullar",
+      "value": "115",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/bona_vet_clinic_logo.webp"
+    },
+    {
+      "id": 15,
+      "name": "Doggie Couture By Nelya",
+      "category": "Baytarlıq klinikaları və heyvanlar üçün məhsullar",
+      "value": "115",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/doggi.webp"
+    },
+    {
+      "id": 16,
+      "name": "Myzoo",
+      "category": "Baytarlıq klinikaları və heyvanlar üçün məhsullar",
+      "value": "115",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/myzoo.webp"
+    },
+    {
+      "id": 17,
+      "name": "The Grooming Station",
+      "category": "Baytarlıq klinikaları və heyvanlar üçün məhsullar",
+      "value": "115",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/grooming_station_-01.webp"
+    },
+    {
+      "id": 18,
+      "name": "Xatiko",
+      "category": "Baytarlıq klinikaları və heyvanlar üçün məhsullar",
+      "value": "115",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/xatiko-template.webp"
+    },
+    {
+      "id": 19,
+      "name": "Zoo Flamingo",
+      "category": "Baytarlıq klinikaları və heyvanlar üçün məhsullar",
+      "value": "115",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/zoo-flamingo-logo.webp"
+    },
+    {
+      "id": 20,
+      "name": "LinEx.az",
+      "category": "Çatdırılma xidmətləri",
+      "value": "116",
+      "discount": 7,
+      "currency": "%",
+      "img": "../public/img/cashback/category/linex-template.webp"
+    },
+    {
+      "id": 21,
+      "name": "Artvarium.az",
+      "category": "Digәr mağazalar və xidmətləri",
+      "value": "117",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/197462116_156739516471770_7056062675657482087_n.jpg"
+    },
+    {
+      "id": 22,
+      "name": "Div Academy",
+      "category": "Digәr mağazalar və xidmətləri",
+      "value": "117",
+      "discount": 1,
+      "currency": "%",
+      "img": "../public/img/cashback/category/358139312_282375324308271_8548973322925731791_n.webp"
+    },
+    {
+      "id": 23,
+      "name": "Ekzo Butik",
+      "category": "Digәr mağazalar və xidmətləri",
+      "value": "117",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/ekzo_butik.webp"
+    },
+    {
+      "id": 24,
+      "name": "Kingvape",
+      "category": "Digәr mağazalar və xidmətləri",
+      "value": "117",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/harem_perde_pic.webp"
+    },
+    {
+      "id": 25,
+      "name": "San Tortino",
+      "category": "Digәr mağazalar və xidmətləri",
+      "value": "117",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/king_vape.webp"
+    },
+    {
+      "id": 26,
+      "name": "Supertoys.az",
+      "category": "Digәr mağazalar və xidmətləri",
+      "value": "117",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/san_tartino_logo.webp"
+    },
+    {
+      "id": 27,
+      "name": "VM Store.az",
+      "category": "Digәr mağazalar və xidmətləri",
+      "value": "117",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/cashback_sayt_template-02_5.webp"
+    },
+    {
+      "id": 28,
+      "name": "Chelebi",
+      "category": "Ev və məişət əşyaları",
+      "value": "118",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/chelebi-1.webp"
+    },
+    {
+      "id": 29,
+      "name": "Green Wood",
+      "category": "Ev və məişət əşyaları",
+      "value": "118",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/green_wood.webp"
+    },
+    {
+      "id": 30,
+      "name": "Skandinaviya evi",
+      "category": "Ev və məişət əşyaları",
+      "value": "118",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/skandibaviya_evi.webp"
+    },
+    {
+      "id": 31,
+      "name": "By Amina Collection",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/amina_logo.webp"
+    },
+    {
+      "id": 32,
+      "name": "Carpisa",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 1,
+      "currency": "%",
+      "img": "../public/img/cashback/category/carpisa.webp"
+    },
+    {
+      "id": 33,
+      "name": "Coccodrillo",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/coccodrillo_logo.webp"
+    },
+    {
+      "id": 34,
+      "name": "Cotton",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/cotton_1.webp"
+    },
+    {
+      "id": 35,
+      "name": "İpekyol",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 1,
+      "currency": "%",
+      "img": "../public/img/cashback/category/ipekyol-1.webp"
+    },
+    {
+      "id": 36,
+      "name": "KENQURU",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/kenquru-cashback-.webp"
+    },
+    {
+      "id": 37,
+      "name": "Mustafa Tayat",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/mustafa-1.webp"
+    },
+    {
+      "id": 38,
+      "name": "Oligarch",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/oligarch-1.webp"
+    },
+    {
+      "id": 39,
+      "name": "Ted Baker",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 1,
+      "currency": "%",
+      "img": "../public/img/cashback/category/ted_baker_logo.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 41,
+      "name": "Bioloji Təbabət Klinikası",
+      "category": "Gözəllik və sağlamlıq",
+      "value": "120",
+      "discount": 2,
+      "currency": "%",
+      "img": "../public/img/cashback/category/bioloji_t_bab_t_klinikasi_logo.webp"
+    },
+    {
+      "id": 42,
+      "name": "Body & Soul Spa Beauty",
+      "category": "Gözəllik və sağlamlıq",
+      "value": "120",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/body_soul.webp"
+    },
+    {
+      "id": 43,
+      "name": "Boy cut",
+      "category": "Gözəllik və sağlamlıq",
+      "value": "120",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/boy_cut_logo.webp"
+    },
+    {
+      "id": 44,
+      "name": "Jumanji Baku",
+      "category": "Gözəllik və sağlamlıq",
+      "value": "120",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/jumanji_baku.webp"
+    },
+    {
+      "id": 45,
+      "name": "Oops beauty",
+      "category": "Gözəllik və sağlamlıq",
+      "value": "120",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/oops_beauty.webp"
+    },
+    {
+      "id": 46,
+      "name": "Buket.az",
+      "category": "Gül salonları",
+      "value": "121",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/buket_az.webp"
+    },
+    {
+      "id": 47,
+      "name": "EL Resort Hotel",
+      "category": "Hotellər",
+      "value": "122",
+      "discount": 2,
+      "currency": "%",
+      "img": "../public/img/cashback/category/el-resort.webp"
+    },
+    {
+      "id": 48,
+      "name": "Teatro Rooms Hamam",
+      "category": "Hotellər",
+      "value": "122",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/25f99a31-f1cb-4763-9c6c-1f4cd5c6daac.webp"
+    },
+    {
+      "id": 49,
+      "name": "Teatro Rooms Hotel",
+      "category": "Hotellər",
+      "value": "122",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/ff1ebc94-ce5e-429c-a35f-076c74db92bd.webp"
+    },
+    {
+      "id": 50,
+      "name": "Yurd Hotel",
+      "category": "Hotellər",
+      "value": "122",
+      "discount": 2,
+      "currency": "%",
+      "img": "../public/img/cashback/category/yurdhotel.webp"
+    },
+    {
+      "id": 51,
+      "name": "Body Factory",
+      "category": "İdman və fitnes mərkəzləri",
+      "value": "123",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/body-factory_tcui.webp"
+    },
+    {
+      "id": 52,
+      "name": "Vegas İdman və sağlamlıq kompleksi",
+      "category": "İdman və fitnes mərkəzləri",
+      "value": "123",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/vegas_loqo.webp"
+    },
+    {
+      "id": 53,
+      "name": "Fresh Cleaning",
+      "category": "Kimyəvi təmizləmə",
+      "value": "124",
+      "discount": 10,
+      "currency": "%",
+      "img": "../public/img/cashback/category/fresh_cleaning.webp"
+    },
+    {
+      "id": 54,
+      "name": "ISERVICE",
+      "category": "Mobil telefonlar",
+      "value": "125",
+      "discount": 2,
+      "currency": "%",
+      "img": "../public/img/cashback/category/iservice_az_logo.webp"
+    },
+    {
+      "id": 55,
+      "name": "Mobitek",
+      "category": "Mobil telefonlar",
+      "value": "125",
+      "discount": 10,
+      "currency": "%",
+      "img": "../public/img/cashback/category/1557992049868.webp"
+    },
+    {
+      "id": 56,
+      "name": "Alneo",
+      "category": "Məişət texnikası və komputerlər",
+      "value": "126",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/alneo_logo.webp"
+    },
+    {
+      "id": 57,
+      "name": "EuroClima İmmergas İstilik, kombi və havalandırma sistemləri",
+      "category": "Məişət texnikası və komputerlər",
+      "value": "126",
+      "discount": 2,
+      "currency": "%",
+      "img": "../public/img/cashback/category/euro_clima.webp"
+    },
+    {
+      "id": 58,
+      "name": "irşad",
+      "category": "Məişət texnikası və komputerlər",
+      "value": "126",
+      "discount": 2,
+      "currency": "%",
+      "img": "../public/img/cashback/category/rshad_logo.webp"
+    },
+    {
+      "id": 59,
+      "name": "Maxi.az",
+      "category": "Məişət texnikası və komputerlər",
+      "value": "126",
+      "discount": 2,
+      "currency": "%",
+      "img": "../public/img/cashback/category/maxi_az_logo.webp"
+    },
+    {
+      "id": 60,
+      "name": "My Shops",
+      "category": "Məişət texnikası və komputerlər",
+      "value": "126",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/my_shops.webp"
+    },
+    {
+      "id": 61,
+      "name": "NEWCOND",
+      "category": "Məişət texnikası və komputerlər",
+      "value": "126",
+      "discount": 2,
+      "currency": "%",
+      "img": "../public/img/cashback/category/newcond.webp"
+    },
+    {
+      "id": 62,
+      "name": "Smart Electronics",
+      "category": "Məişət texnikası və komputerlər",
+      "value": "126",
+      "discount": 2,
+      "currency": "%",
+      "img": "../public/img/cashback/category/smart_electronics.webp"
+    },
+    {
+      "id": 63,
+      "name": "Soliton",
+      "category": "Məişət texnikası və komputerlər",
+      "value": "126",
+      "discount": 1,
+      "currency": "%",
+      "img": "../public/img/cashback/category/solitonltd_logo.webp"
+    },
+    {
+      "id": 64,
+      "name": "Technomania",
+      "category": "Məişət texnikası və komputerlər",
+      "value": "126",
+      "discount": 10,
+      "currency": "%",
+      "img": "../public/img/cashback/category/texnomania_1-removebg-preview.webp"
+    },
+    {
+      "id": 65,
+      "name": "Texnoplus Electronics",
+      "category": "Məişət texnikası və komputerlər",
+      "value": "126",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/cashback-texnoplus.webp"
+    },
+    {
+      "id": 66,
+      "name": "Antaris",
+      "category": "Məktəb və ofis ləvazimatları",
+      "value": "127",
+      "discount": 4,
+      "currency": "%",
+      "img": "../public/img/cashback/category/antaris_logo.webp"
+    },
+    {
+      "id": 67,
+      "name": "Lekal",
+      "category": "Məktəb və ofis ləvazimatları",
+      "value": "127",
+      "discount": 2,
+      "currency": "%",
+      "img": "../public/img/cashback/category/lekal.webp"
+    },
+    {
+      "id": 68,
+      "name": "LIBRAFF",
+      "category": "Məktəb və ofis ləvazimatları",
+      "value": "127",
+      "discount": 2,
+      "currency": "%",
+      "img": "../public/img/cashback/category/libraff.webp"
+    },
+    {
+      "id": 69,
+      "name": "Login",
+      "category": "Məktəb və ofis ləvazimatları",
+      "value": "127",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/login.webp"
+    },
+    {
+      "id": 70,
+      "name": "Zəka Dəftərxana",
+      "category": "Məktəb və ofis ləvazimatları",
+      "value": "127",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/zeka--stationary-template.webp"
+    },
+    {
+      "id": 71,
+      "name": "Berlin MP",
+      "category": "Parfumeriya və kosmetika",
+      "value": "128",
+      "discount": 2,
+      "currency": "%",
+      "img": "../public/img/cashback/category/berlin_mp.webp"
+    },
+    {
+      "id": 72,
+      "name": "Fransella Perfumery",
+      "category": "Parfumeriya və kosmetika",
+      "value": "128",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/fransella_1.webp"
+    },
+    {
+      "id": 73,
+      "name": "Myparfum.az",
+      "category": "Parfumeriya və kosmetika",
+      "value": "128",
+      "discount": 10,
+      "currency": "%",
+      "img": "../public/img/cashback/category/myparfum_az.webp"
+    },
+    {
+      "id": 74,
+      "name": "Zoluşka Parfumery",
+      "category": "Parfumeriya və kosmetika",
+      "value": "128",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/zoluska_logo.webp"
     }
   ]
 }

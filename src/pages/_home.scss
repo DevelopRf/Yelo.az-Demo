@@ -16,17 +16,23 @@
 
     .wrapper {
         @extend %wrapper;
+        will-change: transform;
 
         .sliderBox {
-            @include Grid($t-c: repeat(4, 100%));
+            @include Grid($g-a-f: column, $g-a-c: 100%);
             @extend %box;
+            overflow-x: hidden;
             position: relative;
-            overflow-x: auto;
-            scroll-snap-type: x;
+
+            &.dragging {
+                .sliderItem {
+                    cursor: grab;
+                    user-select: none
+                }
+            }
 
             .sliderItem {
                 @extend %item;
-                transition: transform 0.3s;
 
                 .bg-color {
                     @extend %background;
@@ -66,45 +72,48 @@
 
                     z-index: 9;
                     scroll-snap-align: start;
+                    background-color: transparent;
+                    filter: grayscale(100%);
 
                 }
             }
 
-            .dot {
-                @include Grid ($t-c: repeat(4, max-content), $c-g: 20px);
-                position: fixed;
-                top: 170px;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 10;
+        }
 
-                @media (min-width:1024px) {
-                    top: calc(505px - 35px);
-                    left: 80%;
-                }
+        .dot {
+            @include Grid ($t-c: repeat(4, max-content), $c-g: 20px);
+            position: absolute;
+            top: 170px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
 
-                li {
-                    width: 8px;
-                    height: 8px;
-                    border-radius: 50%;
-                    background-color: #000;
-                    position: relative;
-                    cursor: pointer;
+            @media (min-width:1024px) {
+                top: calc(505px - 35px);
+                left: 80%;
+            }
 
-                    &.selected {
-                        &::after {
-                            content: "";
-                            display: block;
-                            width: 16px;
-                            height: 16px;
-                            border-radius: 50%;
-                            position: absolute;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-50%, -50%);
-                            background-color: $clr_primary;
-                            z-index: -1;
-                        }
+            li {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: #000;
+                position: relative;
+                cursor: pointer;
+
+                &.selected {
+                    &::after {
+                        content: "";
+                        display: block;
+                        width: 16px;
+                        height: 16px;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        background-color: $clr_primary;
+                        z-index: -1;
                     }
                 }
             }

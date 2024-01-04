@@ -47,6 +47,8 @@
     }
 }
 
+
+
 %appLogo {
     width: 64px;
     height: 64px;
@@ -220,6 +222,15 @@
         grid-template-columns: repeat(2, max-content);
         align-items: center;
     }
+}
+
+%input-select {
+    font-size: 18px;
+    padding: 21px 20px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #ECECEC;
+    border-radius: 10px;
 }
 
 %image {

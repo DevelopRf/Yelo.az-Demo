@@ -473,8 +473,12 @@
             transition: all 0.3s;
 
             @media (min-width:1024px) {
-                height: calc(100% - 141px);
+                height: calc(100vh - 141px);
                 top: 141px;
+               &.active-position{
+                top: 261px;
+                height: calc(100vh - 261px);
+               }
             }
 
             .container {
@@ -490,7 +494,7 @@
                     @media (min-width:1024px) {
                         grid-template-columns: auto 345px;
                     }
-
+                    
                     .menuTitle {
                         grid-area: 1 / 1 / span 1 / span 2;
                         @include Grid ($t-c: repeat(2, 1fr));

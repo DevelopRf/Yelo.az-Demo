@@ -5,12 +5,14 @@
     letter-spacing: $l-s;
 }
 
-@mixin Grid ($j-c: null, $a-i: null, $t-c: null, $t-r: null, $g: null, $r-g: null, $c-g: null, $a-c: null) {
+@mixin Grid ($j-c: null, $a-i: null, $t-c: null, $t-r: null, $g: null, $r-g: null, $c-g: null, $a-c: null, $g-a-f: null, $g-a-c: null) {
     display: grid;
     justify-content: $j-c;
     align-items: $a-i;
     grid-template-columns: $t-c;
     grid-template-rows: $t-r;
+    grid-auto-flow: $g-a-f;
+    grid-auto-columns: $g-a-c;
     gap: $g;
     row-gap: $r-g;
     column-gap: $c-g;

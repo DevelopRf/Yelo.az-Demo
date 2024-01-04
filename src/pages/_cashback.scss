@@ -1,4 +1,6 @@
 .cashbackMain {
+    @extend %firstSection;
+
     .wrapper {
         @extend %wrapper;
         @extend %box;
@@ -25,6 +27,180 @@
                         @extend %mainBtn;
                     }
                 }
+            }
+        }
+    }
+}
+
+.filters {
+    padding: 20px 0;
+
+    .filter {
+        @include Grid($t-c: auto 315px, $c-g: 25px, $r-g: 15px);
+
+        .search {
+            input {
+                @extend %input-select;
+                padding: 21px 40px 21px 20px;
+                background-repeat: no-repeat;
+                background-position: right 0 top 50%;
+            }
+        }
+
+        .category {
+            select {
+                @extend %input-select;
+            }
+        }
+
+        .btnFilter {
+            @include Grid($t-c: repeat(3, max-content), $c-g: 15px);
+
+            li {
+
+                a {
+                    grid-area: 2 / 1 / span 1 / span 2;
+                    display: none;
+                    color: #000;
+                    padding: 5px 20px;
+                    font-size: 18px;
+                    border-radius: 30px;
+                    background-color: $clr_primary;
+                    transition: all 0.3s;
+
+                    @media (min-width:1024px) {
+                        display: block;
+                    }
+
+                    &:hover {
+                        box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.35);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.cashbackCards {
+    .container {
+        &.active {
+            height: 160px;
+
+            .loader {
+                display: grid;
+            }
+        }
+
+        .loader {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 30px;
+            aspect-ratio: 1;
+            
+            border-radius: 50%;
+            background:
+                linear-gradient(0deg, rgb(0 0 0/50%) 30%, #0000 0 70%, rgb(0 0 0/100%) 0) 50%/8% 100%,
+                linear-gradient(90deg, rgb(0 0 0/25%) 30%, #0000 0 70%, rgb(0 0 0/75%) 0) 50%/100% 8%;
+            background-repeat: no-repeat;
+            animation: l23 1s infinite steps(12);
+
+            &::before,
+            &::after {
+                content: "";
+                grid-area: 1/1;
+                border-radius: 50%;
+                background: inherit;
+                opacity: 0.915;
+                transform: rotate(30deg);
+            }
+
+            &::after {
+                opacity: 0.83;
+                transform: rotate(60deg);
+            }
+        }
+
+        @keyframes l23 {
+            100% {
+                transform: rotate(1turn)
+            }
+        }
+
+        .cards {
+            @include Grid($t-c: repeat(3, 1fr), $g: 30px);
+            position: relative;
+
+            .card {
+                border: 1px solid $clr_border;
+                border-radius: 10px;
+                overflow: hidden;
+                padding: 20px 30px;
+
+                .cardImage {
+                    height: 160px;
+
+                    img {
+                        @extend %img;
+                    }
+                }
+
+                .content {
+                    padding: 20px 65px 10px 0;
+                    position: relative;
+
+                    .info {
+                        h3 {
+                            font-family: fB;
+                            font-size: 18px;
+
+                            @media (min-width:1024px) {
+                                font-size: 20px;
+                            }
+                        }
+
+                        p {
+                            color: $clr_grey_text;
+
+                            @media (min-width:1024px) {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+
+                    .discount {
+                        position: absolute;
+                        bottom: 10px;
+                        right: 0;
+                        min-width: 50px;
+                        height: 50px;
+                        padding: 5px 10px;
+                        border-radius: 5px;
+                        background-color: $clr_primary;
+
+                        p {
+                            font-size: 28px;
+                            display: inline-block;
+                        }
+
+                        span {
+                            font-size: 19px;
+                        }
+                    }
+                }
+            }
+
+        }
+        .btnMoreCard{
+            text-align: center;
+            margin: 30px 0 0;
+            a{
+                width: 33%;
+                @extend %btnOrder;
+            }
+            &.active{
+                display: none;
             }
         }
     }

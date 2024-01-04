@@ -1,19 +1,17 @@
+import { resultData, modal } from "./news.js"
+import { credits } from "./credit.js"
+import creditCards from "./credit-cards.js"
 const header = document.querySelector('.header')
 const headerTop = document.querySelector('.headerTop')
 const leftMenuTop = document.querySelectorAll('.headerTop .navbarLeft .menu a')
 const btnSearch = document.querySelector('.headerTop .navbarRight .menu li:nth-child(4) a')
 const headerBottom = document.querySelector('.headerBottom')
 const btnBankInter = document.querySelector('.btnBankInter')
-const BankInterText = document.querySelector('.btnBankInter span')
 const slider = document.querySelector('.slider')
-const sliders = document.querySelectorAll('.slider .sliderItem')
 const dots = document.querySelectorAll('.dot li')
 const storyChange = document.querySelectorAll('.storyChange .changeItem')
 const stories = document.querySelectorAll('.storySliders .sliderItem')
-const dot = document.querySelector('.dot')
-const shortNumber = document.querySelector('.navbarRight .menu li:nth-child(3) a')
 const storyCards = document.querySelectorAll('.stories .card')
-const modal = document.querySelector('.modal')
 const close = document.querySelector('.modal .close')
 const searchClose = document.querySelector('.searchBox .close')
 const searchBox = document.querySelector('.searchBox')
@@ -21,11 +19,10 @@ const mediaQuery = window.matchMedia('(min-width: 1024px)')
 const langBtn = document.querySelector('.navbarRight .menu li:last-of-type')
 const lang = document.querySelector('.navbarRight .languages')
 const allNews = document.querySelector('.allNews')
-const credits = document.querySelector('.credits')
-const creditCards = document.querySelector('.creditCards')
+const cashbackMain = document.querySelector('.cashbackMain')
+const bigMenu = document.querySelector('.bigMenu')
 
 let screenSize = false
-
 let scrolling = 0
 let scrollPage = 0
 
@@ -40,7 +37,7 @@ function changeScreen(e) {
 changeScreen(mediaQuery)
 mediaQuery.addEventListener('change', changeScreen)
 
-const currency = new Currency()
+
 
 document.addEventListener("click", (e) => {
     if (e.target == modal || e.target == close) {
@@ -73,17 +70,25 @@ leftMenuTop.forEach((item, index) => {
     })
 })
 
+const sliderBox = document.querySelector(".wrapper .sliderBox")
+
 function sliderMain() {
     let indexMain = 0
     let intervalMain = null
+    const firstSliderItem = sliderBox.querySelectorAll(".sliderItem")
     const goToSlide = (slideIndex) => {
-        for (const element of sliders) {
-            element.style.transform = `translateX(-${slideIndex * 100}%)`;
+        const targetSlide = firstSliderItem[slideIndex];
+        if (targetSlide) {
+            const slideWidth = targetSlide.offsetWidth;
+
+            sliderBox.scrollTo({
+                left: slideWidth * slideIndex,
+                behavior: 'smooth'
+            });
+
+            dots.forEach(dot => dot.classList.remove('selected'));
+            dots[slideIndex].classList.add('selected');
         }
-        for (const dot of dots) {
-            dot.classList.remove('selected');
-        }
-        dots[slideIndex].classList.add('selected');
     };
 
     const startIntervalMain = () => {
@@ -102,13 +107,45 @@ function sliderMain() {
             indexMain = dotIndex;
             dots && goToSlide(indexMain);
             startIntervalMain();
+
+
         });
     });
 
     startIntervalMain();
 }
 
-sliderMain()
+slider && sliderMain()
+
+function moveItem() {
+    let isDragging = false, startX, startScrollLeft;
+
+    const dragStart = (e) => {
+        isDragging = true
+        sliderBox.classList.add("dragging")
+        startX = e.clientX;
+        startScrollLeft = sliderBox.scrollLeft
+    }
+
+    const dragStop = () => {
+        isDragging = false
+        sliderBox.classList.remove("dragging")
+    }
+
+    const dragging = (e) => {
+        if (!isDragging) return;
+        sliderBox.scrollLeft = startScrollLeft - (e.clientX - startX)
+    }
+
+    sliderBox.addEventListener("mousedown", dragStart)
+    sliderBox.addEventListener("mousemove", dragging)
+    sliderBox.addEventListener("mouseup", dragStop)
+}
+
+slider || stories || moveItem()
+
+
+
 
 function timeBar(barİndex) {
     const progress = document.querySelectorAll('.progressBar li .progress')
@@ -186,13 +223,13 @@ function sliderStories() {
     })
 }
 
-sliderStories()
+stories && sliderStories()
 
 const amountInput = document.querySelector("#sale");
 const firstOption = document.querySelector("#currencyReceived")
 const secondOption = document.querySelector("#soldCurrency")
 const inputResult = document.querySelector("#inputResult")
-
+const currency = new Currency()
 amountInput && amountInput.addEventListener('input', exchange)
 if (firstOption) {
 
@@ -233,7 +270,7 @@ function exchange() {
 }
 
 const btnClose = document.querySelector('.btnClose')
-const bigMenu = document.querySelector('.bigMenu')
+
 btnClose && btnClose.addEventListener('click', () => {
     btnClose.classList.toggle('effectToggle')
 
@@ -252,8 +289,8 @@ btnClose && btnClose.addEventListener('click', () => {
 const currentLocation = location.href
 const menuItem = document.querySelectorAll(".headerBottom .navbar .menu a")
 for (let index = 0; index < menuItem.length; index++) {
-    if(menuItem[index].href === currentLocation)
-    menuItem[index].classList.add("active")
+    if (menuItem[index].href === currentLocation)
+        menuItem[index].classList.add("active")
 }
 
 const calcItems = document.querySelectorAll('.calcItems .item')
@@ -362,6 +399,8 @@ function mobilApp() {
                 allNews && allNews.classList.remove('active')
                 credits && credits.classList.remove('active')
                 creditCards && creditCards.classList.remove('active')
+                cashbackMain && cashbackMain.classList.remove('.active')
+                bigMenu.classList.remove("active-position")
             }
             else {
                 mobAppDesk.classList.add("active")
@@ -369,7 +408,9 @@ function mobilApp() {
                 slider && slider.classList.add("active")
                 allNews && allNews.classList.add('active')
                 credits && credits.classList.add('active')
-                creditCards && creditCards.classList.remove('active')
+                creditCards && creditCards.classList.add('active')
+                cashbackMain && cashbackMain.classList.add('.active')
+                bigMenu.classList.add("active-position")
             }
         }
         else {
@@ -405,379 +446,160 @@ function mobilApp() {
 
 mobilApp()
 
-function convertDateFormat(dateString) {
-    const months = [
-        "yanvar", "fevral", "mart", "aprel", "may", "iyun",
-        "iyul", "avqust", "sentyabr", "oktyabr", "noyabr", "dekabr"
-    ];
-
-    const date = new Date(dateString);
-    const day = date.getUTCDate();
-    const month = months[date.getUTCMonth()];
-    const year = date.getUTCFullYear();
-
-    return `${day} ${month} ${year}`;
-}
-
-
-const news = document.querySelector('.news .cards')
-
-function showNews() {
-
-    currency.data()
-        .then(data => {
-            for (let index = 0; index < 3; index++) {
-                const acceptDate = new Date(data[index].date)
-                const showDate = convertDateFormat(acceptDate)
-                resultData +=
-                    `<div class="card">
-                            <div class="innerCard">
-                                <div class="content">
-                                    <p>${data[index].title}</p>
-                                </div>
-                                <div class="bottomInfo">
-                                    <div class="btn">
-                                        <a href="#" class="btnMore">Daha
-                                            ətraflı
-                                            <svg width="29px" height="13px" viewBox="0 0 29 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns: xlink="http://www.w3.org/1999/xlink">
-                                                <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
-                                                <title>Group 3</title>
-                                                <desc>Created with Sketch.</desc>
-                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <g id="home(dark)" transform="translate(-1211.000000, -1529.000000)" fill="#0091FE">
-                                                        <g id="Group-3" transform="translate(1225.500000, 1535.500000) scale(-1, 1) translate(-1225.500000, -1535.500000) translate(1211.000000, 1528.000000)">
-                                                            <rect id="Rectangle" x="2.12121212" y="6.61363636" width="26.5757576" height="1.77272727"></rect>
-                                                            <polygon id="Rectangle" transform="translate(3.947429, 4.848025) rotate(-45.000000) translate(-3.947429, -4.848025) " points="-0.608762814 4.04229183 8.48089403 3.93956052 8.5036213 5.73501506 1.10543544 5.75649009"></polygon>
-                                                            <polygon id="Rectangle" transform="translate(3.947429, 10.151975) scale(1, -1) rotate(-45.000000) translate(-3.947429, -10.151975) " points="-0.608762814 9.34624123 8.48089403 9.24350991 8.5036213 11.0389645 1.10543544 11.0604395"></polygon>
-                                                        </g>
-                                                    </g>
-                                                </g>
-                                            </svg>
-                                        </a>
-                                    </div>
-                                    <time>
-                                        ${showDate}
-                                    </time>
-                                </div>
-                            </div>
-                    </div>`
-            }
-        })
-}
-
-
-const cardData = new Cards()
-const getCards = () => {
-    const image = document.querySelectorAll(".creditCards .card .image .img img")
-    const title = document.querySelectorAll(".creditCards .content .title")
-    const info = document.querySelectorAll(".creditCards .content .info")
-    cardData.cardData()
-        .then(data => {
-            data.forEach((item, index) => {
-
-
-
-                image[index].setAttribute("src", `${item.img}`)
-                const h2 = title[index].querySelector("h2")
-                const p = title[index].querySelector("p")
-                h2.innerText = item.name
-                p.innerText = item.description
-                const p1 = info[index].querySelectorAll("p")
-                const span = info[index].querySelectorAll("span")
-                span[0].innerText = item.title1
-                p1[0].innerText = item.title1_Text
-                span[1].innerText = item.title2
-                p1[1].innerText = item.title2_Text
-                span[2].innerText = item.title3
-                p1[2].innerText = item.title3_Text
-                p1.forEach(item => {
-                    if (item.innerHTML.length > 17) {
-                        info[index].classList.add("active")
-                    }
-                })
-
-            })
-        })
-}
-
-creditCards && getCards()
-
 const elCalcItem = document.querySelectorAll(".calcItems")
 function calcItem() {
 
     elCalcItem.forEach(item => {
         if (item.querySelector("input[type=text]") || item.querySelector("select")) {
             item.classList.add("input-active")
-            console.log("input");
         }
         else {
             item.classList.add("range-active")
-            console.log("range");
         }
     })
 }
 
 elCalcItem && calcItem()
 
-const credit = new Credits()
-
-const getCredits = () => {
-    const image = document.querySelectorAll(".credits .card .image .img")
-    const title = document.querySelectorAll(".credits .content .title")
-    const info = document.querySelectorAll(".credits .content .info")
-
-    credit.creditData()
+const cashback = new Cashback()
+const getCashback = () => {
+    const search = document.querySelector(".filters .search input")
+    cashback.getCashback()
         .then(data => {
-            data.forEach((item, index) => {
+            const cards = document.querySelector(".cashbackCards .cards")
+            const container = document.querySelector(".cashbackCards .container")
+            const btnMoreCard = document.querySelector(".cashbackCards .btnMoreCard")
+            function getCashbackData() {
+                for (let i = 0; i < 30; i++) {
+                    resultData += `<div class="card">
+                    <div class="cardImage">
+                        <a href = ""><img src="${data[i].img}" alt="">
 
-                image[index].setAttribute("style", `background-image: url(${item.img})`)
-                const h2 = title[index].querySelector("h2")
-                const p = title[index].querySelector("p")
-                h2.innerText = item.name
-                p.innerText = item.description
-                const p1 = info[index].querySelectorAll("p")
-                const span = info[index].querySelectorAll("span")
-                span[0].innerText = item.title1
-                p1[0].innerText = item.title1_Text
-                span[1].innerText = item.title2
-                p1[1].innerText = item.title2_Text
-                span[2].innerText = item.title3
-                p1[2].innerText = item.title3_Text
-
-                if (image[index].querySelector("img")) {
-                    image[index].setAttribute("style", "background-image: none")
-                    image[index].querySelector("img").setAttribute("src", `${item.img}`)
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>${data[i].name}</h3>
+                            <p>${data[i].category}</p>
+                        </div>
+                        <div class="discount">
+                            <p>${data[i].discount}</p>
+                            <span>${data[i].currency}</span>
+                        </div>
+                    </div>
+                </div>`
+                    cards.innerHTML = resultData
                 }
-                p1.forEach(item => {
-                    if (item.innerHTML.length > 17) {
-                        info[index].classList.add("active")
-                    }
-                })
-            })
+            }
 
-        })
-}
+            getCashbackData()
 
-credits && getCredits()
+            function getFilter() {
 
-news && showNews()
-const newsCards = document.querySelector('.allNews .cards')
-const btnMoreNews = document.querySelector('.btnMoreNews')
-let arrLength = 0
-let indexArr = 0
+                resultData = ""
+                const filterName = data.filter(item => item.name.toLowerCase().includes(search.value.toLowerCase()))
 
-function getAllNews(callback) {
-    currency.data()
-        .then(data => {
-            if (arrLength < data.length) {
-                indexArr += 15
-                if (indexArr > data.length) {
-                    indexArr = indexArr - 15 + data.length % 15
-                    btnMoreNews.style.display = "none"
-                }
-                for (let index = arrLength; index < indexArr; index++) {
-                    const acceptDate = new Date(data[index].date)
-                    const showDate = convertDateFormat(acceptDate)
-                    resultData +=
-                        `<div class="card">
-                        <ul class = "tool">
-                            <li>                            
-                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"/></svg>
-                            </li>
-                            <li data-id=${data[index].id}>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M160-160v-80h110l-16-14q-52-46-73-105t-21-119q0-111 66.5-197.5T400-790v84q-72 26-116 88.5T240-478q0 45 17 87.5t53 78.5l10 10v-98h80v240H160Zm400-10v-84q72-26 116-88.5T720-482q0-45-17-87.5T650-648l-10-10v98h-80v-240h240v80H690l16 14q49 49 71.5 106.5T800-482q0 111-66.5 197.5T560-170Z"/></svg>
-                            </li>
-                            <li data-id=${data[index].id}>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"/></svg> 
-                            </li>                            
-                        </ul>
-                        <div class="innerCard">
-                            <div class="content">
-                                <p>${data[index].title}</p>
+                filterName.forEach(filter => {
+                    resultData += `<div class="card">
+                        <div class="cardImage">
+                            <img src="${filter.img}" alt="">
+    
+                        </div>
+                        <div class="content">
+                            <div class="info">
+                                <h3>${filter.name}</h3>
+                                <p>${filter.category}</p>
                             </div>
-                            <div class="bottomInfo">
-                                <div class="btn">
-                                    <a href="javascript: void(0)" class="btnMore">Daha
-                                        ətraflı
-                                        <svg width="29px" height="13px" viewBox="0 0 29 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns: xlink="http://www.w3.org/1999/xlink">
-                                            <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
-                                            <title>Group 3</title>
-                                            <desc>Created with Sketch.</desc>
-                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                <g id="home(dark)" transform="translate(-1211.000000, -1529.000000)" fill="#0091FE">
-                                                    <g id="Group-3" transform="translate(1225.500000, 1535.500000) scale(-1, 1) translate(-1225.500000, -1535.500000) translate(1211.000000, 1528.000000)">
-                                                        <rect id="Rectangle" x="2.12121212" y="6.61363636" width="26.5757576" height="1.77272727"></rect>
-                                                        <polygon id="Rectangle" transform="translate(3.947429, 4.848025) rotate(-45.000000) translate(-3.947429, -4.848025) " points="-0.608762814 4.04229183 8.48089403 3.93956052 8.5036213 5.73501506 1.10543544 5.75649009"></polygon>
-                                                        <polygon id="Rectangle" transform="translate(3.947429, 10.151975) scale(1, -1) rotate(-45.000000) translate(-3.947429, -10.151975) " points="-0.608762814 9.34624123 8.48089403 9.24350991 8.5036213 11.0389645 1.10543544 11.0604395"></polygon>
-                                                    </g>
-                                                </g>
-                                            </g>
-                                        </svg>
-                                    </a>
-                                </div>
-                                <time>
-                                    ${showDate}
-                                </time>
+                            <div class="discount">
+                                <p>${filter.discount}</p>
+                                <span>${filter.currency}</span>
                             </div>
                         </div>
-                     </div>`
-                }
-
-                newsCards && (newsCards.innerHTML = resultData)
-                arrLength += 15
+                    </div>`
+                })
+                search.value === "" && getCashbackData()
+                cards.innerHTML = resultData
             }
-            else {
-                indexArr = 0
-            }
-            callback()
-        })
-}
-
-newsCards && getAllNews(getCard)
-
-const btnBox = document.querySelector('.header .btnBox')
-newsCards && window.addEventListener('load', () => {
-    btnBox.classList.add("active")
-})
-
-btnMoreNews && btnMoreNews.addEventListener("click", () => {
-    getAllNews(getCard)
-})
-
-let updateDb = false
-let deleteDb = false
-let newsId
-let text
-
-const btnSubmit = document.querySelector('.formContent')
-const textArea = document.querySelector('#newsContent')
-const loader = document.querySelector('.loader')
-
-function getCard() {
-
-    const tool = document.querySelectorAll('.tool')
-
-    tool.forEach(item => {
-        item.querySelector(".tool li:first-child").addEventListener("click", () => {
-            tool.forEach(toolitem => {
-                if (toolitem !== item && toolitem.classList.contains("active")) {
-                    toolitem.classList.remove("active")
-                }
+            search.addEventListener("input", () => {
+                getFilter()
             })
 
 
-            if (item.classList.contains("active")) {
-                item.classList.remove("active")
+            const cats = data.map(item => {
+
+                const category = item.category
+                const value = item.value
+                const newData = { category, value }
+                return newData
+            })
+
+            function removeDuplicates(array, property) {
+                const uniqueValues = new Set();
+
+                const categories = array.filter(item => {
+                    if (!uniqueValues.has(item[property])) {
+                        uniqueValues.add(item[property]);
+                        return true;
+                    }
+                    return false;
+                });
+
+                return categories;
             }
-            else {
-                item.classList.add("active")
-            }
-        })
-    })
-    const showModal = () => modal.classList.add('activeModal')
-    const addNewsB = document.querySelector('.headerNews .addNews')
-    addNewsB && addNewsB.addEventListener("click", () => {
-        showModal()
-        textArea.innerHTML = ""
-    })
+            let categories = removeDuplicates(cats, 'category');
 
-    const btnUpdaate = document.querySelectorAll('.tool li:nth-child(2)')
-    const btnDelete = document.querySelectorAll(".tool li:nth-child(3)")
-    const errorMessage = document.querySelector(".formContent .btn p")
+            const selectCat = document.querySelector("#category")
 
-    textArea.addEventListener("input", () => {
-        text = textArea.value
-        errorMessage.innerHTML = ""
-        textArea.classList.remove("error")
-    })
-
-    btnUpdaate.forEach(update => {
-        update.addEventListener('click', () => {
-            textArea.innerHTML = update.parentElement.nextElementSibling.firstElementChild.firstElementChild.textContent
-            showModal()
-            updateDb = true
-            newsId = update.dataset.id
-        })
-    })
-
-    btnDelete.forEach(del => {
-        del.addEventListener("click", () => {
-            const deleteQuestion = window.confirm("Xəbəri silməyinizə əminsiniz?")
-            deleteDb = true
-            newsId = del.dataset.id
-            if (deleteQuestion) {
-                loader.classList.add("active")
-                setTimeout(() => {
-                    fetch(`http://localhost:3000/news/${newsId}`,
-                        {
-                            method: "DELETE",
-                            headers: {
-                                "Content-Type": "application/json"
-                            }
-                        })
-                    loader.classList.remove("active")
-                }, 1500);
-            }
-            else {
-                return
-            }
-        })
-    })
-}
+            categories.forEach(element => {
+                selectCat.innerHTML += `<option value=${element.value}>${element.category}</option>`
+            })
 
 
-function submit() {
-    btnSubmit.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const d = new Date()
-        let data = {
-            title: textArea.value,
-            date: d.toISOString()
-        }
-        if (text != null) {
-            modal.classList.remove('activeModal')
-            loader.classList.add("active")
-
-            if (!updateDb) {
-                setTimeout(() => {
-                    fetch("http://localhost:3000/news", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify(data)
-                    })
-                    loader.classList.remove("active")
-                }, 1500);
-            }
-
-            else {
-                const updateQuestion = window.confirm("Xəbərin məzmunu dəyişəcək. Əminsiniz?")
-                if (updateQuestion) {
+            selectCat.addEventListener("change", () => {
+                btnMoreCard.classList.add("active")
+                container.classList.add("active")
+                resultData = ""
+                cards.innerHTML = resultData
+                const cashbackData = data.filter(item => item.value === selectCat.value)
+                cards.classList.add("active")
+                if (selectCat.value === "allCategory") {
                     setTimeout(() => {
-                        fetch(`http://localhost:3000/news/${newsId}`, {
-                            method: "PUT",
-                            headers: {
-                                "Content-Type": "application/json"
-                            },
-                            body: JSON.stringify(data)
-                        })
-                        loader.classList.remove("active")
+                        cards.classList.add("active")
+                        getCashbackData()
                     }, 1500);
                 }
-                else { return }
-            }
-        }
-        else {
-            e.preventDefault()
-            textArea.classList.add("error")
-            errorMessage.innerHTML = "Boş məzmun əlavə edilə bilməz..."
-        }
-        updateDb = false
-    })
+                else {
+                    cashbackData.forEach(item => {
+                        resultData += `<div class="card">
+                        <div class="cardImage">
+                            <img src="${item.img}" alt="">
+
+                        </div>
+                        <div class="content">
+                            <div class="info">
+                                <h3>${item.name}</h3>
+                                <p>${item.category}</p>
+                            </div>
+                            <div class="discount">
+                                <p>${item.discount}</p>
+                                <span>${item.currency}</span>
+                            </div>
+                        </div>
+                    </div>`
+                    })
+                }
+
+                setTimeout(() => {
+                    cards.innerHTML = resultData
+                    resultData = ""
+                    container.classList.remove("active")
+                    btnMoreCard.classList.remove("active")
+                }, 1500);
+            })
+        })
 }
 
-newsCards && submit()
+cashbackMain && getCashback()
+
 
 function getAboutCredit() {
     const txtMore = document.querySelector(".txtMore")
@@ -792,27 +614,6 @@ function getAboutCredit() {
 
 getAboutCredit()
 
-const creditItem = document.querySelectorAll(".creditItem")
-const calc = document.querySelectorAll(".creditItem .calc")
-console.log(calc);
-creditItem.forEach((item, index) => {
-    item.querySelector(".calc") &&
-        item.querySelector(".card .btnOrder").addEventListener("click", () => {
-            item.querySelector(".calc").classList.toggle("active")
-        })
-
-})
 
 
-const imgCard = document.querySelectorAll(".image .img")
-const img = document.querySelectorAll(".image .img img")
-
-img && imgCard.forEach(item => {
-    item.addEventListener("mouseover", () => {
-        item.classList.add("active")
-    })
-    item.addEventListener("mouseout", () => {
-        item.classList.remove("active")
-    })
-})
-
+export { resultData }

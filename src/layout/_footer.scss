@@ -91,31 +91,81 @@ footer {
                                 transform: translate(-50%, -50%);
                             }
                         }
-                        &:first-child{
-                            a{
-                                &:hover{
-                                    svg{
-                                        g{
+
+                        &:first-child {
+                            a {
+                                &:hover {
+                                    svg {
+                                        g {
                                             opacity: 1;
-                                        }  
-                                        path{
-                                            fill: #1877F2;                                         
-                                        }                                        
+                                        }
+
+                                        path {
+                                            fill: #1877F2;
+                                        }
                                     }
                                 }
                             }
                         }
-                        &:nth-child(2)
-                        {
-                            a{
-                                &:hover{
-                                    svg{
-                                        g{
+
+                        &:nth-child(2) {
+                            a {
+                                &:hover {
+                                    svg {
+                                        g {
                                             opacity: 1;
-                                        }                                
-                                        path{
-                                            fill: #ed712f;
-                                        }                                        
+                                        }
+
+                                        path {
+                                            fill: #f93882;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        &:nth-child(3) {
+                            a {
+                                &:hover {
+                                    svg {
+                                        g {
+                                            opacity: 1;
+                                        }
+
+                                        path {
+                                            fill: #0077b5;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        &:nth-child(4) {
+                            a {
+                                &:hover {
+                                    svg {
+                                        g {
+                                            opacity: 1;
+                                        }
+
+                                        path {
+                                            fill: #c4302b;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        &:nth-child(5) {
+                            a {
+                                &:hover {
+                                    svg {
+                                        g {
+                                            opacity: 1;
+                                        }
+
+                                        path {
+                                            fill: #1DA1F2;
+                                        }
                                     }
                                 }
                             }

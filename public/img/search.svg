@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="63px" height="63px" viewBox="0 0 63 63" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Group 5</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="cashback" transform="translate(-990.000000, -252.000000)">
+            <g id="Group-5" transform="translate(990.000000, 252.000000)">
+                <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="63" height="63"></rect>
+                <g id="Group" opacity="0.3" transform="translate(23.000000, 23.000000)" fill="#000000" fill-rule="nonzero">
+                    <path d="M17.538,16.21425 L12.64125,11.3175 C14.96925,8.25675 14.376,3.888 11.31525,1.56 C8.2545,-0.768 3.88575,-0.17475 1.55775,2.886 C-0.77025,5.94675 -0.177,10.3155 2.88375,12.6435 C5.3745,14.53875 8.8245,14.53875 11.31525,12.6435 L16.212,17.54025 C16.581,17.90025 17.169,17.90025 17.538,17.54025 C17.88525,17.17725 17.87025,16.5915 17.538,16.21425 Z M2.0625,7.125 C2.0625,4.329 4.329,2.0625 7.125,2.0625 C9.921,2.0625 12.1875,4.329 12.1875,7.125 C12.1875,9.921 9.921,12.1875 7.125,12.1875 C4.3305,12.1845 2.0655,9.9195 2.0625,7.125 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
