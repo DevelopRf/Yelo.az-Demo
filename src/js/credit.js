@@ -1,12 +1,103 @@
+import { range, tilt, cardShadow, getCreditData } from "./functions.js"
+
 const credits = document.querySelector('.credits')
 let resultData = ""
-const credit = new Credits()
-let calc = false
 const getCredits = () => {
     const wrapper = document.querySelector(".credits .wrapper")
-    credit.creditData()
-        .then(data => {
 
+    const shortForm = `<form class="shortCalc">
+                    <div class="calcItems">
+                        <div class="item">
+                            <span>Aylıq əməkhaqqı</span>
+                            <input type="number" name="salary" value="2500" class="number">
+                            <p>AZN</p>
+                            <input type="range" class="range" min="350" max="5000" step="50" value=""
+                                style="--min: 350; --max: 5000; --val: 2500">
+                        </div>
+                        <div class="item">
+                            <span>Kredit məbləği</span>
+                            <input type="number" name="amount" value="15000" class="number">
+                            <p>Ay</p>
+                            <input type="range" class="range" min="400" max="50100" step="100" value=""
+                                style="--min: 400; --max: 50100; --val: 15000">
+                        </div>
+                    </div>
+                    <div class="calcItems">
+                        <div class="formItem"><input type="text" name="name" placeholder="Ad">
+                        <span>Doldurulması vacibdir</span>
+                        </div>
+                        <div class="formItem"><input type="text" name="surname" placeholder="Soyad">
+                        <span>Doldurulması vacibdir</span>
+                        </div>
+                    </div>
+                    <div class="calcItems">
+                        <div class="formItem"><input type="text" name="workplace" placeholder="İş yeri">
+                        <span>Doldurulması vacibdir</span>
+                        </div>
+                        <div class="formItem"><input type="text" name="phone" placeholder="+994 __ ___ __ __">
+                        <span>Doldurulması vacibdir</span>
+                        </div>
+                    </div>
+                    <div class="btnBox">
+                        <div class="text" style="background-image: url('./img/Credits/ok.svg');">
+                            <p>“Sifariş et” basmaqla Azərbaycan Kredit Bürosundan kredit tarixçəsi və Asan
+                                finansdan fərdi məlumatların alınmasına razılıq verirəm.</p>
+                        </div>
+                        <button type="submit" class="btnOrder">Sifariş et</button>
+                    </div>
+                </form>`
+
+    const longForm = `<form class="longCalc">
+                <div class="calcItems">
+                    <div class="item">
+                        <span>Aylıq əməkhaqqı</span>
+                        <input type="number" name="salary" value="2500" class="number">
+                        <p>AZN</p>
+                        <input type="range" class="range" min="350" max="5000" step="50" value=""
+                            style="--min: 350; --max: 5000; --val: 2500">
+                    </div>
+                    <div class="item">
+                        <span>Kredit məbləği</span>
+                        <input type="number" name="amount" value="15000" class="number">
+                        <p>Ay</p>
+                        <input type="range" class="range" min="400" max="50100" step="100" value=""
+                            style="--min: 400; --max: 50100; --val: 15000">
+                    </div>
+                    <div class="item">
+                        <span>Kredit məbləği</span>
+                        <input type="number" name="amount" value="15000" class="number">
+                        <p>Ay</p>
+                        <input type="range" class="range" min="400" max="50100" step="100" value=""
+                            style="--min: 400; --max: 50100; --val: 15000">
+                    </div>
+                </div>
+                <div class="calcItems">
+                    <div class= "formItem"><input type="text" name="name-consumption" id="name-consumption" placeholder="Ad">
+                    <span>Doldurulması vacibdir</span>
+                    </div>
+                    <div class="formItem"><input type="text" name="surname" id="surname" placeholder="Soyad">
+                    <span>Doldurulması vacibdir</span>
+                    </div>
+                </div>
+                <div class="calcItems">
+                    <div class= "formItem"><input type="text" name="workplace-consumption" id="workplace-consumption" placeholder="İş yeri">
+                    <span>Doldurulması vacibdir</span>
+                    </div>
+                    <div class= "formItem"><input type="text" name="phone-consumption" id="phone-consumption" placeholder="+994 __ ___ __ __">
+                    <span>Doldurulması vacibdir</span>
+                    </div>
+                </div>
+                <div class="btnBox">
+                    <div class="text" style="background-image: url('./img/Credits/ok.svg');">
+                        <p>“Sifariş et” basmaqla Azərbaycan Kredit Bürosundan kredit tarixçəsi və Asan
+                            finansdan fərdi məlumatların alınmasına razılıq verirəm.</p>
+                    </div>
+                    <button type="submit" class="btnOrder">Sifariş et</button>
+                </div>
+                </form>`
+                
+    getCreditData()
+        .then(data => {
             data.forEach(item => {
                 resultData += `
                     <div class="creditItem">
@@ -26,7 +117,7 @@ const getCredits = () => {
                                     ${item.description}
                                 </p>
                             </div>
-                            <div class="info ${item.title1_Text.length > 19 ? `active` : ``}">
+                            <div class="info ${item.title1_Text.length > 19 || item.title2_Text.length > 19 || item.title3_Text.length > 19 ? `active` : ``}">
                                 <div class="infoItem">
                                     <span>${item.title1}</span>
                                     <p>${item.title1_Text}</p>
@@ -41,7 +132,7 @@ const getCredits = () => {
                                 </div>
                             </div>
                             <div class="btn">
-                                <a href="javascript:void(0)" class="btnOrder">
+                                <a href="${item.url}" class="btnOrder">
                                     <span>Sifariş et</span>
                                 </a>
                                 <a href="#" class="btnMore">
@@ -77,129 +168,56 @@ const getCredits = () => {
                             </div>
                         </div>
                       </div>
-                      ${item.hasAForm ? `<div class="calcContainer"></div>` : ""}
+                      ${item.hasAForm && item.isAShort ? `<div class="calcs">${shortForm}</div>` : ""}
+                      ${item.hasAForm && !item.isAShort ? `<div class="calcs">${longForm}</div>` : ""}
                     </div>`
-                item.hasAForm && console.log(calc);
             })
 
             wrapper.innerHTML = resultData
+
+            const elCalcItem = document.querySelectorAll(".calcItems")
+
+            function calcItem() {
+                elCalcItem.forEach(item => {
+                    if (item.querySelector("input[type=text]") || item.querySelector("select")) {
+                        item.classList.add("input-active")
+                    }
+                    else {
+                        item.classList.add("range-active")
+                    }
+                })
+            }
+
+            elCalcItem && calcItem()
+
             const creditItem = document.querySelectorAll(".creditItem")
             creditItem.forEach(item => {
-                item.querySelector(".card .btnOrder").addEventListener("click", () => {
-                    item.querySelector(".calcContainer").classList.toggle("active")
+                item.querySelector(".content .btnOrder").addEventListener("click", () => {
+                    item.querySelector(".calcs").classList.toggle("active")
+                })
 
+            })
+
+            const formItem = document.querySelectorAll(".calcItems .formItem")
+            const btnOrder = document.querySelectorAll(".calcs")
+            btnOrder.forEach(item => {
+                item.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    formItem.forEach(item => {
+                        if (item.querySelector("input[type=text]").value.trim() === "") item.querySelector("span").classList.add("active")
+                    })
                 })
             })
+
+
+
             tilt()
             cardShadow()
-            const shortForm = `<form class="calc">
-                    <div class="calcItems">
-                        <div class="item">
-                            <span>Aylıq əməkhaqqı</span>
-                            <input type="number" name="salary" value="2500" class="number">
-                            <p>AZN</p>
-                            <input type="range" class="range" min="350" max="5000" step="50" value=""
-                                style="--min: 350; --max: 5000; --val: 2500">
-                        </div>
-                        <div class="item">
-                            <span>Kredit məbləği</span>
-                            <input type="number" name="amount" value="15000" class="number">
-                            <p>Ay</p>
-                            <input type="range" class="range" min="400" max="50100" step="100" value=""
-                                style="--min: 400; --max: 50100; --val: 15000">
-                        </div>
-                    </div>
-                    <div class="calcItems">
-                        <input type="text" name="name-consumption" id="name-consumption" placeholder="Ad">
-                        <input type="text" name="surname" id="surname" placeholder="Soyad">
-                    </div>
-                    <div class="calcItems">
-                        <input type="text" name="workplace-consumption" id="workplace-consumption" placeholder="İş yeri">
-                        <input type="text" name="phone-consumption" id="phone-consumption" placeholder="+994 __ ___ __ __">
-                    </div>
-                    <div class="btnBox">
-                        <div class="text" style="background-image: url('./img/Credits/ok.svg');">
-                            <p>“Sifariş et” basmaqla Azərbaycan Kredit Bürosundan kredit tarixçəsi və Asan
-                                finansdan fərdi məlumatların alınmasına razılıq verirəm.</p>
-                        </div>
-                        <button type="submit" class="btnOrder">Sifariş et</button>
-                    </div>
-                </form>`
-
-            const longForm = `<form class="calc">
-                <div class="calcItems">
-                    <div class="item">
-                        <span>Aylıq əməkhaqqı</span>
-                        <input type="number" name="salary" value="2500" class="number">
-                        <p>AZN</p>
-                        <input type="range" class="range" min="350" max="5000" step="50" value=""
-                            style="--min: 350; --max: 5000; --val: 2500">
-                    </div>
-                    <div class="item">
-                        <span>Kredit məbləği</span>
-                        <input type="number" name="amount" value="15000" class="number">
-                        <p>Ay</p>
-                        <input type="range" class="range" min="400" max="50100" step="100" value=""
-                            style="--min: 400; --max: 50100; --val: 15000">
-                    </div>
-                    <div class="item">
-                        <span>Kredit məbləği</span>
-                        <input type="number" name="amount" value="15000" class="number">
-                        <p>Ay</p>
-                        <input type="range" class="range" min="400" max="50100" step="100" value=""
-                            style="--min: 400; --max: 50100; --val: 15000">
-                    </div>
-                </div>
-                <div class="calcItems">
-                    <input type="text" name="name-consumption" id="name-consumption" placeholder="Ad">
-                    <input type="text" name="surname" id="surname" placeholder="Soyad">
-                </div>
-                <div class="calcItems">
-                    <input type="text" name="workplace-consumption" id="workplace-consumption" placeholder="İş yeri">
-                    <input type="text" name="phone-consumption" id="phone-consumption" placeholder="+994 __ ___ __ __">
-                </div>
-                <div class="btnBox">
-                    <div class="text" style="background-image: url('./img/Credits/ok.svg');">
-                        <p>“Sifariş et” basmaqla Azərbaycan Kredit Bürosundan kredit tarixçəsi və Asan
-                            finansdan fərdi məlumatların alınmasına razılıq verirəm.</p>
-                    </div>
-                    <button type="submit" class="btnOrder">Sifariş et</button>
-                </div>
-                </form>`
-
+            const calcItems = document.querySelectorAll('.calcItems .item')
+            range(calcItems)
         })
 }
 
 credits && getCredits()
 
-function tilt() {
-    const dataTilt = document.querySelectorAll('[data-tilt]')
-    VanillaTilt.init(dataTilt, {
-        max: 25,
-        speed: 400,
-        glare: true,
-        "max-glare": 0.5,
-        transition: true,
-        perspective: 630,
-        easing: "cubic-bezier(.13,.58,.52,.79)",
-        scale: 1.07
-    });
-    console.log(dataTilt)
-}
-
-function cardShadow() {
-    const imgCard = document.querySelectorAll(".image .img")
-
-    imgCard.forEach(item => {
-        if (item.querySelector("img")) {
-            item.addEventListener("mouseover", () => {
-                item.classList.add("active")
-            })
-            item.addEventListener("mouseout", () => {
-                item.classList.remove("active")
-            })
-        }
-    })
-}
-
-export {credits}
+export { credits }

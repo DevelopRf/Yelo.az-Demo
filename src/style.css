@@ -1,4 +1,4 @@
-.cashbackCards .container .cards .card .cardImage img, .creditCards .wrapper .creditCardItem .card .image .img img, .credits .wrapper .creditItem:last-child .card .image .img img, .stories .cards .card .storyImage img, .header .headerBottom .bigMenu .container .toggleMenu .menuTitle .titleItem:nth-child(2) .location img, body .mobApp .close img {
+.creditCards .wrapper .creditCardItem .card .image .img img, .credits .wrapper .creditItem:last-child .card .image .img img, .stories .cards .card .storyImage img, .header .headerBottom .bigMenu .container .toggleMenu .menuTitle .titleItem:nth-child(2) .location img, body .mobApp .close img {
   display: block;
   width: 100%;
   height: 100%;
@@ -6,7 +6,46 @@
      object-fit: cover;
 }
 
-.cashbackMain .wrapper .cashback .info .content .btn, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrder, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider {
+.creditInfo h2, .creditInfo p {
+  color: rgba(0, 0, 0, 0.5019607843);
+}
+.creditInfo h2 {
+  font-size: 1.2em;
+  line-height: 1.6em;
+}
+.creditInfo a {
+  color: #0091FE;
+}
+.creditInfo .aboutCreditShort.active {
+  display: none;
+}
+.creditInfo .aboutCredit {
+  display: none;
+}
+.creditInfo .aboutCredit.active {
+  display: block;
+}
+
+.deposits .wrapper .depositItem .card .image .img, .credits .wrapper .creditItem .card .image {
+  height: 170px;
+}
+.deposits .wrapper .depositItem .card .image .img .img, .credits .wrapper .creditItem .card .image .img {
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+  height: 100%;
+  border-radius: 0 10px 10px 0;
+}
+@media (min-width: 1024px) {
+  .deposits .wrapper .depositItem .card .image .img, .credits .wrapper .creditItem .card .image {
+    height: 100%;
+  }
+  .deposits .wrapper .depositItem .card .image .img .img, .credits .wrapper .creditItem .card .image .img {
+    background-position: bottom;
+  }
+}
+
+.deposits .wrapper .depositItem .card .content .btn .btnOrder, .cashbackMain .wrapper .cashback .info .content .btn, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrder, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider {
   position: relative;
   padding: 15px 20px;
   display: inline-block;
@@ -16,25 +55,25 @@
   color: #fff;
   transition: all 0.3s;
 }
-.cashbackMain .wrapper .cashback .info .content .btn span, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder span, .credits .wrapper .creditItem .card .content .btn .btnOrder span, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider span {
+.deposits .wrapper .depositItem .card .content .btn .btnOrder span, .cashbackMain .wrapper .cashback .info .content .btn span, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder span, .credits .wrapper .creditItem .card .content .btn .btnOrder span, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider span {
   display: inline-block;
   color: #fff;
   transition: all 0.3s;
 }
 @media (min-width: 1024px) {
-  .cashbackMain .wrapper .cashback .info .content .btn span, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder span, .credits .wrapper .creditItem .card .content .btn .btnOrder span, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider span {
+  .deposits .wrapper .depositItem .card .content .btn .btnOrder span, .cashbackMain .wrapper .cashback .info .content .btn span, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder span, .credits .wrapper .creditItem .card .content .btn .btnOrder span, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider span {
     font-size: 20px;
     position: relative;
     z-index: 1;
   }
 }
 @media (min-width: 1024px) {
-  .cashbackMain .wrapper .cashback .info .content .btn, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrder, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider {
+  .deposits .wrapper .depositItem .card .content .btn .btnOrder, .cashbackMain .wrapper .cashback .info .content .btn, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrder, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider {
     border-radius: 0;
     padding: 14px 79px;
     background-color: transparent;
   }
-  .cashbackMain .wrapper .cashback .info .content .btn::after, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder::after, .credits .wrapper .creditItem .card .content .btn .btnOrder::after, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider::after {
+  .deposits .wrapper .depositItem .card .content .btn .btnOrder::after, .cashbackMain .wrapper .cashback .info .content .btn::after, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder::after, .credits .wrapper .creditItem .card .content .btn .btnOrder::after, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider::after {
     content: "";
     display: inline-block;
     width: 100%;
@@ -57,7 +96,7 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   background-color: #ffc628;
 }
 
-.cashbackCards .container .btnMoreCard a, .credits .wrapper .creditItem .calcContainer .shortCalc .btnBox .btnOrder, .creditCard .cards .card form .resultBox .btn .btnOrder, .creditCard .cards .card:first-of-type .info .btn .btnOrder, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnOrder {
+.cashbackCards .container .btnMoreCard a, .credits .wrapper .creditItem .calcs .btnBox .btnOrder, .creditCard .cards .card form .resultBox .btn .btnOrder, .creditCard .cards .card:first-of-type .info .btn .btnOrder, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnOrder {
   padding: 13px 25px;
   display: inline-block;
   background-color: #ffc628;
@@ -69,33 +108,33 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   font-size: 18px;
   line-height: 29px;
 }
-.cashbackCards .container .btnMoreCard a:hover, .credits .wrapper .creditItem .calcContainer .shortCalc .btnBox .btnOrder:hover, .creditCard .cards .card form .resultBox .btn .btnOrder:hover, .creditCard .cards .card:first-of-type .info .btn .btnOrder:hover, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnOrder:hover {
+.cashbackCards .container .btnMoreCard a:hover, .credits .wrapper .creditItem .calcs .btnBox .btnOrder:hover, .creditCard .cards .card form .resultBox .btn .btnOrder:hover, .creditCard .cards .card:first-of-type .info .btn .btnOrder:hover, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnOrder:hover {
   background-color: #000;
   color: #fff;
 }
 
-.creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrder {
+.deposits .wrapper .depositItem .card .content .btn .btnOrder, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrder {
   grid-area: 1/1/span 1/span 2;
 }
-.creditCards .wrapper .creditCardItem .card .content .btn .btnOrder:hover, .credits .wrapper .creditItem .card .content .btn .btnOrder:hover {
+.deposits .wrapper .depositItem .card .content .btn .btnOrder:hover, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder:hover, .credits .wrapper .creditItem .card .content .btn .btnOrder:hover {
   background-color: #ffc628;
 }
-.creditCards .wrapper .creditCardItem .card .content .btn .btnOrder:hover span, .credits .wrapper .creditItem .card .content .btn .btnOrder:hover span {
+.deposits .wrapper .depositItem .card .content .btn .btnOrder:hover span, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder:hover span, .credits .wrapper .creditItem .card .content .btn .btnOrder:hover span {
   color: #000;
 }
 @media (min-width: 1024px) {
-  .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrder {
+  .deposits .wrapper .depositItem .card .content .btn .btnOrder, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrder {
     grid-area: auto;
   }
-  .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder:hover, .credits .wrapper .creditItem .card .content .btn .btnOrder:hover {
+  .deposits .wrapper .depositItem .card .content .btn .btnOrder:hover, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder:hover, .credits .wrapper .creditItem .card .content .btn .btnOrder:hover {
     background-color: transparent;
   }
-  .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder:hover::after, .credits .wrapper .creditItem .card .content .btn .btnOrder:hover::after {
+  .deposits .wrapper .depositItem .card .content .btn .btnOrder:hover::after, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder:hover::after, .credits .wrapper .creditItem .card .content .btn .btnOrder:hover::after {
     background-color: #ffc628;
   }
 }
 
-.creditCards .wrapper .creditCardItem .card .content .btn .btnMore, .credits .wrapper .creditItem .card .content .btn .btnMore {
+.deposits .wrapper .depositItem .card .content .btn .btnMore, .creditCards .wrapper .creditCardItem .card .content .btn .btnMore, .credits .wrapper .creditItem .card .content .btn .btnMore {
   grid-area: 2/1/span 1/span 2;
   justify-self: center;
   position: relative;
@@ -103,17 +142,17 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   transition: all 0.3s;
 }
 @media (min-width: 1024px) {
-  .creditCards .wrapper .creditCardItem .card .content .btn .btnMore, .credits .wrapper .creditItem .card .content .btn .btnMore {
+  .deposits .wrapper .depositItem .card .content .btn .btnMore, .creditCards .wrapper .creditCardItem .card .content .btn .btnMore, .credits .wrapper .creditItem .card .content .btn .btnMore {
     grid-area: auto;
   }
 }
-.creditCards .wrapper .creditCardItem .card .content .btn .btnMore:hover, .credits .wrapper .creditItem .card .content .btn .btnMore:hover {
+.deposits .wrapper .depositItem .card .content .btn .btnMore:hover, .creditCards .wrapper .creditCardItem .card .content .btn .btnMore:hover, .credits .wrapper .creditItem .card .content .btn .btnMore:hover {
   color: #000;
 }
-.creditCards .wrapper .creditCardItem .card .content .btn .btnMore:hover svg g, .credits .wrapper .creditItem .card .content .btn .btnMore:hover svg g {
+.deposits .wrapper .depositItem .card .content .btn .btnMore:hover svg g, .creditCards .wrapper .creditCardItem .card .content .btn .btnMore:hover svg g, .credits .wrapper .creditItem .card .content .btn .btnMore:hover svg g {
   fill: #000;
 }
-.creditCards .wrapper .creditCardItem .card .content .btn .btnMore svg g, .credits .wrapper .creditItem .card .content .btn .btnMore svg g {
+.deposits .wrapper .depositItem .card .content .btn .btnMore svg g, .creditCards .wrapper .creditCardItem .card .content .btn .btnMore svg g, .credits .wrapper .creditItem .card .content .btn .btnMore svg g {
   fill: rgba(0, 0, 0, 0.5019607843);
   transition: all 0.3s;
 }
@@ -126,7 +165,7 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   fill: #fff;
 }
 
-.creditCards .wrapper .creditCardItem .card, .credits .wrapper .creditItem .card {
+.deposits .wrapper .depositItem .card, .creditCards .wrapper .creditCardItem .card, .credits .wrapper .creditItem .card {
   margin: 0 0 45px;
   border: 1px solid #ececec;
   border-radius: 10px;
@@ -134,70 +173,70 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   grid-template-columns: 1fr;
 }
 @media (min-width: 1024px) {
-  .creditCards .wrapper .creditCardItem .card, .credits .wrapper .creditItem .card {
+  .deposits .wrapper .depositItem .card, .creditCards .wrapper .creditCardItem .card, .credits .wrapper .creditItem .card {
     grid-template-columns: 660px 440px;
   }
 }
 
-.creditCards .wrapper .creditCardItem .card .content, .credits .wrapper .creditItem .card .content {
+.deposits .wrapper .depositItem .card .content, .creditCards .wrapper .creditCardItem .card .content, .credits .wrapper .creditItem .card .content {
   padding: 20px;
 }
 @media (min-width: 1024px) {
-  .creditCards .wrapper .creditCardItem .card .content, .credits .wrapper .creditItem .card .content {
+  .deposits .wrapper .depositItem .card .content, .creditCards .wrapper .creditCardItem .card .content, .credits .wrapper .creditItem .card .content {
     padding: 45px 0 45px 60px;
   }
 }
 
-.creditCards .wrapper .creditCardItem .card .content .title h2, .credits .wrapper .creditItem .card .content .title h2 {
+.deposits .wrapper .depositItem .card .content .title h2, .creditCards .wrapper .creditCardItem .card .content .title h2, .credits .wrapper .creditItem .card .content .title h2 {
   font-family: fH;
   font-size: 20px;
   margin: 0 0 10px;
 }
 @media (min-width: 1024px) {
-  .creditCards .wrapper .creditCardItem .card .content .title h2, .credits .wrapper .creditItem .card .content .title h2 {
+  .deposits .wrapper .depositItem .card .content .title h2, .creditCards .wrapper .creditCardItem .card .content .title h2, .credits .wrapper .creditItem .card .content .title h2 {
     font-size: 34px;
   }
 }
-.creditCards .wrapper .creditCardItem .card .content .title p, .credits .wrapper .creditItem .card .content .title p {
+.deposits .wrapper .depositItem .card .content .title p, .creditCards .wrapper .creditCardItem .card .content .title p, .credits .wrapper .creditItem .card .content .title p {
   line-height: 20px;
   color: rgba(0, 0, 0, 0.5019607843);
 }
 @media (min-width: 1024px) {
-  .creditCards .wrapper .creditCardItem .card .content .title p, .credits .wrapper .creditItem .card .content .title p {
+  .deposits .wrapper .depositItem .card .content .title p, .creditCards .wrapper .creditCardItem .card .content .title p, .credits .wrapper .creditItem .card .content .title p {
     font-size: 18px;
   }
 }
 
-.creditCards .wrapper .creditCardItem .card .content .info, .credits .wrapper .creditItem .card .content .info {
+.deposits .wrapper .depositItem .card .content .info, .creditCards .wrapper .creditCardItem .card .content .info, .credits .wrapper .creditItem .card .content .info {
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 10px;
   padding: 40px 0 50px;
 }
 @media (min-width: 1024px) {
-  .creditCards .wrapper .creditCardItem .card .content .info, .credits .wrapper .creditItem .card .content .info {
+  .deposits .wrapper .depositItem .card .content .info, .creditCards .wrapper .creditCardItem .card .content .info, .credits .wrapper .creditItem .card .content .info {
     grid-template-columns: repeat(3, max-content);
     -moz-column-gap: 40px;
          column-gap: 40px;
   }
-  .creditCards .wrapper .creditCardItem .card .content .active.info, .credits .wrapper .creditItem .card .content .active.info {
+  .deposits .wrapper .depositItem .card .content .active.info, .creditCards .wrapper .creditCardItem .card .content .active.info, .credits .wrapper .creditItem .card .content .active.info {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-.creditCards .wrapper .creditCardItem .card .content .info .infoItem span, .credits .wrapper .creditItem .card .content .info .infoItem span {
+.deposits .wrapper .depositItem .card .content .info .infoItem span, .creditCards .wrapper .creditCardItem .card .content .info .infoItem span, .credits .wrapper .creditItem .card .content .info .infoItem span {
   line-height: 16px;
   color: rgba(0, 0, 0, 0.5019607843);
   display: block;
   margin: 0 0 7px;
 }
-.creditCards .wrapper .creditCardItem .card .content .info .infoItem p, .credits .wrapper .creditItem .card .content .info .infoItem p {
+.deposits .wrapper .depositItem .card .content .info .infoItem p, .creditCards .wrapper .creditCardItem .card .content .info .infoItem p, .credits .wrapper .creditItem .card .content .info .infoItem p {
   font-family: fM;
   font-size: 21px;
   font-size: 21px;
   line-height: 20.8px;
 }
 
-.creditCards .wrapper .creditCardItem .card .content .btn, .credits .wrapper .creditItem .card .content .btn {
+.deposits .wrapper .depositItem .card .content .btn, .creditCards .wrapper .creditCardItem .card .content .btn, .credits .wrapper .creditItem .card .content .btn {
   text-align: center;
   display: grid;
   grid-template-columns: max-content;
@@ -206,23 +245,30 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
        column-gap: 30px;
 }
 @media (min-width: 1024px) {
-  .creditCards .wrapper .creditCardItem .card .content .btn, .credits .wrapper .creditItem .card .content .btn {
+  .deposits .wrapper .depositItem .card .content .btn, .creditCards .wrapper .creditCardItem .card .content .btn, .credits .wrapper .creditItem .card .content .btn {
     grid-template-columns: repeat(2, max-content);
     align-items: center;
   }
 }
 
-.filters .filter .category select, .filters .filter .search input, .credits .wrapper .creditItem .calcContainer .shortCalc .calcItems.input-active input[type=text],
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems.input-active select {
-  font-size: 18px;
+.filters .filter .category select, .filters .filter .search input, .credits .wrapper .creditItem .calcs .calcItems.input-active .formItem input[type=text],
+.credits .wrapper .creditItem .calcs .calcItems.input-active .formItem select {
+  font-family: fR;
+  font-size: 16px;
   padding: 21px 20px;
   width: 100%;
   outline: none;
   border: 1px solid #ECECEC;
   border-radius: 10px;
 }
+@media (min-width: 1024px) {
+  .filters .filter .category select, .filters .filter .search input, .credits .wrapper .creditItem .calcs .calcItems.input-active .formItem input[type=text],
+  .credits .wrapper .creditItem .calcs .calcItems.input-active .formItem select {
+    font-size: 18px;
+  }
+}
 
-.creditCards .wrapper .creditCardItem .card .image, .credits .wrapper .creditItem .card .image {
+.deposits .wrapper .depositItem .card .image, .creditCards .wrapper .creditCardItem .card .image, .deposits .wrapper .depositItem .card .image .img, .credits .wrapper .creditItem .card .image {
   border-radius: 0 10px 10px 0;
   background-repeat: no-repeat;
   background-position: right;
@@ -230,7 +276,7 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   background-color: #f1f1f1;
 }
 @media (min-width: 1024px) {
-  .creditCards .wrapper .creditCardItem .card .image, .credits .wrapper .creditItem .card .image {
+  .deposits .wrapper .depositItem .card .image, .creditCards .wrapper .creditCardItem .card .image, .deposits .wrapper .depositItem .card .image .img, .credits .wrapper .creditItem .card .image {
     background-position-x: 160px;
     background-size: contain;
     background-color: transparent;
@@ -351,17 +397,17 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   transform: translateY(-50%);
 }
 
-.creditCards .wrapper .creditCardItem .card .content .btn .btnMore, .credits .wrapper .creditItem .card .content .btn .btnMore, .creditCard .cards .card .title .btnMore, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore {
+.deposits .wrapper .depositItem .card .content .btn .btnMore, .creditCards .wrapper .creditCardItem .card .content .btn .btnMore, .credits .wrapper .creditItem .card .content .btn .btnMore, .creditCard .cards .card .title .btnMore, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore {
   position: relative;
   font-family: fB;
   padding: 0 45px 0 0;
 }
 @media (min-width: 1024px) {
-  .creditCards .wrapper .creditCardItem .card .content .btn .btnMore, .credits .wrapper .creditItem .card .content .btn .btnMore, .creditCard .cards .card .title .btnMore, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore {
+  .deposits .wrapper .depositItem .card .content .btn .btnMore, .creditCards .wrapper .creditCardItem .card .content .btn .btnMore, .credits .wrapper .creditItem .card .content .btn .btnMore, .creditCard .cards .card .title .btnMore, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore {
     font-size: 20px;
   }
 }
-.creditCards .wrapper .creditCardItem .card .content .btn .btnMore svg, .credits .wrapper .creditItem .card .content .btn .btnMore svg, .creditCard .cards .card .title .btnMore svg, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore svg, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore svg {
+.deposits .wrapper .depositItem .card .content .btn .btnMore svg, .creditCards .wrapper .creditCardItem .card .content .btn .btnMore svg, .credits .wrapper .creditItem .card .content .btn .btnMore svg, .creditCard .cards .card .title .btnMore svg, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore svg, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore svg {
   position: absolute;
   right: 0;
   top: 50%;
@@ -369,7 +415,7 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   transform: translateY(-60%);
 }
 
-.creditCards .wrapper .creditCardItem .card .content .btn .btnMore:hover svg, .credits .wrapper .creditItem .card .content .btn .btnMore:hover svg, .creditCard .cards .card .title .btnMore:hover svg, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore:hover svg, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore:hover svg {
+.deposits .wrapper .depositItem .card .content .btn .btnMore:hover svg, .creditCards .wrapper .creditCardItem .card .content .btn .btnMore:hover svg, .credits .wrapper .creditItem .card .content .btn .btnMore:hover svg, .creditCard .cards .card .title .btnMore:hover svg, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore:hover svg, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore:hover svg {
   right: -8px;
 }
 
@@ -485,43 +531,43 @@ body .searchBox .formSearch .close, body .searchBox .formSearch .btnSearch {
   }
 }
 
-.creditCards .heading, .credits .heading {
+.deposits .heading, .creditCards .heading, .credits .heading {
   text-align: center;
   max-width: 840px;
   margin: 5px auto 50px;
 }
-.creditCards .heading h1, .credits .heading h1 {
+.deposits .heading h1, .creditCards .heading h1, .credits .heading h1 {
   font-family: fH;
   font-size: 20px;
 }
 @media (min-width: 1024px) {
-  .creditCards .heading h1, .credits .heading h1 {
+  .deposits .heading h1, .creditCards .heading h1, .credits .heading h1 {
     font-size: 54px;
     line-height: 86px;
   }
 }
-.creditCards .heading p, .credits .heading p {
+.deposits .heading p, .creditCards .heading p, .credits .heading p {
   color: rgba(0, 0, 0, 0.5019607843);
 }
 @media (min-width: 1024px) {
-  .creditCards .heading p, .credits .heading p {
+  .deposits .heading p, .creditCards .heading p, .credits .heading p {
     font-size: 22px;
     line-height: 30px;
   }
 }
 
-.cashbackMain, .creditCards, .credits, .allNews, .slider {
+.deposits, .cashbackMain, .creditCards, .credits, .allNews, .slider {
   padding: 111px 0 50px;
   transition: all 0.3s;
 }
-.active.cashbackMain, .active.creditCards, .active.credits, .active.allNews, .active.slider {
+.active.deposits, .active.cashbackMain, .active.creditCards, .active.credits, .active.allNews, .active.slider {
   padding: 0 0 50px;
 }
 @media (min-width: 1024px) {
-  .cashbackMain, .creditCards, .credits, .allNews, .slider {
+  .deposits, .cashbackMain, .creditCards, .credits, .allNews, .slider {
     padding: 145px 0 50px;
   }
-  .active.cashbackMain, .active.creditCards, .active.credits, .active.allNews, .active.slider {
+  .active.deposits, .active.cashbackMain, .active.creditCards, .active.credits, .active.allNews, .active.slider {
     padding: 265px 0 50px;
   }
 }
@@ -689,14 +735,42 @@ body .searchBox .formSearch .close, body .searchBox .formSearch .btnSearch {
   }
 }
 
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems .item, .creditCard .cards .card form .calcItems .item {
+.cashbackCards .container .btnMoreCard .loader, .cashbackCards .container .loader, .filters .filter .search .loader {
+  display: none;
+  position: absolute;
+  width: 30px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0) 0 70%, rgb(0, 0, 0) 0) 50%/8% 100%, linear-gradient(90deg, rgba(0, 0, 0, 0.25) 30%, rgba(0, 0, 0, 0) 0 70%, rgba(0, 0, 0, 0.75) 0) 50%/100% 8%;
+  background-repeat: no-repeat;
+  animation: l23 1s infinite steps(12);
+}
+.cashbackCards .container .btnMoreCard .loader::before, .cashbackCards .container .loader::before, .filters .filter .search .loader::before, .cashbackCards .container .btnMoreCard .loader::after, .cashbackCards .container .loader::after, .filters .filter .search .loader::after {
+  content: "";
+  grid-area: 1/1;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.915;
+  transform: rotate(30deg);
+}
+.cashbackCards .container .btnMoreCard .loader::after, .cashbackCards .container .loader::after, .filters .filter .search .loader::after {
+  opacity: 0.83;
+  transform: rotate(60deg);
+}
+
+@keyframes l23 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+.credits .wrapper .creditItem .calcs .calcItems .item, .creditCard .cards .card form .calcItems .item {
   padding: 10px;
   position: relative;
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems .item:not(:last-of-type), .creditCard .cards .card form .calcItems .item:not(:last-of-type) {
+.credits .wrapper .creditItem .calcs .calcItems .item:not(:last-of-type), .creditCard .cards .card form .calcItems .item:not(:last-of-type) {
   border-right: 1px solid #ECECEC;
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems .item .number, .creditCard .cards .card form .calcItems .item .number {
+.credits .wrapper .creditItem .calcs .calcItems .item .number, .creditCard .cards .card form .calcItems .item .number {
   font-family: fM;
   font-size: 26px;
   line-height: 30px;
@@ -704,11 +778,11 @@ body .searchBox .formSearch .close, body .searchBox .formSearch .btnSearch {
   border: none;
   width: 100%;
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems .item .number::-webkit-inner-spin-button, .creditCard .cards .card form .calcItems .item .number::-webkit-inner-spin-button, .credits .wrapper .creditItem .calcContainer .shortCalc .calcItems .item .number::-webkit-outer-spin-button, .creditCard .cards .card form .calcItems .item .number::-webkit-outer-spin-button {
+.credits .wrapper .creditItem .calcs .calcItems .item .number::-webkit-inner-spin-button, .creditCard .cards .card form .calcItems .item .number::-webkit-inner-spin-button, .credits .wrapper .creditItem .calcs .calcItems .item .number::-webkit-outer-spin-button, .creditCard .cards .card form .calcItems .item .number::-webkit-outer-spin-button {
   -webkit-appearance: none;
           appearance: none;
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems .item p, .creditCard .cards .card form .calcItems .item p {
+.credits .wrapper .creditItem .calcs .calcItems .item p, .creditCard .cards .card form .calcItems .item p {
   font-family: fB;
   font-size: 15px;
   line-height: 15px;
@@ -718,14 +792,14 @@ body .searchBox .formSearch .close, body .searchBox .formSearch .btnSearch {
   transform: translateY(-50%);
   color: rgba(0, 0, 0, 0.5019607843);
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems .item span, .creditCard .cards .card form .calcItems .item span {
+.credits .wrapper .creditItem .calcs .calcItems .item span, .creditCard .cards .card form .calcItems .item span {
   color: rgba(0, 0, 0, 0.5019607843);
   font-size: 15px;
   font-size: 15px;
   line-height: 19px;
   display: block;
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems .item .range, .creditCard .cards .card form .calcItems .item .range {
+.credits .wrapper .creditItem .calcs .calcItems .item .range, .creditCard .cards .card form .calcItems .item .range {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -741,7 +815,7 @@ body .searchBox .formSearch .close, body .searchBox .formSearch .btnSearch {
   --ratio: calc((var(--val) - var(--min)) / var(--range));
   --sx: calc(0.5 * 1.5em + var(--ratio) * (100% - 1.5em));
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems .item .range::-moz-range-thumb, .creditCard .cards .card form .calcItems .item .range::-moz-range-thumb {
+.credits .wrapper .creditItem .calcs .calcItems .item .range::-moz-range-thumb, .creditCard .cards .card form .calcItems .item .range::-moz-range-thumb {
   -moz-appearance: none;
        appearance: none;
   height: 20px;
@@ -751,13 +825,13 @@ body .searchBox .formSearch .close, body .searchBox .formSearch .btnSearch {
   background: #ffffff;
   border: 3px solid #ffc628;
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems .item .range::-webkit-slider-runnable-track, .creditCard .cards .card form .calcItems .item .range::-webkit-slider-runnable-track {
+.credits .wrapper .creditItem .calcs .calcItems .item .range::-webkit-slider-runnable-track, .creditCard .cards .card form .calcItems .item .range::-webkit-slider-runnable-track {
   width: 100%;
   height: 4px;
   cursor: pointer;
   background: linear-gradient(#ffc628, #ffc628) 0/var(--sx) 100% no-repeat;
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems .item .range::-webkit-slider-thumb, .creditCard .cards .card form .calcItems .item .range::-webkit-slider-thumb {
+.credits .wrapper .creditItem .calcs .calcItems .item .range::-webkit-slider-thumb, .creditCard .cards .card form .calcItems .item .range::-webkit-slider-thumb {
   height: 26px;
   width: 26px;
   -webkit-appearance: none;
@@ -769,17 +843,17 @@ body .searchBox .formSearch .close, body .searchBox .formSearch .btnSearch {
   margin: -10px 0 0 0;
   box-sizing: border-box;
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems .item .range::-moz-range-track, .creditCard .cards .card form .calcItems .item .range::-moz-range-track {
+.credits .wrapper .creditItem .calcs .calcItems .item .range::-moz-range-track, .creditCard .cards .card form .calcItems .item .range::-moz-range-track {
   width: 100%;
   height: 3px;
   cursor: pointer;
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems .item .range::-ms-track, .creditCard .cards .card form .calcItems .item .range::-ms-track {
+.credits .wrapper .creditItem .calcs .calcItems .item .range::-ms-track, .creditCard .cards .card form .calcItems .item .range::-ms-track {
   width: 100%;
   height: 3px;
   cursor: pointer;
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems .item .range::-ms-thumb, .creditCard .cards .card form .calcItems .item .range::-ms-thumb {
+.credits .wrapper .creditItem .calcs .calcItems .item .range::-ms-thumb, .creditCard .cards .card form .calcItems .item .range::-ms-thumb {
   height: 20px;
   width: 20px;
   border-radius: 50%;
@@ -2051,16 +2125,12 @@ footer .footBottom .wrapper .siteBy a {
 }
 .slider .wrapper .sliderBox {
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 100%;
+  grid-template-columns: repeat(4, 100%);
   overflow-x: hidden;
   position: relative;
 }
-.slider .wrapper .sliderBox.dragging .sliderItem {
-  cursor: grab;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+.slider .wrapper .sliderBox .sliderItem {
+  transition: all 0.3s;
 }
 .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore {
   position: absolute;
@@ -2343,7 +2413,8 @@ footer .footBottom .wrapper .siteBy a {
   }
 }
 .creditCard .cards .card form .resultBox .result {
-  width: 33%;
+  width: -moz-max-content;
+  width: max-content;
   text-align: right;
   justify-self: center;
 }
@@ -2704,62 +2775,56 @@ footer .footBottom .wrapper .siteBy a {
     padding: 265px 0 50px;
   }
 }
-.credits .wrapper .creditItem .card .image {
-  height: 170px;
-}
-.credits .wrapper .creditItem .card .image .img {
-  background-repeat: no-repeat;
-  background-position: right;
-  background-size: contain;
-  height: 100%;
-  border-radius: 0 10px 10px 0;
-}
-@media (min-width: 1024px) {
-  .credits .wrapper .creditItem .card .image {
-    height: 100%;
-  }
-  .credits .wrapper .creditItem .card .image .img {
-    background-position: bottom;
-  }
-}
 .credits .wrapper .creditItem:last-child .card .image {
   position: relative;
 }
 .credits .wrapper .creditItem:last-child .card .image .img img {
   border-radius: 15px;
 }
-.credits .wrapper .creditItem .calcContainer.active {
-  display: block;
-}
-.credits .wrapper .creditItem .calcContainer .shortCalc {
+.credits .wrapper .creditItem .calcs {
   display: none;
   max-width: 600px;
   margin: 0 auto;
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems {
-  border: 1px solid #ECECEC;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+.credits .wrapper .creditItem .calcs.active {
+  display: block;
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems.range-active {
+.credits .wrapper .creditItem .calcs .calcItems.range-active {
+  border: 1px solid #ECECEC;
   border-radius: 10px 10px 10px 0;
   margin: 0 0 40px;
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems .item .range {
+.credits .wrapper .creditItem .calcs .calcItems .item .range {
   background-color: transparent;
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems.input-active {
+.credits .wrapper .creditItem .calcs .calcItems.input-active {
   border: none;
   gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems.input-active input[type=text],
-.credits .wrapper .creditItem .calcContainer .shortCalc .calcItems.input-active select {
+.credits .wrapper .creditItem .calcs .calcItems.input-active .formItem {
+  position: relative;
+}
+.credits .wrapper .creditItem .calcs .calcItems.input-active .formItem span {
+  display: none;
+  font-size: 14px;
+  padding: 3px 10px 0;
+  border-radius: 5px;
+  position: absolute;
+  left: 15px;
+  bottom: 5px;
+  background-color: #ff7777;
+  color: #fff;
+}
+.credits .wrapper .creditItem .calcs .calcItems.input-active .formItem span.active {
+  display: inline-block;
+}
+.credits .wrapper .creditItem .calcs .calcItems.input-active .formItem input[type=text],
+.credits .wrapper .creditItem .calcs .calcItems.input-active .formItem select {
   margin: 0 0 20px;
-  /* &:not(:last-child) {
-      border-right: 1px solid $clr_border;
-  } */
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .btnBox {
+.credits .wrapper .creditItem .calcs .btnBox {
   margin: 65px 0 0;
   padding: 30px 0;
   border-top: 1px solid #ececec;
@@ -2768,35 +2833,24 @@ footer .footBottom .wrapper .siteBy a {
   -moz-column-gap: 40px;
        column-gap: 40px;
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .btnBox .text {
+.credits .wrapper .creditItem .calcs .btnBox .text {
   background: no-repeat left 5px;
   padding: 0 0 0 50px;
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .btnBox .text p {
+.credits .wrapper .creditItem .calcs .btnBox .text p {
   font-size: 15px;
 }
-.credits .wrapper .creditItem .calcContainer .shortCalc .btnBox .btnOrder {
+.credits .wrapper .creditItem .calcs .btnBox .btnOrder {
   cursor: pointer;
   height: 65px;
 }
-.credits .wrapper .creditItem .longCalc .calcItems:nth-child(2) {
+.credits .wrapper .creditItem .calcs .shortCalc .calcItems.range-active {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.credits .wrapper .creditItem .calcs .longCalc .calcItems.range-active {
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
-}
-
-.creditInfo p {
-  color: rgba(0, 0, 0, 0.5019607843);
-}
-.creditInfo a {
-  color: #0091FE;
-}
-.creditInfo .aboutCreditShort.active {
-  display: none;
-}
-.creditInfo .aboutCredit {
-  display: none;
-}
-.creditInfo .aboutCredit.active {
-  display: block;
 }
 
 .creditInfo .aboutCredit .table {
@@ -2847,59 +2901,40 @@ footer .footBottom .wrapper .siteBy a {
     height: 100%;
   }
 }
-.creditInfo p {
-  color: rgba(0, 0, 0, 0.5019607843);
-}
-.creditInfo a {
-  color: #0091FE;
-}
-.creditInfo .aboutCreditShort.active {
-  display: none;
-}
-.creditInfo .aboutCredit {
-  display: none;
-}
-.creditInfo .aboutCredit.active {
-  display: block;
-}
-
-.creditInfo .aboutCredit .table {
-  font-size: 18px;
-  margin: 20px 0;
-  max-width: 500px;
-  border: 1px solid #ececec;
-  overflow: hidden;
-  border-radius: 10px;
-}
-.creditInfo .aboutCredit .table table {
-  width: 100%;
-  border-collapse: collapse;
-}
-.creditInfo .aboutCredit .table table th {
-  width: 50%;
-  text-align: left;
-  background-color: #ececec;
-}
-.creditInfo .aboutCredit .table table td {
-  color: rgba(0, 0, 0, 0.5019607843);
-}
-.creditInfo .aboutCredit .table table td:first-child {
-  border-right: 1px solid #ececec;
-}
-.creditInfo .aboutCredit .table table td,
-.creditInfo .aboutCredit .table table th {
-  padding: 10px 14px;
-}
-
 .filters {
   padding: 20px 0;
 }
 .filters .filter {
   display: grid;
-  grid-template-columns: auto 315px;
+  grid-template-columns: 1fr;
   row-gap: 15px;
-  -moz-column-gap: 25px;
-       column-gap: 25px;
+}
+@media (min-width: 768px) {
+  .filters .filter {
+    grid-template-columns: repeat(2, 1fr);
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+  }
+}
+@media (min-width: 1024px) {
+  .filters .filter {
+    display: grid;
+    grid-template-columns: auto 315px;
+    row-gap: 15px;
+    -moz-column-gap: 25px;
+         column-gap: 25px;
+  }
+}
+.filters .filter .search.search-active {
+  position: relative;
+}
+.filters .filter .search.search-active input {
+  background-image: none !important;
+}
+.filters .filter .search.search-active .loader {
+  display: grid;
+  right: 14px;
+  top: 17px;
 }
 .filters .filter .search input {
   padding: 21px 40px 21px 20px;
@@ -2938,48 +2973,54 @@ footer .footBottom .wrapper .siteBy a {
   display: grid;
 }
 .cashbackCards .container .loader {
-  display: none;
-  position: absolute;
   left: 50%;
   top: 50%;
-  width: 30px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0) 0 70%, rgb(0, 0, 0) 0) 50%/8% 100%, linear-gradient(90deg, rgba(0, 0, 0, 0.25) 30%, rgba(0, 0, 0, 0) 0 70%, rgba(0, 0, 0, 0.75) 0) 50%/100% 8%;
-  background-repeat: no-repeat;
-  animation: l23 1s infinite steps(12);
-}
-.cashbackCards .container .loader::before, .cashbackCards .container .loader::after {
-  content: "";
-  grid-area: 1/1;
-  border-radius: 50%;
-  background: inherit;
-  opacity: 0.915;
-  transform: rotate(30deg);
-}
-.cashbackCards .container .loader::after {
-  opacity: 0.83;
-  transform: rotate(60deg);
-}
-@keyframes l23 {
-  100% {
-    transform: rotate(1turn);
-  }
 }
 .cashbackCards .container .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 15px;
   position: relative;
+}
+.cashbackCards .container .cards.active {
+  position: relative;
+  height: 160px;
+}
+.cashbackCards .container .cards.active h2.result {
+  position: absolute;
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.5019607843);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+@media (min-width: 768px) {
+  .cashbackCards .container .cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+@media (min-width: 1024px) {
+  .cashbackCards .container .cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
 }
 .cashbackCards .container .cards .card {
   border: 1px solid #ececec;
   border-radius: 10px;
-  overflow: hidden;
   padding: 20px 30px;
 }
 .cashbackCards .container .cards .card .cardImage {
   height: 160px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+@media (min-width: 768px) {
+  .cashbackCards .container .cards .card .cardImage {
+    background-size: 100%;
+  }
 }
 .cashbackCards .container .cards .card .content {
   padding: 20px 65px 10px 0;
@@ -2988,6 +3029,9 @@ footer .footBottom .wrapper .siteBy a {
 .cashbackCards .container .cards .card .content .info h3 {
   font-family: fB;
   font-size: 18px;
+}
+.cashbackCards .container .cards .card .content .info h3 a {
+  color: #000;
 }
 @media (min-width: 1024px) {
   .cashbackCards .container .cards .card .content .info h3 {
@@ -3004,7 +3048,7 @@ footer .footBottom .wrapper .siteBy a {
 }
 .cashbackCards .container .cards .card .content .discount {
   position: absolute;
-  bottom: 10px;
+  top: 20px;
   right: 0;
   min-width: 50px;
   height: 50px;
@@ -3024,8 +3068,40 @@ footer .footBottom .wrapper .siteBy a {
   margin: 30px 0 0;
 }
 .cashbackCards .container .btnMoreCard a {
+  display: inline-block;
   width: 33%;
 }
 .cashbackCards .container .btnMoreCard.active {
+  position: relative;
+}
+.cashbackCards .container .btnMoreCard.active a {
   display: none;
+}
+.cashbackCards .container .btnMoreCard.active .loader {
+  display: grid;
+  left: 50%;
+  top: 50%;
+}
+.cashbackCards .container .btnMoreCard.visibility {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .deposits {
+    padding: 145px 0 50px;
+  }
+  .deposits.active {
+    padding: 265px 0 50px;
+  }
+}
+.deposits .wrapper .depositItem .card .image {
+  height: 170px;
+}
+@media (min-width: 1024px) {
+  .deposits .wrapper .depositItem .card .image {
+    height: 100%;
+  }
+  .deposits .wrapper .depositItem .card .image .img {
+    background-position: bottom;
+  }
 }/*# sourceMappingURL=style.css.map */

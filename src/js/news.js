@@ -1,19 +1,19 @@
+import { getnews } from "./functions.js"
 const newsCards = document.querySelector('.allNews .cards')
 const btnMoreNews = document.querySelector('.btnMoreNews')
 const btnBox = document.querySelector('.header .btnBox')
 const modal = document.querySelector('.modal')
 let resultData = ""
-console.log("kjlkjblhjbljb");
 btnMoreNews && btnMoreNews.addEventListener("click", () => {
     getAllNews(getCard)
 })
 
-const currency = new Currency()
+
 let arrLength = 0
 let indexArr = 0
 
 function getAllNews(callback) {
-    currency.data()
+    getnews()
         .then(data => {
             if (arrLength < data.length) {
                 indexArr += 15
@@ -70,7 +70,6 @@ function getAllNews(callback) {
                 }
 
                 newsCards.innerHTML = resultData
-                console.log("jgkjhkjhj");
                 arrLength += 15
             }
             else {

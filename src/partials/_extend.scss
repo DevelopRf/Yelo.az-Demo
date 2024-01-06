@@ -5,6 +5,57 @@
     object-fit: cover;
 }
 
+%credit-info{
+
+    h2, p {
+        color: $clr_grey_text;
+    }
+    h2{
+        @include Font($f-s: 1.2em, $l-h: 1.6em);
+    }
+
+    a {
+        color: $clr_second;
+    }
+
+    .aboutCreditShort {
+
+        &.active {
+            display: none;
+        }
+    }
+
+    .aboutCredit {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+}
+
+%imgBackground {
+
+    height: 170px;
+    @extend %image;
+
+    .img {
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: contain;
+        height: 100%;
+        border-radius: 0 10px 10px 0;
+    }
+
+    @media (min-width:1024px) {
+        height: 100%;
+
+        .img {
+            background-position: bottom;
+        }
+    }
+}
+
 %primaryButton {
     position: relative;
     padding: 15px 20px;
@@ -225,12 +276,16 @@
 }
 
 %input-select {
-    font-size: 18px;
+    font-family: fR;
+    font-size: 16px;
     padding: 21px 20px;
     width: 100%;
     outline: none;
     border: 1px solid #ECECEC;
     border-radius: 10px;
+    @media (min-width:1024px) {
+        font-size: 18px;
+    }
 }
 
 %image {
@@ -776,6 +831,42 @@
                 color: #000;
             }
         }
+    }
+}
+
+%loader {
+    display: none;
+    position: absolute;
+
+    width: 30px;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+    background:
+        linear-gradient(0deg, rgb(0 0 0/50%) 30%, #0000 0 70%, rgb(0 0 0/100%) 0) 50%/8% 100%,
+        linear-gradient(90deg, rgb(0 0 0/25%) 30%, #0000 0 70%, rgb(0 0 0/75%) 0) 50%/100% 8%;
+    background-repeat: no-repeat;
+    animation: l23 1s infinite steps(12);
+
+    &::before,
+    &::after {
+        content: "";
+        grid-area: 1/1;
+        border-radius: 50%;
+        background: inherit;
+        opacity: 0.915;
+        transform: rotate(30deg);
+    }
+
+    &::after {
+        opacity: 0.83;
+        transform: rotate(60deg);
+    }
+}
+
+@keyframes l23 {
+    100% {
+        transform: rotate(1turn)
     }
 }
 

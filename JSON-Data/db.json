@@ -465,6 +465,8 @@
       "isACard": false,
       "isOrder": true,
       "hasAForm": true,
+      "isAShort": true,
+      "url": "javascript: void(0)",
       "img": "./img/Credits/consumer-loan-pic.webp"
     },
     {
@@ -480,6 +482,8 @@
       "isACard": false,
       "isOrder": true,
       "hasAForm": false,
+      "isAShort": "",
+      "url": "javascript: void(0)",
       "img": "./img/Credits/business-loan-pic-1.webp"
     },
     {
@@ -495,6 +499,8 @@
       "isACard": false,
       "isOrder": true,
       "hasAForm": true,
+      "isAShort": true,
+      "url": "javascript: void(0)",
       "img": "./img/Credits/onlayn_kredit-sayt-fonsuz.webp"
     },
     {
@@ -510,6 +516,8 @@
       "isACard": false,
       "isOrder": true,
       "hasAForm": false,
+      "isAShort": "",
+      "url": "javascript: void(0)",
       "img": "./img/Credits/xx-2.webp"
     },
     {
@@ -525,6 +533,8 @@
       "isACard": false,
       "isOrder": false,
       "hasAForm": false,
+      "isAShort": "",
+      "url": "javascript: void(0)",
       "img": "./img/Credits/emanet-girovu-kredit-pic-fin.webp"
     },
     {
@@ -540,6 +550,8 @@
       "isACard": false,
       "isOrder": true,
       "hasAForm": true,
+      "isAShort": false,
+      "url": "javascript: void(0)",
       "img": "./img/Credits/daxili-ipoteka-pic.webp"
     },
     {
@@ -555,31 +567,41 @@
       "isACard": true,
       "isOrder": true,
       "hasAForm": false,
+      "isAShort": "",
+      "url": "card-order.html",
       "img": "./img/Cards/yelo.webp"
     }
   ],
-  "valute": [
+
+  "deposits": [
     {
-      "Nominal": 1,
-      "Name": "USA",
-      "Value": 1.7
+      "id": 1,
+      "name": "Yelo Sabit",
+      "description": "Pulunuz sizin üçün işləsin",
+      "title1": "Məbləğ",
+      "title1_Text": "min. 100 AZN/USD",
+      "title2": "Müddət",
+      "title2_Text": "12 / 18 / 24 ay",
+      "title3": "Faizlərin ödənişi",
+      "title3_Text": "aylıq və ya müddətin sonunda",
+      "img": "./img/deposits/shutterstock_478944469-3_1.webp",
+      "url": "javascript: void(0)"
     },
     {
-      "Nominal": 1,
-      "Name": "EUR",
-      "Value": 1.8697
-    },
-    {
-      "Nominal": 1,
-      "Name": "GBP",
-      "Value": 2.1565
-    },
-    {
-      "Nominal": 1,
-      "Name": "RUB",
-      "Value": 0.0185
+      "id": 2,
+      "name": "Yelo Yığım",
+      "description": "Pulunuz sizin üçün işləsin",
+      "title1": "Minimal məbləğ",
+      "title1_Text": "100 AZN/USD",
+      "title2": "Müddət",
+      "title2_Text": "12 ay",
+      "title3": "Faizlərin ödənişi",
+      "title3_Text": "aylıq və ya müddətin sonunda",
+      "img": "./img/deposits/depositnew-pic.webp",
+      "url": "javascript: void(0)"
     }
   ],
+
   "cashback": [
     {
       "id": 1,
@@ -602,7 +624,7 @@
     {
       "id": 3,
       "name": "Farm Store",
-      "category": "Apteklər və optika",
+      "category": "Apteklər və optikalar",
       "value": "112",
       "discount": 5,
       "currency": "%",
@@ -611,7 +633,7 @@
     {
       "id": 4,
       "name": "Ozon optik",
-      "category": "Apteklər və optika",
+      "category": "Apteklər və optikalar",
       "value": "112",
       "discount": 5,
       "currency": "%",
@@ -1246,6 +1268,452 @@
       "discount": 5,
       "currency": "%",
       "img": "../public/img/cashback/category/zoluska_logo.webp"
+    },
+    {
+      "id": 75,
+      "name": "Pizza Hut",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/24.webp"
+    },
+    {
+      "id": 76,
+      "name": "Ad və Dad",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/31_at_11_57_55.webp"
+    },
+    {
+      "id": 77,
+      "name": "Aden Restaurant",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 2,
+      "currency": "%",
+      "img": "../public/img/cashback/category/aden_logo_123.webp"
+    },
+    {
+      "id": 78,
+      "name": "Al Chicken",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/al_chicken.webp"
+    },
+    {
+      "id": 79,
+      "name": "Anadolu Restaurants & Catering",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 10,
+      "currency": "%",
+      "img": "../public/img/cashback/category/anadolu_logo.webp"
+    },
+    {
+      "id": 80,
+      "name": "Apartment 9",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 10,
+      "currency": "%",
+      "img": "../public/img/cashback/category/9_apartment_9-1.webp"
+    },
+    {
+      "id": 81,
+      "name": "AZ MEAT CO",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/31_at_15_02_27.webp"
+    },
+    {
+      "id": 82,
+      "name": "Babat All Mood",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/logo_babat.webp"
+    },
+    {
+      "id": 83,
+      "name": "Baklava",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 2,
+      "currency": "%",
+      "img": "../public/img/cashback/category/baklava_chap.webp"
+    },
+    {
+      "id": 84,
+      "name": "BaristasCoffee",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/baristascoffee_logo.webp"
+    },
+    {
+      "id": 85,
+      "name": "Baristica Coffee Shop",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/baristicashop-01_sayt_template.webp"
+    },
+    {
+      "id": 86,
+      "name": "Boss Pub & Restaurant",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/289582358_113197334756808_6784218355039021105_n.webp"
+    },
+    {
+      "id": 87,
+      "name": "Bubee Bubble Tea",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/bubee_logo.webp"
+    },
+    {
+      "id": 88,
+      "name": "BÜYÜKFIRAT",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 7,
+      "currency": "%",
+      "img": "../public/img/cashback/category/buyukfirat_web.webp"
+    },
+    {
+      "id": 89,
+      "name": "Cafe Falafel",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/300163178_109697468520934_4721581621404463984_n.webp"
+    },
+    {
+      "id": 90,
+      "name": "Caffe Giusto",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/caffe_giusto.webp"
+    },
+    {
+      "id": 91,
+      "name": "Coffee La Ros's",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/coffee_la_ross.webp"
+    },
+    {
+      "id": 92,
+      "name": "Coffee Mia",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 10,
+      "currency": "%",
+      "img": "../public/img/cashback/category/coffee_mia_logo.webp"
+    },
+    {
+      "id": 93,
+      "name": "CoffeeBear",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/coffeebear.webp"
+    },
+    {
+      "id": 94,
+      "name": "Coffeemania",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 10,
+      "currency": "%",
+      "img": "../public/img/cashback/category/coffeemania_jpg.webp"
+    },
+    {
+      "id": 95,
+      "name": "Coffeemania Next",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 10,
+      "currency": "%",
+      "img": "../public/img/cashback/category/coffeemanianext_jpg.webp"
+    },
+    {
+      "id": 96,
+      "name": "D'Olivo Pizza & Pasta",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/dolivo_logo.webp"
+    },
+    {
+      "id": 97,
+      "name": "Dad Restaurant",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/dad_rest.png"
+    },
+    {
+      "id": 98,
+      "name": "Dadım",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/dadim_2.webp"
+    },
+    {
+      "id": 99,
+      "name": "Dr. Che",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/dr_che_logo.webp"
+    },
+    {
+      "id": 100,
+      "name": "Finnegans Pub",
+      "category": "Restoranlar və kafelər",
+      "value": "129",
+      "discount": 3,
+      "currency": "%",
+      "img": "../public/img/cashback/category/finnegans.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    },
+    {
+      "id": 40,
+      "name": "Tudors Azerbaijan",
+      "category": "Geyim mağazaları",
+      "value": "119",
+      "discount": 5,
+      "currency": "%",
+      "img": "../public/img/cashback/category/tudors.webp"
+    }
+
+  ],
+  "valute": [
+    {
+      "Nominal": 1,
+      "Name": "USA",
+      "Value": 1.7
+    },
+    {
+      "Nominal": 1,
+      "Name": "EUR",
+      "Value": 1.8697
+    },
+    {
+      "Nominal": 1,
+      "Name": "GBP",
+      "Value": 2.1565
+    },
+    {
+      "Nominal": 1,
+      "Name": "RUB",
+      "Value": 0.0185
     }
   ]
 }

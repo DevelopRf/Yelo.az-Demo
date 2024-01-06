@@ -1,9 +1,10 @@
-const creditCards = document.querySelector('.creditCards')
+import { getCardData, tilt, cardShadow } from "./functions.js"
 let resultData = ""
-const cardData = new Cards()
+
+const creditCards = document.querySelector('.creditCards')
 const getCards = () => {
     const wrapper = document.querySelector(".creditCards .wrapper")
-    cardData.cardData()
+   getCardData()
         .then(data => {
             data.forEach(item => {
 
@@ -19,7 +20,7 @@ const getCards = () => {
                             <h2>${item.name}</h2>
                             <p>${item.description}</p>
                         </div>
-                        <div class="info">
+                        <div class="info ${item.title1_Text.length > 19 || item.title2_Text.length > 19 || item.title3_Text.length > 19 ? `active` : ``}">
                             <div class="infoItem">
                                 <span>${item.title1}</span>
                                 <p>${item.title1_Text}</p>
@@ -73,42 +74,12 @@ const getCards = () => {
                 </div>`
 
             })
-            wrapper.insertAdjacentHTML('beforeend', resultData)
-            tilt()
+           wrapper && wrapper.insertAdjacentHTML('beforeend', resultData)
+           creditCards && tilt()
             cardShadow()
         })
 }
 
-creditCards && getCards()
-
-function tilt() {
-    const dataTilt = document.querySelectorAll('[data-tilt]')
-    VanillaTilt.init(dataTilt, {
-        max: 25,
-        speed: 400,
-        glare: true,
-        "max-glare": 0.5,
-        transition: true,
-        perspective: 630,
-        easing: "cubic-bezier(.13,.58,.52,.79)",
-        scale: 1.07
-    });
-    console.log(dataTilt)
-}
-
-function cardShadow() {
-    const imgCard = document.querySelectorAll(".image .img")
-
-    imgCard.forEach(item => {
-        if (item.querySelector("img")) {
-            item.addEventListener("mouseover", () => {
-                item.classList.add("active")
-            })
-            item.addEventListener("mouseout", () => {
-                item.classList.remove("active")
-            })
-        }
-    })
-}
+getCards()
 
 export default creditCards

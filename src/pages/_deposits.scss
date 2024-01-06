@@ -1,4 +1,4 @@
-.creditCards {
+.deposits {
     @extend %firstSection;
 
     @media (min-width:1024px) {
@@ -14,33 +14,29 @@
     }
 
     .wrapper {
-        .creditCardItem {
-
+        .depositItem {
             .card {
                 @extend %card;
 
-                .image {
-                    height: 220px;
+                .image{
+                    height: 170px;
                     @extend %image;
-                    position: relative;
-
-                        .img {
-                            @extend %cardImage;
+                    .img {
+                        @extend %imgBackground;
+                    }
     
-                            img {
-                                @extend %img;
-                                height: auto;
-                            }
-                        }
-                    
-
                     @media (min-width:1024px) {
                         height: 100%;
+    
+                        .img {
+                            background-position: bottom;
+                        }
                     }
                 }
 
                 .content {
                     @extend %content;
+
 
                     .title {
                         @extend %title;
@@ -65,6 +61,7 @@
                         }
                     }
                 }
+
             }
         }
     }

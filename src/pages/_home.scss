@@ -19,20 +19,14 @@
         will-change: transform;
 
         .sliderBox {
-            @include Grid($g-a-f: column, $g-a-c: 100%);
+            @include Grid($t-c: repeat(4, 100%));
             @extend %box;
             overflow-x: hidden;
             position: relative;
 
-            &.dragging {
-                .sliderItem {
-                    cursor: grab;
-                    user-select: none
-                }
-            }
-
             .sliderItem {
                 @extend %item;
+                transition: all 0.3s;
 
                 .bg-color {
                     @extend %background;
@@ -386,7 +380,7 @@
                     }
 
                     .result {
-                        width: 33%;
+                        width: max-content;
                         text-align: right;
                         justify-self: center;
 

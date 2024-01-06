@@ -20,24 +20,7 @@
                 @extend %card;
 
                 .image {
-                    height: 170px;
-                    @extend %image;
-
-                    .img {
-                        background-repeat: no-repeat;
-                        background-position: right;
-                        background-size: contain;
-                        height: 100%;
-                        border-radius: 0 10px 10px 0;
-                    }
-
-                    @media (min-width:1024px) {
-                        height: 100%;
-
-                        .img {
-                            background-position: bottom;
-                        }
-                    }
+                    @extend %imgBackground;
                 }
 
                 .content {
@@ -88,110 +71,111 @@
             }
 
 
-                .calcContainer{
-                    &.active {
-                        display: block;
+            .calcs {
+                display: none;
+                max-width: 600px;
+                margin: 0 auto;
+
+                &.active {
+                    display: block;
+                }
+
+                .calcItems {
+                    &.range-active {
+                        border: 1px solid #ECECEC;
+                        border-radius: 10px 10px 10px 0;
+                        margin: 0 0 40px;
                     }
-                    .shortCalc {
-                        display: none;
-                        max-width: 600px;
-                        margin: 0 auto;                       
-        
-                        .calcItems {
-                            border: 1px solid #ECECEC;
-                            @include Grid($t-c: repeat(2, 1fr));
-        
-                            &.range-active {
-                                border-radius: 10px 10px 10px 0;
-                                margin: 0 0 40px;
-                            }
-        
-                            .item {
-                                @extend %rangeItem;
-        
-                                .range {
-                                    background-color: transparent;
-                                }
-                            }
-        
-                            &.input-active {
-                                border: none;
-                                gap: 20px;
-        
-                                input[type=text],
-                                select {
-                                    @extend %input-select;                            
-                                    margin: 0 0 20px;
-        
-                                    /* &:not(:last-child) {
-                                        border-right: 1px solid $clr_border;
-                                    } */
-                                }
-                            }
+
+                    .item {
+                        @extend %rangeItem;
+
+                        .range {
+                            background-color: transparent;
                         }
-        
-                        .btnBox {
-                            margin: 65px 0 0;
-                            padding: 30px 0;
-                            border-top: 1px solid $clr_border;
-                            @include Grid($t-c: 360px auto, $c-g: 40px);
-        
-                            .text {
-                                background: no-repeat left 5px;
-                                padding: 0 0 0 50px;
-        
-                                p {
-                                    font-size: 15px
+                    }
+
+                    &.input-active {
+                        border: none;
+                        gap: 20px;
+                        @include Grid($t-c: repeat(2, 1fr));
+
+                        .formItem {
+                            position: relative;
+
+                            span {
+                                display: none;
+                                font-size: 14px;
+                                padding: 3px 10px 0;
+                                border-radius: 5px;
+                                position: absolute;
+                                left: 15px;
+                                bottom: 5px;
+                                background-color: $clr_error;
+                                color: #fff;
+
+                                &.active {
+                                    display: inline-block;
                                 }
                             }
-        
-                            .btnOrder {
-                                @extend %btnOrder;
-                                cursor: pointer;
-                                height: 65px;
+
+                            input[type=text],
+                            select {
+                                @extend %input-select;
+                                margin: 0 0 20px;
                             }
                         }
                     }
                 }
-            
 
-            .longCalc {
-                .calcItems {
-                    &:nth-child(2) {
-                        grid-template-columns: repeat(3, 1fr);
+                .btnBox {
+                    margin: 65px 0 0;
+                    padding: 30px 0;
+                    border-top: 1px solid $clr_border;
+                    @include Grid($t-c: 360px auto, $c-g: 40px);
+
+                    .text {
+                        background: no-repeat left 5px;
+                        padding: 0 0 0 50px;
+
+                        p {
+                            font-size: 15px
+                        }
+                    }
+
+                    .btnOrder {
+                        @extend %btnOrder;
+                        cursor: pointer;
+                        height: 65px;
+                    }
+                }
+
+                .shortCalc {
+                    .calcItems {
+                        &.range-active {
+                            @include Grid($t-c: repeat(2, 1fr));
+                        }
+                    }
+
+
+                }
+
+                .longCalc {
+                    .calcItems {
+                        &.range-active {
+                            @include Grid($t-c: repeat(3, 1fr));
+                        }
                     }
                 }
             }
+
         }
     }
 }
 
 .creditInfo {
-    p {
-        color: $clr_grey_text;
-    }
+    @extend %credit-info;
 
-    a {
-        color: $clr_second;
-    }
-
-    .aboutCreditShort {
-
-        &.active {
-            display: none;
-        }
-    }
-
-    .aboutCredit {
-        display: none;
-
-        &.active {
-            display: block;
-        }
-    }
-}
-
-.creditInfo {
     .aboutCredit {
         .table {
             font-size: 18px;
