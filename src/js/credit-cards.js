@@ -1,10 +1,25 @@
-import { getCardData, tilt, cardShadow } from "./functions.js"
+import { tilt, cardShadow } from "./functions.js"
 let resultData = ""
 
 const creditCards = document.querySelector('.creditCards')
 const getCards = () => {
+    const getCardData = async () => {
+        const url = "http://localhost:3000/cards"
+        const response = await fetch(url)
+        try {
+            if (!response.ok) {
+                throw new Error(`Məlumatlar əldə edilə bilmədi. Status: ${response.status}`)
+            }
+            const data = await response.json()
+            return data
+        } catch (error) {
+            console.error("Xəta baş verdi:", error)
+            throw error
+        }
+    }
+
     const wrapper = document.querySelector(".creditCards .wrapper")
-   getCardData()
+    getCardData()
         .then(data => {
             data.forEach(item => {
 
@@ -74,8 +89,8 @@ const getCards = () => {
                 </div>`
 
             })
-           wrapper && wrapper.insertAdjacentHTML('beforeend', resultData)
-           creditCards && tilt()
+            wrapper && wrapper.insertAdjacentHTML('beforeend', resultData)
+            creditCards && tilt()
             cardShadow()
         })
 }

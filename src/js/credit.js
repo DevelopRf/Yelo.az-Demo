@@ -1,8 +1,24 @@
-import { range, tilt, cardShadow, getCreditData } from "./functions.js"
+import { range, tilt, cardShadow } from "./functions.js"
 
 const credits = document.querySelector('.credits')
 let resultData = ""
 const getCredits = () => {
+    const getCreditData = async ()=> {
+        const url = "http://localhost:3000/credits"
+    
+        const response = await fetch(url)
+        try {
+          if (!response.ok) {
+            throw new Error(`Məlumatlar əldə edilə bilmədi. Status: ${response.status}`)
+          }
+          const data = await response.json()
+          return data
+        }
+        catch (error) {
+          console.error("Xəta baş verdi:", error)
+          throw error
+        }
+      }
     const wrapper = document.querySelector(".credits .wrapper")
 
     const shortForm = `<form class="shortCalc">

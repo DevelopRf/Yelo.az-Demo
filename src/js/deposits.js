@@ -1,14 +1,25 @@
-import { getDeposits } from "./functions.js"
-let resultData = ""
 const wrapper = document.querySelector(".deposits .wrapper")
+function getDepositData() {
+    let resultData = ""
+    const getDeposits = async () => {
+        const url = "http://localhost:3000/deposits"
+        const response = await fetch(url)
+        try {
+            if (!response) {
+                throw new Error(`Məlumatlar əldə edilə bilmədi. Status: ${response.status}`)
+            }
+            const data = await response.json()
+            return data
+        } catch (error) {
+            console.error("Xəta baş verdi:", error)
+            throw error
+        }
+    }
 
-
-
-function getDepositData(){
     getDeposits()
-    .then(data => {
-        data.forEach(item => {
-            resultData += `<div class="depositItem">
+        .then(data => {
+            data.forEach(item => {
+                resultData += `<div class="depositItem">
             <div class="card">
                 <div class="image" style="background-image: url('./img/app_block.svg');">
                     <div class="img" style="background-image: url(${item.img})">
@@ -71,9 +82,9 @@ function getDepositData(){
                 </div>
             </div>
             </div>`
+            })
+            wrapper.innerHTML = resultData
         })
-        wrapper.innerHTML = resultData
-    })
 }
 
 wrapper && getDepositData()

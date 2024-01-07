@@ -1,9 +1,26 @@
-import { getCashbackData } from "./functions.js"
 let resultData = ""
 const cashbackMain = document.querySelector('.cashbackMain')
 const container = document.querySelector(".cashbackCards .container")
 const cards = document.querySelector(".cashbackCards .cards")
 const getCashback = () => {
+
+    const getCashbackData = async () => {
+        const url = "http://localhost:3000/cashback"
+        const response = await fetch(url)
+
+        try {
+            if (!response.ok) {
+                throw new Error(`Məlumatlar əldə edilə bilmədi. Status: ${response.status}`)
+            }
+            const data = await response.json()
+            return data
+
+        } catch (error) {
+            console.error("Xəta baş verdi:", error)
+            throw error
+        }
+    }
+
     let arrLength = 21
     let indexArr = 21
     let filter = ""
@@ -35,6 +52,7 @@ const getCashback = () => {
                         </div>
                       </div>`
                     }
+                    btnMoreCard.classList.remove("visibility")
                 }
                 else {
                     item.forEach(el => {
@@ -53,6 +71,7 @@ const getCashback = () => {
                         </div>
                       </div>`
                     })
+                    btnMoreCard.classList.add("visibility")
                 }
                 cards && (cards.innerHTML = resultData)
             }
@@ -96,7 +115,7 @@ const getCashback = () => {
 
                 resultData = ""
                 searchFilter = search.filter(item => item.name.toLowerCase().includes(searchInput.value.toLowerCase()))
-
+                searchFilter.length < 21 ? btnMoreCard.classList.add("visibility") : btnMoreCard.classList.remove("visibility")
                 searchFilter.forEach(filter => {
                     resultData += `<div class="card">
                         <a href = "#"><div class="cardImage" style ="background-image: url(${filter.img})"></div></a>
@@ -117,19 +136,18 @@ const getCashback = () => {
 
             let timer, timer1;
 
-
             searchInput && searchInput.addEventListener("input", () => {
                 clearTimeout(timer1)
                 clearTimeout(timer)
-                        let searchResult
+                let searchResult
                 const startTimer = () => {
                     timer = setInterval(() => {
                         search.classList.add("search-active")
                     }, 1500)
                     timer1 = setTimeout(() => {
+                        console.log(filter);
                         if (filter === "" || filter === "all") {
                             if (searchInput.value === "") {
-                            console.log("bos");
                                 getCashbackData(data)
                             }
                             else {
@@ -139,29 +157,30 @@ const getCashback = () => {
 
                         else {
                             if (searchInput.value === "") {
-                                getCashbackData(selectFilter)
+                                getCashbackData(selectFilter)                                
+                                indexArr = 21
+                                arrLength = 21
                             }
                             else {
                                 getSearchResult(selectFilter)
                             }
                         }
-                        searchFilter.length < 21 ? btnMoreCard.classList.add("visibility") : btnMoreCard.classList.remove("visibility")
                         console.log(searchFilter.length);
+
                         if (searchFilter.length === 0 && searchInput.value !== "") {
                             searchResult = document.createElement("h2")
                             cards.appendChild(searchResult)
                             searchResult.setAttribute("class", "result")
                             searchResult.innerHTML = "Nəticə tapılmadı"
                             cards.classList.add("active")
-                            btnMoreCard.classList.add("visibility")
                         }
                         else {
                             cards.classList.remove("active")
                             searchResult && cards.removeChild(searchResult)
-                            btnMoreCard.classList.remove("visibility")
                         }
                         search.classList.remove("search-active")
                         clearTimeout(timer)
+
                     }, 3000)
                 }
                 startTimer()
@@ -213,7 +232,6 @@ const getCashback = () => {
                         getCashbackData(data)
                         container.classList.remove("active")
                         data.length < 21 ? btnMoreCard.classList.add("visibility") : btnMoreCard.classList.remove("visibility")
-                        console.log(selectFilter.length);
                     }, 1500);
                 }
                 else {
@@ -256,18 +274,19 @@ const getCashback = () => {
                     cards.innerHTML = resultData
                     arrLength += 21
                 }
-                else
+                else {
                     indexArr = 21
-
+                    arrLength = 21
+                }
             }
+
 
             function more() {
                 btnMoreCard && btnMoreCard.addEventListener("click", () => {
                     btnMoreCard.classList.add("active")
                     setTimeout(() => {
-                        filter === "" && getMoreCards(data)
                         btnMoreCard.classList.remove("active")
-                        filter === "all" && getMoreCards(data)
+                        filter === "" || filter === "all" && getMoreCards(data)
                         filter === "change" && getMoreCards(selectFilter)
                     }, 1500);
                 })

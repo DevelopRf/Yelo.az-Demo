@@ -7,8 +7,7 @@ function range(rangeItems) {
     const month = document.querySelector('.calcItems .item:nth-of-type(2) .number')
     const percent = document.querySelector('.calcItems .item:last-of-type .number')
 
-
-    const totalResult = () => {
+     const totalResult = () => {
         const amountValue = parseFloat(amount.value)
         const monthValue = parseFloat(month.value)
         const percentValue = parseFloat(percent.value)
@@ -78,90 +77,11 @@ function cardShadow() {
 }
 
 
-  const getnews = async () =>{
-    const url = "http://localhost:3000/news"
-    try {
-      const response = await fetch(`${url}`)
-      if (!response.ok) {
-        throw new Error(`Məlumatlar əldə edilə bilmədi. Status: ${response.status}`)
-      }
-      const data = await response.json()
-      data.sort((a, b) => {
-        return new Date(b.date) - new Date(a.date)
-      })
-
-      return data
-    }
-
-    catch (error) {
-      console.error("Xəta baş verdi:", error)
-      throw error
-    }
-  }
 
 
-  const getCardData = async ()=> {
-    const url = "http://localhost:3000/cards"
-    try {
-      const response = await fetch(url)
-      if (!response.ok) {
-        throw new Error(`Məlumatlar əldə edilə bilmədi. Status: ${response.status}`)
-      }
-      const data = await response.json()
-      return data
-    } catch (error) {
-      console.error("Xəta baş verdi:", error)
-      throw error
-    }
-  }
 
-  const getCreditData = async ()=> {
-    const url = "http://localhost:3000/credits"
 
-    try {
-      const response = await fetch(url)
-      if (!response.ok) {
-        throw new Error(`Məlumatlar əldə edilə bilmədi. Status: ${response.status}`)
-      }
-      const data = await response.json()
-      return data
-    }
-    catch (error) {
-      console.error("Xəta baş verdi:", error)
-      throw error
-    }
-  }
 
-  const getDeposits = async () => {
-    const url = "http://localhost:3000/deposits"
-    try {
-      const response = await fetch(url)
-      if (!response) {
-        throw new Error(`Məlumatlar əldə edilə bilmədi. Status: ${response.status}`)
-      }
-      const data = await response.json()
-      return data
-    } catch (error) {
-      console.error("Xəta baş verdi:", error)
-      throw error
-    }
-  }
 
-  const getCashbackData = async ()=> {
-    const url = "http://localhost:3000/cashback"
 
-    try {
-      const response = await fetch(url)
-
-      if (!response.ok) {
-        throw new Error(`Məlumatlar əldə edilə bilmədi. Status: ${response.status}`)
-      }
-      const data = await response.json()
-      return data
-
-    } catch (error) {
-      console.error("Xəta baş verdi:", error)
-      throw error
-    }
-  }
-export { range, calcItems, tilt, cardShadow, resultData, getnews, getCardData, getCreditData, getDeposits, getCashbackData }
+export { range, calcItems, tilt, cardShadow}

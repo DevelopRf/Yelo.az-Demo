@@ -3,11 +3,11 @@ let result = ""
 class Currency {
   constructor() {
 /*     this.url = "https://v6.exchangerate-api.com/v6/2c3f90c34a7fe432cc0f3580/latest/"
- */    this.url = "http://localhost:3000/currency"
+ */    this.url = "currency"
     this.url1 = "http://localhost:3000/news"
   }
 
-  async exchangeShow() {
+/*   async exchangeShow() {
     try {
       const response = await fetch(`${this.url}`) // AZN
       if (!response.ok) {
@@ -19,7 +19,7 @@ class Currency {
       console.error("Xəta baş verdi:", error)
       throw error
     }
-  }
+  } */
 
   async exchange(amount, firstOptionValue, secondOptionValue) {
     try {
