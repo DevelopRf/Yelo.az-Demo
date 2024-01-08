@@ -1,4 +1,3 @@
-let resultData = ""
 const calcItems = document.querySelectorAll('.calcItems .item')
 
 function range(rangeItems) {

@@ -5,12 +5,14 @@
     object-fit: cover;
 }
 
-%credit-info{
+%credit-info {
 
-    h2, p {
+    h2,
+    p {
         color: $clr_grey_text;
     }
-    h2{
+
+    h2 {
         @include Font($f-s: 1.2em, $l-h: 1.6em);
     }
 
@@ -234,6 +236,19 @@
     }
 }
 
+%inputExchange {
+    font-family: fB;
+    outline: none;
+    border: none;
+}
+
+%inputNumberBtn{
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        appearance: none;
+    }
+}
+
 %info {
 
     @include Grid($t-c: 1fr, $r-g: 10px);
@@ -283,6 +298,7 @@
     outline: none;
     border: 1px solid #ECECEC;
     border-radius: 10px;
+
     @media (min-width:1024px) {
         font-size: 18px;
     }

@@ -296,6 +296,6 @@ const getCashback = () => {
         })
 }
 
-getCashback()
+cards && getCashback()
 
 export default cashbackMain

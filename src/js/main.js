@@ -1,5 +1,6 @@
 import cashbackMain from "./cashback.js"
 import { getDepositData } from "./deposits.js"
+import { exchange } from "./exchange.js"
 import { credits } from "./credit.js"
 import creditCards from "./credit-cards.js"
 import { modal } from "./news.js"
@@ -24,9 +25,16 @@ const langBtn = document.querySelector('.navbarRight .menu li:last-of-type')
 const lang = document.querySelector('.navbarRight .languages')
 const allNews = document.querySelector('.allNews')
 const bigMenu = document.querySelector('.bigMenu')
+const useful = document.querySelector(".useful")
+const allExchange = document.querySelector(".allExchange")
 let screenSize = false
 let scrolling = 0
 let scrollPage = 0
+
+if(useful || allExchange){
+    exchange()
+
+} 
 
 langBtn.addEventListener('click', () => {
     lang.classList.toggle("active")
@@ -213,51 +221,6 @@ function sliderStories() {
 
 sliderStories()
 
-
-const amountInput = document.querySelector("#sale");
-const firstOption = document.querySelector("#currencyReceived")
-const secondOption = document.querySelector("#soldCurrency")
-const inputResult = document.querySelector("#inputResult")
-const currency = new Currency()
-amountInput && amountInput.addEventListener('input', exchange)
-if (firstOption) {
-
-    firstOption.addEventListener("change", exchange)
-
-    firstOption.addEventListener("input", () => {
-        if (firstOption.value !== "AZN") {
-            secondOption.innerHTML = `<option value = "AZN">AZN</option>`
-        }
-        else {
-            secondOption.innerHTML = `<option value = "USD">USD</option>`
-            secondOption.innerHTML += `<option value = "EUR">EUR</option>`
-        }
-    })
-
-    function showData() {
-        const purchase = document.querySelectorAll(".purchase h5")
-        const sale = document.querySelectorAll(".sale h5")
-        currency.exchangeShow(purchase[0], purchase[1], sale[0], sale[1])
-    }
-
-    showData()
-}
-
-function exchange() {
-    const amount = Number(amountInput.value)
-    const firstOptionValue = firstOption.options[firstOption.selectedIndex].textContent
-    const secondOptionValue = secondOption.options[secondOption.selectedIndex].textContent
-
-    currency.exchange(amount, firstOptionValue, secondOptionValue)
-        .then((result => {
-
-            inputResult.value = result.toFixed(0)
-            if (amountInput.value == "") {
-                inputResult.value = ""
-            }
-        }))
-}
-
 const btnClose = document.querySelector('.btnClose')
 
 btnClose && btnClose.addEventListener('click', () => {
@@ -283,14 +246,14 @@ for (let index = 0; index < menuItem.length; index++) {
 }
 
 
- range(calcItems)
+range(calcItems)
+
 
 
 function headerEffect() {
 
     document.addEventListener('scroll', () => {
-        scrolling = scrollY
-
+        scrolling = window.scrollY
         if (scrolling > scrollPage) {
             addEffect()
         }
@@ -309,9 +272,21 @@ function headerEffect() {
 
         scrollPage = scrolling
     })
+
+    if (window.scrollY > 0) {
+        headerBottom.classList.add('active')
+        header.classList.add('active')
+    }
+    else {
+        headerBottom.classList.remove('active')
+        header.classList.remove('active')
+    }
+
 }
 
 headerEffect()
+
+
 
 function addEffect() {
     headerTop.classList.add('active')

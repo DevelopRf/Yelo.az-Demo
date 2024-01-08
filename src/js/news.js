@@ -6,27 +6,28 @@ let resultData = ""
 let arrLength = 0
 let indexArr = 0
 
-function getAllNews(callback) {
-    const getnews = async () =>{
-        const url = "http://localhost:3000/news"
-        const response = await fetch(`${url}`)
-        try {
-          if (!response.ok) {
-            throw new Error(`Məlumatlar əldə edilə bilmədi. Status: ${response.status}`)
-          }
-          const data = await response.json()
-          data.sort((a, b) => {
-            return new Date(b.date) - new Date(a.date)
-          })
-    
-          return data
-        }
-    
-        catch (error) {
-          console.error("Xəta baş verdi:", error)
-          throw error
-        }
+const getnews = async () =>{
+    const url = "http://localhost:3000/news"
+    const response = await fetch(`${url}`)
+    try {
+      if (!response.ok) {
+        throw new Error(`Məlumatlar əldə edilə bilmədi. Status: ${response.status}`)
       }
+      const data = await response.json()
+      data.sort((a, b) => {
+        return new Date(b.date) - new Date(a.date)
+      })
+
+      return data
+    }
+
+    catch (error) {
+      console.error("Xəta baş verdi:", error)
+      throw error
+    }
+  }
+
+function getAllNews(callback) {
 
     btnMoreNews && btnMoreNews.addEventListener("click", () => {
         getAllNews(getCard)
@@ -259,7 +260,7 @@ function convertDateFormat(dateString) {
 const news = document.querySelector('.news .cards')
 function showNews() {
 
-    currency.data()
+    getnews()
         .then(data => {
             for (let index = 0; index < 3; index++) {
                 const acceptDate = new Date(data[index].date)

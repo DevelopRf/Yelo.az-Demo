@@ -600,17 +600,10 @@
                     padding: 10px 0 0;
 
                     input {
-                        outline: none;
-                        border: none;
-                        height: 40px;
-                        font-family: fB;
+                        @extend %inputExchange;
+                        @extend %inputNumberBtn;                        
+                        height: 40px;                        
                         font-size: 25px;
-                        appearance: none;
-
-                        &::-webkit-inner-spin-button,
-                        &::-webkit-outer-spin-button {
-                            appearance: none;
-                        }
                     }
 
                     .inputResult {
@@ -619,10 +612,16 @@
                     }
 
                     select {
-                        font-family: fB;
                         font-size: 16px;
-                        border: none;
-                        outline: none;
+                        @extend %inputExchange;
+                    }
+
+                    &:nth-child(3){
+                        input{
+                            &::placeholder {
+                                color: #000;
+                            }
+                        }
                     }
                 }
 
@@ -653,7 +652,7 @@
                 }
 
                 .btn {
-                    .allExchange {
+                    .btnAllExchange {
                         padding: 17px 30px;
                         margin: 15px -30px -30px;
                         display: block;

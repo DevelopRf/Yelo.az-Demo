@@ -6,7 +6,8 @@
      object-fit: cover;
 }
 
-.creditInfo h2, .creditInfo p {
+.creditInfo h2,
+.creditInfo p {
   color: rgba(0, 0, 0, 0.5019607843);
 }
 .creditInfo h2 {
@@ -157,11 +158,11 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   transition: all 0.3s;
 }
 
-.useful .cards .card:last-of-type .btn .allExchange:hover, .allNews .btnBox .btnMoreNews:hover, .news .btnBox .btnAllNews:hover {
+.useful .cards .card:last-of-type .btn .btnAllExchange:hover, .allNews .btnBox .btnMoreNews:hover, .news .btnBox .btnAllNews:hover {
   color: #fff;
   background-color: #0091FE;
 }
-.useful .cards .card:last-of-type .btn .allExchange:hover svg g, .allNews .btnBox .btnMoreNews:hover svg g, .news .btnBox .btnAllNews:hover svg g {
+.useful .cards .card:last-of-type .btn .btnAllExchange:hover svg g, .allNews .btnBox .btnMoreNews:hover svg g, .news .btnBox .btnAllNews:hover svg g {
   fill: #fff;
 }
 
@@ -205,6 +206,18 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   .deposits .wrapper .depositItem .card .content .title p, .creditCards .wrapper .creditCardItem .card .content .title p, .credits .wrapper .creditItem .card .content .title p {
     font-size: 18px;
   }
+}
+
+.allExchange .wrapper .buy-sell .inputItem input,
+.allExchange .wrapper .buy-sell .inputItem select, .useful .cards .card:last-of-type .inputItem select, .useful .cards .card:last-of-type .inputItem input {
+  font-family: fB;
+  outline: none;
+  border: none;
+}
+
+.allExchange .wrapper .buy-sell .inputItem input::-webkit-inner-spin-button, .useful .cards .card:last-of-type .inputItem input::-webkit-inner-spin-button, .allExchange .wrapper .buy-sell .inputItem input::-webkit-outer-spin-button, .useful .cards .card:last-of-type .inputItem input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
 }
 
 .deposits .wrapper .depositItem .card .content .info, .creditCards .wrapper .creditCardItem .card .content .info, .credits .wrapper .creditItem .card .content .info {
@@ -392,7 +405,7 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   color: rgba(0, 0, 0, 0.5019607843);
 }
 
-.allNews .btnBox .btnMoreNews svg, .news .btnBox .btnAllNews svg, .useful .cards .card:last-of-type .btn .allExchange svg {
+.allNews .btnBox .btnMoreNews svg, .news .btnBox .btnAllNews svg, .useful .cards .card:last-of-type .btn .btnAllExchange svg {
   position: absolute;
   transform: translateY(-50%);
 }
@@ -531,43 +544,43 @@ body .searchBox .formSearch .close, body .searchBox .formSearch .btnSearch {
   }
 }
 
-.deposits .heading, .creditCards .heading, .credits .heading {
+.allExchange .wrapper .heading, .deposits .heading, .creditCards .heading, .credits .heading {
   text-align: center;
   max-width: 840px;
   margin: 5px auto 50px;
 }
-.deposits .heading h1, .creditCards .heading h1, .credits .heading h1 {
+.allExchange .wrapper .heading h1, .deposits .heading h1, .creditCards .heading h1, .credits .heading h1 {
   font-family: fH;
   font-size: 20px;
 }
 @media (min-width: 1024px) {
-  .deposits .heading h1, .creditCards .heading h1, .credits .heading h1 {
+  .allExchange .wrapper .heading h1, .deposits .heading h1, .creditCards .heading h1, .credits .heading h1 {
     font-size: 54px;
     line-height: 86px;
   }
 }
-.deposits .heading p, .creditCards .heading p, .credits .heading p {
+.allExchange .wrapper .heading p, .deposits .heading p, .creditCards .heading p, .credits .heading p {
   color: rgba(0, 0, 0, 0.5019607843);
 }
 @media (min-width: 1024px) {
-  .deposits .heading p, .creditCards .heading p, .credits .heading p {
+  .allExchange .wrapper .heading p, .deposits .heading p, .creditCards .heading p, .credits .heading p {
     font-size: 22px;
     line-height: 30px;
   }
 }
 
-.deposits, .cashbackMain, .creditCards, .credits, .allNews, .slider {
+.allExchange, .deposits, .cashbackMain, .creditCards, .credits, .allNews, .slider {
   padding: 111px 0 50px;
   transition: all 0.3s;
 }
-.active.deposits, .active.cashbackMain, .active.creditCards, .active.credits, .active.allNews, .active.slider {
+.active.allExchange, .active.deposits, .active.cashbackMain, .active.creditCards, .active.credits, .active.allNews, .active.slider {
   padding: 0 0 50px;
 }
 @media (min-width: 1024px) {
-  .deposits, .cashbackMain, .creditCards, .credits, .allNews, .slider {
+  .allExchange, .deposits, .cashbackMain, .creditCards, .credits, .allNews, .slider {
     padding: 145px 0 50px;
   }
-  .active.deposits, .active.cashbackMain, .active.creditCards, .active.credits, .active.allNews, .active.slider {
+  .active.allExchange, .active.deposits, .active.cashbackMain, .active.creditCards, .active.credits, .active.allNews, .active.slider {
     padding: 265px 0 50px;
   }
 }
@@ -2608,28 +2621,21 @@ footer .footBottom .wrapper .siteBy a {
   padding: 10px 0 0;
 }
 .useful .cards .card:last-of-type .inputItem input {
-  outline: none;
-  border: none;
   height: 40px;
-  font-family: fB;
   font-size: 25px;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
-.useful .cards .card:last-of-type .inputItem input::-webkit-inner-spin-button, .useful .cards .card:last-of-type .inputItem input::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-          appearance: none;
 }
 .useful .cards .card:last-of-type .inputItem .inputResult {
   font-family: fB;
   font-size: 25px;
 }
 .useful .cards .card:last-of-type .inputItem select {
-  font-family: fB;
   font-size: 16px;
-  border: none;
-  outline: none;
+}
+.useful .cards .card:last-of-type .inputItem:nth-child(3) input::-moz-placeholder {
+  color: #000;
+}
+.useful .cards .card:last-of-type .inputItem:nth-child(3) input::placeholder {
+  color: #000;
 }
 .useful .cards .card:last-of-type .currencies {
   display: grid;
@@ -2655,7 +2661,7 @@ footer .footBottom .wrapper .siteBy a {
   padding: 10px 0 0;
   color: rgba(0, 0, 0, 0.9019607843);
 }
-.useful .cards .card:last-of-type .btn .allExchange {
+.useful .cards .card:last-of-type .btn .btnAllExchange {
   padding: 17px 30px;
   margin: 15px -30px -30px;
   display: block;
@@ -2666,11 +2672,11 @@ footer .footBottom .wrapper .siteBy a {
   position: relative;
   transition: all 0.3s;
 }
-.useful .cards .card:last-of-type .btn .allExchange svg {
+.useful .cards .card:last-of-type .btn .btnAllExchange svg {
   right: 30px;
   top: 50%;
 }
-.useful .cards .card:last-of-type .btn .allExchange svg g {
+.useful .cards .card:last-of-type .btn .btnAllExchange svg g {
   transition: all 0.15s;
 }
 .news .btnBox {
@@ -3104,4 +3110,123 @@ footer .footBottom .wrapper .siteBy a {
   .deposits .wrapper .depositItem .card .image .img {
     background-position: bottom;
   }
+}
+@media (min-width: 1024px) {
+  .allExchange .wrapper {
+    padding: 145px 0 110px;
+  }
+  .allExchange .wrapper.active {
+    padding: 265px 0 50px;
+  }
+}
+.allExchange .wrapper .heading .exchange-type {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, max-content);
+  margin: 30px 0 0;
+}
+.allExchange .wrapper .heading .exchange-type a {
+  display: inline-block;
+  font-family: fB;
+  height: 55px;
+  padding: 15px 30px;
+  font-size: 18px;
+  color: #000;
+  border: 1px solid #ececec;
+  transition: 0.3s;
+}
+.allExchange .wrapper .heading .exchange-type a:first-child {
+  border-radius: 10px 0 0 10px;
+}
+.allExchange .wrapper .heading .exchange-type a:last-child {
+  border-radius: 0 10px 10px 0;
+}
+.allExchange .wrapper .heading .exchange-type a:hover {
+  background-color: #ffc628;
+}
+.allExchange .wrapper .heading .exchange-type a.active {
+  background-color: #ffc628;
+}
+.allExchange .wrapper .buy-sell {
+  display: grid;
+  grid-template-columns: 500px 100px 500px;
+  row-gap: 50px;
+  padding: 120px 0 0;
+}
+.allExchange .wrapper .buy-sell .inputItem {
+  height: 70px;
+  display: grid;
+  grid-template-columns: auto 55px;
+  border-bottom: 3px solid #ffc628;
+}
+.allExchange .wrapper .buy-sell .inputItem input,
+.allExchange .wrapper .buy-sell .inputItem select {
+  font-family: fB;
+  border: none;
+  outline: none;
+}
+.allExchange .wrapper .buy-sell .inputItem input {
+  font-size: 40px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.allExchange .wrapper .buy-sell .inputItem select {
+  font-size: 18px;
+}
+@media (min-width: 1024px) {
+  .allExchange .wrapper .buy-sell .inputItem {
+    border-bottom: 6px solid #ffc628;
+  }
+}
+.allExchange .wrapper .buy-sell .inputItem:last-child input::-moz-placeholder {
+  color: #000;
+}
+.allExchange .wrapper .buy-sell .inputItem:last-child input::placeholder {
+  color: #000;
+}
+.allExchange .wrapper .buy-sell .currencies {
+  grid-area: 2/1/span 1/span 3;
+  border: 1px solid #ececec;
+  border-radius: 10px;
+}
+.allExchange .wrapper .buy-sell .currencies table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+}
+.allExchange .wrapper .buy-sell .currencies table th,
+.allExchange .wrapper .buy-sell .currencies table td {
+  font-size: 18px;
+  font-weight: normal;
+  padding: 0 35px;
+  height: 60px;
+  width: 25%;
+}
+.allExchange .wrapper .buy-sell .currencies table th:not(:last-child),
+.allExchange .wrapper .buy-sell .currencies table td:not(:last-child) {
+  border-right: 1px solid #ececec;
+}
+.allExchange .wrapper .buy-sell .currencies table th {
+  color: rgba(0, 0, 0, 0.5019607843);
+  border-bottom: 1px solid #ececec;
+}
+.allExchange .wrapper .buy-sell .currencies table td {
+  height: 40px;
+  font-size: 22px;
+}
+.allExchange .wrapper .buy-sell .currencies table tr:nth-child(2) td {
+  padding: 15px 35px 0;
+}
+.allExchange .wrapper .buy-sell .currencies table tr:last-child td {
+  padding: 0 35px 15px;
+}
+.allExchange .wrapper .buy-sell .changeSides a {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background: no-repeat center;
+}
+.allExchange .wrapper .warning {
+  margin: 20px 0 0;
 }/*# sourceMappingURL=style.css.map */
