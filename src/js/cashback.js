@@ -107,6 +107,8 @@ const getCashback = () => {
                     })
                     setTimeout(() => {
                         cards.innerHTML = resultData
+                        container.classList.remove("active")
+                        
                     }, 1500)
                 })
             })
