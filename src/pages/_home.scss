@@ -5,7 +5,7 @@
         padding: 0 0 50px;
     }
 
-    @media (min-width:1024px) {
+    @include screenSize(desktop) {
         padding: 0 0 50px;
 
         &.active {
@@ -13,104 +13,102 @@
         }
     }
 
-
     .wrapper {
         @extend %wrapper;
-        will-change: transform;
 
-        .sliderBox {
-            @include Grid($t-c: repeat(4, 100%));
-            @extend %box;
-            overflow-x: hidden;
+        .swiper {
+            width: 100%;
+            height: 100%;
             position: relative;
 
-            .sliderItem {
-                @extend %item;
-                transition: all 0.3s;
+            .swiper-slide {
+                @extend %box;
+                font-size: 18px;
+                background: #fff;
+                display: grid;
 
-                .bg-color {
-                    @extend %background;
-                }
+                .sliderItem {
+                    @extend %item;
+                    width: 100%;
 
-                .sliderImage {
-                    @extend %mainImage;
-                }
+                    .bg-color {
+                        @extend %background;
+                    }
 
-                .sliderInfo {
-                    @extend %mainInfo;
+                    .sliderImage {
+                        @extend %mainImage;
+                    }
 
-                    .sliderContent {
-                        @extend %mainContent;
+                    .sliderInfo {
+                        @extend %mainInfo;
 
-                        .btnSlider {
-                            @extend %primaryButton;
+                        .sliderContent {
+                            @extend %mainContent;
 
-                            @extend %mainBtn;
+                            .btnSlider {
+                                @extend %primaryButton;
+
+                                @extend %mainBtn;
+                            }
+                        }
+
+
+                        .btnMore {
+                            @extend %btnMorePrimary;
+                            @extend %btnMoreHover;
+                            position: absolute;
+                            bottom: 61px;
+                            left: 30px;
+                            color: #000;
                         }
                     }
-
-
-                    .btnMore {
-                        @extend %btnMorePrimary;
-                        @extend %btnMoreHover;
-                        position: absolute;
-                        bottom: 61px;
-                        left: 30px;
-                        color: #000;
-                    }
-                }
-
-                .cover {
-                    position: absolute;
-                    inset: 0;
-
-                    z-index: 9;
-                    scroll-snap-align: start;
-                    background-color: transparent;
-                    filter: grayscale(100%);
-
                 }
             }
 
-        }
+            .dot {
+                --swiper-pagination-bottom: 220px;
+                @include Grid ($t-c: repeat(4, max-content), $c-g: 20px);
+                position: absolute;
+                width: auto;
+                bottom: var(--swiper-pagination-bottom);
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 10;
 
-        .dot {
-            @include Grid ($t-c: repeat(4, max-content), $c-g: 20px);
-            position: absolute;
-            top: 170px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
+                @include screenSize(desktop) {
+                    top: calc(505px - 35px);
+                    left: 78%;
+                }
 
-            @media (min-width:1024px) {
-                top: calc(505px - 35px);
-                left: 80%;
-            }
+                .swiper-pagination-bullet {
+                    display: inline-block;
+                    width: 8px;
+                    height: 8px;
+                    margin: 0;
+                    border-radius: 50%;
+                    background-color: #000;
+                    opacity: 1;
+                    position: relative;
+                    cursor: pointer;
 
-            li {
-                width: 8px;
-                height: 8px;
-                border-radius: 50%;
-                background-color: #000;
-                position: relative;
-                cursor: pointer;
-
-                &.selected {
-                    &::after {
-                        content: "";
-                        display: block;
-                        width: 16px;
-                        height: 16px;
-                        border-radius: 50%;
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        background-color: $clr_primary;
-                        z-index: -1;
+                    &.swiper-pagination-bullet-active {
+                        &::after {
+                            content: "";
+                            display: inline-block;
+                            width: 16px;
+                            height: 16px;
+                            border-radius: 50%;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            background-color: $clr_primary;
+                            z-index: -1;
+                        }
                     }
                 }
             }
+
         }
     }
 }
@@ -212,7 +210,7 @@
     .cards {
         @include Grid ($t-c: 1fr, $c-g: 30px, $r-g: 15px);
 
-        @media (min-width:1024px) {
+        @include screenSize(desktop) {
             grid-template-columns: repeat(2, 1fr);
         }
 
@@ -224,7 +222,7 @@
                 font-family: fB;
                 font-size: 20px;
 
-                @media (min-width:1024px) {
+                @include screenSize(desktop) {
                     font-size: 22px;
                 }
             }
@@ -234,7 +232,7 @@
                 background-color: #F3F1F7;
                 overflow: hidden;
 
-                @media (min-width:1024px) {
+                @include screenSize(desktop) {
                     @include Grid ($t-c: repeat(2, 1fr));
                     padding: 30px 0 30px 30px;
                 }
@@ -243,7 +241,7 @@
                     @include Grid ($t-c: repeat(2, auto));
 
 
-                    @media (min-width:1024px) {
+                    @include screenSize(desktop) {
                         grid-template-rows: repeat(3, max-content);
                     }
 
@@ -258,7 +256,7 @@
                     .profit {
                         margin: 10px 0;
 
-                        @media (min-width:1024px) {
+                        @include screenSize(desktop) {
                             margin: 15px 0 25px 0;
                         }
 
@@ -275,8 +273,7 @@
                             @extend %btnOrder;
                             width: 100%;
 
-                            @media (min-width:1024px) {
-
+                            @include screenSize(desktop) {
                                 width: 80%;
                                 font-size: 18px;
                             }
@@ -302,7 +299,7 @@
                     box-shadow: 50px 60px 80px rgba(0, 0, 0, 0.2);
                     transition: all 0.4s;
 
-                    @media (min-width:1024px) {
+                    @include screenSize(desktop) {
                         width: 190px;
                         height: 300px;
                         top: 30px;
@@ -347,14 +344,14 @@
                 border: 1px solid #ECECEC;
                 border-radius: 10px;
 
-                @media (min-width:1024px) {
+                @include screenSize(desktop) {
                     padding: 30px;
                     grid-template-columns: repeat(3, 1fr);
                 }
 
                 .calcItems {
 
-                    @media (min-width:1024px) {
+                    @include screenSize(desktop) {
                         @include Grid ($t-c: repeat(3, 1fr));
                         margin: 30px 0 45px;
                     }
@@ -375,7 +372,7 @@
 
                     grid-area: 3 / 1 / span 1 / span 3;
 
-                    @media (min-width:1024px) {
+                    @include screenSize(desktop) {
                         grid-template-columns: 65% 35%;
                     }
 
@@ -408,7 +405,7 @@
                             @extend%btnOrder;
                             width: 100%;
 
-                            @media (min-width:1024px) {
+                            @include screenSize(desktop) {
                                 font-size: 18px;
                             }
                         }
@@ -430,7 +427,7 @@
     .cards {
         @include Grid ($t-c: 1fr, $r-g: 15px);
 
-        @media (min-width:1024px) {
+        @include screenSize(desktop) {
             @include Grid ($t-c: calc(68.5% - 30px) 31.5%, $c-g: 30px);
         }
 
@@ -443,7 +440,7 @@
             &:first-of-type {
                 background: none;
 
-                @media (min-width:1024px) {
+                @include screenSize(desktop) {
                     @include Grid ($t-c: repeat(2, 1fr));
                     background: url('../public/img/app_block.svg') no-repeat right center;
                     background-size: contain;
@@ -455,7 +452,7 @@
                     border-radius: 10px 10px 0 0;
                     background-color: $clr_primary;
 
-                    @media (min-width:1024px) {
+                    @include screenSize(desktop) {
                         order: 2;
                         right: 30px;
                         height: 100%;
@@ -473,8 +470,7 @@
                         margin: auto;
                         z-index: 2;
 
-                        @media (min-width:1024px) {
-
+                        @include screenSize(desktop) {
                             position: absolute;
                             width: 100%;
                             height: 100%;
@@ -488,7 +484,7 @@
                     padding: 20px;
                     position: relative;
 
-                    @media (min-width:1024px) {
+                    @include screenSize(desktop) {
                         padding: 45px;
                     }
 
@@ -496,7 +492,7 @@
                         h6 {
                             @extend %headingH3;
 
-                            @media (min-width:1024px) {
+                            @include screenSize(desktop) {
                                 @include Font ($f-s: 34px, $l-h: 34px);
                                 padding: 0;
                                 margin: 0 0 10px;
@@ -507,7 +503,7 @@
                             color: $clr_grey_text;
                             line-height: 20px;
 
-                            @media (min-width:1024px) {
+                            @include screenSize(desktop){
                                 @include Font($f-s: 18px, $l-h: 26px);
                             }
                         }
@@ -516,7 +512,7 @@
                     .appLink {
                         margin: 10px 0 0;
 
-                        @media (min-width:1024px) {
+                        @include screenSize(desktop){
                             position: absolute;
                             left: 45px;
                             bottom: 45px;
@@ -532,7 +528,7 @@
                                 a {
                                     padding: 4px;
 
-                                    @media (min-width:1024px) {
+                                    @include screenSize(desktop){
                                         padding: 0 10px;
                                     }
 
@@ -546,7 +542,7 @@
                                         color: $clr_second_grey;
                                         text-align: left;
 
-                                        @media (min-width:1024px) {
+                                        @include screenSize(desktop){
                                             background-size: 24px;
                                             padding: 6px 0 6px 34px;
                                         }
@@ -563,7 +559,7 @@
                 padding: 20px;
                 position: relative;
 
-                @media (min-width:1024px) {
+                @include screenSize(desktop){
                     padding: 30px;
                 }
 
@@ -573,7 +569,7 @@
                     h3 {
                         @extend %headingH3;
 
-                        @media (min-width:1024px) {
+                        @include screenSize(desktop){
                             font-size: 22px;
                         }
                     }
@@ -601,8 +597,8 @@
 
                     input {
                         @extend %inputExchange;
-                        @extend %inputNumberBtn;                        
-                        height: 40px;                        
+                        @extend %inputNumberBtn;
+                        height: 40px;
                         font-size: 25px;
                     }
 
@@ -616,8 +612,8 @@
                         @extend %inputExchange;
                     }
 
-                    &:nth-child(3){
-                        input{
+                    &:nth-child(3) {
+                        input {
                             &::placeholder {
                                 color: #000;
                             }
@@ -632,7 +628,7 @@
                     p {
                         color: $clr_grey_text;
 
-                        @media (min-width: 1024px) {
+                        @include screenSize(desktop){
                             font-size: 18px;
                         }
                     }

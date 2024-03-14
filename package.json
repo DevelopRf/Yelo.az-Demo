@@ -2,6 +2,7 @@
   "dependencies": {
     "material-icons": "^1.13.12",
     "node-sass": "^9.0.0",
+    "swiper": "^11.0.7",
     "tilt.js": "^1.2.1",
     "vanilla-tilt": "^1.8.1"
   },

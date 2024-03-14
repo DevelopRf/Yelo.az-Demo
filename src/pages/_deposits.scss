@@ -1,7 +1,7 @@
 .deposits {
     @extend %firstSection;
 
-    @media (min-width:1024px) {
+    @include screenSize(desktop) {
         padding: 145px 0 50px;
 
         &.active {
@@ -25,7 +25,7 @@
                         @extend %imgBackground;
                     }
     
-                    @media (min-width:1024px) {
+                    @include screenSize(desktop) {
                         height: 100%;
     
                         .img {

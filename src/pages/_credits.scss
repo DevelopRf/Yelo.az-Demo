@@ -1,14 +1,6 @@
 .credits {
     @extend %firstSection;
 
-    @media (min-width:1024px) {
-        padding: 145px 0 50px;
-
-        &.active {
-            padding: 265px 0 50px;
-        }
-    }
-
     .heading {
         @extend %headingCardCredit;
     }

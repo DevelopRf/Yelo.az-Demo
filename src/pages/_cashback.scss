@@ -39,12 +39,12 @@
 
         @include Grid($t-c: 1fr, $r-g: 15px);
 
-        @media (min-width: 768px) {
+        @include screenSize(tablet) {
             grid-template-columns: repeat(2, 1fr);
             column-gap: 15px;
         }
 
-        @media (min-width:1024px) {
+        @include screenSize(desktop) {
             @include Grid($t-c: auto 315px, $c-g: 25px, $r-g: 15px);
         }
 
@@ -96,7 +96,7 @@
                     background-color: $clr_primary;
                     transition: all 0.3s;
 
-                    @media (min-width:1024px) {
+                    @include screenSize(desktop) {
                         display: block;
                     }
 
@@ -144,12 +144,12 @@
 
             @include Grid($t-c: repeat(1, 1fr), $g: 15px);
 
-            @media (min-width:768px) {
+            @include screenSize(tablet){
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
             }
 
-            @media (min-width:1024px) {
+            @include screenSize(desktop){
                 grid-template-columns: repeat(3, 1fr);
                 gap: 30px;
             }
@@ -167,7 +167,7 @@
                     background-position: center;
                     background-size: contain;
 
-                    @media (min-width:768px) {
+                    @include screenSize(tablet){
                         background-size: 100%;
                     }
                 }
@@ -185,16 +185,15 @@
                                 color: #000;
                             }
 
-                            @media (min-width:1024px) {
+                            @include screenSize(desktop){
                                 font-size: 20px;
-
                             }
                         }
 
                         p {
                             color: $clr_grey_text;
 
-                            @media (min-width:1024px) {
+                            @include screenSize(desktop) {
                                 font-size: 18px;
                             }
                         }

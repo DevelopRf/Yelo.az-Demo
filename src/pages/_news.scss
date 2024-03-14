@@ -60,7 +60,7 @@
             font-size: 20px;
             text-align: center;
 
-            @media (min-width:1024px) {
+            @include screenSize(desktop) {
                 @include Font ($f-s: 54px, $l-h: 86px)
             }
         }

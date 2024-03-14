@@ -46,7 +46,7 @@
   }
 }
 
-.deposits .wrapper .depositItem .card .content .btn .btnOrder, .cashbackMain .wrapper .cashback .info .content .btn, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrder, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider {
+.deposits .wrapper .depositItem .card .content .btn .btnOrder, .cashbackMain .wrapper .cashback .info .content .btn, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrder, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider {
   position: relative;
   padding: 15px 20px;
   display: inline-block;
@@ -56,25 +56,25 @@
   color: #fff;
   transition: all 0.3s;
 }
-.deposits .wrapper .depositItem .card .content .btn .btnOrder span, .cashbackMain .wrapper .cashback .info .content .btn span, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder span, .credits .wrapper .creditItem .card .content .btn .btnOrder span, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider span {
+.deposits .wrapper .depositItem .card .content .btn .btnOrder span, .cashbackMain .wrapper .cashback .info .content .btn span, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder span, .credits .wrapper .creditItem .card .content .btn .btnOrder span, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider span {
   display: inline-block;
   color: #fff;
   transition: all 0.3s;
 }
 @media (min-width: 1024px) {
-  .deposits .wrapper .depositItem .card .content .btn .btnOrder span, .cashbackMain .wrapper .cashback .info .content .btn span, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder span, .credits .wrapper .creditItem .card .content .btn .btnOrder span, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider span {
+  .deposits .wrapper .depositItem .card .content .btn .btnOrder span, .cashbackMain .wrapper .cashback .info .content .btn span, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder span, .credits .wrapper .creditItem .card .content .btn .btnOrder span, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider span {
     font-size: 20px;
     position: relative;
     z-index: 1;
   }
 }
 @media (min-width: 1024px) {
-  .deposits .wrapper .depositItem .card .content .btn .btnOrder, .cashbackMain .wrapper .cashback .info .content .btn, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrder, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider {
+  .deposits .wrapper .depositItem .card .content .btn .btnOrder, .cashbackMain .wrapper .cashback .info .content .btn, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrder, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider {
     border-radius: 0;
     padding: 14px 79px;
     background-color: transparent;
   }
-  .deposits .wrapper .depositItem .card .content .btn .btnOrder::after, .cashbackMain .wrapper .cashback .info .content .btn::after, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder::after, .credits .wrapper .creditItem .card .content .btn .btnOrder::after, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider::after {
+  .deposits .wrapper .depositItem .card .content .btn .btnOrder::after, .cashbackMain .wrapper .cashback .info .content .btn::after, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder::after, .credits .wrapper .creditItem .card .content .btn .btnOrder::after, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider::after {
     content: "";
     display: inline-block;
     width: 100%;
@@ -97,7 +97,7 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   background-color: #ffc628;
 }
 
-.cashbackCards .container .btnMoreCard a, .credits .wrapper .creditItem .calcs .btnBox .btnOrder, .creditCard .cards .card form .resultBox .btn .btnOrder, .creditCard .cards .card:first-of-type .info .btn .btnOrder, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnOrder {
+.cashbackCards .container .btnMoreCard a, .credits .wrapper .creditItem .calcs .btnBox .btnOrder, .creditCard .cards .card form .resultBox .btn .btnOrder, .creditCard .cards .card:first-of-type .info .btn .btnOrder, body .modal .wrapper .swiper .swiper-slide .storyLeft .btnBox .btn .btnOrder {
   padding: 13px 25px;
   display: inline-block;
   background-color: #ffc628;
@@ -109,7 +109,7 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   font-size: 18px;
   line-height: 29px;
 }
-.cashbackCards .container .btnMoreCard a:hover, .credits .wrapper .creditItem .calcs .btnBox .btnOrder:hover, .creditCard .cards .card form .resultBox .btn .btnOrder:hover, .creditCard .cards .card:first-of-type .info .btn .btnOrder:hover, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnOrder:hover {
+.cashbackCards .container .btnMoreCard a:hover, .credits .wrapper .creditItem .calcs .btnBox .btnOrder:hover, .creditCard .cards .card form .resultBox .btn .btnOrder:hover, .creditCard .cards .card:first-of-type .info .btn .btnOrder:hover, body .modal .wrapper .swiper .swiper-slide .storyLeft .btnBox .btn .btnOrder:hover {
   background-color: #000;
   color: #fff;
 }
@@ -410,17 +410,17 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   transform: translateY(-50%);
 }
 
-.deposits .wrapper .depositItem .card .content .btn .btnMore, .creditCards .wrapper .creditCardItem .card .content .btn .btnMore, .credits .wrapper .creditItem .card .content .btn .btnMore, .creditCard .cards .card .title .btnMore, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore {
+.deposits .wrapper .depositItem .card .content .btn .btnMore, .creditCards .wrapper .creditCardItem .card .content .btn .btnMore, .credits .wrapper .creditItem .card .content .btn .btnMore, .creditCard .cards .card .title .btnMore, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .btnMore, body .modal .wrapper .swiper .swiper-slide .storyLeft .btnBox .btn .btnMore {
   position: relative;
   font-family: fB;
   padding: 0 45px 0 0;
 }
 @media (min-width: 1024px) {
-  .deposits .wrapper .depositItem .card .content .btn .btnMore, .creditCards .wrapper .creditCardItem .card .content .btn .btnMore, .credits .wrapper .creditItem .card .content .btn .btnMore, .creditCard .cards .card .title .btnMore, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore {
+  .deposits .wrapper .depositItem .card .content .btn .btnMore, .creditCards .wrapper .creditCardItem .card .content .btn .btnMore, .credits .wrapper .creditItem .card .content .btn .btnMore, .creditCard .cards .card .title .btnMore, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .btnMore, body .modal .wrapper .swiper .swiper-slide .storyLeft .btnBox .btn .btnMore {
     font-size: 20px;
   }
 }
-.deposits .wrapper .depositItem .card .content .btn .btnMore svg, .creditCards .wrapper .creditCardItem .card .content .btn .btnMore svg, .credits .wrapper .creditItem .card .content .btn .btnMore svg, .creditCard .cards .card .title .btnMore svg, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore svg, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore svg {
+.deposits .wrapper .depositItem .card .content .btn .btnMore svg, .creditCards .wrapper .creditCardItem .card .content .btn .btnMore svg, .credits .wrapper .creditItem .card .content .btn .btnMore svg, .creditCard .cards .card .title .btnMore svg, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .btnMore svg, body .modal .wrapper .swiper .swiper-slide .storyLeft .btnBox .btn .btnMore svg {
   position: absolute;
   right: 0;
   top: 50%;
@@ -428,7 +428,7 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   transform: translateY(-60%);
 }
 
-.deposits .wrapper .depositItem .card .content .btn .btnMore:hover svg, .creditCards .wrapper .creditCardItem .card .content .btn .btnMore:hover svg, .credits .wrapper .creditItem .card .content .btn .btnMore:hover svg, .creditCard .cards .card .title .btnMore:hover svg, .slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore:hover svg, body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore:hover svg {
+.deposits .wrapper .depositItem .card .content .btn .btnMore:hover svg, .creditCards .wrapper .creditCardItem .card .content .btn .btnMore:hover svg, .credits .wrapper .creditItem .card .content .btn .btnMore:hover svg, .creditCard .cards .card .title .btnMore:hover svg, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .btnMore:hover svg, body .modal .wrapper .swiper .swiper-slide .storyLeft .btnBox .btn .btnMore:hover svg {
   right: -8px;
 }
 
@@ -438,6 +438,7 @@ body .modal .wrapper .next, body .modal .wrapper .prev, body .modal .wrapper .cl
   height: 40px;
   background: no-repeat center;
   cursor: pointer;
+  z-index: 100;
 }
 
 .allNews .btnBox .btnMoreNews, .news .btnBox .btnAllNews {
@@ -451,13 +452,13 @@ body .modal .wrapper .next, body .modal .wrapper .prev, body .modal .wrapper .cl
   color: #0091FE;
   transition: all 0.3s;
 }
-.stories .cards .card:first-of-type, body .modal .wrapper .storyChange .changeItem:first-of-type, body .modal .wrapper .storySliders .sliderItem:first-of-type {
+.stories .cards .card:first-of-type, body .modal .wrapper .storyChange .changeItem:first-of-type {
   background-color: #81BD5B;
 }
-.stories .cards .card:nth-of-type(2), body .modal .wrapper .storyChange .changeItem:nth-of-type(2), body .modal .wrapper .storySliders .sliderItem:nth-of-type(2) {
+.stories .cards .card:nth-of-type(2), body .modal .wrapper .storyChange .changeItem:nth-of-type(2) {
   background-color: #0071C7;
 }
-.stories .cards .card:last-of-type, body .modal .wrapper .storyChange .changeItem:last-of-type, body .modal .wrapper .storySliders .sliderItem:last-of-type {
+.stories .cards .card:last-of-type, body .modal .wrapper .storyChange .changeItem:last-of-type {
   background-color: #D82A34;
 }
 
@@ -544,26 +545,26 @@ body .searchBox .formSearch .close, body .searchBox .formSearch .btnSearch {
   }
 }
 
-.allExchange .wrapper .heading, .deposits .heading, .creditCards .heading, .credits .heading {
+.allExchange .heading, .deposits .heading, .creditCards .heading, .credits .heading {
   text-align: center;
   max-width: 840px;
   margin: 5px auto 50px;
 }
-.allExchange .wrapper .heading h1, .deposits .heading h1, .creditCards .heading h1, .credits .heading h1 {
+.allExchange .heading h1, .deposits .heading h1, .creditCards .heading h1, .credits .heading h1 {
   font-family: fH;
   font-size: 20px;
 }
 @media (min-width: 1024px) {
-  .allExchange .wrapper .heading h1, .deposits .heading h1, .creditCards .heading h1, .credits .heading h1 {
+  .allExchange .heading h1, .deposits .heading h1, .creditCards .heading h1, .credits .heading h1 {
     font-size: 54px;
     line-height: 86px;
   }
 }
-.allExchange .wrapper .heading p, .deposits .heading p, .creditCards .heading p, .credits .heading p {
+.allExchange .heading p, .deposits .heading p, .creditCards .heading p, .credits .heading p {
   color: rgba(0, 0, 0, 0.5019607843);
 }
 @media (min-width: 1024px) {
-  .allExchange .wrapper .heading p, .deposits .heading p, .creditCards .heading p, .credits .heading p {
+  .allExchange .heading p, .deposits .heading p, .creditCards .heading p, .credits .heading p {
     font-size: 22px;
     line-height: 30px;
   }
@@ -603,19 +604,19 @@ body .searchBox .formSearch .close, body .searchBox .formSearch .btnSearch {
   }
 }
 
-.cashbackMain .wrapper, .slider .wrapper .sliderBox {
+.cashbackMain .wrapper, .slider .wrapper .swiper .swiper-slide {
   height: 400px;
   border-radius: 10px;
 }
 @media (min-width: 1024px) {
-  .cashbackMain .wrapper, .slider .wrapper .sliderBox {
+  .cashbackMain .wrapper, .slider .wrapper .swiper .swiper-slide {
     height: 505px;
     padding: 0;
     border-radius: 0;
   }
 }
 
-.cashbackMain .wrapper .cashback, .slider .wrapper .sliderBox .sliderItem {
+.cashbackMain .wrapper .cashback, .slider .wrapper .swiper .swiper-slide .sliderItem {
   position: relative;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -624,7 +625,7 @@ body .searchBox .formSearch .close, body .searchBox .formSearch .btnSearch {
   background-color: #ffc628;
 }
 
-.cashbackMain .wrapper .cashback .bg-color, .slider .wrapper .sliderBox .sliderItem .bg-color {
+.cashbackMain .wrapper .cashback .bg-color, .slider .wrapper .swiper .swiper-slide .sliderItem .bg-color {
   display: none;
   position: absolute;
   z-index: 4;
@@ -635,7 +636,7 @@ body .searchBox .formSearch .close, body .searchBox .formSearch .btnSearch {
   left: 0;
 }
 @media (min-width: 1024px) {
-  .cashbackMain .wrapper .cashback .bg-color::before, .slider .wrapper .sliderBox .sliderItem .bg-color::before {
+  .cashbackMain .wrapper .cashback .bg-color::before, .slider .wrapper .swiper .swiper-slide .sliderItem .bg-color::before {
     content: "";
     display: inline-block;
     position: absolute;
@@ -649,12 +650,12 @@ body .searchBox .formSearch .close, body .searchBox .formSearch .btnSearch {
   }
 }
 @media (min-width: 1024px) {
-  .cashbackMain .wrapper .cashback .bg-color, .slider .wrapper .sliderBox .sliderItem .bg-color {
+  .cashbackMain .wrapper .cashback .bg-color, .slider .wrapper .swiper .swiper-slide .sliderItem .bg-color {
     display: block;
   }
 }
 
-.cashbackMain .wrapper .cashback .image, .slider .wrapper .sliderBox .sliderItem .sliderImage {
+.cashbackMain .wrapper .cashback .image, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderImage {
   position: absolute;
   top: 0;
   width: 100%;
@@ -664,14 +665,14 @@ body .searchBox .formSearch .close, body .searchBox .formSearch .btnSearch {
   background-size: cover;
 }
 @media (min-width: 1024px) {
-  .cashbackMain .wrapper .cashback .image, .slider .wrapper .sliderBox .sliderItem .sliderImage {
+  .cashbackMain .wrapper .cashback .image, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderImage {
     width: 55%;
     height: 100%;
     right: 0;
   }
 }
 
-.cashbackMain .wrapper .cashback .info, .slider .wrapper .sliderBox .sliderItem .sliderInfo {
+.cashbackMain .wrapper .cashback .info, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo {
   position: relative;
   top: 190px;
   height: 210px;
@@ -680,70 +681,70 @@ body .searchBox .formSearch .close, body .searchBox .formSearch .btnSearch {
   margin: 0 auto;
 }
 @media (min-width: 1024px) {
-  .cashbackMain .wrapper .cashback .info, .slider .wrapper .sliderBox .sliderItem .sliderInfo {
+  .cashbackMain .wrapper .cashback .info, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo {
     height: 100%;
     top: 0;
   }
 }
 
-.cashbackMain .wrapper .cashback .info .content, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent {
+.cashbackMain .wrapper .cashback .info .content, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent {
   height: 100%;
   position: relative;
   padding: 20px 30px;
 }
 @media (min-width: 1024px) {
-  .cashbackMain .wrapper .cashback .info .content, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent {
+  .cashbackMain .wrapper .cashback .info .content, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent {
     padding: 0 20px;
     display: grid;
     align-content: center;
   }
 }
-.cashbackMain .wrapper .cashback .info .content h3, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent h3 {
+.cashbackMain .wrapper .cashback .info .content h3, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent h3 {
   font-family: fH;
   font-size: 20px;
   margin: 0 0 10px;
   cursor: text;
 }
 @media (min-width: 1024px) {
-  .cashbackMain .wrapper .cashback .info .content h3, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent h3 {
+  .cashbackMain .wrapper .cashback .info .content h3, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent h3 {
     font-size: 40px;
     line-height: 55px;
   }
 }
-.cashbackMain .wrapper .cashback .info .content p, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent p {
+.cashbackMain .wrapper .cashback .info .content p, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent p {
   cursor: text;
   line-height: normal;
   letter-spacing: 0.2px;
 }
 @media (min-width: 1024px) {
-  .cashbackMain .wrapper .cashback .info .content p, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent p {
+  .cashbackMain .wrapper .cashback .info .content p, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent p {
     font-size: 19px;
     line-height: 26px;
   }
 }
 
-.cashbackMain .wrapper .cashback .info .content .btn, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider {
+.cashbackMain .wrapper .cashback .info .content .btn, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider {
   position: absolute;
   bottom: 61px;
   left: 30px;
 }
-.cashbackMain .wrapper .cashback .info .content .btn:hover, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider:hover {
+.cashbackMain .wrapper .cashback .info .content .btn:hover, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider:hover {
   background-color: #fff;
 }
-.cashbackMain .wrapper .cashback .info .content .btn:hover span, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider:hover span {
+.cashbackMain .wrapper .cashback .info .content .btn:hover span, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider:hover span {
   color: #000;
 }
 @media (min-width: 1024px) {
-  .cashbackMain .wrapper .cashback .info .content .btn, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider {
+  .cashbackMain .wrapper .cashback .info .content .btn, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider {
     left: 20px;
   }
-  .cashbackMain .wrapper .cashback .info .content .btn:hover, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider:hover {
+  .cashbackMain .wrapper .cashback .info .content .btn:hover, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider:hover {
     background-color: transparent;
   }
-  .cashbackMain .wrapper .cashback .info .content .btn:hover::after, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider:hover::after {
+  .cashbackMain .wrapper .cashback .info .content .btn:hover::after, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider:hover::after {
     background-color: #fff;
   }
-  .cashbackMain .wrapper .cashback .info .content .btn:hover span, .slider .wrapper .sliderBox .sliderItem .sliderInfo .sliderContent .btnSlider:hover span {
+  .cashbackMain .wrapper .cashback .info .content .btn:hover span, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider:hover span {
     color: #000;
   }
 }
@@ -947,7 +948,6 @@ body .searchBox.active {
   height: 100px;
 }
 body .mobAppDesk {
-  display: none;
   height: 0;
   overflow: hidden;
   background-repeat: no-repeat;
@@ -962,7 +962,6 @@ body .mobAppDesk {
 }
 @media (min-width: 1024px) {
   body .mobAppDesk.active {
-    display: block;
     height: 120px;
   }
 }
@@ -1119,73 +1118,73 @@ body .modal .wrapper {
   top: 50%;
   transform: translate(-50%, -50%);
 }
-body .modal .wrapper .storySliders {
+body .modal .wrapper .swiper {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
   display: grid;
   grid-template-columns: repeat(3, 100%);
-  border-radius: 20px;
-  overflow: hidden;
 }
-body .modal .wrapper .storySliders .sliderItem {
+body .modal .wrapper .swiper .swiper-slide {
   height: 480px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 220px;
-  transition: transform 0.3s;
 }
 @media (min-width: 1024px) {
-  body .modal .wrapper .storySliders .sliderItem {
+  body .modal .wrapper .swiper .swiper-slide {
     display: grid;
     grid-template-columns: repeat(2, 50%);
     grid-template-rows: 1fr;
   }
 }
-body .modal .wrapper .storySliders .sliderItem .storyLeft {
+body .modal .wrapper .swiper .swiper-slide .storyLeft {
   padding: 50px 20px 0;
 }
 @media (min-width: 1024px) {
-  body .modal .wrapper .storySliders .sliderItem .storyLeft {
+  body .modal .wrapper .swiper .swiper-slide .storyLeft {
     padding: 0 20px 0 60px;
     align-self: center;
   }
 }
-body .modal .wrapper .storySliders .sliderItem .storyLeft .storyText {
+body .modal .wrapper .swiper .swiper-slide .storyLeft .storyText {
   padding: 0 0 20px;
 }
-body .modal .wrapper .storySliders .sliderItem .storyLeft .storyText p {
+body .modal .wrapper .swiper .swiper-slide .storyLeft .storyText p {
   font-family: fM;
   font-size: 24px;
   line-height: 1.3;
   color: #fff;
 }
-body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox {
+body .modal .wrapper .swiper .swiper-slide .storyLeft .btnBox {
   display: grid;
   align-items: center;
   grid-template-columns: repeat(2, 1fr);
 }
 @media (min-width: 1024px) {
-  body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox {
+  body .modal .wrapper .swiper .swiper-slide .storyLeft .btnBox {
     grid-template-columns: 1fr;
     row-gap: 30px;
   }
 }
-body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore {
+body .modal .wrapper .swiper .swiper-slide .storyLeft .btnBox .btn .btnMore {
   padding: 5px 38px 5px 0;
   color: #fff;
 }
-body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore svg {
+body .modal .wrapper .swiper .swiper-slide .storyLeft .btnBox .btn .btnMore svg {
   width: 28px;
   height: 13px;
 }
-body .modal .wrapper .storySliders .sliderItem .storyLeft .btnBox .btn .btnMore svg g {
+body .modal .wrapper .swiper .swiper-slide .storyLeft .btnBox .btn .btnMore svg g {
   fill: #fff;
 }
-body .modal .wrapper .storySliders .sliderItem .storyImage {
+body .modal .wrapper .swiper .swiper-slide .storyImage {
   background: no-repeat center 100%;
   background-size: contain;
   height: 220px;
 }
 @media (min-width: 1024px) {
-  body .modal .wrapper .storySliders .sliderItem .storyImage {
+  body .modal .wrapper .swiper .swiper-slide .storyImage {
     width: 380px;
     height: 480px;
   }
@@ -1232,6 +1231,7 @@ body .modal .wrapper .progressBar {
   left: 0;
   top: 25px;
   width: 92%;
+  z-index: 10;
 }
 @media (min-width: 1024px) {
   body .modal .wrapper .progressBar {
@@ -1403,6 +1403,9 @@ button {
 }
 .header.active {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+.header.position {
+  top: 120px;
 }
 .header .headerTop {
   border-bottom: 1px solid #ececec;
@@ -2133,60 +2136,58 @@ footer .footBottom .wrapper .siteBy a {
     padding: 120px 0 50px;
   }
 }
-.slider .wrapper {
-  will-change: transform;
-}
-.slider .wrapper .sliderBox {
-  display: grid;
-  grid-template-columns: repeat(4, 100%);
-  overflow-x: hidden;
+.slider .wrapper .swiper {
+  width: 100%;
+  height: 100%;
   position: relative;
 }
-.slider .wrapper .sliderBox .sliderItem {
-  transition: all 0.3s;
+.slider .wrapper .swiper .swiper-slide {
+  font-size: 18px;
+  background: #fff;
+  display: grid;
 }
-.slider .wrapper .sliderBox .sliderItem .sliderInfo .btnMore {
+.slider .wrapper .swiper .swiper-slide .sliderItem {
+  width: 100%;
+}
+.slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .btnMore {
   position: absolute;
   bottom: 61px;
   left: 30px;
   color: #000;
 }
-.slider .wrapper .sliderBox .sliderItem .cover {
-  position: absolute;
-  inset: 0;
-  z-index: 9;
-  scroll-snap-align: start;
-  background-color: transparent;
-  filter: grayscale(100%);
-}
-.slider .wrapper .dot {
+.slider .wrapper .swiper .dot {
+  --swiper-pagination-bottom: 220px;
   display: grid;
   grid-template-columns: repeat(4, max-content);
   -moz-column-gap: 20px;
        column-gap: 20px;
   position: absolute;
-  top: 170px;
+  width: auto;
+  bottom: var(--swiper-pagination-bottom);
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
 }
 @media (min-width: 1024px) {
-  .slider .wrapper .dot {
+  .slider .wrapper .swiper .dot {
     top: 470px;
-    left: 80%;
+    left: 78%;
   }
 }
-.slider .wrapper .dot li {
+.slider .wrapper .swiper .dot .swiper-pagination-bullet {
+  display: inline-block;
   width: 8px;
   height: 8px;
+  margin: 0;
   border-radius: 50%;
   background-color: #000;
+  opacity: 1;
   position: relative;
   cursor: pointer;
 }
-.slider .wrapper .dot li.selected::after {
+.slider .wrapper .swiper .dot .swiper-pagination-bullet.swiper-pagination-bullet-active::after {
   content: "";
-  display: block;
+  display: inline-block;
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -2773,14 +2774,6 @@ footer .footBottom .wrapper .siteBy a {
   transition: all 0.15s;
 }
 
-@media (min-width: 1024px) {
-  .credits {
-    padding: 145px 0 50px;
-  }
-  .credits.active {
-    padding: 265px 0 50px;
-  }
-}
 .credits .wrapper .creditItem:last-child .card .image {
   position: relative;
 }
@@ -3111,21 +3104,13 @@ footer .footBottom .wrapper .siteBy a {
     background-position: bottom;
   }
 }
-@media (min-width: 1024px) {
-  .allExchange .wrapper {
-    padding: 145px 0 110px;
-  }
-  .allExchange .wrapper.active {
-    padding: 265px 0 50px;
-  }
-}
-.allExchange .wrapper .heading .exchange-type {
+.allExchange .heading .exchange-type {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(2, max-content);
   margin: 30px 0 0;
 }
-.allExchange .wrapper .heading .exchange-type a {
+.allExchange .heading .exchange-type a {
   display: inline-block;
   font-family: fB;
   height: 55px;
@@ -3135,16 +3120,16 @@ footer .footBottom .wrapper .siteBy a {
   border: 1px solid #ececec;
   transition: 0.3s;
 }
-.allExchange .wrapper .heading .exchange-type a:first-child {
+.allExchange .heading .exchange-type a:first-child {
   border-radius: 10px 0 0 10px;
 }
-.allExchange .wrapper .heading .exchange-type a:last-child {
+.allExchange .heading .exchange-type a:last-child {
   border-radius: 0 10px 10px 0;
 }
-.allExchange .wrapper .heading .exchange-type a:hover {
+.allExchange .heading .exchange-type a:hover {
   background-color: #ffc628;
 }
-.allExchange .wrapper .heading .exchange-type a.active {
+.allExchange .heading .exchange-type a.active {
   background-color: #ffc628;
 }
 .allExchange .wrapper .buy-sell {

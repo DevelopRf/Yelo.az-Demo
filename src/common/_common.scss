@@ -59,7 +59,6 @@ body {
     }
 
     .mobAppDesk {
-        display: none;
         height: 0;
         overflow: hidden;
         background-repeat: no-repeat;
@@ -72,9 +71,8 @@ body {
         z-index: 9999;
         transition: all 0.3s;
 
-        @media (min-width:1024px) {
+        @include screenSize(desktop) {
             &.active {
-                display: block;
                 height: 120px;
             }
         }
@@ -232,7 +230,7 @@ body {
         z-index: 999999999;
         padding: 0 15px;
 
-        @media (min-width:1024px) {
+        @include screenSize(desktop) {
             padding: 0;
         }
 
@@ -247,26 +245,25 @@ body {
             top: 50%;
             transform: translate(-50%, -50%);
 
-            .storySliders {
-                @include Grid($t-c: repeat(3, 100%));
+            .swiper {
+                width: 100%;
+                height: 100%;
                 border-radius: 20px;
-                overflow: hidden;
+                @include Grid($t-c: repeat(3, 100%));
 
-                .sliderItem {
+                .swiper-slide {
+
                     height: 480px;
                     @include Grid($t-c: 1fr, $t-r: auto 220px);
 
-                    @media (min-width:1024px) {
+                    @include screenSize(desktop) {
                         @include Grid($t-c: repeat(2, 50%), $t-r: 1fr);
                     }
-
-                    @extend %storyColor;
-                    transition: transform 0.3s;
 
                     .storyLeft {
                         padding: 50px 20px 0;
 
-                        @media (min-width:1024px) {
+                        @include screenSize(desktop) {
                             padding: 0 20px 0 60px;
                             align-self: center;
                         }
@@ -284,7 +281,7 @@ body {
                         .btnBox {
                             @include Grid($t-c: repeat(2, 1fr), $a-i: center);
 
-                            @media (min-width:1024px) {
+                            @include screenSize(desktop) {
                                 grid-template-columns: 1fr;
                                 row-gap: 30px;
                             }
@@ -321,12 +318,11 @@ body {
                         background-size: contain;
                         height: 220px;
 
-                        @media (min-width:1024px) {
+                        @include screenSize(desktop) {
                             width: 380px;
                             height: 480px;
                         }
                     }
-
                 }
             }
 
@@ -336,7 +332,7 @@ body {
                 top: 6px;
                 background-size: 16px;
 
-                @media (min-width:1024px) {
+                @include screenSize(desktop) {
                     right: -55px;
                     top: 15px;
                     background-size: 24px;
@@ -347,7 +343,7 @@ body {
             .next {
                 display: none;
 
-                @media (min-width:1024px) {
+                @include screenSize(desktop) {
                     display: block;
                 }
             }
@@ -373,8 +369,9 @@ body {
                 left: 0;
                 top: 25px;
                 width: 92%;
+                z-index: 10;
 
-                @media (min-width:1024px) {
+                @include screenSize(desktop) {
                     width: 100%;
                 }
 
@@ -519,7 +516,7 @@ button {
     margin: 0 auto;
     padding: 0 15px;
 
-    @media (min-width:1024px) {
+    @include screenSize(desktop) {
         padding: 0 20px;
     }
 }

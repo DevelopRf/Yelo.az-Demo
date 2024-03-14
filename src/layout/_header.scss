@@ -8,7 +8,10 @@
     box-shadow: none;
 
     &.active {
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);        
+    }
+    &.position{
+        top: 120px;
     }
 
     .headerTop {

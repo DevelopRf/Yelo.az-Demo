@@ -482,6 +482,7 @@
     height: 40px;
     background: no-repeat center;
     cursor: pointer;
+    z-index: 100;
 }
 
 %btnNews {
@@ -617,7 +618,7 @@
     h2 {
         @extend %headingH3;
 
-        @media (min-width:1024px) {
+        @include screenSize(desktop){
             font-size: 25px;
             padding: 0;
         }
@@ -633,7 +634,7 @@
         font-family: fH;
         font-size: 20px;
 
-        @media (min-width:1024px) {
+        @include screenSize(desktop){
             @include Font($f-s: 54px, $l-h: 86px);
         }
     }
@@ -676,7 +677,7 @@
         padding: 0 0 50px;
     }
 
-    @media (min-width:1024px) {
+    @include screenSize(desktop){
         padding: 145px 0 50px;
 
         &.active {

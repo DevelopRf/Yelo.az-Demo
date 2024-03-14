@@ -4,7 +4,7 @@ const container = document.querySelector(".cashbackCards .container")
 const cards = document.querySelector(".cashbackCards .cards")
 const getCashback = () => {
 
-    const getCashbackData = async () => {
+    const getCashbackDb = async () => {
         const url = "http://localhost:3000/cashback"
         const response = await fetch(url)
 
@@ -30,7 +30,7 @@ const getCashback = () => {
     const search = document.querySelector(".filters .search")
     const btnFilter = document.querySelectorAll(".filters .btnFilter li")
     const btnMoreCard = document.querySelector(".cashbackCards .btnMoreCard")
-    getCashbackData()
+    getCashbackDb()
         .then(data => {
 
             function getCashbackData(item) {
@@ -77,47 +77,25 @@ const getCashback = () => {
             }
 
             getCashbackData(data)
-
+            let btnfilterCash = ""
             btnFilter.forEach(btn => {
-
-                const btnfilterCash = data.filter(item => item.category === btn.innerText)
-
+                
                 btn.addEventListener("click", () => {
+                    filter = "btnFilter"
+                    btnfilterCash = data.filter(item => item.category === btn.innerText)
                     resultData = ""
                     cards.innerHTML = ""
                     container.classList.add("active")
                     btnMoreCard.classList.add("visibility")
-                    btnfilterCash.forEach(filter => {
-                        resultData += `<div class="card">
-                        <div class="cardImage">
-                        <a href = "#"><div class="cardImage" style ="background-image: url(${filter.img})"></div></a>
-    
-                        </div>
-                        <div class="content">
-                            <div class="info">
-                            <h3><a href = "#">${filter.name}</a></h3>
-                                <p>${filter.category}</p>
-                            </div>
-                            <div class="discount">
-                                <p>${filter.discount}</p>
-                                <span>${filter.currency}</span>
-                            </div>
-                        </div>
-                    </div>`
-                    })
                     setTimeout(() => {
-                        cards.innerHTML = resultData
-                        container.classList.remove("active")
-                        
+                        getCashbackData(btnfilterCash)                        
+                        container.classList.remove("active")                        
                     }, 1500)
                 })
             })
 
             function getSearchResult(search) {
-
-                resultData = ""
                 searchFilter = search.filter(item => item.name.toLowerCase().includes(searchInput.value.toLowerCase()))
-                searchFilter.length < 21 ? btnMoreCard.classList.add("visibility") : btnMoreCard.classList.remove("visibility")
                 searchFilter.forEach(filter => {
                     resultData += `<div class="card">
                         <a href = "#"><div class="cardImage" style ="background-image: url(${filter.img})"></div></a>
@@ -209,8 +187,9 @@ const getCashback = () => {
 
                 return categories;
             }
-            let categories = removeDuplicates(cats, 'category');
 
+            let categories = removeDuplicates(cats, 'category');
+console.log(categories);
             const selectCat = document.querySelector("#category")
 
             categories.forEach(element => {
@@ -288,8 +267,9 @@ const getCashback = () => {
                     btnMoreCard.classList.add("active")
                     setTimeout(() => {
                         btnMoreCard.classList.remove("active")
-                        filter === "" || filter === "all" && getMoreCards(data)
-                        filter === "change" && getMoreCards(selectFilter)
+                        if(filter === "" || filter === "all") getMoreCards(data)
+                        else if(filter === "change" ) getMoreCards(selectFilter)
+                        else if(filter === "btnFilter") getMoreCards(btnfilterCash)
                     }, 1500);
                 })
             }

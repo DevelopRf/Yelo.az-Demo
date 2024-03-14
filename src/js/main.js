@@ -12,10 +12,7 @@ const btnSearch = document.querySelector('.headerTop .navbarRight .menu li:nth-c
 const headerBottom = document.querySelector('.headerBottom')
 const btnBankInter = document.querySelector('.btnBankInter')
 const slider = document.querySelector('.slider')
-const sliders = document.querySelectorAll('.slider .sliderItem')
-const dots = document.querySelectorAll('.dot li')
 const storyChange = document.querySelectorAll('.storyChange .changeItem')
-const stories = document.querySelectorAll('.storySliders .sliderItem')
 const storyCards = document.querySelectorAll('.stories .card')
 const close = document.querySelector('.modal .close')
 const searchClose = document.querySelector('.searchBox .close')
@@ -31,10 +28,40 @@ let screenSize = false
 let scrolling = 0
 let scrollPage = 0
 
-if(useful || allExchange){
+slider && new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: {
+        delay: 3500
+    },
+    pagination: {
+        el: ".dot",
+        clickable: true,
+    }
+});
+
+const swiper = new Swiper(".mySwiper1", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    autoplay: {
+        delay: 10000
+    },
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".next",
+        prevEl: ".prev"
+    }
+});
+
+if (useful || allExchange) {
     exchange()
 
-} 
+}
 
 langBtn.addEventListener('click', () => {
     lang.classList.toggle("active")
@@ -80,68 +107,6 @@ leftMenuTop.forEach((item, index) => {
     })
 })
 
-const sliderBox = document.querySelector(".wrapper .sliderBox")
-
-function sliderMain() {
-    let indexMain = 0
-    let intervalMain = null
-    const goToSlide = (slideIndex) => {
-        for (const element of sliders) {
-            element.style.transform = `translateX(-${slideIndex * 100}%)`;
-        }
-        for (const dot of dots) {
-            dot.classList.remove('selected');
-        }
-        dots[slideIndex].classList.add('selected');
-    };
-    const startIntervalMain = () => {
-        intervalMain = setInterval(() => {
-            indexMain++;
-            if (indexMain > dots.length - 1) {
-                indexMain = 0;
-            }
-            slider && goToSlide(indexMain);
-        }, 10000);
-    };
-    dots.forEach((dot, dotIndex) => {
-        dot.addEventListener("click", () => {
-            clearInterval(intervalMain);
-            indexMain = dotIndex;
-            dots && goToSlide(indexMain);
-            startIntervalMain();
-        });
-    });
-    startIntervalMain();
-}
-slider && sliderMain()
-
-function moveItem() {
-    let isDragging = false, startX, startScrollLeft;
-
-    const dragStart = (e) => {
-        isDragging = true
-        sliderBox.classList.add("dragging")
-        startX = e.clientX;
-        startScrollLeft = sliderBox.scrollLeft
-    }
-
-    const dragStop = () => {
-        isDragging = false
-        sliderBox.classList.remove("dragging")
-    }
-
-    const dragging = (e) => {
-        if (!isDragging) return;
-        sliderBox.scrollLeft = startScrollLeft - (e.clientX - startX)
-    }
-
-    sliderBox.addEventListener("mousedown", dragStart)
-    sliderBox.addEventListener("mousemove", dragging)
-    sliderBox.addEventListener("mouseup", dragStop)
-}
-
-slider || stories || moveItem()
-
 function timeBar(barİndex) {
     const progress = document.querySelectorAll('.progressBar li .progress')
     for (const item of progress) {
@@ -150,72 +115,51 @@ function timeBar(barİndex) {
     progress[barİndex].classList.add('active')
 }
 
+
 function sliderStories() {
-    let index = 0
-    let interval = null
+
+    const slideritem = document.querySelectorAll(".mySwiper1 [data-index]")
+
+    slideritem.forEach(item => {
+        if (item.dataset.index === "0") {
+            item.style.backgroundColor = "#81BD5B"
+        }
+        else if (item.dataset.index === "1") {
+            item.style.backgroundColor = "#0071C7"
+        }
+        else if (item.dataset.index === "2") {
+            item.style.backgroundColor = "#D82A34"
+        }
+    })
     const prevSlider = document.querySelector('.modal .prev')
     const nextSlider = document.querySelector('.modal .next')
-
-    const goToSlideStories = (slideIndex) => {
-        for (const element of stories) {
-            element.style.transform = `translateX(-${slideIndex * 100}%)`;
-        }
-        timeBar(slideIndex)
-    };
-
-    storyCards.forEach((dot, dotIndex) => {
+    storyCards.forEach((dot, sliderIndex) => {
         dot.addEventListener("click", () => {
+            swiper.slideToLoop(sliderIndex)
             modal.classList.add('activeModal')
-            clearInterval(interval);
-            index = dotIndex;
-            goToSlideStories(index);
-            startInterval();
+            swiper.autoplay.start()
+            timeBar(swiper.realIndex)
         })
     })
-
-    storyChange.forEach((dot, dotIndex) => {
-        dot.addEventListener("click", () => {
-            clearInterval(interval);
-            index = dotIndex;
-            goToSlideStories(index);
-            startInterval();
-        })
-    })
-
-    const startInterval = () => {
-        interval = setInterval(() => {
-            index++;
-            if (index > stories.length - 1) {
-                index = 0;
-            }
-            goToSlideStories(index);
-        }, 10000);
-    };
 
     prevSlider && prevSlider.addEventListener("click", () => {
-        clearInterval(interval);
-        index--
-        if (index < 0) {
-            index = stories.length - 1
-        }
-        for (const element of stories) {
-            element.style.transform = `translateX(-${index * 100}%)`
-        }
-        timeBar(index)
-        startInterval()
+        timeBar(swiper.realIndex)
     })
 
     nextSlider && nextSlider.addEventListener("click", () => {
-        clearInterval(interval);
-        index++
-        if (index > stories.length - 1) {
-            index = 0
-        }
-        for (const element of stories) {
-            element.style.transform = `translateX(-${index * 100}%)`
-        }
-        timeBar(index)
-        startInterval()
+
+        timeBar(swiper.realIndex)
+    })
+
+    storyChange.forEach((item, sliderIndex) => {
+        item.addEventListener("click", () => {
+            swiper.slideToLoop(sliderIndex)
+        })
+    })
+
+    swiper.on("slideChange", () => {
+
+        timeBar(swiper.realIndex)
     })
 }
 
@@ -255,10 +199,12 @@ function headerEffect() {
     document.addEventListener('scroll', () => {
         scrolling = window.scrollY
         if (scrolling > scrollPage) {
-            addEffect()
+            headerTop.classList.add('active')
+            btnBankInter.classList.add('active')
         }
         else {
-            removeEffect()
+            headerTop.classList.remove('active')
+            btnBankInter.classList.remove('active')
         }
 
         if (scrolling == 0) {
@@ -285,44 +231,52 @@ function headerEffect() {
 }
 
 headerEffect()
-
-
-
-function addEffect() {
-    headerTop.classList.add('active')
-    btnBankInter.classList.add('active')
-}
-
+const mobAppDesk = document.querySelector('.mobAppDesk')
 function removeEffect() {
-    headerTop.classList.remove('active')
-    btnBankInter.classList.remove('active')
+    mobAppDesk.classList.remove("active")
+    slider && slider.classList.remove('active')
+    allNews && allNews.classList.remove('active')
+    credits && credits.classList.remove('active')
+    creditCards && creditCards.classList.remove('active')
+    cashbackMain && cashbackMain.classList.remove('.active')
+    bigMenu.classList.remove("active-position")
+    allExchange && allExchange.classList.remove("active")
+    header && header.classList.remove("position")
+}
+function addEffect() {
+    mobAppDesk.classList.add("active")
+    slider && slider.classList.add("active")
+    allNews && allNews.classList.add('active')
+    credits && credits.classList.add('active')
+    creditCards && creditCards.classList.add('active')
+    cashbackMain && cashbackMain.classList.add('.active')
+    bigMenu.classList.add("active-position")
+    allExchange && allExchange.classList.add("active")
+    header && header.classList.add("position")
 }
 
 function mobilApp() {
     let active
     const mobileTopClose = document.querySelector('.mobAppDesk .close')
-    const mobAppDesk = document.querySelector('.mobAppDesk')
     const mobApp = document.querySelector('.mobApp')
     const mobAppClose = document.querySelector('.mobApp .close')
+    mobileTopClose.addEventListener('click', () => {
+        sessionStorage.setItem("status", active)
+        removeEffect()
+        active = false
+    })
+    mobAppClose.addEventListener('click', () => {
+        mobApp.classList.remove('active')
+        active = false
+        sessionStorage.setItem("status", active)
+    })
     setTimeout(() => {
         if (screenSize) {
-            if (localStorage.getItem("status")) {
-                mobAppDesk.classList.remove("active")
-                slider && slider.classList.remove('active')
-                allNews && allNews.classList.remove('active')
-                credits && credits.classList.remove('active')
-                creditCards && creditCards.classList.remove('active')
-                cashbackMain && cashbackMain.classList.remove('.active')
-                bigMenu.classList.remove("active-position")
+            if (sessionStorage.getItem("status")) {
+                removeEffect()
             }
             else {
-                mobAppDesk.classList.add("active")
-                slider && slider.classList.add("active")
-                allNews && allNews.classList.add('active')
-                credits && credits.classList.add('active')
-                creditCards && creditCards.classList.add('active')
-                cashbackMain && cashbackMain.classList.add('.active')
-                bigMenu.classList.add("active-position")
+                addEffect()
             }
         }
         else {
@@ -331,7 +285,7 @@ function mobilApp() {
             slider && slider.classList.remove('active')
             allNews && allNews.classList.remove('active')
 
-            if ((localStorage.getItem("status"))) {
+            if ((sessionStorage.getItem("status"))) {
                 mobApp.classList.remove('active')
             }
             else {
@@ -340,26 +294,9 @@ function mobilApp() {
 
         }
     }, 2500);
-
-    mobileTopClose.addEventListener('click', () => {
-        header.style.top = 0
-        mobAppDesk.style.height = 0
-        slider.classList.remove("active")
-        active = false
-
-        localStorage.setItem("status", active)
-    })
-    mobAppClose.addEventListener('click', () => {
-        mobApp.classList.remove('active')
-        active = false
-        localStorage.setItem("status", active)
-    })
 }
 
 mobilApp()
-
-
-
 
 function getAboutCredit() {
     const txtMore = document.querySelector(".txtMore")
