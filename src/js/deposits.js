@@ -2,7 +2,7 @@ const wrapper = document.querySelector(".deposits .wrapper")
 function getDepositData() {
     let resultData = ""
     const getDeposits = async () => {
-        const url = "http://localhost:3000/deposits"
+        const url = "http://localhost:3000/db-deposits"
         const response = await fetch(url)
         try {
             if (!response) {
@@ -87,6 +87,4 @@ function getDepositData() {
         })
 }
 
-wrapper && getDepositData()
-
-export { getDepositData }
+getDepositData()

@@ -1,5 +1,4 @@
 import cashbackMain from "./cashback.js"
-import { getDepositData } from "./deposits.js"
 import { exchange } from "./exchange.js"
 import { credits } from "./credit.js"
 import creditCards from "./credit-cards.js"

@@ -1,6 +1,6 @@
 let resultData = ""
 const exchangeData = async () => {
-    const url = "http://localhost:3000/exchange"
+    const url = "http://localhost:3000/db-exchange"
     const response = await fetch(url)
     try {
         if (!response.ok) {

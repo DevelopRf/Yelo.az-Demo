@@ -4,7 +4,7 @@ let resultData = ""
 const creditCards = document.querySelector('.creditCards')
 const getCards = () => {
     const getCardData = async () => {
-        const url = "http://localhost:3000/cards"
+        const url = "http://localhost:3000/db-cards"
         const response = await fetch(url)
         try {
             if (!response.ok) {

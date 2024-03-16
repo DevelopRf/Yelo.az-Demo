@@ -4,7 +4,7 @@ const credits = document.querySelector('.credits')
 let resultData = ""
 const getCredits = () => {
     const getCreditData = async ()=> {
-        const url = "http://localhost:3000/credits"
+        const url = "http://localhost:3000/db-credits"
     
         const response = await fetch(url)
         try {

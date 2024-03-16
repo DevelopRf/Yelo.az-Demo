@@ -2,10 +2,11 @@ let resultData = ""
 const cashbackMain = document.querySelector('.cashbackMain')
 const container = document.querySelector(".cashbackCards .container")
 const cards = document.querySelector(".cashbackCards .cards")
+
 const getCashback = () => {
 
     const getCashbackDb = async () => {
-        const url = "http://localhost:3000/cashback"
+        const url = "http://localhost:3000/db-cashback"
         const response = await fetch(url)
 
         try {
@@ -24,8 +25,8 @@ const getCashback = () => {
     let arrLength = 21
     let indexArr = 21
     let filter = ""
-    let selectFilter = ""
     let searchFilter = ""
+    let selectFilter = ""
     const searchInput = document.querySelector(".filters .search input")
     const search = document.querySelector(".filters .search")
     const btnFilter = document.querySelectorAll(".filters .btnFilter li")
@@ -79,7 +80,7 @@ const getCashback = () => {
             getCashbackData(data)
             let btnfilterCash = ""
             btnFilter.forEach(btn => {
-                
+
                 btn.addEventListener("click", () => {
                     filter = "btnFilter"
                     btnfilterCash = data.filter(item => item.category === btn.innerText)
@@ -88,14 +89,16 @@ const getCashback = () => {
                     container.classList.add("active")
                     btnMoreCard.classList.add("visibility")
                     setTimeout(() => {
-                        getCashbackData(btnfilterCash)                        
-                        container.classList.remove("active")                        
+                        getCashbackData(btnfilterCash)
+                        container.classList.remove("active")
                     }, 1500)
                 })
             })
 
             function getSearchResult(search) {
-                searchFilter = search.filter(item => item.name.toLowerCase().includes(searchInput.value.toLowerCase()))
+                resultData = ""
+
+                searchFilter.length < 21 ? btnMoreCard.classList.add("visibility") : btnMoreCard.classList.remove("visibility")
                 searchFilter.forEach(filter => {
                     resultData += `<div class="card">
                         <a href = "#"><div class="cardImage" style ="background-image: url(${filter.img})"></div></a>
@@ -125,27 +128,18 @@ const getCashback = () => {
                         search.classList.add("search-active")
                     }, 1500)
                     timer1 = setTimeout(() => {
-                        console.log(filter);
                         if (filter === "" || filter === "all") {
-                            if (searchInput.value === "") {
-                                getCashbackData(data)
-                            }
-                            else {
-                                getSearchResult(data)
-                            }
+                            searchFilter = data.filter(item => item.name.toLowerCase().includes(searchInput.value.toLowerCase()))
+                            getCashbackData(searchFilter)
+                            console.log(searchFilter);
                         }
 
                         else {
-                            if (searchInput.value === "") {
-                                getCashbackData(selectFilter)                                
-                                indexArr = 21
-                                arrLength = 21
-                            }
-                            else {
-                                getSearchResult(selectFilter)
-                            }
+                            searchFilter = selectFilter.filter(item => item.name.toLowerCase().includes(searchInput.value.toLowerCase()))
+                            getCashbackData(searchFilter)
+                            indexArr = 21
+                            arrLength = 21
                         }
-                        console.log(searchFilter.length);
 
                         if (searchFilter.length === 0 && searchInput.value !== "") {
                             searchResult = document.createElement("h2")
@@ -159,8 +153,7 @@ const getCashback = () => {
                             searchResult && cards.removeChild(searchResult)
                         }
                         search.classList.remove("search-active")
-                        clearTimeout(timer)
-
+                        clearInterval(timer)
                     }, 3000)
                 }
                 startTimer()
@@ -189,13 +182,11 @@ const getCashback = () => {
             }
 
             let categories = removeDuplicates(cats, 'category');
-console.log(categories);
             const selectCat = document.querySelector("#category")
 
             categories.forEach(element => {
                 selectCat && (selectCat.innerHTML += `<option value=${element.value}>${element.category}</option>`)
             })
-
 
             selectCat && selectCat.addEventListener("change", () => {
                 arrLength = 21
@@ -212,7 +203,6 @@ console.log(categories);
                     setTimeout(() => {
                         getCashbackData(data)
                         container.classList.remove("active")
-                        data.length < 21 ? btnMoreCard.classList.add("visibility") : btnMoreCard.classList.remove("visibility")
                     }, 1500);
                 }
                 else {
@@ -220,7 +210,6 @@ console.log(categories);
                     setTimeout(() => {
                         getCashbackData(selectFilter)
                         container.classList.remove("active")
-                        selectFilter.length < 21 ? btnMoreCard.classList.add("visibility") : btnMoreCard.classList.remove("visibility")
                     }, 1500);
                 }
             })
@@ -267,9 +256,9 @@ console.log(categories);
                     btnMoreCard.classList.add("active")
                     setTimeout(() => {
                         btnMoreCard.classList.remove("active")
-                        if(filter === "" || filter === "all") getMoreCards(data)
-                        else if(filter === "change" ) getMoreCards(selectFilter)
-                        else if(filter === "btnFilter") getMoreCards(btnfilterCash)
+                        if (filter === "" || filter === "all") getMoreCards(data)
+                        else if (filter === "change") getMoreCards(selectFilter)
+                        else if (filter === "btnFilter") getMoreCards(btnfilterCash)
                     }, 1500);
                 })
             }
@@ -278,6 +267,6 @@ console.log(categories);
         })
 }
 
-cards && getCashback()
+getCashback()
 
 export default cashbackMain

@@ -7,7 +7,7 @@ let arrLength = 0
 let indexArr = 0
 
 const getnews = async () =>{
-    const url = "http://localhost:3000/news"
+    const url = "http://localhost:3000/db-news"
     const response = await fetch(`${url}`)
     try {
       if (!response.ok) {
