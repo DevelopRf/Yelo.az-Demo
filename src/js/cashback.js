@@ -27,7 +27,9 @@ const getCashback = () => {
     let filter = ""
     let searchFilter = ""
     let selectFilter = ""
+    let searchResult = ""
     const searchInput = document.querySelector(".filters .search input")
+    const selectCat = document.querySelector("#category")
     const search = document.querySelector(".filters .search")
     const btnFilter = document.querySelectorAll(".filters .btnFilter li")
     const btnMoreCard = document.querySelector(".cashbackCards .btnMoreCard")
@@ -62,7 +64,7 @@ const getCashback = () => {
                         <a href = "#"><div class="cardImage" style ="background-image: url(${el.img})"></div></a>
                         <div class="content">
                             <div class="info">
-                            <a href = "#"><h3>${el.name}</h3></a>
+                            <h3><a href = "#">${el.name}</a></h3>
                                 <p>${el.category}</p>
                             </div>
                             <div class="discount">
@@ -82,6 +84,9 @@ const getCashback = () => {
             btnFilter.forEach(btn => {
 
                 btn.addEventListener("click", () => {
+                    selectCat.selectedIndex = 0
+                    indexArr = 21
+                    arrLength = 21
                     filter = "btnFilter"
                     btnfilterCash = data.filter(item => item.category === btn.innerText)
                     resultData = ""
@@ -91,54 +96,33 @@ const getCashback = () => {
                     setTimeout(() => {
                         getCashbackData(btnfilterCash)
                         container.classList.remove("active")
+
                     }, 1500)
                 })
             })
-
-            function getSearchResult(search) {
-                resultData = ""
-
-                searchFilter.length < 21 ? btnMoreCard.classList.add("visibility") : btnMoreCard.classList.remove("visibility")
-                searchFilter.forEach(filter => {
-                    resultData += `<div class="card">
-                        <a href = "#"><div class="cardImage" style ="background-image: url(${filter.img})"></div></a>
-                        <div class="content">
-                            <div class="info">
-                            <h3><a href = "#">${filter.name}</a></h3>
-                                <p>${filter.category}</p>
-                            </div>
-                            <div class="discount">
-                                <p>${filter.discount}</p>
-                                <span>${filter.currency}</span>
-                            </div>
-                        </div>
-                    </div>`
-                })
-                cards.innerHTML = resultData
-            }
 
             let timer, timer1;
 
             searchInput && searchInput.addEventListener("input", () => {
                 clearTimeout(timer1)
                 clearTimeout(timer)
-                let searchResult
+                indexArr = 21
+                arrLength = 21
+                search.classList.remove("search-active")
+                filter = "input"
                 const startTimer = () => {
                     timer = setInterval(() => {
                         search.classList.add("search-active")
                     }, 1500)
                     timer1 = setTimeout(() => {
-                        if (filter === "" || filter === "all") {
+                        if (selectCat.value === "allCategory") {
                             searchFilter = data.filter(item => item.name.toLowerCase().includes(searchInput.value.toLowerCase()))
                             getCashbackData(searchFilter)
-                            console.log(searchFilter);
                         }
 
                         else {
                             searchFilter = selectFilter.filter(item => item.name.toLowerCase().includes(searchInput.value.toLowerCase()))
                             getCashbackData(searchFilter)
-                            indexArr = 21
-                            arrLength = 21
                         }
 
                         if (searchFilter.length === 0 && searchInput.value !== "") {
@@ -150,7 +134,6 @@ const getCashback = () => {
                         }
                         else {
                             cards.classList.remove("active")
-                            searchResult && cards.removeChild(searchResult)
                         }
                         search.classList.remove("search-active")
                         clearInterval(timer)
@@ -182,7 +165,6 @@ const getCashback = () => {
             }
 
             let categories = removeDuplicates(cats, 'category');
-            const selectCat = document.querySelector("#category")
 
             categories.forEach(element => {
                 selectCat && (selectCat.innerHTML += `<option value=${element.value}>${element.category}</option>`)
@@ -191,7 +173,6 @@ const getCashback = () => {
             selectCat && selectCat.addEventListener("change", () => {
                 arrLength = 21
                 indexArr = 21
-
                 btnMoreCard.classList.add("visibility")
                 container.classList.add("active")
                 resultData = ""
@@ -206,9 +187,25 @@ const getCashback = () => {
                     }, 1500);
                 }
                 else {
-                    filter = "change"
+                    filter = "other"
                     setTimeout(() => {
-                        getCashbackData(selectFilter)
+                        if (searchInput.value === "") {
+                            getCashbackData(selectFilter)
+                        }
+                        else {
+                            searchFilter = selectFilter.filter(item => item.name.toLowerCase().includes(searchInput.value.toLowerCase()))
+                            getCashbackData(searchFilter)
+                            if (searchFilter.length === 0 && searchInput.value !== "") {
+                                searchResult = document.createElement("h2")
+                                cards.appendChild(searchResult)
+                                searchResult.setAttribute("class", "result")
+                                searchResult.innerHTML = "Nəticə tapılmadı"
+                                cards.classList.add("active")
+                            }
+                            else {
+                                cards.classList.remove("active")
+                            }
+                        }
                         container.classList.remove("active")
                     }, 1500);
                 }
@@ -251,18 +248,30 @@ const getCashback = () => {
             }
 
 
-            function more() {
-                btnMoreCard && btnMoreCard.addEventListener("click", () => {
-                    btnMoreCard.classList.add("active")
-                    setTimeout(() => {
-                        btnMoreCard.classList.remove("active")
-                        if (filter === "" || filter === "all") getMoreCards(data)
-                        else if (filter === "change") getMoreCards(selectFilter)
-                        else if (filter === "btnFilter") getMoreCards(btnfilterCash)
-                    }, 1500);
-                })
-            }
-            more()
+
+            btnMoreCard && btnMoreCard.addEventListener("click", () => {
+                console.log(filter);
+                btnMoreCard.classList.add("active")
+                setTimeout(() => {
+                    btnMoreCard.classList.remove("active")
+                    if (filter === "" || filter === "all") {
+                        getMoreCards(data)
+                        console.log("isledi");
+                    }
+                    else if (filter === "other") {
+                        getMoreCards(selectFilter)
+                        console.log("isledi cat");
+                    }
+                    else if (filter === "btnFilter") {
+                        getMoreCards(btnfilterCash)
+                        console.log("isledi btn");
+                    }
+                    else if (filter === "input") {
+                        getMoreCards(searchFilter)
+                    }
+                }, 1500);
+            })
+
 
         })
 }
