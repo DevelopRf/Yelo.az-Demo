@@ -3,22 +3,22 @@ import { range, tilt, cardShadow } from "./functions.js"
 const credits = document.querySelector('.credits')
 let resultData = ""
 const getCredits = () => {
-    const getCreditData = async ()=> {
+    const getCreditData = async () => {
         const url = "http://localhost:3000/db-credits"
-    
+
         const response = await fetch(url)
         try {
-          if (!response.ok) {
-            throw new Error(`Məlumatlar əldə edilə bilmədi. Status: ${response.status}`)
-          }
-          const data = await response.json()
-          return data
+            if (!response.ok) {
+                throw new Error(`Məlumatlar əldə edilə bilmədi. Status: ${response.status}`)
+            }
+            const data = await response.json()
+            return data
         }
         catch (error) {
-          console.error("Xəta baş verdi:", error)
-          throw error
+            console.error("Xəta baş verdi:", error)
+            throw error
         }
-      }
+    }
     const wrapper = document.querySelector(".credits .wrapper")
 
     const shortForm = `<form class="shortCalc">
@@ -111,7 +111,7 @@ const getCredits = () => {
                     <button type="submit" class="btnOrder">Sifariş et</button>
                 </div>
                 </form>`
-                
+
     getCreditData()
         .then(data => {
             data.forEach(item => {
@@ -148,7 +148,7 @@ const getCredits = () => {
                                 </div>
                             </div>
                             <div class="btn">
-                                <a href="${item.url}" class="btnOrder">
+                                <a href="${item.url}" class="btnOrderCalc">
                                     <span>Sifariş et</span>
                                 </a>
                                 <a href="#" class="btnMore">
@@ -207,20 +207,36 @@ const getCredits = () => {
             elCalcItem && calcItem()
 
             const creditItem = document.querySelectorAll(".creditItem")
+            const formCalc = document.querySelectorAll(".calcs")
             creditItem.forEach(item => {
-                item.querySelector(".content .btnOrder").addEventListener("click", () => {
-                    item.querySelector(".calcs").classList.toggle("active")
-                })
+                item.querySelector(".content .btnOrderCalc").addEventListener("click", () => {
+                    const calcs = item.querySelector(".creditItem .calcs")
+                    const message = item.querySelectorAll("span")
 
-            })
-
-            const formItem = document.querySelectorAll(".calcItems .formItem")
-            const btnOrder = document.querySelectorAll(".calcs")
-            btnOrder.forEach(item => {
-                item.addEventListener("submit", (e) => {
-                    e.preventDefault();
-                    formItem.forEach(item => {
-                        if (item.querySelector("input[type=text]").value.trim() === "") item.querySelector("span").classList.add("active")
+                    if (calcs && calcs.classList.contains("active")) {
+                        calcs.classList.remove("active")
+                    }
+                    else {
+                        formCalc.forEach(form => {
+                            form.classList.remove("active")
+                            
+                            const formItem = form.querySelectorAll(".formItem")
+                            form.addEventListener("submit", (e) => {
+                                e.preventDefault();
+                                
+                                formItem.forEach(item => {
+                                    const message = item.querySelector("span")
+                                    if (item.querySelector("input[type=text]").value.trim() === "") message.classList.add("active")
+                                })
+                            })
+                        })
+                        calcs && calcs.classList.add("active")
+                    }
+                    message.forEach(msg=>{
+                        if (msg.classList.contains("active")) {
+                            console.log("isledi");
+                            msg.classList.remove("active")
+                        }
                     })
                 })
             })

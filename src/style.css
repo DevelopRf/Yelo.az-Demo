@@ -46,7 +46,7 @@
   }
 }
 
-.deposits .wrapper .depositItem .card .content .btn .btnOrder, .cashbackMain .wrapper .cashback .info .content .btn, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrder, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider {
+.deposits .wrapper .depositItem .card .content .btn .btnOrder, .cashbackMain .wrapper .cashback .info .content .btn, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrderCalc, .credits .wrapper .creditItem .card .content .btn .btnOrder, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider {
   position: relative;
   padding: 15px 20px;
   display: inline-block;
@@ -56,25 +56,25 @@
   color: #fff;
   transition: all 0.3s;
 }
-.deposits .wrapper .depositItem .card .content .btn .btnOrder span, .cashbackMain .wrapper .cashback .info .content .btn span, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder span, .credits .wrapper .creditItem .card .content .btn .btnOrder span, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider span {
+.deposits .wrapper .depositItem .card .content .btn .btnOrder span, .cashbackMain .wrapper .cashback .info .content .btn span, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder span, .credits .wrapper .creditItem .card .content .btn .btnOrderCalc span, .credits .wrapper .creditItem .card .content .btn .btnOrder span, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider span {
   display: inline-block;
   color: #fff;
   transition: all 0.3s;
 }
 @media (min-width: 1024px) {
-  .deposits .wrapper .depositItem .card .content .btn .btnOrder span, .cashbackMain .wrapper .cashback .info .content .btn span, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder span, .credits .wrapper .creditItem .card .content .btn .btnOrder span, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider span {
+  .deposits .wrapper .depositItem .card .content .btn .btnOrder span, .cashbackMain .wrapper .cashback .info .content .btn span, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder span, .credits .wrapper .creditItem .card .content .btn .btnOrderCalc span, .credits .wrapper .creditItem .card .content .btn .btnOrder span, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider span {
     font-size: 20px;
     position: relative;
     z-index: 1;
   }
 }
 @media (min-width: 1024px) {
-  .deposits .wrapper .depositItem .card .content .btn .btnOrder, .cashbackMain .wrapper .cashback .info .content .btn, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrder, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider {
+  .deposits .wrapper .depositItem .card .content .btn .btnOrder, .cashbackMain .wrapper .cashback .info .content .btn, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrderCalc, .credits .wrapper .creditItem .card .content .btn .btnOrder, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider {
     border-radius: 0;
     padding: 14px 79px;
     background-color: transparent;
   }
-  .deposits .wrapper .depositItem .card .content .btn .btnOrder::after, .cashbackMain .wrapper .cashback .info .content .btn::after, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder::after, .credits .wrapper .creditItem .card .content .btn .btnOrder::after, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider::after {
+  .deposits .wrapper .depositItem .card .content .btn .btnOrder::after, .cashbackMain .wrapper .cashback .info .content .btn::after, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder::after, .credits .wrapper .creditItem .card .content .btn .btnOrderCalc::after, .credits .wrapper .creditItem .card .content .btn .btnOrder::after, .slider .wrapper .swiper .swiper-slide .sliderItem .sliderInfo .sliderContent .btnSlider::after {
     content: "";
     display: inline-block;
     width: 100%;
@@ -114,23 +114,23 @@ body .mobApp .appLink .logo, body .mobAppDesk .wrapper .leftSide .logo a {
   color: #fff;
 }
 
-.deposits .wrapper .depositItem .card .content .btn .btnOrder, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrder {
+.deposits .wrapper .depositItem .card .content .btn .btnOrder, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrderCalc, .credits .wrapper .creditItem .card .content .btn .btnOrder {
   grid-area: 1/1/span 1/span 2;
 }
-.deposits .wrapper .depositItem .card .content .btn .btnOrder:hover, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder:hover, .credits .wrapper .creditItem .card .content .btn .btnOrder:hover {
+.deposits .wrapper .depositItem .card .content .btn .btnOrder:hover, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder:hover, .credits .wrapper .creditItem .card .content .btn .btnOrderCalc:hover, .credits .wrapper .creditItem .card .content .btn .btnOrder:hover {
   background-color: #ffc628;
 }
-.deposits .wrapper .depositItem .card .content .btn .btnOrder:hover span, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder:hover span, .credits .wrapper .creditItem .card .content .btn .btnOrder:hover span {
+.deposits .wrapper .depositItem .card .content .btn .btnOrder:hover span, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder:hover span, .credits .wrapper .creditItem .card .content .btn .btnOrderCalc:hover span, .credits .wrapper .creditItem .card .content .btn .btnOrder:hover span {
   color: #000;
 }
 @media (min-width: 1024px) {
-  .deposits .wrapper .depositItem .card .content .btn .btnOrder, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrder {
+  .deposits .wrapper .depositItem .card .content .btn .btnOrder, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder, .credits .wrapper .creditItem .card .content .btn .btnOrderCalc, .credits .wrapper .creditItem .card .content .btn .btnOrder {
     grid-area: auto;
   }
-  .deposits .wrapper .depositItem .card .content .btn .btnOrder:hover, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder:hover, .credits .wrapper .creditItem .card .content .btn .btnOrder:hover {
+  .deposits .wrapper .depositItem .card .content .btn .btnOrder:hover, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder:hover, .credits .wrapper .creditItem .card .content .btn .btnOrderCalc:hover, .credits .wrapper .creditItem .card .content .btn .btnOrder:hover {
     background-color: transparent;
   }
-  .deposits .wrapper .depositItem .card .content .btn .btnOrder:hover::after, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder:hover::after, .credits .wrapper .creditItem .card .content .btn .btnOrder:hover::after {
+  .deposits .wrapper .depositItem .card .content .btn .btnOrder:hover::after, .creditCards .wrapper .creditCardItem .card .content .btn .btnOrder:hover::after, .credits .wrapper .creditItem .card .content .btn .btnOrderCalc:hover::after, .credits .wrapper .creditItem .card .content .btn .btnOrder:hover::after {
     background-color: #ffc628;
   }
 }
@@ -3025,15 +3025,15 @@ footer .footBottom .wrapper .siteBy a {
   padding: 20px 65px 10px 0;
   position: relative;
 }
-.cashbackCards .container .cards .card .content .info h3 {
+.cashbackCards .container .cards .card .content .info a {
+  color: #000;
+}
+.cashbackCards .container .cards .card .content .info a h3 {
   font-family: fB;
   font-size: 18px;
 }
-.cashbackCards .container .cards .card .content .info h3 a {
-  color: #000;
-}
 @media (min-width: 1024px) {
-  .cashbackCards .container .cards .card .content .info h3 {
+  .cashbackCards .container .cards .card .content .info a h3 {
     font-size: 20px;
   }
 }

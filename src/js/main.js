@@ -40,7 +40,7 @@ slider && new Swiper(".mySwiper", {
     }
 });
 
-const swiper = new Swiper(".mySwiper1", {
+const swiper = document.querySelector('.mySwiper1') && new Swiper(".mySwiper1", {
     slidesPerView: 1,
     spaceBetween: 30,
     autoplay: {
@@ -162,7 +162,7 @@ function sliderStories() {
     })
 }
 
-sliderStories()
+document.querySelector('.mySwiper1') && sliderStories()
 
 const btnClose = document.querySelector('.btnClose')
 

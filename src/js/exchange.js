@@ -57,7 +57,6 @@ function exchange() {
             function getAllExchange() {
                 data.forEach(element => {
                     const table = document.querySelector(".currencies table tbody")
-                    console.log(table);
                     firstOption.innerHTML += `<option value = "${element.currency}">${element.currency}</option>`
                     secondOption.innerHTML += `<option value = "${element.currency}">${element.currency}</option>`
                     table.innerHTML += `<tr>

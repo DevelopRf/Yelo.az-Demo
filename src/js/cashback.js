@@ -55,7 +55,7 @@ const getCashback = () => {
                         </div>
                       </div>`
                     }
-                    btnMoreCard.classList.remove("visibility")
+                    btnMoreCard && btnMoreCard.classList.remove("visibility")
                 }
                 else {
                     item.forEach(el => {
